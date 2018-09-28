@@ -20,7 +20,7 @@ Author: `huzhi`
 
 ## shell
 
-* [pure-bash-bible](https://github.com/dylanaraps/pure-bash-bible) - shell常见示例.
+* [pure-bash-bible](https://github.com/dylanaraps/pure-bash-bible) - shell 字符串，变量，循环，文件处理等的高效处理方法.
 * [shell](https://google.github.io/styleguide/shell.xml) - shell代码规范.
 
 
