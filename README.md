@@ -1,11 +1,10 @@
-# Awesome huzhi
+# Awesome huzhi ![](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/awesome.png)
 学习心得，笔记，资源汇总等.
 
 Author: `huzhi`
 
 - [Awesome huzhi](#awesome-huzhi)
     - [Python](#python)
-    - [Shell](#shell)
     - [PHP](#php)
     - [go](#go)
     - [Android 逆向](#android)
@@ -31,13 +30,6 @@ Author: `huzhi`
 * [first-diy-framework](https://github.com/lanzhiwang/first-diy-framework) - 自定义 Python 框架和`asyncio`实现
 * [lsbaws](https://github.com/rspivak/lsbaws) - 使用`socket`构建简单的`web`服务器
 * []() - Logbook、maya、delegator # todo
-
-
-
-## shell
-
-* [pure-bash-bible](https://github.com/dylanaraps/pure-bash-bible) - shell 字符串，变量，循环，文件处理等的高效处理方法
-* [shell](https://google.github.io/styleguide/shell.xml) - shell代码规范
 
 
 ## PHP
@@ -72,13 +64,13 @@ Author: `huzhi`
 ## Computer-Base
 
 * [tcp-udp](https://github.com/lanzhiwang/awesome-huzhi/wiki/tcp-ip-status)- tcp 连接和断开过程以及过程中进程的状态
-* 设计可扩展系统
+* [system-design-primer](https://github.com/donnemartin/system-design-primer) - 设计可扩展系统
 
 
 ## Linux
-
-* []() - Awesome-Linux-Software # todo
-* []() - netdata
+* shell 编程
+	* [pure-bash-bible](https://github.com/dylanaraps/pure-bash-bible) - shell 字符串，变量，循环，文件处理等的高效处理方法
+	* [shell](https://google.github.io/styleguide/shell.xml) - shell代码规范
 * [free 命令输出详解](https://github.com/lanzhiwang/awesome-huzhi/wiki/free-output-explanation)
 * [linux 负载`uptime`说明](https://github.com/lanzhiwang/awesome-huzhi/wiki/linux-load-explanation)
 * vim xmail图
@@ -136,6 +128,7 @@ Author: `huzhi`
     * 鸟哥的Linux私房菜:基础学习篇(第3版)
     * 鸟哥的Linux私房菜:服务器架设篇
     * Linux Shell脚本攻略 第3版
+    * Shell 从入门到精通
     * UNIXLinux系统管理技术手册 第4版
     * Linux Performance and Tuning Guidelines
 * Docker
