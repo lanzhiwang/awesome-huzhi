@@ -218,6 +218,8 @@ Author: `huzhi`
 
 * 数据可视化
 
+	* JavaScript数据可视化编程
+
 
 ## Internet-Awesome
 
