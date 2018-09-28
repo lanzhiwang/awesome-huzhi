@@ -216,6 +216,8 @@ Author: `huzhi`
 
 * phantomjs、puppeteer、chromium
 
+* 数据可视化
+
 
 ## Internet-Awesome
 
