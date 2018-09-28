@@ -3,6 +3,7 @@
 
 Author: `huzhi`
 
+## python 相关
 Python 操作关系型数据库模块 `records` `SQLAlchemy` 学习使用
 
 [records UML 说明](https://github.com/lanzhiwang/records)
@@ -15,8 +16,14 @@ Python 线程和信号处理
 
 [线程响应ctrl+c信号处理](https://github.com/geekcomputers/Python/blob/master/thread_signal.py)
 
-shell 相关
+[python代码规范](https://github.com/google/styleguide/blob/gh-pages/pyguide.md)
 
-[shell常见示例]()
 
-[shell代码规范]()
+### shell 相关
+
+[shell常见示例](https://github.com/dylanaraps/pure-bash-bible)
+
+[shell代码规范](https://google.github.io/styleguide/shell.xml)
+
+### PHP 相关
+
