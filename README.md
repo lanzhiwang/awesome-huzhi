@@ -1,4 +1,4 @@
-# Awesome huzhi ![](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/awesome.png =20x20)
+# Awesome huzhi
 学习心得，笔记，资源汇总等.
 
 Author: `huzhi`
