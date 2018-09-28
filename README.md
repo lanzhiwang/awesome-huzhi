@@ -166,6 +166,8 @@ Author: `huzhi`
 * 安卓常见逆向工具列表
     * Android Studio
 
+    * android-sdk
+
     * Apktool
 
     * Dex2jar/JD-GUI
