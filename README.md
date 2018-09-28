@@ -5,16 +5,17 @@ Author: `huzhi`
 
 - [Awesome huzhi](#awesome-huzhi)
     - [Python](#python)
+    - [Linux](#linux)
+    - [Component](#component)
     - [PHP](#php)
     - [go](#go)
     - [Android 逆向](#android)
-    - [Internet Awesome](#internet-awesome)
     - [Computer-Base](#computer-base)
-    - [Linux](#linux)
     - [JavaScript](#javascript)
-    - [Component](#component)
+    - [Internet Awesome](#internet-awesome)
     - [Other](#other)
     - [Book](#book)
+
 
 ## python
 
@@ -29,7 +30,36 @@ Author: `huzhi`
 * [learn-wsgiref](https://github.com/lanzhiwang/learn-wsgiref) - `wsgi`规范UML说明和相关实现
 * [first-diy-framework](https://github.com/lanzhiwang/first-diy-framework) - 自定义 Python 框架和`asyncio`实现
 * [lsbaws](https://github.com/rspivak/lsbaws) - 使用`socket`构建简单的`web`服务器
-* []() - Logbook、maya、delegator # todo
+* Logbook、maya、delegator
+
+
+## Linux
+* shell 编程
+	* [pure-bash-bible](https://github.com/dylanaraps/pure-bash-bible) - shell 字符串，变量，循环，文件处理等的高效处理方法
+	* [shell](https://google.github.io/styleguide/shell.xml) - shell代码规范
+* [free 命令输出详解](https://github.com/lanzhiwang/awesome-huzhi/wiki/free-output-explanation)
+* [ uptime 命令输出 linux 负载说明](https://github.com/lanzhiwang/awesome-huzhi/wiki/linux-load-explanation)
+* vim 常见操作
+* Linux常见命令使用示例
+	* [https://cheat.sh/](https://cheat.sh/)
+	* [cheat.sh](https://github.com/chubin/cheat.sh)
+	* [tldr](https://github.com/lanzhiwang/tldr)
+* 了解Linux服务器
+* openssl、gpg
+* firewall、iptables
+
+
+## Component
+* KVM
+* ZooKeeper
+* Etcd
+* Redis
+* MongoDB
+* Elasticsearch
+* RabbitMQ
+* Kafka
+* jenkins
+* IMAP/POP3/STMP
 
 
 ## PHP
@@ -47,6 +77,7 @@ Author: `huzhi`
 * [go-example](https://github.com/lanzhiwang/go-example) - go example
 * [go-design-patterns](https://github.com/lanzhiwang/go-design-patterns) - 常见设计模式UML类图说明-go实现
 
+
 ## Android
 
 * [AndroidViewClient](https://github.com/lanzhiwang/AndroidViewClient) - 获取安卓界面上的控件坐标用于沙箱运行
@@ -55,52 +86,23 @@ Author: `huzhi`
 * []() - 安卓常见逆向工具列表 Inspeckage、cuckoo、wifiphisher # todo
 
 
-## Internet-Awesome
-
-* [awesome-python](https://github.com/vinta/awesome-python)
-* [awesome-interview-questions](https://github.com/MaximAbramchuck/awesome-interview-questions)
-
-
 ## Computer-Base
 
 * [tcp-udp](https://github.com/lanzhiwang/awesome-huzhi/wiki/tcp-ip-status)- tcp 连接和断开过程以及过程中进程的状态
 * [system-design-primer](https://github.com/donnemartin/system-design-primer) - 设计可扩展系统
 
 
-## Linux
-* shell 编程
-	* [pure-bash-bible](https://github.com/dylanaraps/pure-bash-bible) - shell 字符串，变量，循环，文件处理等的高效处理方法
-	* [shell](https://google.github.io/styleguide/shell.xml) - shell代码规范
-* [free 命令输出详解](https://github.com/lanzhiwang/awesome-huzhi/wiki/free-output-explanation)
-* [linux 负载`uptime`说明](https://github.com/lanzhiwang/awesome-huzhi/wiki/linux-load-explanation)
-* vim xmail图
-* Linux常见命令使用示例
-	* [https://cheat.sh/](https://cheat.sh/)
-	* [cheat.sh](https://github.com/chubin/cheat.sh)
-	* [tldr](https://github.com/lanzhiwang/tldr)
-* 了解Linux服务器
-* openssl、gpg
-* firewall、iptables
-
-
 ## JavaScript
 
 * [jstips](https://github.com/loverajoel/jstips) - 常见 JavaScript 陷阱
 * []() - w3c school
-* []() - phantomjs
+* phantomjs
 
 
-## Component
-* KVM
-* ZooKeeper
-* Etcd
-* Redis
-* MongoDB
-* Elasticsearch
-* RabbitMQ
-* Kafka
-* jenkins
-* IMAP/POP3/STMP
+## Internet-Awesome
+
+* [awesome-python](https://github.com/vinta/awesome-python)
+* [awesome-interview-questions](https://github.com/MaximAbramchuck/awesome-interview-questions)
 
 
 ## Other
@@ -148,7 +150,9 @@ Author: `huzhi`
 	* MySQL数据库入门
 	* MySQL技术内幕(第5版)
 	* 深入浅出MySQL:数据库开发、优化与管理维护(第2版)
-* NetWork
+* Android
+	* Android安全攻防实践
+	* Android恶意代码分析与渗透测试
 * other
     * Kafka权威指南
     * 大型网站技术架构:核心原理与案例分析
@@ -158,6 +162,4 @@ Author: `huzhi`
     * 啊哈!算法
     * 深入理解计算机系统(原书第3版)
     * 从Paxos到Zookeeper:分布式一致性原理与实践
-
-
 
