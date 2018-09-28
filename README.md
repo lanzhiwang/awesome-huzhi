@@ -16,8 +16,8 @@ Author: `huzhi`
 
 ## python
 
-* [records](https://github.com/lanzhiwang/records) - 使用UML类图说明`records`设计架构
-* [SQLAlchemy example]() - `SQLAlchemy`示例说明 SQLAlchemy 使用方法
+* [records](https://github.com/lanzhiwang/records) - 使用 UML 类图说明`records`设计架构
+* [SQLAlchemy example]() - `SQLAlchemy`示例说明 SQLAlchemy 的使用方法
 * [pool](https://github.com/lanzhiwang/pool) - Python 进程池，线程池，连接池等的实现方法
 * [thread_signal](https://github.com/lanzhiwang/Python/blob/master/thread_signal.py) - 线程响应`ctrl+c`信号退出
 * [pyguide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md) - python代码规范
