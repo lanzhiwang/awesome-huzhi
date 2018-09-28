@@ -29,7 +29,7 @@ Author: `huzhi`
 * [learn-wsgiref](https://github.com/lanzhiwang/learn-wsgiref) - `wsgi`规范UML说明和相关实现
 * [first-diy-framework](https://github.com/lanzhiwang/first-diy-framework) - 自定义 Python 框架和`asyncio`实现
 * [lsbaws](https://github.com/rspivak/lsbaws) - 使用`socket`构建简单的`web`服务器
-* []() - Logbook
+* []() - Logbook、maya、delegator # todo
 
 
 
@@ -70,7 +70,7 @@ Author: `huzhi`
 
 ## Computer-Base
 
-* [tcp-udp]()- # todo
+* [tcp-udp](https://github.com/lanzhiwang/awesome-huzhi/wiki/tcp-ip-status)- # todo
 * 设计可扩展系统
 
 
