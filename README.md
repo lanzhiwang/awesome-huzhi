@@ -78,7 +78,7 @@ Author: `huzhi`
 
 * []() - Awesome-Linux-Software # todo
 * []() - netdata
-* [free 命令输出详解]()
+* [free 命令输出详解](https://github.com/lanzhiwang/awesome-huzhi/wiki/free-output-explanation)
 * linux负载说明
 * vim xmail图
 * [tldr](https://github.com/lanzhiwang/tldr) - Linux常见命令使用示例
