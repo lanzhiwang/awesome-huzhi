@@ -139,7 +139,30 @@ Author: `huzhi`
 
 * [android-emulator](https://github.com/tracer0tong/android-emulator) - docker 运行安卓模拟器
 
-* []() - 安卓常见逆向工具列表 Inspeckage、cuckoo、wifiphisher # todo
+* 安卓常见逆向工具列表
+    * Android Studio
+
+    * Apktool
+
+    * Dex2jar/JD-GUI
+
+    * Burp suite
+
+    * Drozer
+
+    * QARK
+
+    * Droid Explorer
+
+    * Cydia substrate/Introspy
+
+    * Frida
+
+    * Inspeckage
+
+    * cuckoo
+
+    * wifiphisher
 
 
 ## Computer-Base
