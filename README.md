@@ -167,7 +167,7 @@ Author: `huzhi`
 
 ## Computer-Base
 
-* [tcp-udp](https://github.com/lanzhiwang/awesome-huzhi/wiki/tcp-ip-status)- tcp 连接和断开过程以及过程中进程的状态
+* [tcp/ip](https://github.com/lanzhiwang/awesome-huzhi/wiki/tcp-ip-status) - tcp 连接和断开过程以及过程中进程的状态
 
 * [system-design-primer](https://github.com/donnemartin/system-design-primer) - 设计可扩展系统
 
@@ -176,7 +176,7 @@ Author: `huzhi`
 
 * [jstips](https://github.com/loverajoel/jstips) - 常见 JavaScript 陷阱
 
-* []() - w3c school
+* w3c school
 
 * phantomjs
 
