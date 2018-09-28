@@ -10,30 +10,22 @@ Author: `huzhi`
     - [go](#go)
 
 ## python
-* [records](https://github.com/lanzhiwang/records) - 使用UML类图说明 records 设计架构.
 
-Python 操作关系型数据库模块 `records` `SQLAlchemy` 学习使用
-
-[records UML 说明](https://github.com/lanzhiwang/records)
-
-Python 进程池，线程池，连接池
-
-[进程池，线程池，连接池实现说明](https://github.com/lanzhiwang/pool)
-
-Python 线程和信号处理
-
-[线程响应ctrl+c信号处理](https://github.com/geekcomputers/Python/blob/master/thread_signal.py)
-
-[python代码规范](https://github.com/google/styleguide/blob/gh-pages/pyguide.md)
+* [records](https://github.com/lanzhiwang/records) - 使用UML类图说明`records`设计架构.
+* [SQLAlchemy example]() - `SQLAlchemy`示例说明 SQLAlchemy 使用方法.
+* [pool](https://github.com/lanzhiwang/pool) - Python 进程池，线程池，连接池等的实现方法.
+* [thread_signal](https://github.com/geekcomputers/Python/blob/master/thread_signal.py) - 线程响应`ctrl+c`信号退出.
+* [pyguide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md) - python代码规范.
 
 
 ## shell
 
-[shell常见示例](https://github.com/dylanaraps/pure-bash-bible)
+* [pure-bash-bible](https://github.com/dylanaraps/pure-bash-bible) - shell常见示例.
+* [shell](https://google.github.io/styleguide/shell.xml) - shell代码规范.
 
-[shell代码规范](https://google.github.io/styleguide/shell.xml)
 
 ## PHP
 
-## go
 
+
+## go
