@@ -8,24 +8,10 @@ Author: `huzhi`
     - [shell](#shell)
     - [PHP](#php)
     - [go](#go)
-  
-
-## Python
-
-*Libraries for administrative interfaces.*
-
-* [Ajenti](https://github.com/ajenti/ajenti) - The admin panel your servers deserve.
-* [django-suit](http://djangosuit.com/) - Alternative Django Admin-Interface (free only for Non-commercial use).
-* [django-xadmin](https://github.com/sshwsfc/xadmin) - Drop-in replacement of Django admin comes with lots of goodies.
-* [flask-admin](https://github.com/flask-admin/flask-admin) - Simple and extensible administrative interface framework for Flask.
-* [flower](https://github.com/mher/flower) - Real-time monitor and web admin for Celery.
-* [Grappelli](http://grappelliproject.com) - A jazzy skin for the Django Admin-Interface.
-* [Wooey](https://github.com/wooey/wooey) - A Django app which creates automatic web UIs for Python scripts.
-
-
 
 ## python
-* [records](https://github.com/lanzhiwang/records) - 使用UML类图说明 records 设计架构 
+* [records](https://github.com/lanzhiwang/records) - 使用UML类图说明 records 设计架构.
+
 Python 操作关系型数据库模块 `records` `SQLAlchemy` 学习使用
 
 [records UML 说明](https://github.com/lanzhiwang/records)
