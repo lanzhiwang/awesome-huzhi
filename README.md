@@ -3,7 +3,7 @@
 
 Author: `huzhi`
 
-- [Awesome Python](#awesome-huzhi)
+- [Awesome huzhi](#awesome-huzhi)
     - [Python](#python)
     - [shell](#shell)
     - [PHP](#php)
@@ -25,6 +25,7 @@ Author: `huzhi`
 
 
 ## python
+* [records](https://github.com/lanzhiwang/records) - 使用UML类图说明 records 设计架构 
 Python 操作关系型数据库模块 `records` `SQLAlchemy` 学习使用
 
 [records UML 说明](https://github.com/lanzhiwang/records)
