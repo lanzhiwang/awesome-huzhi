@@ -13,6 +13,7 @@ Author: `huzhi`
     - [Computer-Base](#computer-base)
     - [Linux](#linux)
     - [JavaScript](#javascript)
+    - [Component](#component)
     - [Other](#other)
     - [Book](#book)
 
