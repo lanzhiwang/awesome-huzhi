@@ -13,6 +13,7 @@ Author: `huzhi`
     - [Computer-Base](#computer-base)
     - [Linux](#linux)
     - [JavaScript](#javascript)
+    - [Other](#other)
     - [Book](#book)
 
 ## python
@@ -28,6 +29,7 @@ Author: `huzhi`
 * [learn-wsgiref](https://github.com/lanzhiwang/learn-wsgiref) - `wsgi`规范UML说明和相关实现
 * [first-diy-framework](https://github.com/lanzhiwang/first-diy-framework) - 自定义 Python 框架和`asyncio`实现
 * [lsbaws](https://github.com/rspivak/lsbaws) - 使用`socket`构建简单的`web`服务器
+* []() - Logbook
 
 
 
@@ -70,7 +72,6 @@ Author: `huzhi`
 
 * [tcp-udp]()- # todo
 * 设计可扩展系统
-* [Hack](https://github.com/source-foundry/Hack) - 写代码专用的字体
 
 
 ## Linux
@@ -78,16 +79,26 @@ Author: `huzhi`
 * []() - Awesome-Linux-Software # todo
 * []() - netdata
 * [free 命令输出详解](https://github.com/lanzhiwang/awesome-huzhi/wiki/free-output-explanation)
-* linux负载说明
+* [linux 负载`uptime`说明](https://github.com/lanzhiwang/awesome-huzhi/wiki/linux-load-explanation)
 * vim xmail图
-* [tldr](https://github.com/lanzhiwang/tldr) - Linux常见命令使用示例
-* Linux sheet 
+* Linux常见命令使用示例
+	* [https://cheat.sh/](https://cheat.sh/)
+	* [cheat.sh](https://github.com/chubin/cheat.sh)
+	* [tldr](https://github.com/lanzhiwang/tldr)
+* 了解Linux服务器
 
 
 ## JavaScript
 
 * [jstips](https://github.com/loverajoel/jstips) - 常见 JavaScript 陷阱
 * []() - w3c school
+* []() - phantomjs
+
+
+## Other
+
+* [Hack](https://github.com/source-foundry/Hack) - 写代码专用的字体
+
 
 ## Book
 * Python
