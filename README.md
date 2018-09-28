@@ -54,6 +54,16 @@ Author: `huzhi`
 
 * [lsbaws](https://github.com/rspivak/lsbaws) - 使用`socket`构建简单的`web`服务器
 
+* Python并行编程方法
+
+    1. 基于线程的并行 - `threading`
+
+    2. 基于进程的并行 - `multiprocessing`
+
+    3. 异步编程 - `async` `concurrent`
+
+    4. 分布式Python - `celery`
+
 * Logbook、maya、delegator
 
 * Ansible
