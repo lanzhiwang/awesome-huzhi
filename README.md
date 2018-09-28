@@ -1,6 +1,4 @@
-# Awesome huzhi ![](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)
-
-# Awesome huzhi ![](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/awesome.svg)
+# Awesome huzhi [![](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/awesome.svg)](https://github.com/lanzhiwang/awesome-huzhi)
 
 学习心得，笔记，资源汇总等.
 
