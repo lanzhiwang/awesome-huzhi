@@ -86,6 +86,8 @@ Author: `huzhi`
 	* [cheat.sh](https://github.com/chubin/cheat.sh)
 	* [tldr](https://github.com/lanzhiwang/tldr)
 * 了解Linux服务器
+* openssl、gpg
+* firewall、iptables
 
 
 ## JavaScript
@@ -93,6 +95,19 @@ Author: `huzhi`
 * [jstips](https://github.com/loverajoel/jstips) - 常见 JavaScript 陷阱
 * []() - w3c school
 * []() - phantomjs
+
+
+## Component
+* KVM
+* ZooKeeper
+* Etcd
+* Redis
+* MongoDB
+* Elasticsearch
+* RabbitMQ
+* Kafka
+* jenkins
+* IMAP/POP3/STMP
 
 
 ## Other
