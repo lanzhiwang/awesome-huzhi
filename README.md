@@ -11,6 +11,8 @@ Author: `huzhi`
 
     - [Linux](#linux)
 
+    - [MySQL](#mysql)
+
     - [Component](#component)
 
     - [PHP](#php)
@@ -100,6 +102,19 @@ Author: `huzhi`
 * openssl、gpg
 
 * firewall、iptables
+
+
+## MySQL
+
+* 事务特性
+
+	* [CAP theorem](https://github.com/donnemartin/system-design-primer#cap-theorem)
+
+	* [ACID](https://github.com/donnemartin/system-design-primer#relational-database-management-system-rdbms)
+
+* 事务并发时的问题
+
+* 事务隔离级别
 
 
 ## Component
