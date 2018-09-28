@@ -56,6 +56,10 @@ Author: `huzhi`
 
 * Logbook、maya、delegator
 
+* [Python 中字符串拼接的 N 种方法](http://python.jobbole.com/89250/)
+
+* [魔术方法 getattr 和 getattribute 的区别](#) # TODO
+
 
 ## Linux
 
