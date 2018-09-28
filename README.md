@@ -89,5 +89,3 @@ Author: `huzhi`
 
 * [jstips](https://github.com/loverajoel/jstips) - 常见 JavaScript 陷阱
 * []() - w3c school
-*  
-
