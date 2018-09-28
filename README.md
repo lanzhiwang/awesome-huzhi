@@ -25,8 +25,6 @@ Author: `huzhi`
 * [learn_bottle](https://github.com/lanzhiwang/learn_bottle) - `bottle`框架中常见类的UML图 # todo
 * [python-patterns](https://github.com/lanzhiwang/python-patterns) - 常见设计模式UML类图说明-Python实现
 * [learn-wsgiref](https://github.com/lanzhiwang/learn-wsgiref) - `wsgi`规范UML说明和相关实现
-* []() - Python 并行编程手册 # todo
-* []() - Python 参考手册 # todo
 * [first-diy-framework](https://github.com/lanzhiwang/first-diy-framework) - 自定义 Python 框架和`asyncio`实现
 * [lsbaws](https://github.com/rspivak/lsbaws) - 使用`socket`构建简单的`web`服务器
 
@@ -89,3 +87,56 @@ Author: `huzhi`
 
 * [jstips](https://github.com/loverajoel/jstips) - 常见 JavaScript 陷阱
 * []() - w3c school
+
+## Book
+* Python
+	* 图灵程序设计丛书:Python基础教程(第2版)
+	* 流畅的Python (图灵程序设计丛书)
+	* Effective Python:编写高质量Python代码的59个有效方法
+	* Python 并行编程手册
+	* Python 参考手册
+	* Python核心编程(第3版)
+	* Python网络编程攻略 (图灵程序设计丛书)
+	* Python神经网络编程
+	* Python极客项目编程
+	* Flask Web开发 基于Python的Web应用开发实战 (图灵程序设计丛书)
+	* Python Web开发 测试驱动方法 (图灵程序设计丛书)
+	* Python数据分析基础教程：NumPy学习指南（第2版）
+	* Selenium自动化测试 基于 Python 语言
+	* Python高手之路
+* Linux
+    * 鸟哥的Linux私房菜:基础学习篇(第3版)
+    * 鸟哥的Linux私房菜:服务器架设篇
+    * Linux Shell脚本攻略 第3版
+    * UNIXLinux系统管理技术手册 第4版
+    * Linux Performance and Tuning Guidelines
+* Docker
+    * 第一本Docker书
+    * Docker经典实例 (图灵程序设计丛书)
+    * 每天5分钟玩转Docker容器技术
+    * 每天5分钟玩转Kubernetes
+* go
+	* The Go Programming Language (英语)
+	* Go并发编程实战(第2版)
+	* Go语言入门经典
+	* Go语言实战
+	* Go Web编程
+	* 微服务设计
+* MySQL
+	* 高性能MySQL(第3版)
+	* MySQL数据库入门
+	* MySQL技术内幕(第5版)
+	* 深入浅出MySQL:数据库开发、优化与管理维护(第2版)
+* NetWork
+* other
+    * Kafka权威指南
+    * 大型网站技术架构:核心原理与案例分析
+    * Wireshark网络分析的艺术
+    * HTTP权威指南
+    * 数学之美(第二版)
+    * 啊哈!算法
+    * 深入理解计算机系统(原书第3版)
+    * 从Paxos到Zookeeper:分布式一致性原理与实践
+
+
+
