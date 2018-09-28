@@ -182,7 +182,7 @@ Author: `huzhi`
 
 * w3c school
 
-* phantomjs
+* phantomjs、puppeteer、chromium
 
 
 ## Internet-Awesome
