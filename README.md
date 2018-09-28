@@ -70,7 +70,7 @@ Author: `huzhi`
 
 ## Computer-Base
 
-* [tcp-udp](https://github.com/lanzhiwang/awesome-huzhi/wiki/tcp-ip-status)- # todo
+* [tcp-udp](https://github.com/lanzhiwang/awesome-huzhi/wiki/tcp-ip-status)- tcp 连接和断开过程以及过程中进程的状态
 * 设计可扩展系统
 
 
