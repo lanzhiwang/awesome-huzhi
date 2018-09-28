@@ -34,7 +34,7 @@ Author: `huzhi`
 
 * [records](https://github.com/lanzhiwang/records) - 使用 UML 类图说明`records`设计架构
 
-* [SQLAlchemy example]() - `SQLAlchemy`示例说明 SQLAlchemy 的使用方法
+* [SQLAlchemy example](https://github.com/lanzhiwang/awesome-huzhi/wiki/SQLAlchemy-example) - `SQLAlchemy`示例说明 SQLAlchemy 的使用方法
 
 * [pool](https://github.com/lanzhiwang/pool) - Python 进程池，线程池，连接池等的实现方法
 
