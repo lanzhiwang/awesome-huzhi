@@ -8,6 +8,7 @@ Author: `huzhi`
     - [shell](#shell)
     - [PHP](#php)
     - [go](#go)
+    - [internet awesome](#internet-awesome)
 
 ## python
 
@@ -26,6 +27,13 @@ Author: `huzhi`
 
 ## PHP
 
+* [php_di](https://github.com/lanzhiwang/php_di) - 简单的PHP依赖注入示例.
+
 
 
 ## go
+
+
+## Internet-awesome
+
+* [awesome-python](https://github.com/vinta/awesome-python)
