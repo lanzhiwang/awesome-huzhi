@@ -56,6 +56,8 @@ Author: `huzhi`
 
 * Logbook、maya、delegator
 
+* Ansible
+
 * [Python 中字符串拼接的 N 种方法](http://python.jobbole.com/89250/)
 
 * [魔术方法 getattr 和 getattribute 的区别](#) # TODO
@@ -83,7 +85,7 @@ Author: `huzhi`
 
 	* [tldr](https://github.com/lanzhiwang/tldr)
 
-* 了解Linux服务器
+* [Linux-Explore](https://github.com/lanzhiwang/awesome-huzhi/wiki/Linux-Explore) - 了解Linux服务器
 
 * openssl、gpg
 
@@ -111,6 +113,24 @@ Author: `huzhi`
 * jenkins
 
 * IMAP/POP3/STMP
+
+* Hadoop生态
+    * Hadoop
+    * HDFS-文件系统
+    * MapReduce-计算框架
+    * Yarn-调度器
+    * Zookeeper-类似于etcd
+    * Hive-通过SQL简化MapReduce操作
+    * Pig-通过pig语言简化MapReduce操作
+    * Hue-通过web页面操作HDFS，MapReduce，hive等
+    * Oozie-类似于Yarn
+    * Sqoop-将关系型数据库数据导入Hadoop
+    * Flume-将日志导入Hadoop
+    * Kafka-队列
+    * Hbase-数据库
+    * Spark-流式计算框架
+
+* Storm
 
 
 ## PHP
