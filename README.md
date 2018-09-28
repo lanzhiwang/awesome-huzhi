@@ -8,8 +8,11 @@ Author: `huzhi`
     - [Shell](#shell)
     - [PHP](#php)
     - [go](#go)
-    - [Internet awesome](#internet-awesome)
-    - [Computer-Base](computer-base)
+    - [Android逆向](#android)
+    - [Internet Awesome](#internet-awesome)
+    - [Computer-Base](#computer-base)
+    - [Linux](#linux)
+    - [JavaScript](#javascript)
 
 ## python
 
@@ -25,6 +28,7 @@ Author: `huzhi`
 * []() - Python 并行编程手册 # todo
 * []() - Python 参考手册 # todo
 * [first-diy-framework](https://github.com/lanzhiwang/first-diy-framework) - 自定义 Python 框架和`asyncio`实现
+* [lsbaws](https://github.com/rspivak/lsbaws) - 使用`socket`构建简单的`web`服务器
 
 
 
@@ -41,6 +45,7 @@ Author: `huzhi`
 * [FastRoute](https://github.com/lanzhiwang/FastRoute) - PHP 框架中的路由实现
 * [curl_handle](https://github.com/lanzhiwang/curl_handle) - PHP 扩展`curl`封装
 * [guzzle](https://github.com/lanzhiwang/guzzle) - PHP 中 `HTTP` 请求的客户端封装
+* [firstFramework](https://github.com/lanzhiwang/firstFramework) - 自定义 PHP 框架
 
 
 ## go
@@ -56,13 +61,33 @@ Author: `huzhi`
 * []() - 安卓常见逆向工具列表 Inspeckage、cuckoo、wifiphisher # todo
 
 
-## Internet-awesome
+## Internet-Awesome
 
 * [awesome-python](https://github.com/vinta/awesome-python)
+* [awesome-interview-questions](https://github.com/MaximAbramchuck/awesome-interview-questions)
 
 
 ## Computer-Base
 
 * [tcp-udp]()- # todo
+* 设计可扩展系统
+* [Hack](https://github.com/source-foundry/Hack) - 写代码专用的字体
 
+
+## Linux
+
+* []() - Awesome-Linux-Software # todo
+* []() - netdata
+* free图示
+* linux负载说明
+* vim xmail图
+* [tldr](https://github.com/lanzhiwang/tldr) - Linux常见命令使用示例
+* Linux sheet 
+
+
+## JavaScript
+
+* [jstips](https://github.com/loverajoel/jstips) - 常见 JavaScript 陷阱
+* []() - w3c school
+*  
 
