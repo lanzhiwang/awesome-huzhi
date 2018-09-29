@@ -207,18 +207,19 @@ Author: `huzhi`
 * 分布式实现
 
 	* 分布式文件系统
-
+		* [seaweedfs](https://github.com/chrislusf/seaweedfs)
+		* [fastdfs](https://github.com/happyfish100/fastdfs)
 		* 分布式文件系统选型要考虑的问题
 
-	* 一致性hash
+	* [一致性hash](https://www.cnblogs.com/lpfuture/p/5796398.html)
 
-	* 分布式 id 生成器
+	* [分布式 id 生成器](https://chai2010.cn/advanced-go-programming-book/ch6-cloud/ch6-01-dist-id.html)
 
-	* 分布式锁
+	* [分布式锁](https://chai2010.cn/advanced-go-programming-book/ch6-cloud/ch6-02-lock.html)
 
-	* 分布式配置管理
+	* [分布式配置管理](https://chai2010.cn/advanced-go-programming-book/ch6-cloud/ch6-06-config.html)
 
-	* 分布式爬虫
+	* [分布式爬虫](https://chai2010.cn/advanced-go-programming-book/ch6-cloud/ch6-07-crawler.html)
 
 
 ## PHP
