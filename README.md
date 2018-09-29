@@ -186,13 +186,13 @@ Author: `huzhi`
 
 * 分布式系统存在的问题
 
-	* 拜占庭将军问题
+	* [拜占庭将军问题](https://github.com/lanzhiwang/awesome-huzhi/wiki/The_Byzantine_General_Problem)
 
 * 分布式协议
 
 	* Paxos
 
-	* Raft
+	* [Raft](https://www.cnblogs.com/mindwind/p/5231986.html)
 
 * 分布式实现
 
