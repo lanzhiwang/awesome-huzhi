@@ -72,9 +72,12 @@ Author: `huzhi`
 
 * [布隆过滤器](https://github.com/jaybaird/python-bloomfilter)
 
-* Logbook、maya、delegator
+* 不太常见的包或者模块
 
-* Ansible
+	* Logbook 日志
+    * maya 日期和时间
+    * delegator 在Python中执行shell命令
+	* Ansible 自动化运维
 
 * [魔术方法 getattr 和 getattribute 的区别](#) # TODO
 
