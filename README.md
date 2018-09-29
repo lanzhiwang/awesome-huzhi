@@ -68,7 +68,7 @@ Author: `huzhi`
 
     4. 分布式Python - `celery`
 
-* [Python 技巧]()
+* [Python 技巧](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python_Tips)
 
 * [布隆过滤器](https://github.com/jaybaird/python-bloomfilter)
 
