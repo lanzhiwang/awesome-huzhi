@@ -36,27 +36,7 @@ Author: `huzhi`
 
 ## python
 
-* [records](https://github.com/lanzhiwang/records) - 使用 UML 类图说明`records`设计架构
-
-* [SQLAlchemy example](https://github.com/lanzhiwang/awesome-huzhi/wiki/SQLAlchemy-example) - `SQLAlchemy`示例说明 SQLAlchemy 的使用方法
-
 * [pool](https://github.com/lanzhiwang/pool) - Python 进程池，线程池，连接池等的实现方法
-
-* [thread_signal](https://github.com/lanzhiwang/Python/blob/master/thread_signal.py) - 线程响应`ctrl+c`信号退出
-
-* [pyguide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md) - python代码规范
-
-* [data_analysis](https://github.com/lanzhiwang/data_analysis) -`Numpy`、`Pandas`、`Scipy`、`Matplotlib`的使用方法([参考文档](https://github.com/donnemartin/data-science-ipython-notebooks))
-
-* [learn_bottle](https://github.com/lanzhiwang/awesome-huzhi/wiki/learn_bottle) - `bottle`框架中常见类的UML图
-
-* [python-patterns](https://github.com/lanzhiwang/python-patterns) - 常见设计模式UML类图说明-Python实现
-
-* [learn-wsgiref](https://github.com/lanzhiwang/learn-wsgiref) - `wsgi`规范UML说明和相关实现
-
-* [first-diy-framework](https://github.com/lanzhiwang/first-diy-framework) - 自定义 Python 框架和`asyncio`实现
-
-* [lsbaws](https://github.com/rspivak/lsbaws) - 使用`socket`构建简单的`web`服务器
 
 * Python并行编程方法
 
@@ -67,6 +47,26 @@ Author: `huzhi`
     3. 异步编程 - `async` `concurrent` `gevent`
 
     4. 分布式Python - `celery` `RPC`
+
+* [python-patterns](https://github.com/lanzhiwang/python-patterns) - 常见设计模式UML类图说明-Python实现
+
+* [learn-wsgiref](https://github.com/lanzhiwang/learn-wsgiref) - `wsgi`规范UML说明和相关实现
+
+* [first-diy-framework](https://github.com/lanzhiwang/first-diy-framework) - 自定义 Python 框架和`asyncio`实现
+
+* [lsbaws](https://github.com/rspivak/lsbaws) - 使用`socket`构建简单的`web`服务器
+
+* [learn_bottle](https://github.com/lanzhiwang/awesome-huzhi/wiki/learn_bottle) - `bottle`框架中常见类的UML图
+
+* [pyguide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md) - python代码规范
+
+* [thread_signal](https://github.com/lanzhiwang/Python/blob/master/thread_signal.py) - 线程响应`ctrl+c`信号退出
+
+* [data_analysis](https://github.com/lanzhiwang/data_analysis) -`Numpy`、`Pandas`、`Scipy`、`Matplotlib`的使用方法([参考文档](https://github.com/donnemartin/data-science-ipython-notebooks))
+
+* [records](https://github.com/lanzhiwang/records) - 使用 UML 类图说明`records`设计架构
+
+* [SQLAlchemy example](https://github.com/lanzhiwang/awesome-huzhi/wiki/SQLAlchemy-example) - `SQLAlchemy`示例说明 SQLAlchemy 的使用方法
 
 * [Python 技巧](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python_Tips)
 	* [有趣实用的代码片段](https://github.com/satwikkansal/wtfPython)
