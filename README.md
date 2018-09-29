@@ -114,7 +114,7 @@ Author: `huzhi`
 
 	* [ACID](https://github.com/donnemartin/system-design-primer#relational-database-management-system-rdbms)
 
-* [事务并发时的问题]()
+* 事务并发时的问题
 
     1. 脏读
 
@@ -122,138 +122,15 @@ Author: `huzhi`
 
     3. 幻读
 
-* [事务隔离级别]()
+* 事务隔离级别([事务隔离级别测试准备工作]())
 
-    1. 读未提交(read-uncommitted)
+    1. [读未提交(read-uncommitted)]()
 
-    2. 不可重复读(read-committed)
+    2. [不可重复读(read-committed)]()
 
-    3. 可重复读(repeatable-read)
+    3. [可重复读(repeatable-read)]()
 
-    4. 串行化(serializable)
- 
-
- 
-
- 
-
- 
-
-
-
-
-
-
-
- MYSQL_HOST = '172.31.27.247'
- MYSQL_USER = 'root'
- MYSQL_PSD = 'surfilter@1218'
-
-```bash
-
-
-
-
-
-读未提交(read-uncommitted)
-set session transaction isolation level read uncommitted;
-
-不可重复读(read-committed)
-set session transaction isolation level read committed;
-
-可重复读(repeatable-read)
-set session transaction isolation level repeatable read;
-
-串行化(serializable)
-set session transaction isolation level serializable;
-
-start transaction;
-
-commit;
-
-rollback;
-
-update account set balance = balance - 50 where id =1;
-
-select * from account;
-
-mysql> select @@tx_isolation;
-+-----------------+
-| @@tx_isolation  |
-+-----------------+
-| REPEATABLE-READ |
-+-----------------+
-1 row in set (0.00 sec)
-
-mysql>
-
-
-mysql> use test_transaction
-Database changed
-mysql>
-mysql> show tables;
-Empty set (0.00 sec)
-mysql>
-mysql> create table account(
-    -> id int auto_increment not null primary key,
-    -> name char(10) not null,
-    -> balance int
-    -> );
-Query OK, 0 rows affected (0.09 sec)
-mysql>
-mysql> show tables;
-+----------------------------+
-| Tables_in_test_transaction |
-+----------------------------+
-| account                    |
-+----------------------------+
-1 row in set (0.00 sec)
-mysql>
-mysql> desc account;
-+---------+----------+------+-----+---------+----------------+
-| Field   | Type     | Null | Key | Default | Extra          |
-+---------+----------+------+-----+---------+----------------+
-| id      | int(11)  | NO   | PRI | NULL    | auto_increment |
-| name    | char(10) | NO   |     | NULL    |                |
-| balance | int(11)  | YES  |     | NULL    |                |
-+---------+----------+------+-----+---------+----------------+
-3 rows in set (0.04 sec)
-
-mysql>
-mysql>
-mysql> insert into account values('', 'lilei', 450);
-Query OK, 1 row affected, 1 warning (0.03 sec)
-
-mysql> insert into account values('', 'hanmei', 16000);
-Query OK, 1 row affected, 1 warning (0.02 sec)
-
-mysql> insert into account values('', 'lucy', 2400);
-Query OK, 1 row affected, 1 warning (0.02 sec)
-
-mysql>
-mysql> select * from account;
-+----+--------+---------+
-| id | name   | balance |
-+----+--------+---------+
-|  1 | lilei  |     450 |
-|  2 | hanmei |   16000 |
-|  3 | lucy   |    2400 |
-+----+--------+---------+
-3 rows in set (0.00 sec)
-
-mysql>
-
-
-```
-
-
-
-如果数据库存储的是商品的库存，有可能显示库存没有了，但实际是还有的。
-
-
-
-
-
+    4. [串行化(serializable)]()
 
 
 ## Component
