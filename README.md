@@ -79,11 +79,11 @@ Author: `huzhi`
 
 * 不太常见的包或者模块
 
-	* lxml 解析大XML文件
-	* Logbook 日志
-    * maya 日期和时间
-    * delegator 在Python中执行shell命令
-	* Ansible 自动化运维
+	* [lxml](https://github.com/lxml/lxml) - 解析大XML文件
+	* [Logbook](https://github.com/getlogbook/logbook) - 日志
+    * [maya](https://github.com/kennethreitz/maya) - 日期和时间
+    * [delegator](https://github.com/kennethreitz/delegator.py) - 在Python中执行shell命令
+	* [Ansible](https://github.com/ansible/ansible) - 自动化运维
 
 * 不太常见的Python语言特性
 	* [exec-eval](https://anandology.com/python-practice-book/functional-programming.html#exec-eval)
