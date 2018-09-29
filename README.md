@@ -70,7 +70,7 @@ Author: `huzhi`
 
 * [Python 技巧]()
 
-* [布隆过滤器]()
+* [布隆过滤器](https://github.com/jaybaird/python-bloomfilter)
 
 * Logbook、maya、delegator
 
