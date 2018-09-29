@@ -79,6 +79,7 @@ Author: `huzhi`
 
 * 不太常见的包或者模块
 
+	* lxml 解析大XML文件
 	* Logbook 日志
     * maya 日期和时间
     * delegator 在Python中执行shell命令
