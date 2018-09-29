@@ -23,7 +23,7 @@ Author: `huzhi`
 
     - [Android 逆向](#android)
 
-    - [Computer-Base](#computer-base)
+    - [计算机基础](#computer-base)
 
     - [JavaScript](#javascript)
 
@@ -309,6 +309,8 @@ Author: `huzhi`
 ## Other
 
 * [Hack](https://github.com/source-foundry/Hack) - 写代码专用的字体
+
+* [ffmpeg](https://www.ffmpeg.org) - ffmpeg 是一个非常快速的视频和音频转换器，也可以从现场音频/视频源获取。 它还可以在任意采样率之间进行转换，并使用高质量的多相滤波器动态调整视频大小。
 
 
 ## Book
