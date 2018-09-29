@@ -68,6 +68,10 @@ Author: `huzhi`
 
     4. 分布式Python - `celery`
 
+* [Python 技巧]()
+
+* [布隆过滤器]()
+
 * Logbook、maya、delegator
 
 * Ansible
@@ -191,6 +195,20 @@ Author: `huzhi`
 	* Raft
 
 * 分布式实现
+
+	* 分布式文件系统
+
+		* 分布式文件系统选型要考虑的问题
+
+	* 一致性hash
+
+	* 分布式 id 生成器
+
+	* 分布式锁
+
+	* 分布式配置管理
+
+	* 分布式爬虫
 
 
 ## PHP
@@ -352,6 +370,8 @@ Author: `huzhi`
 	* Go Web编程
 
 	* 微服务设计
+
+	* [Go语言高级编程](https://github.com/chai2010/advanced-go-programming-book)
 
 * MySQL
 
