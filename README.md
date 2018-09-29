@@ -46,7 +46,7 @@ Author: `huzhi`
 
 * [pyguide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md) - python代码规范
 
-* [data_analysis](https://github.com/lanzhiwang/data_analysis) -`Numpy`、`Pandas`、`Scipy`、`Matplotlib`的使用方法
+* [data_analysis](https://github.com/lanzhiwang/data_analysis) -`Numpy`、`Pandas`、`Scipy`、`Matplotlib`的使用方法([参考文档](https://github.com/donnemartin/data-science-ipython-notebooks))
 
 * [learn_bottle](https://github.com/lanzhiwang/awesome-huzhi/wiki/learn_bottle) - `bottle`框架中常见类的UML图
 
@@ -64,13 +64,18 @@ Author: `huzhi`
 
     2. 基于进程的并行 - `multiprocessing`
 
-    3. 异步编程 - `async` `concurrent`
+    3. 异步编程 - `async` `concurrent` `gevent`
 
-    4. 分布式Python - `celery`
+    4. 分布式Python - `celery` `RPC`
 
 * [Python 技巧](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python_Tips)
+	* [有趣实用的代码片段](https://github.com/satwikkansal/wtfPython)
 
 * [布隆过滤器](https://github.com/jaybaird/python-bloomfilter)
+
+* [Python 脚本到打包项目的标准化指南](http://veekaybee.github.io/2017/09/26/python-packaging/)
+
+* [Python项目标准结构](https://www.kennethreitz.org/essays/repository-structure-and-python)
 
 * 不太常见的包或者模块
 
@@ -79,7 +84,10 @@ Author: `huzhi`
     * delegator 在Python中执行shell命令
 	* Ansible 自动化运维
 
-* [魔术方法 getattr 和 getattribute 的区别](#) # TODO
+* 不太常见的Python语言特性
+	* [exec-eval](https://anandology.com/python-practice-book/functional-programming.html#exec-eval)
+	* [Mixins and Python](https://www.ianlewis.org/en/mixins-and-python)
+	* [魔术方法](https://rszalski.github.io/magicmethods/)
 
 
 ## Linux
