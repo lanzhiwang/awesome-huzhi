@@ -122,15 +122,15 @@ Author: `huzhi`
 
     3. 幻读
 
-* 事务隔离级别([事务隔离级别测试准备工作]())
+* 事务隔离级别([事务隔离级别测试准备工作](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-transaction-isolation#%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E6%B5%8B%E8%AF%95%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C))
 
-    1. [读未提交(read-uncommitted)]()
+    1. [读未提交(read-uncommitted)](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-transaction-isolation#%E8%AF%BB%E6%9C%AA%E6%8F%90%E4%BA%A4read-uncommitted)
 
-    2. [不可重复读(read-committed)]()
+    2. [不可重复读(read-committed)](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-transaction-isolation#%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BBread-committed)
 
-    3. [可重复读(repeatable-read)]()
+    3. [可重复读(repeatable-read)](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-transaction-isolation#%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BBrepeatable-read)
 
-    4. [串行化(serializable)]()
+    4. [串行化(serializable)](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-transaction-isolation#%E4%B8%B2%E8%A1%8C%E5%8C%96serializable)
 
 
 ## Component
