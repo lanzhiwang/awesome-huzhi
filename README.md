@@ -110,8 +110,6 @@ Author: `huzhi`
 
 * 事务特性
 
-	* [CAP theorem](https://github.com/donnemartin/system-design-primer#cap-theorem)
-
 	* [ACID](https://github.com/donnemartin/system-design-primer#relational-database-management-system-rdbms)
 
 * 事务并发时的问题
@@ -131,6 +129,8 @@ Author: `huzhi`
     3. [可重复读(repeatable-read)](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-transaction-isolation#%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BBrepeatable-read)
 
     4. [串行化(serializable)](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-transaction-isolation#%E4%B8%B2%E8%A1%8C%E5%8C%96serializable)
+
+* 锁表、锁数据行、异步处理
 
 
 ## Component
@@ -177,6 +177,18 @@ Author: `huzhi`
 ## 分布式
 
 * 分布式理论
+
+	* [CAP theorem](https://github.com/donnemartin/system-design-primer#cap-theorem)
+
+* 分布式系统存在的问题
+
+	* 拜占庭将军问题
+
+* 分布式协议
+
+	* Paxos
+
+	* Raft
 
 * 分布式实现
 
