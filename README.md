@@ -205,14 +205,14 @@ Author: `huzhi`
 
 	* Paxos
 
-	* [Raft](https://www.cnblogs.com/mindwind/p/5231986.html)
+	* [Raft](https://github.com/lanzhiwang/awesome-huzhi/wiki/raft)
 
 * 分布式实现
 
 	* 分布式文件系统
 		* [seaweedfs](https://github.com/chrislusf/seaweedfs)
 		* [fastdfs](https://github.com/happyfish100/fastdfs)
-		* [分布式文件系统选型要考虑的问题](https://www.toutiao.com/a6593316696306483725/?tt_from=mobile_qq&utm_campaign=client_share&timestamp=1538234848&app=news_article&utm_source=mobile_qq&iid=43283142208&utm_medium=toutiao_android&group_id=6593316696306483725)
+		* [分布式文件系统选型要考虑的问题](https://github.com/lanzhiwang/awesome-huzhi/wiki/distributed-file-system)
 
 	* [一致性hash](https://www.cnblogs.com/lpfuture/p/5796398.html)
 
