@@ -197,7 +197,7 @@ Author: `huzhi`
 
 	* [CAP theorem](https://github.com/donnemartin/system-design-primer#cap-theorem)
 
-	* [幂等性]()
+	* [分布式系统中的幂等性](https://www.cnblogs.com/vveiliang/p/6643874.html)
 
 * 分布式系统存在的问题
 
