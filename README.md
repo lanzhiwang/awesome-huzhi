@@ -197,6 +197,8 @@ Author: `huzhi`
 
 	* [CAP theorem](https://github.com/donnemartin/system-design-primer#cap-theorem)
 
+	* [幂等性]()
+
 * 分布式系统存在的问题
 
 	* [拜占庭将军问题](https://github.com/lanzhiwang/awesome-huzhi/wiki/The_Byzantine_General_Problem)
@@ -254,6 +256,8 @@ Author: `huzhi`
 * [apk-Dynamic-Analysis](https://github.com/lanzhiwang/apk-Dynamic-Analysis) - 常见APK逆向分析工具使用方法
 
 * [android-emulator](https://github.com/tracer0tong/android-emulator) - docker 运行安卓模拟器
+
+* [apk build]()
 
 * 安卓常见逆向工具列表
     * Android Studio
