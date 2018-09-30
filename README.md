@@ -83,7 +83,10 @@ Author: `huzhi`
 	* [Logbook](https://github.com/getlogbook/logbook) - 日志
     * [maya](https://github.com/kennethreitz/maya) - 日期和时间
     * [delegator](https://github.com/kennethreitz/delegator.py) - 在Python中执行shell命令
+    * [python-fire](https://github.com/google/python-fire) - 使用Python构建shell命令
 	* [Ansible](https://github.com/ansible/ansible) - 自动化运维
+	* [requestium](https://github.com/tryolabs/requestium) requests + selenium + python
+	* `Pylint` `Flake8` `Flake8` 检查代码风格
 
 * 不太常见的Python语言特性
 	* [exec-eval](https://anandology.com/python-practice-book/functional-programming.html#exec-eval)
