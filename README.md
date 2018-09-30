@@ -257,7 +257,7 @@ Author: `huzhi`
 
 * [android-emulator](https://github.com/tracer0tong/android-emulator) - docker 运行安卓模拟器
 
-* [apk build]()
+* [命令行构建 APK 文件](https://github.com/lanzhiwang/awesome-huzhi/wiki/apk-build)
 
 * 安卓常见逆向工具列表
     * Android Studio
