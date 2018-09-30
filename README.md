@@ -86,7 +86,7 @@ Author: `huzhi`
     * [python-fire](https://github.com/google/python-fire) - 使用Python构建shell命令
 	* [Ansible](https://github.com/ansible/ansible) - 自动化运维
 	* [requestium](https://github.com/tryolabs/requestium) requests + selenium + python
-	* `Pylint` `Flake8` `Flake8` 检查代码风格
+	* `Pylint`、`Flake8`、`Flake8` 检查代码风格
 
 * 不太常见的Python语言特性
 	* [exec-eval](https://anandology.com/python-practice-book/functional-programming.html#exec-eval)
@@ -212,7 +212,7 @@ Author: `huzhi`
 	* 分布式文件系统
 		* [seaweedfs](https://github.com/chrislusf/seaweedfs)
 		* [fastdfs](https://github.com/happyfish100/fastdfs)
-		* 分布式文件系统选型要考虑的问题
+		* [分布式文件系统选型要考虑的问题](https://www.toutiao.com/a6593316696306483725/?tt_from=mobile_qq&utm_campaign=client_share&timestamp=1538234848&app=news_article&utm_source=mobile_qq&iid=43283142208&utm_medium=toutiao_android&group_id=6593316696306483725)
 
 	* [一致性hash](https://www.cnblogs.com/lpfuture/p/5796398.html)
 
