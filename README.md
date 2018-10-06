@@ -396,6 +396,8 @@ Author: `huzhi`
 
 	* Python数据分析基础教程：NumPy学习指南（第2版）
 
+	* Python数据可视化编程实战 第2版
+
 	* Selenium自动化测试 基于 Python 语言
 
 	* Python高手之路
