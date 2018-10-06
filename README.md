@@ -64,7 +64,7 @@ Author: `huzhi`
         * [werkzeug](https://github.com/pallets/werkzeug)
         * [flask](https://github.com/pallets/flask)
 
-* 深入理解 Python
+* 深入理解 Python ( 参考 [流畅的Python](https://github.com/fluentpython/example-code) )
     * [Python 数据模型](https://github.com/fluentpython/example-code/tree/master/01-data-model)
     * Python 数据结构
     	* [序列](https://github.com/fluentpython/example-code/tree/master/02-array-seq)
