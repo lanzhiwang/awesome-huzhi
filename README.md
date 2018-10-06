@@ -108,9 +108,15 @@ Author: `huzhi`
 
 * [Python 脚本到打包项目的标准化指南](http://veekaybee.github.io/2017/09/26/python-packaging/)
 
-* [Python项目标准结构](https://www.kennethreitz.org/essays/repository-structure-and-python)
+* [Python 项目标准结构](https://www.kennethreitz.org/essays/repository-structure-and-python)
 
 * [Python 线程安全](https://github.com/lanzhiwang/awesome-huzhi/wiki/python-thread-safe)
+
+* [Python 对象序列化 `marshal`模块和`pickle`模块]()
+
+* [Python 深复制和浅复制](https://github.com/fluentpython/example-code/blob/master/08-obj-ref/bus.py)
+
+* [Python 弱引用](https://github.com/fluentpython/example-code/blob/master/08-obj-ref/cheese.py)
 
 * 不太常见的包或者模块
 
