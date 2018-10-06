@@ -36,6 +36,8 @@
 
 	* [ZooKeeper](https://github.com/lanzhiwang/awesome-huzhi/wiki/ZooKeeper-base)
 
+	* [Kafka](https://github.com/lanzhiwang/awesome-huzhi/wiki/kafka-base)
+
 * 分布式
 
 	* [拜占庭问题](https://github.com/lanzhiwang/awesome-huzhi/wiki/The_Byzantine_General_Problem)

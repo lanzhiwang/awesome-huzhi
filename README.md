@@ -213,7 +213,7 @@ Author: `huzhi`
 
 * [RabbitMQ](https://github.com/lanzhiwang/awesome-huzhi/wiki/RabbitMQ)
 
-* Kafka
+* [Kafka](https://github.com/lanzhiwang/awesome-huzhi/wiki/kafka-base)
 
 * jenkins
 
