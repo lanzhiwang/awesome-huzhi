@@ -12,6 +12,8 @@
 
     * [Python 源码阅读最佳实践](https://github.com/lanzhiwang/awesome-huzhi/wiki/Source-reading)
 
+	* [Python 线程安全](https://github.com/lanzhiwang/awesome-huzhi/wiki/python-thread-safe)
+
 * Linux
 
 	* [free命令输出说明](https://github.com/lanzhiwang/awesome-huzhi/wiki/free-output-explanation)

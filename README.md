@@ -110,7 +110,7 @@ Author: `huzhi`
 
 * [Python项目标准结构](https://www.kennethreitz.org/essays/repository-structure-and-python)
 
-* [Python 线程安全]()
+* [Python 线程安全](https://github.com/lanzhiwang/awesome-huzhi/wiki/python-thread-safe)
 
 * 不太常见的包或者模块
 
