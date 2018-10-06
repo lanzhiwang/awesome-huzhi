@@ -197,7 +197,7 @@ Author: `huzhi`
 
 * KVM
 
-* ZooKeeper
+* [ZooKeeper](https://github.com/lanzhiwang/awesome-huzhi/wiki/ZooKeeper-base)
 
 * Etcd
 
