@@ -372,6 +372,8 @@ Author: `huzhi`
 
 	* Python核心编程(第3版)
 
+	* Python编程之美(最佳实践指南)
+
 	* Python网络编程攻略 (图灵程序设计丛书)
 
 	* Python神经网络编程
