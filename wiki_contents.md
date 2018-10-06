@@ -14,6 +14,8 @@
 
 	* [Python 线程安全](https://github.com/lanzhiwang/awesome-huzhi/wiki/python-thread-safe)
 
+	* [Python 对象序列化](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python-object-serialization)
+
 * Linux
 
 	* [free命令输出说明](https://github.com/lanzhiwang/awesome-huzhi/wiki/free-output-explanation)

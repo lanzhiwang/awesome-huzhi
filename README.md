@@ -112,7 +112,7 @@ Author: `huzhi`
 
 * [Python 线程安全](https://github.com/lanzhiwang/awesome-huzhi/wiki/python-thread-safe)
 
-* [Python 对象序列化 `marshal`模块和`pickle`模块]()
+* [Python 对象序列化](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python-object-serialization)
 
 * [Python 深复制和浅复制](https://github.com/fluentpython/example-code/blob/master/08-obj-ref/bus.py)
 
