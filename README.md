@@ -73,7 +73,7 @@ Author: `huzhi`
     * Python 函数
     * Python 面向对象
     * Python流程控制
-    	* 可迭代对象、迭代器和生成器
+    	* [可迭代对象、迭代器和生成器](https://github.com/fluentpython/example-code/tree/master/14-it-generator)
     	* 上下文管理器和else块
     	* 协程
     * 元编程
