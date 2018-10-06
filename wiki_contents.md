@@ -16,6 +16,8 @@
 
 	* [Python 对象序列化](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python-object-serialization)
 
+	* [Python 对象可散列](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python-object-hash)
+
 * Linux
 
 	* [free命令输出说明](https://github.com/lanzhiwang/awesome-huzhi/wiki/free-output-explanation)

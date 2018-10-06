@@ -121,7 +121,7 @@ Author: `huzhi`
 
 * [Python 弱引用](https://github.com/fluentpython/example-code/blob/master/08-obj-ref/cheese.py)
 
-* [Python 对象可散列]()
+* [Python 对象可散列](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python-object-hash)
 
 * 不太常见的包或者模块
 
