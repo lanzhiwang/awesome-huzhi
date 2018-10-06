@@ -64,6 +64,23 @@ Author: `huzhi`
         * [werkzeug](https://github.com/pallets/werkzeug)
         * [flask](https://github.com/pallets/flask)
 
+* 深入理解 Python
+    * Python 数据模型
+    * Python 数据结构
+    	* 序列
+    	* 字典和集合
+    	* 文本和字节序列
+    * Python 函数
+    * Python 面向对象
+    * Python流程控制
+    	* 可迭代对象、迭代器和生成器
+    	* 上下文管理器和else块
+    	* 协程
+    * 元编程
+    	* 动态属性和特性
+    	* 属性描述符
+    	* 类元编程
+
 * [python-patterns](https://github.com/lanzhiwang/python-patterns) - 常见设计模式UML类图说明-Python实现
 
 * [learn-wsgiref](https://github.com/lanzhiwang/learn-wsgiref) - `wsgi`规范UML说明和相关实现
