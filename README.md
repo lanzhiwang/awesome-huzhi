@@ -122,6 +122,8 @@ Author: `huzhi`
 
 * firewall、iptables
 
+* whiptail - 创建交互式shell脚本对话框
+
 
 ## MySQL
 
