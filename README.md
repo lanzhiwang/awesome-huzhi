@@ -110,6 +110,8 @@ Author: `huzhi`
 
 * [Python项目标准结构](https://www.kennethreitz.org/essays/repository-structure-and-python)
 
+* [Python 线程安全]()
+
 * 不太常见的包或者模块
 
 	* [lxml](https://github.com/lxml/lxml) - 解析大XML文件
