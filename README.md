@@ -65,11 +65,11 @@ Author: `huzhi`
         * [flask](https://github.com/pallets/flask)
 
 * 深入理解 Python
-    * Python 数据模型
+    * [Python 数据模型](https://github.com/fluentpython/example-code/tree/master/01-data-model)
     * Python 数据结构
-    	* 序列
-    	* 字典和集合
-    	* 文本和字节序列
+    	* [序列](https://github.com/fluentpython/example-code/tree/master/02-array-seq)
+    	* [字典和集合](https://github.com/fluentpython/example-code/tree/master/03-dict-set)
+    	* [文本和字节序列](https://github.com/fluentpython/example-code/tree/master/04-text-byte)
     * Python 函数
     * Python 面向对象
     * Python流程控制
@@ -77,9 +77,9 @@ Author: `huzhi`
     	* 上下文管理器和else块
     	* 协程
     * 元编程
-    	* 动态属性和特性
-    	* 属性描述符
-    	* 类元编程
+    	* [动态属性和特性](https://github.com/fluentpython/example-code/tree/master/19-dyn-attr-prop)
+    	* [属性描述符](https://github.com/fluentpython/example-code/tree/master/20-descriptor)
+    	* [类元编程](https://github.com/fluentpython/example-code/tree/master/21-class-metaprog)
 
 * [python-patterns](https://github.com/lanzhiwang/python-patterns) - 常见设计模式UML类图说明-Python实现
 
