@@ -48,6 +48,19 @@ Author: `huzhi`
 
     4. 分布式Python - `celery` `RPC`
 
+* Python 源码阅读
+
+    * [bottle](https://github.com/bottlepy/bottle)
+    * [records](https://github.com/kennethreitz/records)
+    * [delegator.py](https://github.com/kennethreitz/delegator.py)
+    * [maya](https://github.com/kennethreitz/maya)
+    * [howdoi](https://github.com/gleitz/howdoi)
+    * [Diamond](https://github.com/python-diamond/Diamond)
+    * [tablib](https://github.com/kennethreitz/tablib)
+    * [requests](https://github.com/requests/requests)
+    * [werkzeug](https://github.com/pallets/werkzeug)
+    * [flask](https://github.com/pallets/flask)
+
 * [python-patterns](https://github.com/lanzhiwang/python-patterns) - 常见设计模式UML类图说明-Python实现
 
 * [learn-wsgiref](https://github.com/lanzhiwang/learn-wsgiref) - `wsgi`规范UML说明和相关实现
