@@ -207,7 +207,7 @@ Author: `huzhi`
 
 * Elasticsearch
 
-* RabbitMQ
+* [RabbitMQ](https://github.com/lanzhiwang/awesome-huzhi/wiki/RabbitMQ)
 
 * Kafka
 
