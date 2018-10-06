@@ -121,6 +121,8 @@ Author: `huzhi`
 
 * [Python 弱引用](https://github.com/fluentpython/example-code/blob/master/08-obj-ref/cheese.py)
 
+* [Python 对象可散列]()
+
 * 不太常见的包或者模块
 
 	* [lxml](https://github.com/lxml/lxml) - 解析大XML文件
