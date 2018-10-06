@@ -72,6 +72,9 @@ Author: `huzhi`
     	* [文本和字节序列](https://github.com/fluentpython/example-code/tree/master/04-text-byte)
     * Python 函数
     * Python 面向对象
+        * Python 风格的对象
+        * [Python 抽象基类](https://github.com/fluentpython/example-code/tree/master/11-iface-abc)
+        * [Python 多继承](https://github.com/fluentpython/example-code/tree/master/12-inheritance)
     * Python流程控制
     	* [可迭代对象、迭代器和生成器](https://github.com/fluentpython/example-code/tree/master/14-it-generator)
     	* 上下文管理器和else块
@@ -131,7 +134,6 @@ Author: `huzhi`
 
 * 不太常见的Python语言特性
 	* [exec-eval](https://anandology.com/python-practice-book/functional-programming.html#exec-eval)
-	* [Mixins and Python](https://www.ianlewis.org/en/mixins-and-python)
 	* [魔术方法](https://rszalski.github.io/magicmethods/)
 
 
