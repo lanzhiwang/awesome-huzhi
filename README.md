@@ -134,6 +134,7 @@ Author: `huzhi`
 	* [Ansible](https://github.com/ansible/ansible) - 自动化运维
 	* [requestium](https://github.com/tryolabs/requestium) requests + selenium + python
 	* `Pylint`、`Flake8`、`Flake8` 检查代码风格
+	* collections.namedtuple
 
 * 不太常见的Python语言特性
 	* [exec-eval](https://anandology.com/python-practice-book/functional-programming.html#exec-eval)
