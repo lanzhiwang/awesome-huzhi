@@ -38,6 +38,8 @@
 
 	* [Kafka](https://github.com/lanzhiwang/awesome-huzhi/wiki/kafka-base)
 
+	* [Redis](https://github.com/lanzhiwang/awesome-huzhi/wiki/redis)
+
 * 分布式
 
 	* [拜占庭问题](https://github.com/lanzhiwang/awesome-huzhi/wiki/The_Byzantine_General_Problem)

@@ -205,7 +205,7 @@ Author: `huzhi`
 
 * Etcd
 
-* Redis
+* [Redis](https://github.com/lanzhiwang/awesome-huzhi/wiki/redis)
 
 * MongoDB
 
@@ -463,6 +463,8 @@ Author: `huzhi`
 * other
 
     * Kafka权威指南
+
+    * Redis 4.x Cookbook中文版
 
     * 大型网站技术架构:核心原理与案例分析
 
