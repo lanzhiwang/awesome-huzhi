@@ -30,6 +30,8 @@
 
 	* [MySQL事务隔离级别](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-transaction-isolation)
 
+	* [水平分表后页面分页处理办法](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-sub-table)
+
 * Component
 
 	* [RabbitMQ](https://github.com/lanzhiwang/awesome-huzhi/wiki/RabbitMQ)

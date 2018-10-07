@@ -196,6 +196,10 @@ Author: `huzhi`
 
 * 锁表、锁数据行、异步处理
 
+* 数据库分库分表方案
+
+* [水平分表后页面分页处理办法](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-sub-table)
+
 
 ## Component
 
