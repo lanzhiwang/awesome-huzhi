@@ -63,6 +63,7 @@ Author: `huzhi`
         * [requests](https://github.com/requests/requests)
         * [werkzeug](https://github.com/pallets/werkzeug)
         * [flask](https://github.com/pallets/flask)
+        * [fuqit](https://github.com/zedshaw/fuqit) - The FuqIt Web Framework
 
 * 深入理解 Python ( 参考 [流畅的Python](https://github.com/fluentpython/example-code) )
     * [Python 数据模型](https://github.com/fluentpython/example-code/tree/master/01-data-model)
