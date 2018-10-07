@@ -147,6 +147,8 @@ Author: `huzhi`
 
 	* [shell](https://google.github.io/styleguide/shell.xml) - shell代码规范
 
+* [Linux 使用技巧](https://github.com/jlevy/the-art-of-command-line)
+
 * [free 命令输出详解](https://github.com/lanzhiwang/awesome-huzhi/wiki/free-output-explanation)
 
 * [ uptime 命令输出 linux 负载说明](https://github.com/lanzhiwang/awesome-huzhi/wiki/linux-load-explanation)
