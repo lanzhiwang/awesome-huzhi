@@ -475,7 +475,11 @@ Author: `huzhi`
 
     * Kafka权威指南
 
+	* TensorFlow学习指南:深度学习系统构建详解
+
     * Redis 4.x Cookbook中文版
+
+    * 写给大忙人的Hadoop 2
 
     * 大型网站技术架构:核心原理与案例分析
 
