@@ -215,6 +215,8 @@ Author: `huzhi`
 
 * [Kafka](https://github.com/lanzhiwang/awesome-huzhi/wiki/kafka-base)
 
+* [Docker/Kubernetes](https://github.com/lanzhiwang/awesome-huzhi/wiki/docker-and-kubernetes)
+
 * jenkins
 
 * IMAP/POP3/STMP

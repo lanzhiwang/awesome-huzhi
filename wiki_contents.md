@@ -40,6 +40,8 @@
 
 	* [Redis](https://github.com/lanzhiwang/awesome-huzhi/wiki/redis)
 
+	* [Docker/Kubernetes](https://github.com/lanzhiwang/awesome-huzhi/wiki/docker-and-kubernetes)
+
 * 分布式
 
 	* [拜占庭问题](https://github.com/lanzhiwang/awesome-huzhi/wiki/The_Byzantine_General_Problem)
