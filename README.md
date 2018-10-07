@@ -246,6 +246,8 @@ Author: `huzhi`
 
 * Storm
 
+* [Tensorflow](https://github.com/Hezi-Resheff/Oreilly-Learning-TensorFlow) - 参考《TensorFlow学习指南:深度学习系统构建详解》
+
 
 ## 分布式
 
