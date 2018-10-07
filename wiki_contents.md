@@ -52,6 +52,8 @@
 
 	* [分布式文件系统选型要考虑的问题](https://github.com/lanzhiwang/awesome-huzhi/wiki/distributed-file-system)
 
+	* [一致性hash](https://github.com/lanzhiwang/awesome-huzhi/wiki/Consistency-Hash)
+
 * PHP
 
 * go

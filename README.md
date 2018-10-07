@@ -274,7 +274,7 @@ Author: `huzhi`
 		* [fastdfs](https://github.com/happyfish100/fastdfs)
 		* [分布式文件系统选型要考虑的问题](https://github.com/lanzhiwang/awesome-huzhi/wiki/distributed-file-system)
 
-	* [一致性hash](https://www.cnblogs.com/lpfuture/p/5796398.html)
+	* [一致性hash](https://github.com/lanzhiwang/awesome-huzhi/wiki/Consistency-Hash)
 
 	* [分布式 id 生成器](https://chai2010.cn/advanced-go-programming-book/ch6-cloud/ch6-01-dist-id.html)
 
