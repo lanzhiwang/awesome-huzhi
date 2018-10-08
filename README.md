@@ -418,6 +418,10 @@ Author: `huzhi`
 
 * [you-get](https://github.com/soimort/you-get) - 视频、音频、图片下载工具
 
+* [asciify](https://github.com/RameshAditya/asciify) - Convert Images into ASCII Art with the power of Python
+
+* [face_recognition](https://github.com/ageitgey/face_recognition) - 人脸识别
+
 
 ## Book
 
