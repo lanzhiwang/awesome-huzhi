@@ -416,6 +416,8 @@ Author: `huzhi`
 
 * [thumbor](https://github.com/thumbor/thumbor) - Thumbor是一种智能成像服务。 它支持按需裁剪，调整大小和翻转图像。
 
+* [you-get](https://github.com/soimort/you-get) - 视频、音频、图片下载工具
+
 
 ## Book
 
