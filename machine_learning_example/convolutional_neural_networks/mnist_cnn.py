@@ -12,33 +12,28 @@ STEPS = 5000
 # 查看原始数据
 '''
 >>> from tensorflow.examples.tutorials.mnist import input_data
->>>
+>>> import numpy as np
 >>> mnist = input_data.read_data_sets('/home/lanzhiwang/rzx_project/awesome-huzhi/machine_learning_example/data', one_hot=True)
 >>> print mnist
 Datasets(train=<tensorflow.contrib.learn.python.learn.datasets.mnist.DataSet object at 0x7f000f9b0d10>, validation=<tensorflow.contrib.learn.python.learn.datasets.mnist.DataSet object at 0x7f000f70c090>, test=<tensorflow.contrib.learn.python.learn.datasets.mnist.DataSet object at 0x7f000f70c0d0>)
->>>
 >>> X = mnist.test.images.reshape(10, 1000, 784)
->>>
->>> Y = mnist.test.labels.reshape(10, 1000, 10)
->>>
 >>> print type(X)
 <type 'numpy.ndarray'>
->>>
 >>> print X.dtype
 float32
->>>
 >>> print X.shape
 (10, 1000, 784)
 >>>
->>> print type(Y)
-<type 'numpy.ndarray'>
->>>
->>> print Y.dtype
-float64
->>>
->>> print Y.shape
-(10, 1000, 10)
->>>
+>>> np.set_printoptions(threshold='nan')
+>>> print x
+ [ 0.         0.         0.         0.         0.         0.
+   0.         0.         0.         0.01960784 0.34901962 0.6117647
+   0.9058824  1.         0.6392157  0.07058824 0.         0.
+   0.         0.         0.         0.         0.         0.
+   0.         0.         0.         0.         0.         0.
+   0.         0.         0.         0.         0.         0.
+   0.13725491 0.64705884 0.9921569  0.9921569  0.9921569  0.9960785]
+
 '''
 
 # 图像输入数据，直接使用 MNIST 数据集
