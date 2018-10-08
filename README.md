@@ -23,6 +23,8 @@ Author: `huzhi`
 
     - [Android 逆向](#android)
 
+    - [机器学习](#机器学习)
+
     - [计算机基础](#computer-base)
 
     - [JavaScript](#javascript)
@@ -383,6 +385,15 @@ Author: `huzhi`
     * wifiphisher
 
 
+## 机器学习
+
+* Python神经网络编程
+
+* TensorFlow学习指南:深度学习系统构建详解
+
+* 深度学习入门 基于Python的理论与实现
+
+
 ## Computer-Base
 
 * [tcp/ip](https://github.com/lanzhiwang/awesome-huzhi/wiki/tcp-ip-status) - tcp 连接和断开过程以及过程中进程的状态
@@ -444,8 +455,6 @@ Author: `huzhi`
 	* Python编程之美(最佳实践指南)
 
 	* Python网络编程攻略 (图灵程序设计丛书)
-
-	* Python神经网络编程
 
 	* Python极客项目编程
 
@@ -520,8 +529,6 @@ Author: `huzhi`
 * other
 
     * Kafka权威指南
-
-	* TensorFlow学习指南:深度学习系统构建详解
 
     * Redis 4.x Cookbook中文版
 
