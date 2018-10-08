@@ -385,7 +385,7 @@ Author: `huzhi`
 
 ## 机器学习
 
-* [基础学习代码](https://github.com/Hezi-Resheff/Oreilly-Learning-TensorFlow)
+* [代码学习](https://github.com/lanzhiwang/awesome-huzhi/wiki/machine-learning-example)
 
 * 《Python神经网络编程》
 
