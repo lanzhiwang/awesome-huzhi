@@ -286,8 +286,6 @@ Author: `huzhi`
 
 * Storm
 
-* [Tensorflow](https://github.com/Hezi-Resheff/Oreilly-Learning-TensorFlow) - 参考《TensorFlow学习指南:深度学习系统构建详解》
-
 
 ## 分布式
 
@@ -387,11 +385,13 @@ Author: `huzhi`
 
 ## 机器学习
 
-* Python神经网络编程
+* [基础学习代码](https://github.com/Hezi-Resheff/Oreilly-Learning-TensorFlow)
 
-* TensorFlow学习指南:深度学习系统构建详解
+* 《Python神经网络编程》
 
-* 深度学习入门 基于Python的理论与实现
+* 《TensorFlow学习指南:深度学习系统构建详解》
+
+* 《深度学习入门 基于Python的理论与实现》
 
 
 ## Computer-Base
