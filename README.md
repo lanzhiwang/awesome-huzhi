@@ -124,7 +124,7 @@ Author: `huzhi`
 
 * [Python 对象可散列](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python-object-hash)
 
-* [Python 动态导入]()
+* [Python 动态导入](https://github.com/lanzhiwang/awesome-huzhi/wiki/python-dynamic-import)
 
 * 不太常见的包或者模块、函数
 

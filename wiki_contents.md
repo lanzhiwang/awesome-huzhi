@@ -18,6 +18,8 @@
 
 	* [Python 对象可散列](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python-object-hash)
 
+	* [Python 动态导入](https://github.com/lanzhiwang/awesome-huzhi/wiki/python-dynamic-import)
+
 * Linux
 
 	* [free命令输出说明](https://github.com/lanzhiwang/awesome-huzhi/wiki/free-output-explanation)
