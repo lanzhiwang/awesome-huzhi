@@ -389,7 +389,7 @@ Author: `huzhi`
 
 * 《Python神经网络编程》
 
-* 《TensorFlow学习指南:深度学习系统构建详解》
+* [《TensorFlow学习指南:深度学习系统构建详解》](https://github.com/Hezi-Resheff/Oreilly-Learning-TensorFlow)
 
 * 《深度学习入门 基于Python的理论与实现》
 
