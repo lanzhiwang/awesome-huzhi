@@ -66,6 +66,10 @@
 
 	* [命令行构建 APK 文件](https://github.com/lanzhiwang/apk-Dynamic-Analysis/blob/master/apk_build.md)
 
+* 机器学习
+
+	* [代码学习](https://github.com/lanzhiwang/awesome-huzhi/wiki/machine-learning-example)
+
 * 计算机基础
 
 	* [TCP/IP协议状态](https://github.com/lanzhiwang/awesome-huzhi/wiki/tcp-ip-status)
