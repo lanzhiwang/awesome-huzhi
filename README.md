@@ -124,6 +124,8 @@ Author: `huzhi`
 
 * [Python 对象可散列](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python-object-hash)
 
+* [Python 动态导入]()
+
 * 不太常见的包或者模块、函数
 
 	* [lxml](https://github.com/lxml/lxml) - 解析大XML文件
@@ -234,6 +236,8 @@ Author: `huzhi`
 * 数据库分库分表方案
 
 * [水平分表后页面分页处理办法](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-sub-table)
+
+* MySQL的压测工具 - mysqlslap
 
 
 ## Component
