@@ -28,6 +28,8 @@
 
 	* [linux 负载说明](https://github.com/lanzhiwang/awesome-huzhi/wiki/linux-load-explanation)
 
+	* [unix/linux 命令列表及说明](https://github.com/lanzhiwang/awesome-huzhi/wiki/unix-linux-command-list)
+
 * MySQL
 
 	* [MySQL事务隔离级别](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-transaction-isolation)

@@ -184,6 +184,8 @@ Author: `huzhi`
 
 * [Linux 使用技巧](https://github.com/jlevy/the-art-of-command-line)
 
+* [unix/linux 命令列表及说明](https://github.com/lanzhiwang/awesome-huzhi/wiki/unix-linux-command-list)
+
 * [free 命令输出详解](https://github.com/lanzhiwang/awesome-huzhi/wiki/free-output-explanation)
 
 * [ uptime 命令输出 linux 负载说明](https://github.com/lanzhiwang/awesome-huzhi/wiki/linux-load-explanation)
