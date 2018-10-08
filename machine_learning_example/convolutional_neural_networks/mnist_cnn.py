@@ -10,6 +10,7 @@ STEPS = 5000
 
 
 # 查看原始数据
+# http://yann.lecun.com/exdb/mnist/
 '''
 >>> from tensorflow.examples.tutorials.mnist import input_data
 >>> import numpy as np
@@ -37,7 +38,6 @@ float32
 '''
 
 # 图像输入数据，直接使用 MNIST 数据集
-# http://yann.lecun.com/exdb/mnist/
 mnist = input_data.read_data_sets(DATA_DIR, one_hot=True)
 
 # 定义输入图像变量
