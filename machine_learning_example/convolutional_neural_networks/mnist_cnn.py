@@ -40,9 +40,9 @@ float32
 # 图像输入数据，直接使用 MNIST 数据集
 mnist = input_data.read_data_sets(DATA_DIR, one_hot=True)
 
-# 定义输入图像变量
+# 定义输入图像占位符
 x = tf.placeholder(tf.float32, shape=[None, 784])
-# 定义正确的分类标签变量
+# 定义正确的分类标签占位符
 y_ = tf.placeholder(tf.float32, shape=[None, 10])
 
 # 将图像数据转化为2D图像格式

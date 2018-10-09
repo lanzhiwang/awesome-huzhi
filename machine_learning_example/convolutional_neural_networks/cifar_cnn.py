@@ -87,9 +87,9 @@ def run_simple_net():
     # 图像输入数据
     cifar = CifarDataManager()
 
-    # 定义输入图像变量
+    # 定义输入图像占位符
     x = tf.placeholder(tf.float32, shape=[None, 32, 32, 3])
-    # 定义正确的分类标签变量
+    # 定义正确的分类标签占位符
     y_ = tf.placeholder(tf.float32, shape=[None, 10])
     keep_prob = tf.placeholder(tf.float32)
 
