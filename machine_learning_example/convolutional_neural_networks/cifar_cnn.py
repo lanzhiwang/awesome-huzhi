@@ -18,6 +18,9 @@ def one_hot(vec, vals=10):
 
 
 def unpickle(file):
+    '''从CIFAR-10数据文件中解析出序列化的数据
+    返回字典对象
+    '''
     with open(os.path.join(DATA_PATH, file), 'rb') as fo:
         u = pickle._Unpickler(fo)
         u.encoding = 'latin1'
@@ -41,12 +44,18 @@ class CifarLoader(object):
     (for any practical use there is no reason not to use the built-in dataset handler instead)
     """
     def __init__(self, source_files):
+        '''
+        CifarLoader(["data_batch_1", "data_batch_2", "data_batch_3", "data_batch_4", "data_batch_5"])
+        CifarLoader(["test_batch"])
+        '''
         self._source = source_files
         self._i = 0
         self.images = None
         self.labels = None
 
     def load(self):
+        '''将从CIFAR-10数据为 images 和 labels
+        '''
         data = [unpickle(f) for f in self._source]
         images = np.vstack([d["data"] for d in data])
         n = len(images)
@@ -75,32 +84,51 @@ class CifarDataManager(object):
 
 
 def run_simple_net():
+    # 图像输入数据
     cifar = CifarDataManager()
 
+    # 定义输入图像变量
     x = tf.placeholder(tf.float32, shape=[None, 32, 32, 3])
+    # 定义正确的分类标签变量
     y_ = tf.placeholder(tf.float32, shape=[None, 10])
     keep_prob = tf.placeholder(tf.float32)
 
+    # 第一层卷积操作
     conv1 = conv_layer(x, shape=[5, 5, 3, 32])
+    # 将结果池化
     conv1_pool = max_pool_2x2(conv1)
 
+    # 第二层卷积操作
     conv2 = conv_layer(conv1_pool, shape=[5, 5, 32, 64])
+    # 将结果池化
     conv2_pool = max_pool_2x2(conv2)
 
+    # 第三层卷积操作
     conv3 = conv_layer(conv2_pool, shape=[5, 5, 64, 128])
+    # 将结果池化
     conv3_pool = max_pool_2x2(conv3)
+
+    # 将图像数据平整为一维向量形式
     conv3_flat = tf.reshape(conv3_pool, [-1, 4 * 4 * 128])
+    # 进行随机丢弃操作
     conv3_drop = tf.nn.dropout(conv3_flat, keep_prob=keep_prob)
 
+    # 进行全连接操作
     full_1 = tf.nn.relu(full_layer(conv3_drop, 512))
+    # 进行随机丢弃操作
     full1_drop = tf.nn.dropout(full_1, keep_prob=keep_prob)
 
+    # 得到训练结果
     y_conv = full_layer(full1_drop, 10)
 
+    # 定义损失函数
+    # 使用交叉熵作为损失函数
     cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=y_conv,
                                                                            labels=y_))
+    # 使用梯度下降法定义训练过程
     train_step = tf.train.AdamOptimizer(1e-3).minimize(cross_entropy)
 
+    # 定义评估步骤，用来测试模型的准确率
     correct_prediction = tf.equal(tf.argmax(y_conv, 1), tf.argmax(y_, 1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
@@ -116,6 +144,7 @@ def run_simple_net():
 
         for i in range(STEPS):
             batch = cifar.train.next_batch(BATCH_SIZE)
+            # 开始训练
             sess.run(train_step, feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
 
             if i % 500 == 0:
