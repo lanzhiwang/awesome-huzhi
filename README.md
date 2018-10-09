@@ -387,11 +387,11 @@ Author: `huzhi`
 
 * `线性回归模型`、`逻辑回归模型`、`卷积神经网络(CNN)`等模型的数学公式
 
-```![](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/linear_function.gif)```
+![](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/linear_function.gif)
 
 * `循环神经网络(RNN)`的数学公式
 
-```![](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/tanh.gif)```
+![](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/tanh.gif)
 
 * [代码学习](https://github.com/lanzhiwang/awesome-huzhi/wiki/machine-learning-example)
 
