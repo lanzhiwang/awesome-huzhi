@@ -400,6 +400,7 @@ Author: `huzhi`
 ```
 y = (wx + b) + noise
 h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
+# http://www.codecogs.com/latex/eqneditor.php
 ```
 
 ## Computer-Base
