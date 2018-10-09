@@ -397,6 +397,10 @@ Author: `huzhi`
 
 * 《深度学习入门 基于Python的理论与实现》
 
+```
+y = (wx + b) + noise
+h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
+```
 
 ## Computer-Base
 
