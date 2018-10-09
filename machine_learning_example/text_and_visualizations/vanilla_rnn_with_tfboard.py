@@ -12,8 +12,12 @@ from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets("/tmp/data/", one_hot=True)
 
 # Define some parameters
-element_size = 28
-time_steps = 28
+'''
+MNIST数据序列化就是将28*28像素的图像看做是一个长度为28的序列
+序列中的每个元素都是一个28像素的向量
+'''
+element_size = 28  # element_size 是序列中每个向量的维数
+time_steps = 28  # time_steps 是序列中元素的数量
 num_classes = 10
 batch_size = 128
 hidden_layer_size = 128
@@ -28,8 +32,7 @@ _inputs = tf.placeholder(tf.float32,
 y = tf.placeholder(tf.float32, shape=[None, num_classes], name='labels')
 
 
-# This helper function taken from official TensorFlow documentation,
-# simply add some ops that take care of logging summaries
+# 用于记录汇总的函数，后续会使用这个函数对模型和训练过程进行可视化
 def variable_summaries(var):
     with tf.name_scope('summaries'):
         mean = tf.reduce_mean(var)
@@ -42,7 +45,7 @@ def variable_summaries(var):
         tf.summary.histogram('histogram', var)
 
 
-# Weights and bias for input and hidden layer
+# 将RNN步骤中用到的权重和偏差创建为变量
 with tf.name_scope('rnn_weights'):
     with tf.name_scope("W_x"):
         Wx = tf.Variable(tf.zeros([element_size, hidden_layer_size]))
@@ -54,7 +57,7 @@ with tf.name_scope('rnn_weights'):
         b_rnn = tf.Variable(tf.zeros([hidden_layer_size]))
         variable_summaries(b_rnn)
 
-
+# 双曲正切函数
 def rnn_step(previous_hidden_state, x):
 
         current_hidden_state = tf.tanh(
