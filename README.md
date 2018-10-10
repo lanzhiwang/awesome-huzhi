@@ -13,6 +13,8 @@ Author: `huzhi`
 
     - [MySQL](#mysql)
 
+    - [Docker/Kubernetes](#Docker/Kubernetes)
+
     - [Component](#component)
 
     - [分布式](#分布式)
@@ -244,6 +246,13 @@ Author: `huzhi`
 * MySQL的压测工具 - mysqlslap
 
 
+## Docker/Kubernetes
+
+* [Docker/Kubernetes](https://github.com/lanzhiwang/awesome-huzhi/wiki/docker-and-kubernetes)
+
+* [Linux 容器技术](http://pierrchen.blogspot.com/2018/08/understand-container-index.html)
+
+
 ## Component
 
 * KVM
@@ -261,8 +270,6 @@ Author: `huzhi`
 * [RabbitMQ](https://github.com/lanzhiwang/awesome-huzhi/wiki/RabbitMQ)
 
 * [Kafka](https://github.com/lanzhiwang/awesome-huzhi/wiki/kafka-base)
-
-* [Docker/Kubernetes](https://github.com/lanzhiwang/awesome-huzhi/wiki/docker-and-kubernetes)
 
 * jenkins
 
