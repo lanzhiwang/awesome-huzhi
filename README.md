@@ -423,7 +423,13 @@ h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
 
 * w3c school
 
-* [phantomjs](https://github.com/ariya/phantomjs)、[puppeteer](https://github.com/GoogleChrome/puppeteer)、[chromium](https://github.com/chromium/chromium)
+* 前端浏览器
+
+	* [phantomjs](https://github.com/ariya/phantomjs)
+
+	* [puppeteer](https://github.com/GoogleChrome/puppeteer)
+
+	* [chromium](https://github.com/chromium/chromium)
 
 * 数据可视化
 
