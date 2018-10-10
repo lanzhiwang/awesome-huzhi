@@ -13,7 +13,7 @@ Author: `huzhi`
 
     - [MySQL](#mysql)
 
-    - [Docker/Kubernetes](#Docker/Kubernetes)
+    - [Docker/Kubernetes](#dockerkubernetes)
 
     - [Component](#component)
 
