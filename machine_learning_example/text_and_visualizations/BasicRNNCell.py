@@ -21,6 +21,7 @@ _inputs = tf.placeholder(tf.float32,
 y = tf.placeholder(tf.float32, shape=[None, num_classes], name='inputs')
 
 # TensorFlow built-in functions
+# 创建 run_cell，将其馈入tf.nn.dynamic_rnn，代替 tf.scan 操作
 rnn_cell = tf.contrib.rnn.BasicRNNCell(hidden_layer_size)
 outputs, _ = tf.nn.dynamic_rnn(rnn_cell, _inputs, dtype=tf.float32)
 

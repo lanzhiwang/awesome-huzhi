@@ -116,7 +116,7 @@ with tf.name_scope('cross_entropy'):
 
 with tf.name_scope('train'):
     # Using RMSPropOptimizer
-    # 使用梯度下降法定义训练过程
+    # RMSPropOptimizer优化器，使用梯度下降法定义训练过程
     train_step = tf.train.RMSPropOptimizer(0.001, 0.9).minimize(cross_entropy)
 
 with tf.name_scope('accuracy'):
@@ -136,6 +136,7 @@ test_label = mnist.test.labels[:batch_size]
 
 with tf.Session() as sess:
     # Write summaries to LOG_DIR -- used by TensorBoard
+    # 用 TensorBoard 对模型进行可视化 tensorboard --logdir=LOG_DIR
     train_writer = tf.summary.FileWriter(LOG_DIR + '/train',
                                          graph=tf.get_default_graph())
     test_writer = tf.summary.FileWriter(LOG_DIR + '/test',
