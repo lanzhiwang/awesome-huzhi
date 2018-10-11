@@ -15,6 +15,7 @@ hidden_layer_size = 32
 times_steps = 6
 element_size = 1
 
+# 模拟生成数据
 digit_to_word_map = {1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "Five",
                      6: "Six", 7: "Seven", 8: "Eight", 9: "Nine"}
 digit_to_word_map[0] = "PAD"
@@ -48,6 +49,7 @@ for i in range(len(labels)):
     one_hot_encoding[label] = 1
     labels[i] = one_hot_encoding
 
+# 把单词映射到索引
 word2index_map = {}
 index = 0
 for sent in data:
@@ -60,6 +62,7 @@ index2word_map = {index: word for word, index in word2index_map.items()}
 
 vocabulary_size = len(index2word_map)
 
+# 创建标签，将数据分为训练集和测试集
 data_indices = list(range(len(data)))
 np.random.shuffle(data_indices)
 data = np.array(data)[data_indices]
@@ -76,6 +79,8 @@ test_seqlens = seqlens[10000:]
 
 def get_sentence_batch(batch_size, data_x,
                        data_y, data_seqlens):
+    '''生成批量句子
+    '''
     instance_indices = list(range(len(data_x)))
     np.random.shuffle(instance_indices)
     batch = instance_indices[:batch_size]
@@ -85,12 +90,13 @@ def get_sentence_batch(batch_size, data_x,
     seqlens = [data_seqlens[i] for i in batch]
     return x, y, seqlens
 
-
+# 创建相关占位符
 _inputs = tf.placeholder(tf.int32, shape=[batch_size, times_steps])
 _labels = tf.placeholder(tf.float32, shape=[batch_size, num_classes])
 # seqlens for dynamic calculation
 _seqlens = tf.placeholder(tf.int32, shape=[batch_size])
 
+# 使用词嵌入的方式解决数据稀疏性和计算问题
 with tf.name_scope("embeddings"):
     embeddings = tf.Variable(
         tf.random_uniform([vocabulary_size,
@@ -101,6 +107,7 @@ with tf.name_scope("embeddings"):
 
 with tf.variable_scope("lstm"):
 
+    # 创建 LSTM 单元
     lstm_cell = tf.contrib.rnn.BasicLSTMCell(hidden_layer_size,
                                              forget_bias=1.0)
     outputs, states = tf.nn.dynamic_rnn(lstm_cell, embed,
@@ -116,6 +123,7 @@ biases = {
 }
 
 # extract the last relevant output and use in a linear layer
+# 将最后一个有效的输出向量馈入一个线性层
 final_output = tf.matmul(states[1],
                          weights["linear_layer"]) + biases["linear_layer"]
 
@@ -129,6 +137,7 @@ correct_prediction = tf.equal(tf.argmax(_labels, 1),
 accuracy = (tf.reduce_mean(tf.cast(correct_prediction,
                                    tf.float32)))*100
 
+# 开始训练
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
 
@@ -161,19 +170,20 @@ with tf.Session() as sess:
     states_example = sess.run([states[1]], feed_dict={_inputs: x_test,
                                                       _labels: y_test,
                                                       _seqlens: seqlen_test})
-#
-# #CODE BLOCK FOR MULTIPLE LSTM
-# num_LSTM_layers = 2
-# with tf.variable_scope("lstm"):
-#
-#     lstm_cell = tf.contrib.rnn.BasicLSTMCell(hidden_layer_size,
-#                                              forget_bias=1.0)
-#     cell = tf.contrib.rnn.MultiRNNCell(cells=[lstm_cell]*num_LSTM_layers,
-#                                        state_is_tuple=True)
-#     outputs, states = tf.nn.dynamic_rnn(cell, embed,
-#                                         sequence_length = _seqlens,
-#                                         dtype=tf.float32)
-#
-# #extract the final state and use in a linear layer
-# final_output = tf.matmul(states[num_LSTM_layers-1][1],
-#                          weights["linear_layer"]) + biases["linear_layer"]
+
+#CODE BLOCK FOR MULTIPLE LSTM
+num_LSTM_layers = 2
+with tf.variable_scope("lstm"):
+
+    lstm_cell = tf.contrib.rnn.BasicLSTMCell(hidden_layer_size,
+                                             forget_bias=1.0)
+    # 堆叠多个LSTM
+    cell = tf.contrib.rnn.MultiRNNCell(cells=[lstm_cell]*num_LSTM_layers,
+                                       state_is_tuple=True)
+    outputs, states = tf.nn.dynamic_rnn(cell, embed,
+                                        sequence_length = _seqlens,
+                                        dtype=tf.float32)
+
+#extract the final state and use in a linear layer
+final_output = tf.matmul(states[num_LSTM_layers-1][1],
+                         weights["linear_layer"]) + biases["linear_layer"]
