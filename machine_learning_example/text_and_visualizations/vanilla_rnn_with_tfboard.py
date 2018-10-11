@@ -84,10 +84,12 @@ all_hidden_states = tf.scan(rnn_step,
 # Weights for output layers
 with tf.name_scope('linear_layer_weights') as scope:
     with tf.name_scope("W_linear"):
+        # 定义线性层的权重变量
         Wl = tf.Variable(tf.truncated_normal([hidden_layer_size, num_classes],
                                              mean=0, stddev=.01))
         variable_summaries(Wl)
     with tf.name_scope("Bias_linear"):
+        # 定义线性层的偏差变量
         bl = tf.Variable(tf.truncated_normal([num_classes],
                                              mean=0, stddev=.01))
         variable_summaries(bl)
@@ -107,14 +109,18 @@ with tf.name_scope('linear_layer_weights') as scope:
     tf.summary.histogram('outputs', output)
 
 with tf.name_scope('cross_entropy'):
+    # 定义损失函数
+    # 使用交叉熵作为损失函数
     cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=output, labels=y))
     tf.summary.scalar('cross_entropy', cross_entropy)
 
 with tf.name_scope('train'):
     # Using RMSPropOptimizer
+    # 使用梯度下降法定义训练过程
     train_step = tf.train.RMSPropOptimizer(0.001, 0.9).minimize(cross_entropy)
 
 with tf.name_scope('accuracy'):
+    # 定义评估步骤，用来测试模型的准确率
     correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(output, 1))
 
     accuracy = (tf.reduce_mean(tf.cast(correct_prediction, tf.float32)))*100
