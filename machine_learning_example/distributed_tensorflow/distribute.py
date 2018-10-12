@@ -8,23 +8,19 @@ TRAINING_STEPS = 5000
 PRINT_EVERY = 100
 LOG_DIR = "/tmp/log"
 
-
-parameter_servers = ["localhost:2222"]
-workers = ["localhost:2223",
-           "localhost:2224",
-           "localhost:2225"]
-
+# 集群定义
+parameter_servers = ["localhost:2222"]  # 参数服务器
+workers = ["localhost:2223", "localhost:2224", "localhost:2225"]  # 工作节点
 cluster = tf.train.ClusterSpec({"ps": parameter_servers, "worker": workers})
 
-
+# tf.app.flags 是 Python argparse 模块的封装
+# tf.app.flags.FLAGS 包含从命令行输入解析的所有参数的值的结构
 tf.app.flags.DEFINE_string("job_name", "", "'ps' / 'worker'")
 tf.app.flags.DEFINE_integer("task_index", 0, "Index of task")
 FLAGS = tf.app.flags.FLAGS
 
-
-server = tf.train.Server(cluster,
-                         job_name=FLAGS.job_name,
-                         task_index=FLAGS.task_index)
+# 启动集群
+server = tf.train.Server(cluster, job_name=FLAGS.job_name, task_index=FLAGS.task_index)
 
 mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 
@@ -42,10 +38,18 @@ def net(x):
 
 
 if FLAGS.job_name == "ps":
+    '''
+    参数服务器不构建模型
+    server.join() 使参数服务器在并行计算期间保持存活状态
+    '''
     server.join()
 
 elif FLAGS.job_name == "worker":
 
+    '''
+    tf.train.replica_device_setter() 在每个节点上复制模型(计算图)
+    worker_device 参数指向集群中的当前任务
+    '''
     with tf.device(tf.train.replica_device_setter(
             worker_device="/job:worker/task:%d" % FLAGS.task_index,
             cluster=cluster)):
@@ -69,11 +73,13 @@ elif FLAGS.job_name == "worker":
 
         init_op = tf.global_variables_initializer()
 
-    sv = tf.train.Supervisor(is_chief=(FLAGS.task_index == 0),
-                             logdir=LOG_DIR,
-                             global_step=global_step,
-                             init_op=init_op)
+    # 定义 Supervisor 用来监督训练，并提供一些并行化设置必须的工具
+    sv = tf.train.Supervisor(is_chief=(FLAGS.task_index == 0),  # 负责初始化等工作的"master Supervisor"
+                             logdir=LOG_DIR,  # 存放日志的目录
+                             global_step=global_step,  # TensorFlow 变量，它将在训练过程中保存当前的全局步骤
+                             init_op=init_op)  # 用于初始化模型的 TensorFlow 操作
 
+    # 启动实际会话，这时，"master Supervisor" 初始化变量，其他任务等待它完成
     with sv.managed_session(server.target) as sess:
         step = 0
 
