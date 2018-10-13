@@ -402,6 +402,8 @@ Author: `huzhi`
 
 * [《TensorFlow学习指南:深度学习系统构建详解》](https://github.com/Hezi-Resheff/Oreilly-Learning-TensorFlow)
 
+* [tensorflow_cookbook](https://github.com/nfmcclure/tensorflow_cookbook)
+
 * 《深度学习入门 基于Python的理论与实现》
 
 ```
