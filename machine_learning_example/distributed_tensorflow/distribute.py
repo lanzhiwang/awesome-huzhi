@@ -3,10 +3,10 @@ from tensorflow.contrib import slim
 from tensorflow.examples.tutorials.mnist import input_data
 
 
-BATCH_SIZE = 50
-TRAINING_STEPS = 5000
-PRINT_EVERY = 100
-LOG_DIR = "/tmp/log"
+BATCH_SIZE = 50  # 每个小批量训练中使用的示例数量
+TRAINING_STEPS = 5000  # 训练期间使用的小批量数量
+PRINT_EVERY = 100  # 多久打印一次诊断信息
+LOG_DIR = "/tmp/log"  # master Supervisor 节点存放日志和临时信息的目录，应该在程序再次运行之前清空它，因为旧信息可能导致下一次会话崩溃
 
 # 集群定义
 parameter_servers = ["localhost:2222"]  # 参数服务器
@@ -19,12 +19,20 @@ tf.app.flags.DEFINE_string("job_name", "", "'ps' / 'worker'")
 tf.app.flags.DEFINE_integer("task_index", 0, "Index of task")
 FLAGS = tf.app.flags.FLAGS
 
-# 启动集群
+# 启动集群，也就是在服务器集群中使用当前任务的标识
+'''
+(job_name, task_index)
+(ps, 0)
+(worker, 0)
+(worker, 1)
+(worker, 2)
+'''
 server = tf.train.Server(cluster, job_name=FLAGS.job_name, task_index=FLAGS.task_index)
 
+# 加载 MNIST 数据，定义卷积网络
 mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 
-
+# 使用 TF-Slim 定义卷积网络
 def net(x):
     x_image = tf.reshape(x, [-1, 28, 28, 1])
     net = slim.layers.conv2d(x_image, 32, [5, 5], scope='conv1')
@@ -45,18 +53,17 @@ if FLAGS.job_name == "ps":
     server.join()
 
 elif FLAGS.job_name == "worker":
+    '''在每个工作任务中，定义相同的计算图
+    '''
 
     '''
-    tf.train.replica_device_setter() 在每个节点上复制模型(计算图)
-    worker_device 参数指向集群中的当前任务
+    tf.train.replica_device_setter() 在每个节点上复制模型(计算图), worker_device 参数指向集群中的当前任务
+    将 TensorFlow 变量通过参数服务器同步到worker节点
     '''
-    with tf.device(tf.train.replica_device_setter(
-            worker_device="/job:worker/task:%d" % FLAGS.task_index,
-            cluster=cluster)):
+    with tf.device(tf.train.replica_device_setter(worker_device="/job:worker/task:%d" % FLAGS.task_index, cluster=cluster)):
 
-        global_step = tf.get_variable('global_step', [],
-                                      initializer=tf.constant_initializer(0),
-                                      trainable=False)
+        # global_step变量将保存训练期间的步骤总数(每个步骤引发在单个任务上)
+        global_step = tf.get_variable('global_step', [], initializer=tf.constant_initializer(0), trainable=False)
 
         x = tf.placeholder(tf.float32, shape=[None, 784], name="x-input")
         y_ = tf.placeholder(tf.float32, shape=[None, 10], name="y-input")
