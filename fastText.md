@@ -133,3 +133,6 @@ $ ./fastText-0.1.0/fasttext supervised -input cooking.train -output model_cookin
 $
 
 ```
+
+[参考1](https://fasttext.cc/)
+[参考2](https://github.com/facebookresearch/fastText)
