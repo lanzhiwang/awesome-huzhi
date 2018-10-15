@@ -433,6 +433,11 @@ h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
 
 * [face_recognition](https://github.com/ageitgey/face_recognition) - 人脸识别
 
+* Markdown
+
+	* [haroopress](http://pad.haroopress.com/)
+
+	* [vnote](https://github.com/tamlok/vnote)
 
 ## Book
 
