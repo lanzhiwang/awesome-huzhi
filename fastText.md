@@ -71,9 +71,36 @@ N	3000
 P@5	0.0677
 R@5	0.146
 Number of examples: 3000
-lanzhiwang@lanzhiwang-desktop:~/work/fastText$
+$
+# 输出文本的前5个标签
+$ ./fastText-0.1.0/fasttext predict model_cooking.bin -
+Why not put knives in the dishwasher?
+__label__food-safety
 
+$ ./fastText-0.1.0/fasttext predict model_cooking.bin - 5
+Why not put knives in the dishwasher?
+__label__food-safety __label__baking __label__bread __label__equipment __label__substitutions
 
-
+$
+# 优化模型
+$ cat cooking.stackexchange.txt | sed -e "s/\([.\!?,'/()]\)/ \1 /g" | tr "[:upper:]" "[:lower:]" > cooking.preprocessed.txt
+$ head -n 12404 cooking.preprocessed.txt > cooking.train
+$ tail -n 3000 cooking.preprocessed.txt > cooking.valid
+$ ./fastText-0.1.0/fasttext supervised -input cooking.train -output model_cooking
+Read 0M words
+Number of words:  8952
+Number of labels: 735
+Progress: 100.0%  words/sec/thread: 52856  lr: 0.000000  loss: 10.107295  eta: 0h0m
+$ ./fastText-0.1.0/fasttext test model_cooking.bin cooking.valid
+N	3000
+P@1	0.169
+R@1	0.0732
+Number of examples: 3000
+$ ./fastText-0.1.0/fasttext supervised -input cooking.train -output model_cooking -epoch 25
+$ ./fastText-0.1.0/fasttext supervised -input cooking.train -output model_cooking -lr 1.0
+$ ./fastText-0.1.0/fasttext supervised -input cooking.train -output model_cooking -lr 1.0 -epoch 25
+$ ./fastText-0.1.0/fasttext supervised -input cooking.train -output model_cooking -lr 1.0 -epoch 25 -wordNgrams 2
+$ ./fastText-0.1.0/fasttext supervised -input cooking.train -output model_cooking -lr 1.0 -epoch 25 -wordNgrams 2 -bucket 200000 -dim 50 -loss hs
+$
 
 ```
