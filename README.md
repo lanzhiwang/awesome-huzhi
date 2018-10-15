@@ -370,6 +370,8 @@ Author: `huzhi`
 
 * [代码学习](https://github.com/lanzhiwang/awesome-huzhi/wiki/machine-learning-example)
 
+* [fastText 使用示例](https://github.com/lanzhiwang/awesome-huzhi/blob/master/fastText.md)
+
 * 《Python神经网络编程》
 
 * [《TensorFlow学习指南:深度学习系统构建详解》](https://github.com/Hezi-Resheff/Oreilly-Learning-TensorFlow)
