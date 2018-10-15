@@ -376,6 +376,8 @@ Author: `huzhi`
 
 * 《深度学习入门 基于Python的理论与实现》
 
+* [机器学习50个最佳免费数据集](https://gengo.ai/datasets/the-50-best-free-datasets-for-machine-learning/)
+
 ```
 y = (wx + b) + noise
 h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
