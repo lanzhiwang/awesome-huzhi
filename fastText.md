@@ -43,49 +43,30 @@ __label__sauce __label__storage-lifetime __label__acidity __label__mayonnaise Re
 $ wc cooking.stackexchange.txt
   15404  169582 1401900 cooking.stackexchange.txt
 # 生成测试数据和验证数据
-lanzhiwang@lanzhiwang-desktop:~/work/fastText$ head -n 12404 cooking.stackexchange.txt > cooking.train
-lanzhiwang@lanzhiwang-desktop:~/work/fastText$ tail -n 3000 cooking.stackexchange.txt > cooking.valid
-lanzhiwang@lanzhiwang-desktop:~/work/fastText$
-lanzhiwang@lanzhiwang-desktop:~/work/fastText$
-lanzhiwang@lanzhiwang-desktop:~/work/fastText$ ./fastText-0.1.0/fasttext supervised -input cooking.train -output model_cooking
+$ head -n 12404 cooking.stackexchange.txt > cooking.train
+$ tail -n 3000 cooking.stackexchange.txt > cooking.valid
+# 训练有监督分类器
+$ ./fastText-0.1.0/fasttext supervised -input cooking.train -output model_cooking
 Read 0M words
 Number of words:  14543
 Number of labels: 735
-Progress: 100.0%  words/sec/thread: 50001  lr: 0.000000  loss: 10.196953  eta: 0h0m 
-lanzhiwang@lanzhiwang-desktop:~/work/fastText$ ll
-total 55156
-drwxrwxr-x  4 lanzhiwang lanzhiwang     4096 10月 15 19:44 ./
-drwxrwxr-x  6 lanzhiwang lanzhiwang     4096 10月 15 18:23 ../
--rw-r--r--  1 lanzhiwang lanzhiwang    90095 4月  29  2017 cooking.stackexchange.id
--rw-rw-r--  1 lanzhiwang lanzhiwang   457609 5月   2  2017 cooking.stackexchange.tar.gz
--rw-r--r--  1 lanzhiwang lanzhiwang  1401900 4月  29  2017 cooking.stackexchange.txt
--rw-rw-r--  1 lanzhiwang lanzhiwang  1129498 10月 15 19:41 cooking.train
--rw-rw-r--  1 lanzhiwang lanzhiwang   272402 10月 15 19:42 cooking.valid
--rw-rw-r--  1 lanzhiwang lanzhiwang 31407400 10月 15 19:31 enwiki-latest-pages-articles.xml.bz2
-drwxrwxr-x  4 lanzhiwang lanzhiwang     4096 10月 15 19:37 fastText-0.1.0/
-drwxrwxr-x 11 lanzhiwang lanzhiwang     4096 10月 15 19:18 fastText_back/
--rw-rw-r--  1 lanzhiwang lanzhiwang  6382062 10月 15 19:44 model_cooking.bin
--rw-rw-r--  1 lanzhiwang lanzhiwang 15192790 10月 15 19:44 model_cooking.vec
--rw-r--r--  1 lanzhiwang lanzhiwang      743 5月   2  2017 readme.txt
--rw-rw-r--  1 lanzhiwang lanzhiwang    94267 10月 15 19:23 v0.1.0.zip
-lanzhiwang@lanzhiwang-desktop:~/work/fastText$ ll model_cooking.*
+Progress: 100.0%  words/sec/thread: 50001  lr: 0.000000  loss: 10.196953  eta: 0h0m
+$ ll model_cooking.*
 -rw-rw-r-- 1 lanzhiwang lanzhiwang  6382062 10月 15 19:44 model_cooking.bin
 -rw-rw-r-- 1 lanzhiwang lanzhiwang 15192790 10月 15 19:44 model_cooking.vec
-lanzhiwang@lanzhiwang-desktop:~/work/fastText$
-lanzhiwang@lanzhiwang-desktop:~/work/fastText$
-lanzhiwang@lanzhiwang-desktop:~/work/fastText$ ./fastText-0.1.0/fasttext predict model_cooking.bin -
+# 用交互式方式预测文本
+$ ./fastText-0.1.0/fasttext predict model_cooking.bin -
 Which baking dish is best to bake a banana bread ?
 __label__baking
 Why not put knives in the dishwasher?
 __label__food-safety
-lanzhiwang@lanzhiwang-desktop:~/work/fastText$
-lanzhiwang@lanzhiwang-desktop:~/work/fastText$ ./fastText-0.1.0/fasttext test model_cooking.bin cooking.valid
+# 验证模型
+$ ./fastText-0.1.0/fasttext test model_cooking.bin cooking.valid
 N	3000
 P@1	0.136
 R@1	0.0587
 Number of examples: 3000
-lanzhiwang@lanzhiwang-desktop:~/work/fastText$
-lanzhiwang@lanzhiwang-desktop:~/work/fastText$ ./fastText-0.1.0/fasttext test model_cooking.bin cooking.valid 5
+$ ./fastText-0.1.0/fasttext test model_cooking.bin cooking.valid 5
 N	3000
 P@5	0.0677
 R@5	0.146
