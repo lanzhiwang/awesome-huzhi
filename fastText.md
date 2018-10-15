@@ -134,5 +134,6 @@ $
 
 ```
 
-[参考1](https://fasttext.cc/)
-[参考2](https://github.com/facebookresearch/fastText)
+* [参考1](https://fasttext.cc/)
+
+* [参考2](https://github.com/facebookresearch/fastText)
