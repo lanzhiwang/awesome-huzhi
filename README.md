@@ -263,6 +263,8 @@ Author: `huzhi`
 
 	* [分布式系统中的幂等性](https://www.cnblogs.com/vveiliang/p/6643874.html)
 
+* [分布式系统介绍](https://hackernoon.com/a-thorough-introduction-to-distributed-systems-3b91562c9b3c)
+
 * 分布式系统存在的问题
 
 	* [拜占庭将军问题](https://github.com/lanzhiwang/awesome-huzhi/wiki/The_Byzantine_General_Problem)
