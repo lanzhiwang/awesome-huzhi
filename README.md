@@ -209,7 +209,7 @@ Author: `huzhi`
 
 * [Docker/Kubernetes](https://github.com/lanzhiwang/awesome-huzhi/wiki/docker-and-kubernetes)
 
-* [Linux 容器技术](http://pierrchen.blogspot.com/2018/08/understand-container-index.html)
+* [Linux 容器技术基础](http://pierrchen.blogspot.com/2018/08/understand-container-index.html)
 
 
 ## Component
