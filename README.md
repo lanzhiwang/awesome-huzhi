@@ -130,48 +130,7 @@ Author: `huzhi`
 
 * [Python 动态导入](https://github.com/lanzhiwang/awesome-huzhi/wiki/python-dynamic-import)
 
-* 不太常见的包或者模块、函数
-
-	* [lxml](https://github.com/lxml/lxml) - 解析大XML文件
-	* [Logbook](https://github.com/getlogbook/logbook) - 日志
-    * [maya](https://github.com/kennethreitz/maya) - 日期和时间
-    * [delegator](https://github.com/kennethreitz/delegator.py) - 在Python中执行shell命令
-    * [python-fire](https://github.com/google/python-fire) - 使用Python构建shell命令
-	* [Ansible](https://github.com/ansible/ansible) - 自动化运维
-	* [requestium](https://github.com/tryolabs/requestium) requests + selenium + python
-	* `Pylint`、`Flake8`、`Flake8` 检查代码风格
-	* collections
-		* collections.namedtuple
-		* collections.deque
-		* collections.defaultdict
-		* collections.OrderedDict
-		* collections.ChainMap
-		* collections.Counter
-		* collections.UserDict
-		* collections.abc
-		* collections.Iterable
-	* random
-		* random.choice
-		* random.shuffle
-		* random.randrange
-	* ord()、unicodedata.name()
-	* array.array()
-	* sorted()、list.sort()、bisect模块
-	* 切片对象 slice()
-	* dis.dis()
-	* bytes、bytearray、memoryview、struct
-	* types.MappingProxyType
-	* Chardet
-	* reprlib
-	* functools
-	* operator
-	* numbers
-	* itertools
-	* doctest
-	* urllib
-	* warnings
-	* marshal、pickle、shelve
-	* inspect
+* [不太常见的包或者模块、函数](https://github.com/lanzhiwang/awesome-huzhi/wiki/Less-common-packages-or-modules-or-functions)
 
 * 不太常见的Python语言特性
 	* [exec-eval](https://anandology.com/python-practice-book/functional-programming.html#exec-eval)
