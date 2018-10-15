@@ -351,9 +351,13 @@ Author: `huzhi`
 
 ## 机器学习
 
+* [人工智能、机器学习、深度学习的关系](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/artificial_intelligence_Machine_learning_Deep_learning.png)
+
+* [机器学习常见算法](https://github.com/lanzhiwang/awesome-huzhi/wiki/Machine-learning-common-algorithm)
+
 * `线性回归模型`、`逻辑回归模型`、`卷积神经网络(CNN)`等模型的数学公式 : ![](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/linear_function.gif)
 
-* `循环神经网络(RNN)`的数学公式 : ![](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/tanh.gif)
+* `循环神经网络(RNN)`的数学公式常见算法 : ![](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/tanh.gif)
 
 * [代码学习](https://github.com/lanzhiwang/awesome-huzhi/wiki/machine-learning-example)
 
