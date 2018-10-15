@@ -136,6 +136,8 @@ Author: `huzhi`
 	* [exec-eval](https://anandology.com/python-practice-book/functional-programming.html#exec-eval)
 	* [魔术方法](https://rszalski.github.io/magicmethods/)
 
+* [Python3 实例教程](https://github.com/jerry-git/learn-python3)
+
 
 ## Linux
 
@@ -313,6 +315,8 @@ Author: `huzhi`
 * [go 模块介绍](https://roberto.selbach.ca/intro-to-go-modules/)
 
 * [Go 与 Python 的比较, 介绍 Go 语言对比 Python 的优点](https://thinkfaster.co/2018/07/goodbye-python-hello-go/)
+
+* [Go 语言的语法和各种细节的开源电子书，深入彻底地了解 Go](https://go101.org/article/101.html)
 
 ## Android
 
