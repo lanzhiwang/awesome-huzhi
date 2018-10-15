@@ -407,6 +407,8 @@ h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
 
 	* JavaScript数据可视化编程
 
+* [Puppeteer 的使用](https://docs.browserless.io/blog/2018/06/04/puppeteer-best-practices.html)
+
 
 ## Internet-Awesome
 
