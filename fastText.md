@@ -135,7 +135,6 @@ spinach 0.773251
 cabbages 0.7719
 cauliflowers 0.771643
 licorice 0.769909
-
 Query word? horseradish
 radish 0.822872
 asparagus 0.79996
@@ -147,8 +146,8 @@ vegetable 0.769396
 radishes 0.765607
 arrowroot 0.76426
 chickpeas 0.763119
-
 Query word?
+
 # 类比查询
 $ ./fastText-0.1.0/fasttext analogies result/fil9.bin
 Pre-computing word vectors... done.
