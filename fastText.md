@@ -98,26 +98,6 @@ $ head -c 80 data/fil9
 #### text classification
 
 ```bash
-# 安装 fasttext 到当前目录
-
-# fasttext 命令帮助
-$ ./fasttext
-usage: fasttext <command> <args>
-
-The commands supported by fasttext are:
-
-  supervised              train a supervised classifier(训练有监督的分类器)
-  quantize                quantize a model to reduce the memory usage(量化模型以减少内存使用量)
-  test                    evaluate a supervised classifier
-  predict                 predict most likely labels(预测最可能的标签)
-  predict-prob            predict most likely labels with probabilities(用可能性预测最可能的标签)
-  skipgram                train a skipgram model(训练一个skipgram模型)
-  cbow                    train a cbow model(训练一个cbow模型)
-  print-word-vectors      print word vectors given a trained model
-  print-sentence-vectors  print sentence vectors given a trained model
-  nn                      query for nearest neighbors(查询最近邻居)
-  analogies               query for analogies(查询类比)
-
 # 下载、解压数据
 $ wget https://s3-us-west-1.amazonaws.com/fasttext-vectors/cooking.stackexchange.tar.gz
 $ tar -zxvf cooking.stackexchange.tar.gz
