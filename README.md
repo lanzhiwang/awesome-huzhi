@@ -203,6 +203,15 @@ Author: `huzhi`
 
 * [MySQL 表锁](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-lock)
 
+* [InnoDB记录存储结构](https://mp.weixin.qq.com/s?__biz=MzIxNTQ3NDMzMw==&mid=2247483670&idx=1&sn=751d84d0ce50d64934d636014abe2023&chksm=979688e4a0e101f2a51d1f06ec75e25c56f8936321ae43badc2fe9fc1257b4dc1c24223699de&scene=21#wechat_redirect)
+
+* [InnoDB数据页结构](https://mp.weixin.qq.com/s?__biz=MzIxNTQ3NDMzMw==&mid=2247483678&idx=1&sn=913780d42e7a81fd3f9b747da4fba8ec&chksm=979688eca0e101fa0913c3d2e6107dfa3a6c151a075c8d68ab3f44c7c364d9510f9e1179d94d&scene=21#wechat_redirect)
+
+* [MySQL的索引]()
+https://link.juejin.im/?target=https%3A%2F%2Fmp.weixin.qq.com%2Fs%3F__biz%3DMzIxNTQ3NDMzMw%3D%3D%26mid%3D2247483701%26idx%3D1%26sn%3Dbd229dd584f51ef4fe545d44ad8cdbf9%26chksm%3D979688c7a0e101d1b5c752094013b78f5bd50ab905257ba82149d85d35ea07aba1a15b0e52b4%26mpshare%3D1%26scene%3D1%26srcid%3D0409Tn66UYWSWvqEVlOpwGtR%26key%3D6cd553e86912686a47d76f2d900b1b5b388c90b29708f016db3a6e1bcebe032220ba63626095c4298f32cda7d0d7bd11bded2365f05c32e522584dd149b98db0bb8549ef144cdca694665d31d35cfeef%26ascene%3D0%26uin%3DMzAzMjU4NDM3Nw%253D%253D%26devicetype%3DiMac%2BMacBookPro12%252C1%2BOSX%2BOSX%2B10.12.4%2Bbuild(16E195)%26version%3D12020810%26nettype%3DWIFI%26lang%3Dzh_CN%26fontScale%3D100%26pass_ticket%3DYHEmqDDX8hHkj5FiSVpQvjYqIMBDHHDS2po4mfJe%252BqIXlqwJI%252Bg7aJUZq0%252BDwGJ0
+
+
+
 * 数据库分库分表方案
 
 * [水平分表后页面分页处理办法](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-sub-table)
