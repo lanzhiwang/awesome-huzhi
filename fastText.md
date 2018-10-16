@@ -1,5 +1,11 @@
 ## fastText
 
+- [安装 fastText](#安装-fasttext)
+
+- [word vectors](#word-vectors)
+
+- [text classification](#text-classification)
+
 #### 安装 fastText
 
 ```bash
