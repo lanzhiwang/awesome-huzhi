@@ -201,7 +201,7 @@ Author: `huzhi`
 
 * 锁表、锁数据行、异步处理
 
-* [MySQL 锁](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-lock)
+* [MySQL 表锁](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-lock)
 
 * 数据库分库分表方案
 

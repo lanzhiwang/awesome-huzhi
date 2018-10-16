@@ -1,4 +1,91 @@
+## fastText
 
+#### 安装 fastText
+
+```bash
+# 安装 fasttext 到当前目录
+
+# fasttext 命令帮助
+$ ./fasttext
+usage: fasttext <command> <args>
+
+The commands supported by fasttext are:
+
+  supervised              train a supervised classifier(训练有监督的分类器)
+  quantize                quantize a model to reduce the memory usage(量化模型以减少内存使用量)
+  test                    evaluate a supervised classifier
+  predict                 predict most likely labels(预测最可能的标签)
+  predict-prob            predict most likely labels with probabilities(用可能性预测最可能的标签)
+  skipgram                train a skipgram model(训练一个skipgram模型)
+  cbow                    train a cbow model(训练一个cbow模型)
+  print-word-vectors      print word vectors given a trained model
+  print-sentence-vectors  print sentence vectors given a trained model
+  nn                      query for nearest neighbors(查询最近邻居)
+  analogies               query for analogies(查询类比)
+
+```
+
+#### word vectors
+
+```bash
+# 下载示例数据
+$ mkdir data
+$ wget -c http://mattmahoney.net/dc/enwik9.zip -P data
+$ unzip data/enwik9.zip -d data
+$ ll data/
+total 1291612
+drwxrwxr-x 2 lanzhiwang lanzhiwang       4096 10月 16 10:31 ./
+drwxrwxr-x 5 lanzhiwang lanzhiwang       4096 10月 15 20:53 ../
+-rw-rw-r-- 1 lanzhiwang lanzhiwang 1000000000 6月   1  2011 enwik9
+-rw-rw-r-- 1 lanzhiwang lanzhiwang  322592222 9月   2  2011 enwik9.zip
+# 观察下载的原始数据
+$ head -n 20 data/enwik9
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.3/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.3/ http://www.mediawiki.org/xml/export-0.3.xsd" version="0.3" xml:lang="en">
+  <siteinfo>
+    <sitename>Wikipedia</sitename>
+    <base>http://en.wikipedia.org/wiki/Main_Page</base>
+    <generator>MediaWiki 1.6alpha</generator>
+    <case>first-letter</case>
+      <namespaces>
+      <namespace key="-2">Media</namespace>
+      <namespace key="-1">Special</namespace>
+      <namespace key="0" />
+      <namespace key="1">Talk</namespace>
+      <namespace key="2">User</namespace>
+      <namespace key="3">User talk</namespace>
+      <namespace key="4">Wikipedia</namespace>
+      <namespace key="5">Wikipedia talk</namespace>
+      <namespace key="6">Image</namespace>
+      <namespace key="7">Image talk</namespace>
+      <namespace key="8">MediaWiki</namespace>
+      <namespace key="9">MediaWiki talk</namespace>
+      <namespace key="10">Template</namespace>
+# 预处理数据
+$ perl data/wikifil.pl data/enwik9 > data/fil9
+$ ll data/
+total 1987984
+drwxrwxr-x 2 lanzhiwang lanzhiwang       4096 10月 16 10:47 ./
+drwxrwxr-x 6 lanzhiwang lanzhiwang       4096 10月 16 10:44 ../
+-rw-rw-r-- 1 lanzhiwang lanzhiwang 1000000000 6月   1  2011 enwik9
+-rw-rw-r-- 1 lanzhiwang lanzhiwang  322592222 9月   2  2011 enwik9.zip
+-rw-rw-r-- 1 lanzhiwang lanzhiwang  713069767 10月 16 10:49 fil9
+-rw-rw-r-- 1 lanzhiwang lanzhiwang       1995 10月 16 10:47 wikifil.pl
+# 观察处理之后的数据
+$ head -c 80 data/fil9
+ anarchism originated as a term of abuse first used against early working class
+# 训练词向量
+
+
+
+
+
+```
+
+
+
+
+
+#### text classification
 
 ```bash
 # 安装 fasttext 到当前目录
