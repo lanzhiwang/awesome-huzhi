@@ -400,6 +400,8 @@ h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
 
 * [system-design-primer](https://github.com/donnemartin/system-design-primer) - 设计可扩展系统
 
+* [代码整洁之道]()
+
 
 ## JavaScript
 
@@ -562,4 +564,3 @@ h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
     * 深入理解计算机系统(原书第3版)
 
     * 从Paxos到Zookeeper:分布式一致性原理与实践
-
