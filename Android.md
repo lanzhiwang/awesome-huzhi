@@ -14,6 +14,11 @@ BroadcastReceiver代表广播消息接收器，从代码实现角度来看，其
 由于Android应用各自运行在自已的Dalvik虚拟机实例中，如果应用之间需要实现实时的数据交换，就要遵循Android系统为这种跨应用的数据交换制定的标准：ContentProvider。
 通常与ContentProvider结合使用的是ContentResolver，一个应用程序使用ContentProvider暴露自己的数据，而另 一个应用程序则通过ContentResolver来访问数据。
 
+* View
+
+* Intent
+Intent是Android应用内不同组件之间通信的载体，其可用于启动应用中另一个Activity、启动一个Service组件、发送一条广播消息来触发系统中的BroadcastReceiver
+
 ## 安卓逆向基础
 
 #### Linux 下开发测试环境部署方法
