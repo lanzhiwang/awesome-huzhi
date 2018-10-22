@@ -330,6 +330,8 @@ Author: `huzhi`
 
 * [安卓基础](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Android.md)
 
+* [安卓应用攻击面](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Android_application_attack_surface.md)
+
 * [AndroidViewClient](https://github.com/lanzhiwang/AndroidViewClient) - 获取安卓界面上的控件坐标用于沙箱运行
 
 * [apk-Dynamic-Analysis](https://github.com/lanzhiwang/apk-Dynamic-Analysis) - 常见APK逆向分析工具使用方法
