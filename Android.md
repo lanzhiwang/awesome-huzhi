@@ -47,7 +47,9 @@ Available Packages:
 ##### 关于 Unlock bootloader
 
 1、检查设备是否支持 Unlock bootloader
+
 2、从官方获取解锁码
+
 3、解锁 bootloader
 ```bash
 $ adb reboot bootloader # 手机进入 fastboot 模式
@@ -61,16 +63,22 @@ $ fastboot oem help
 ##### 关于 recovery
 
 1、什么是 recovery
+
 当用户获得设备的更新文件并进行更新时，安卓的recovery系统将会保证正确替换当前镜像，同时不会影响用户数据。
+
 2、官方 recovery 和第三方 recovery
+
 3、常见的第三方 recovery 有 TWRP、CWM、CF等
+
 4、安装 recovery 的方法
 
 方法一：直接使用命令行安装
+```bash
 下载 twrp-3.1.1-0-eva.img
 adb reboot bootloader # 手机进入 fastboot 模式
 fastboot flash recovery twrp-3.1.1-0-eva.img
 fastboot reboot
+```
 
 方法二：使用第三方工具安装
 * 使用 Odin（Odin 是用于三星设备 recovery 最流行的工具之一）
@@ -80,15 +88,20 @@ fastboot reboot
 ##### 关于Super Su 应用
 
 1、下载 Super Su 应用
+
 2、adb push UPDATE-SuperSU-v1.94.zip /sdcard
+
 3、adb reboot recovery
-3、手机界面安装
+
+4、手机界面安装
 
 
 ##### 关于ROM
 
 1、官方ROM（也叫 OEM ）和第三方ROM（也叫 AOSP ）
+
 2、常见第三方ROM有 CyanogenMod、Stock Android、LineageOS、Kali Linux on Android
+
 3、刷入ROM
 * 下载 ROM
 * adb push lineage-14.1-20180823-nightly-flo-signed.zip /sdcard
@@ -99,6 +112,7 @@ fastboot reboot
 ##### 在安卓设备上安装 Linux 操作系统
 
 1、Kali Linux on Android using Linux Deploy
+
 note：
 * Linux Deploy 是一个普通的APK应用
 * https://www.kali.org/tutorials/kali-linux-android-linux-deploy/
