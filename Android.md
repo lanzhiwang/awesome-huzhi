@@ -1,4 +1,20 @@
-## 安卓基础
+## 安卓基本组件
+
+* Activity
+Activity为Android应用提供了可视化用户界面(是应用中负责于用户交互的组件)
+
+* Service
+Service组件通常位于后台运行，它一般不需要与用户交互，因此Service组件没有图形用户界面。
+当一个Service组件被运行起来之后，它将拥有自己独立的生命周期，Service组件通常用于为其它组件提供后台服务或监控其它组件的运行状态。
+
+* BroadcastReceiver
+BroadcastReceiver代表广播消息接收器，从代码实现角度来看，其非常类似于事件编程中的监听器，其监听的事件源是Android应用中的其它组件
+
+* ContentProvider
+由于Android应用各自运行在自已的Dalvik虚拟机实例中，如果应用之间需要实现实时的数据交换，就要遵循Android系统为这种跨应用的数据交换制定的标准：ContentProvider。
+通常与ContentProvider结合使用的是ContentResolver，一个应用程序使用ContentProvider暴露自己的数据，而另 一个应用程序则通过ContentResolver来访问数据。
+
+## 安卓逆向基础
 
 #### Linux 下开发测试环境部署方法
 1. install Java SDK
