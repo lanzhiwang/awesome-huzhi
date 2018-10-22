@@ -1,10 +1,11 @@
 ## 安卓基础
 
-#### Linux开发测试环境部署方法
-
-1、download the SDK Tools（最好使用 android-sdk_r24.0.2-linux.tgz ，24版本支持命令行进行所有操作，也支持界面操作）
-2、./tools/bin/sdkmanager --list
-3、install other tools
+#### Linux 下开发测试环境部署方法
+1. install Java SDK
+2. download the SDK Tools（最好使用 android-sdk_r24.0.2-linux.tgz ，24版本支持命令行进行所有操作，也支持界面操作）
+3. sdkmanager --list
+4. install other tools
+5. PATH
 
 ```bash
 # ./tools/bin/sdkmanager --list
@@ -29,17 +30,19 @@ Available Packages:
   -------                                                                                  | -------      | -------                                                             
 ```
 
-#### 获得ROOT权限
+#### 获得 ROOT 权限
 
 ##### 方法一：
 第一步：Unlock bootloader
+
 第二步：安装 recovery 软件
+
 第三步：安装 Super Su 应用，此时已经获得了 ROOT 权限
+
 第四步：将 ROM 刷入手机
 
 ##### 方法二：
-直接使用第三方刷机工具包
-第三方刷机包也就是将方法一使用到的软件打包在一起使用
+直接使用第三方刷机工具包（第三方刷机包也就是将方法一使用到的软件打包在一起使用）
 
 ##### 关于 Unlock bootloader
 
