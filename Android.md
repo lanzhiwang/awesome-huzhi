@@ -899,10 +899,10 @@ $
 
 
 #### ADB 模型
-![]()
+![](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/adb_model.png)
 
 #### adb forward 原理
-![]()
+![](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/adb_forward_model.png)
 
 
 PC端的应用与手机端应用通信建立的过程：
@@ -1211,4 +1211,4 @@ lanzhiwang@lanzhiwang-dev2:~/.android/avd$
 ```
 
 ###### 模拟器界面如下：
-![]()
+![](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/emu.png)
