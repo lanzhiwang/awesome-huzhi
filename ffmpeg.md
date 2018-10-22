@@ -196,3 +196,18 @@ ffmpeg.input("./input.flv").output('./vcode.mp4', format='mp4', video_size="640x
 ```bash
 $ ffmpeg -i 2924fc6c35ef34424e462f8da07931d2.mp4 -r 1 %03d.png
 ```
+
+#### 总结
+
+```
+ffmpeg -i video.mp4 -r 1 -ss 00:00:26 -t 00:00:07 %03d.png
+
+说明：输入一个叫 video.mp4 的文件，让它以每秒一帧的速度，从第 26 秒开始一直截取 7 秒长的时间，截取到的每一幅图像，都用 3 位数字自动生成从小到大的文件名
+
+参数说明:
+
+-i 设定输入流
+-r 设定帧速率，也就是提取图像的频率，默认为25
+-ss 开始时间
+-t 持续时间
+```
