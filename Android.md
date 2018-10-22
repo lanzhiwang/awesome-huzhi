@@ -112,13 +112,13 @@ fastboot reboot
 ##### 在安卓设备上安装 Linux 操作系统
 
 1、Kali Linux on Android using Linux Deploy
-
 note：
 * Linux Deploy 是一个普通的APK应用
 * https://www.kali.org/tutorials/kali-linux-android-linux-deploy/
 
+#### 基本逆向操作
 ```bash
-# 工作目录中存在待运行的apk文件 
+# 工作目录中存在待运行的 apk 文件
 # 3a7f459a4f8d6716d68e5df63f611b8b.apk 是待运行的apk文件
 # vpn.apk 用于抓包
 # 所有的apk文件都要有执行权限
@@ -393,6 +393,7 @@ drwxr-xr-x 7 lanzhiwang lanzhiwang     4096 7月  24 14:09 ../
 lanzhiwang@lanzhiwang-dev:~/work/adb_work$
 ```
 
+#### 反编译 APK 文件
 ```bash
 $ ll
 total 41860
