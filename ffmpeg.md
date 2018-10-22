@@ -1,4 +1,26 @@
-## FFmpeg 基础应用
+## FFmpeg 基础
+
+#### 概述
+FFmpeg
+
+一个完整的跨平台解决方案，用于录制，转换和流式传输音频和视频。
+
+* ffmpeg: ffmpeg tool
+
+ffmpeg是一个非常快速的视频和音频转换器，也可以从现场音频/视频源获取。 它还可以在任意采样率之间进行转换，并使用高质量的多相滤波器动态调整视频大小。
+
+* ffplay: ffplay tool
+
+ffplay是一个使用FFmpeg库和SDL库的非常简单的便携式媒体播放器。 它主要用作各种FFmpeg API的测试平台。
+
+* ffprobe: ffprobe tool
+
+ffprobe从多媒体流中收集信息，并以人类和机器可读的方式打印。
+
+* ffserver: ffserver tool
+
+ffserver是音频和视频的流媒体服务器。 它支持多个实时馈送，文件流和实时馈送时移。 如果指定了足够大的Feed存储空间，您可以在每个实时Feed中查找过去的位置。
+
 
 #### FFmpeg 基础测试
 ```bash
@@ -135,7 +157,7 @@ $ ll 2924fc6c35ef34424e462f8da07931d2.*
 
 ```
 
-#### FFmpeg 常见用法
+#### ffmpeg-python 常见用法
 
 ```python
 #!/usr/bin/env python
@@ -168,4 +190,9 @@ ffmpeg.input("rtmp://wssource.pull.inke.cn/live/1530749086662633", t=20).output(
 # 转码 flv 为 mp4
 ffmpeg.input("./input.flv").output('./vcode.mp4', format='mp4', video_size="640x480", vcodec="copy").run(overwrite_output=True)
 
+```
+
+#### 从视频中截图
+```bash
+$ ffmpeg -i 2924fc6c35ef34424e462f8da07931d2.mp4 -r 1 %03d.png
 ```
