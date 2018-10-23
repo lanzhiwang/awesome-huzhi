@@ -322,7 +322,7 @@ Author: `huzhi`
 
 * [go-design-patterns](https://github.com/lanzhiwang/go-design-patterns) - 常见设计模式UML类图说明-go实现
 
-* [web 自定义框架](https://github.com/hoisie/web)
+* [web 自定义框架](https://github.com/lanzhiwang/web)
 
 * [go 模块介绍](https://roberto.selbach.ca/intro-to-go-modules/)
 
