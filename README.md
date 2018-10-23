@@ -27,7 +27,7 @@ Author: `huzhi`
 
     - [机器学习](#机器学习)
 
-    - [计算机基础](#computer-base)
+    - [计算机基础](#计算机基础)
 
     - [JavaScript](#javascript)
 
@@ -398,7 +398,7 @@ h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
 # http://www.codecogs.com/latex/eqneditor.php
 ```
 
-## Computer-Base
+## 计算机基础
 
 * [tcp/ip](https://github.com/lanzhiwang/awesome-huzhi/wiki/tcp-ip-status) - tcp 连接和断开过程以及过程中进程的状态
 
