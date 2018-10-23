@@ -140,6 +140,8 @@ Author: `huzhi`
 
 * [爬虫采集和调度框架](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/Reptile_frame.png)
 
+* [httpie 使用说明](https://keelii.com/2018/09/03/HTTPie/)
+
 ## Linux
 
 * shell 编程
