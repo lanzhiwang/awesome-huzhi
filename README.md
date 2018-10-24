@@ -146,6 +146,9 @@ Author: `huzhi`
 
 * [httpie 使用说明](https://keelii.com/2018/09/03/HTTPie/)
 
+* [将 python 源码编译成 exe 文件](https://www.ctolib.com/topics-119121.html)
+
+
 ## Linux
 
 * shell 编程
