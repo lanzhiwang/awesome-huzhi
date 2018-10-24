@@ -136,6 +136,10 @@ Author: `huzhi`
 	* [exec-eval](https://anandology.com/python-practice-book/functional-programming.html#exec-eval)
 	* [魔术方法](https://rszalski.github.io/magicmethods/)
 
+* Python 虚拟环境
+	* 解决依赖包问题: virtualenv
+	* 解决 python 版本问题: pyenv
+
 * [Python3 实例教程](https://github.com/jerry-git/learn-python3)
 
 * [爬虫采集和调度框架](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/Reptile_frame.png)
