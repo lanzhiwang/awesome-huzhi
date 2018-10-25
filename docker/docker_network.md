@@ -92,6 +92,10 @@
     link/ether 72:7e:1c:97:7d:e7 brd ff:ff:ff:ff:ff:ff link-netnsid 0 promiscuity 1 
     veth 
     bridge_slave addrgenmode eui64 
+
+# 如上所示
+vetha27f235@if6 中的 @if6 表明该设备是一个网络接口设备
+
 [root@app5 ~]# 
 # 显示所有的网桥设备，并且显示网桥设备与网络接口设备的连接关系
 [root@app5 ~]# brctl show
