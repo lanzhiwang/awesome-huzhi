@@ -25,6 +25,58 @@
 
 ![](./docker_network.svg)
 
+自定义桥接模式步骤如下：
+
+```bash
+# 增加一个桥接设备 br0
+[root@app5 ~]# brctl addbr br0
+
+# 添加 IP 地址到网桥设备 br0
+[root@app5 ~]# ip addr add 192.168.1.254/24 dev br0
+
+# 启动网桥设备
+[root@app5 ~]# sudo ip link set dev br0 up
+
+# 创建网络接口设备对 foo、 bar
+[root@app5 ~]# sudo ip link add foo type veth peer name bar
+
+# 将 foo 连接到网桥 br0 上
+[root@app5 ~]# brctl addif br0 foo
+
+# 启动网络设备 foo
+[root@app5 ~]# ip link set foo up
+
+# 启动无网络的容器
+[root@app5 ~]# docker run -it --rm --net none --name cookbook ubuntu:14.04 bash
+
+# 将容器 cookbook 网络命名空间的 ID设置为变量
+[root@app5 run]# NID=cc0d7ac3ded1
+
+# 将网络接口设备 bar 放入到容器的命名空间中
+[root@app5 run]# ip link set bar netns ${NID}
+
+# 将容器中的 bar 设备重命名为 eth1
+[root@app5 run]# ip netns exec ${NID} ip link set dev bar name eth1
+
+# 设置容器中 eth1 设备的 MAC 地址
+[root@app5 run]# ip netns exec ${NID} ip link set eth1 address 12:34:56:78:9a:bc
+
+# 启动容器中的 eth1 设备
+[root@app5 run]# ip netns exec ${NID} ip link set eth1 up
+
+# 设置容器中 eth1 的 IP 地址
+[root@app5 run]# ip netns exec ${NID} ip addr add 192.168.1.1/24 dev eth1
+
+# 设置容器中 eth1 的路由
+[root@app5 run]# ip netns exec ${NID} ip route add default via 192.168.1.254
+
+# 为了使容器访问外网，在主机中设置 iptables 的 nat 规则
+[root@app5 run]# iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -j MASQUERADE
+
+
+```
+
+自定义桥接模式具体过程如下：
 
 ```bash
 # 显示系统中的所有设备，如下所示，docker进程默认创建了网桥设备 docker0，启动容器后创建了网络接口设备 vetha27f235@if6
@@ -535,11 +587,7 @@ cc0d7ac3ded1
 
 ```bash
 # 将网络接口设备 bar 放入到容器的命名空间中
-[root@app5 run]# ip link set bar netns ${NID}
-[root@app5 run]# 
-# 启动 bar 设备
-[root@app5 run]# ip link set foo up
-[root@app5 run]# 
+[root@app5 run]# ip link set bar netns ${NID} 
 [root@app5 run]# 
 # 在主机中没有了 bar 设备
 [root@app5 run]# ip -d link show
