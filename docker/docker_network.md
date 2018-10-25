@@ -1,7 +1,33 @@
+## Docker 网络
 
+
+#### Docker 网络原理
+
+用于容器的网络技术与用于虚拟机的网络技术非常类似。在同一台主机上的容器可以连接到一个软件交换机上，iptables 可以用来控制容器之间的网络流量，并将在容器中运行的进程的端口暴露到宿主机上。
+
+在默认安装情况下， Docker 会在宿主机上创建一个名为 docker0 的 Linux 网桥设备。该网桥设备拥有一个私有网络地址及其所属子网。分配给 docker0 网桥的子网地址为 172.[17-31].42.1/16、 10.[0-255].42.1/16 和 192.168.[42-44].1/24 中第一个没有被占用的子网地址。因此，很多时候你的 docker0 网桥设备的地址都是 172.17.42.1。所有容器都会连接到该网桥设备上，并从中分配一个位于子网 172.17.42.0/24 中的 IP 地址。容器链接到网桥的网络接口会把 docker0 网络设备作为网关。创建新容器时， Docker 会创建一对网络设备接口，并将它们放到两个独立的网络命名空间：一个网络设备放到容器的网络命名空间（即 eth0）；另一个网络设备放到宿主机的网络命名空间，并连接到 docker0 网桥设备上。
+
+
+#### Docker网络类型
+
+* default: 桥接
+
+* 无网络模式 --net=none
+
+* 主机模式 --net=host
+
+* 与其他容器共享网络的模式 --net=container:CONTAINER_NAME_OR_ID
+
+
+#### 自定义桥接模式
+
+桥接模式如下图所示
+
+![]()
 
 
 ```bash
+# 显示系统中的所有设备，如下所示，docker进程默认创建了网桥设备 docker0，启动容器后创建了网络接口设备 vetha27f235@if6
 [root@app5 ~]# ip -d link show
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT qlen 1
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00 promiscuity 0 addrgenmode eui64 
@@ -15,6 +41,7 @@
     veth 
     bridge_slave addrgenmode eui64 
 [root@app5 ~]# 
+# 显示所有的网桥设备，并且显示网桥设备与网络接口设备的连接关系
 [root@app5 ~]# brctl show
 bridge name	bridge id		STP enabled	interfaces
 docker0		8000.02426d5739a4	no		vetha27f235
@@ -52,7 +79,7 @@ br0: flags=4098<BROADCAST,MULTICAST>  mtu 1500
 
 [root@app5 ~]# 
 [root@app5 ~]# 
-# 添加 IP 地址
+# 添加 IP 地址到网桥设备 br0
 [root@app5 ~]# ip addr add 192.168.1.254/24 dev br0
 [root@app5 ~]# 
 [root@app5 ~]# ifconfig br0
@@ -85,9 +112,9 @@ br0: flags=4098<BROADCAST,MULTICAST>  mtu 1500
     bridge forward_delay 1500 hello_time 200 max_age 2000 addrgenmode eui64 
 [root@app5 ~]# 
 
-```
+##################################################################
 
-```bash
+# 显示系统中的所有设备
 [root@app5 ~]# ip -d link show
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT qlen 1
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00 promiscuity 0 addrgenmode eui64 
@@ -157,10 +184,9 @@ vetha27f235: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 [root@app5 ~]# 
 
-```
+##################################################################
 
-```bash
-# 创建网络设备对 foo、 bar
+# 创建网络接口设备对 foo、 bar
 [root@app5 ~]# sudo ip link add foo type veth peer name bar
 [root@app5 ~]# 
 [root@app5 ~]# ip -d link show
@@ -433,10 +459,9 @@ vetha27f235: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 [root@app5 ~]# 
 
+##################################################################
 
-```
-
-```bash
+# 启动无网络的容器
 [root@app5 ~]# docker ps -a
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                    NAMES
 0acee6d89d3f        guangdian:v0.0.2    "/bin/bash"         5 days ago          Up 5 days           0.0.0.0:8088->8088/tcp   gd-algo
@@ -445,7 +470,7 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 total 0
 -r--r--r-- 1 root root 0 Oct 19 17:23 4ddace7f50ea
 [root@app5 ~]# 
-# 启动无网络的容器
+
 [root@app5 ~]# docker run -it --rm --net none --name cookbook ubuntu:14.04 bash
 Unable to find image 'ubuntu:14.04' locally
 14.04: Pulling from library/ubuntu
@@ -456,6 +481,7 @@ dd5eed9f50d5: Pull complete
 Digest: sha256:e6e808ab8c62f1d9181817aea804ae4ba0897b8bd3661d36dbc329b5851b5637
 Status: Downloaded newer image for ubuntu:14.04
 root@d99498f7d4cd:/# 
+# 容器中只有 lo 设备
 root@d99498f7d4cd:/# ifconfig -a
 lo        Link encap:Local Loopback  
           inet addr:127.0.0.1  Mask:255.0.0.0
@@ -508,11 +534,14 @@ cc0d7ac3ded1
 
 
 ```bash
+# 将网络接口设备 bar 放入到容器的命名空间中
 [root@app5 run]# ip link set bar netns ${NID}
 [root@app5 run]# 
+# 启动 bar 设备
 [root@app5 run]# ip link set foo up
 [root@app5 run]# 
 [root@app5 run]# 
+# 在主机中没有了 bar 设备
 [root@app5 run]# ip -d link show
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT qlen 1
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00 promiscuity 0 addrgenmode eui64 
@@ -592,10 +621,7 @@ vetha27f235: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 [root@app5 run]# 
 
-
-```
-
-```bash
+# 在容器中出现 bar 设备
 root@d99498f7d4cd:/# ifconfig -a
 bar       Link encap:Ethernet  HWaddr aa:b6:4f:d1:ab:69  
           BROADCAST MULTICAST  MTU:1500  Metric:1
@@ -614,10 +640,7 @@ lo        Link encap:Local Loopback
 
 root@d99498f7d4cd:/# 
 
-```
-
-
-```bash
+# 将容器中的 bar 设备重命名为 eth1
 [root@app5 run]# ip netns exec ${NID} ip link set dev bar name eth1
 [root@app5 run]# 
 root@d99498f7d4cd:/# ifconfig -a
@@ -645,10 +668,7 @@ root@d99498f7d4cd:/# ip address
     link/ether aa:b6:4f:d1:ab:69 brd ff:ff:ff:ff:ff:ff
 root@d99498f7d4cd:/# 
 
-
-```
-
-```bash
+# 设置容器中 eth1 设备的 MAC 地址
 [root@app5 run]# ip netns exec ${NID} ip link set eth1 address 12:34:56:78:9a:bc
 [root@app5 run]# 
 root@d99498f7d4cd:/# ifconfig -a
@@ -676,10 +696,7 @@ root@d99498f7d4cd:/# ip address
     link/ether 12:34:56:78:9a:bc brd ff:ff:ff:ff:ff:ff
 root@d99498f7d4cd:/# 
 
-
-```
-
-```bash
+# 启动容器中的 eth1 设备
 [root@app5 run]# ip netns exec ${NID} ip link set eth1 up
 [root@app5 run]# 
 root@d99498f7d4cd:/# ifconfig -a
@@ -707,10 +724,7 @@ root@d99498f7d4cd:/# ip address
     link/ether 12:34:56:78:9a:bc brd ff:ff:ff:ff:ff:ff
 root@d99498f7d4cd:/# 
 
-```
-
-
-```bash
+# 设置容器中 eth1 的 IP 地址
 [root@app5 run]# ip netns exec ${NID} ip addr add 192.168.1.1/24 dev eth1
 [root@app5 run]# 
 root@d99498f7d4cd:/# ifconfig -a
@@ -741,11 +755,7 @@ root@d99498f7d4cd:/# ip address
        valid_lft forever preferred_lft forever
 root@d99498f7d4cd:/# 
 
-
-
-```
-
-```bash
+# 设置容器中 eth1 的路由
 [root@app5 run]# ip netns exec ${NID} ip route add default via 192.168.1.254
 [root@app5 run]# 
 root@d99498f7d4cd:/# ifconfig -a
@@ -781,10 +791,7 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 192.168.1.0     0.0.0.0         255.255.255.0   U     0      0        0 eth1
 root@d99498f7d4cd:/# 
 
-
-```
-
-```bash
+# 为了使容器访问外网，在主机中设置 iptables 的 nat 规则
 [root@app5 run]# iptables-save -t nat
 # Generated by iptables-save v1.4.21 on Thu Oct 25 16:22:44 2018
 *nat
@@ -802,13 +809,6 @@ root@d99498f7d4cd:/#
 COMMIT
 # Completed on Thu Oct 25 16:22:44 2018
 [root@app5 run]# 
-root@d99498f7d4cd:/# ping www.baidu.com
-ping: unknown host www.baidu.com
-root@d99498f7d4cd:/# 
-
-```
-
-```bash
 [root@app5 run]# iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -j MASQUERADE
 [root@app5 run]# iptables-save -t nat
 # Generated by iptables-save v1.4.21 on Thu Oct 25 16:35:30 2018
