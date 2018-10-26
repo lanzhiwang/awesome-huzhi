@@ -1,28 +1,47 @@
-网络模型
+## Docker 跨主机通信
+
+### Docker 跨主机通信方案
+
+* Docker overlay
+
+* Docker Macvlan
+
+* Flannel
+
+* Weave
+
+* Calico
+
+### Docker 跨主机通信方案与Docker集成的原理
+
+* libnetwork
+
+* CNM(Container Network Model)
+
+### Docker 跨主机通信模型
+
+##### Docker overlay
+
+![](./overlay.svg)
+
+##### Docker Macvlan
+
+![](./macvlan.svg)
+
+##### Flannel
+
+![](./flannel.svg)
+
+##### Weave
+
+![](./weave.svg)
+
+##### Calico
+
+![](./calico.svg)
 
 
-
-分布式键值对存储
-
-IPAM(IP管理)
-
-
-
-
-连通与隔离
-
-
-性能
-
-Docker overlay
-
-Docker Macvlan
-
-Flannel
-
-Weave
-
-Calico
+### Docker 跨主机通信方案比较
 
 | 实现方式 | 网络模型 | 分布式键值对存储 | IPAM(IP管理) | 连通与隔离 | 性能 |
 |---------|--------|--------|--------|--------|--------|
