@@ -235,6 +235,8 @@ Author: `huzhi`
 
 * [Docker 跨主机访问原理](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/multi-network.md)
 
+* [docker swarm](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/docker_swarm.md)
+
 * [Docker/Kubernetes线路图](https://github.com/lanzhiwang/awesome-huzhi/wiki/docker-and-kubernetes)
 
 * [Linux 容器技术基础](http://pierrchen.blogspot.com/2018/08/understand-container-index.html)
