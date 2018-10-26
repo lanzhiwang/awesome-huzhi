@@ -233,7 +233,7 @@ Author: `huzhi`
 
 * [Docker 在单一主机上的网络原理](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/docker_network.md)
 
-*[Docker 跨主机访问原理](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/multi-network.md)
+* [Docker 跨主机访问原理](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/multi-network.md)
 
 * [Docker/Kubernetes线路图](https://github.com/lanzhiwang/awesome-huzhi/wiki/docker-and-kubernetes)
 
