@@ -19,7 +19,7 @@ $ curl -o /etc/yum.repos.d/CentOS-Aliyun.repo http://mirrors.aliyun.com/repo/Cen
 
 # 安装一般工具
 $ yum makecache
-$ yum install -y ntpdate wget vim net-tools unzip zip
+$ yum install -y ntpdate wget vim net-tools unzip zip curl iptables
 
 # 设置时区和同步时间
 $ timedatectl
