@@ -105,6 +105,11 @@ $ iptables -I FORWARD 1 -j LOG --log-prefix "iptables"
 
 ```
 
+##### iptables debugging
+
+[参考](https://backreference.org/2010/06/11/iptables-debugging/)
+
+
 #### ebtables 常见用法
 
 ```bash
