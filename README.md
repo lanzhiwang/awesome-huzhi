@@ -179,7 +179,7 @@ Author: `huzhi`
 
 * openssl、gpg
 
-* firewall、iptables、[iptables-trace](https://tonybai.com/2017/11/06/explain-docker-single-host-network-using-iptables-trace-and-ebtables-log/)
+* firewall、[iptables](https://github.com/lanzhiwang/awesome-huzhi/blob/master/iptables.md)、[iptables-trace](https://tonybai.com/2017/11/06/explain-docker-single-host-network-using-iptables-trace-and-ebtables-log/)
 
 * whiptail - 创建交互式shell脚本对话框
 
