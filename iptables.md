@@ -107,8 +107,8 @@ $ iptables -I FORWARD 1 -j LOG --log-prefix "iptables"
 
 ##### iptables debugging
 
-[参考](https://backreference.org/2010/06/11/iptables-debugging/)
-
+[参考1](https://backreference.org/2010/06/11/iptables-debugging/)
+[参考2](https://github.com/lanzhiwang/awesome-huzhi/blob/master/iptables_debugging.pdf)
 
 #### ebtables 常见用法
 
