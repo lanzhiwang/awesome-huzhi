@@ -27,7 +27,94 @@
 ![](./data_manager.svg)
 
 
+
 ### data volume(Docker主机本地目录)
+
+Data Volume 本质上是 Docker Host 文件系统中的目录或者文件。能够直接被 mount 到容器的文件系统中。
+
+Data Volume 的特点：
+
+1. Data Volume 是目录或者文件，而非没有格式化的磁盘（块设备）
+2. 容器可以读写 Volume 中的数据
+3. Volume 可以永久的保存，即使使用它的容器已经被销毁
+
+notes:
+
+1. 因为 Volume 实际上是 Docker Host 文件系统的一部分，所以 Volume 的容量取决于文件系统当前未使用的空间。目前还没有方法设置 Volume 的容量。
+
+Docker 提供了两种类型的 Volume：
+
+1. bind mount
+2. docker managed volume 
+
+
+
+#### bind mount
+
+```bash
+-v <host path>:<container path>:rw (默认)
+-v <host path>:<container path>:ro
+```
+
+notes：
+
+1. 若绑定的是目录，容器中如果没有该目录则会新建该目录，如果有该目录则目录中的数据会被覆盖，和 linux mount 的行为一样。
+2. 绑定单独一个文件时，Host 中的源文件必须存在，不然会当作绑定目录。
+
+
+
+#### docker managed volume (数据容器)
+
+```bash
+-v <container path>  # 省略 Docker Host 目录
+$ docker run -ti -v /cookbook --name data ubuntu /bin/bash
+$ docker inspect -f {{.Mounts}} data
+"Mounts": [
+            {
+                "Type": "volume",
+                "Name": "b478d0e88e47f5ceda12b6fdab9b7f41b9819ea29afd5429c7635a09d872237f",
+                "Source": "/var/lib/docker/volumes/b478d0e88e47f5ceda12b6fdab9b7f41b9819ea29afd5429c7635a09d872237f/_data",
+                "Destination": "/cookbook",
+                "Driver": "local",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+   
+--volumes-from data  # 使用数据容器
+$ docker run -ti --volumes-from data ubuntu /bin/bash
+root@4e80b4175702:/# ll /cookbook/
+total 0
+drwxr-xr-x 2 root root  6 Oct 29 13:00 ./
+drwxr-xr-x 1 root root 22 Oct 29 13:09 ../
+root@4e80b4175702:/# 
+
+```
+
+
+
+#### docker volume
+
+```bash
+$ docker volume --help
+
+Usage:	docker volume COMMAND
+
+Manage volumes
+
+Commands:
+  create      Create a volume
+  inspect     Display detailed information on one or more volumes
+  ls          List volumes
+  prune       Remove all unused local volumes
+  rm          Remove one or more volumes
+
+Run 'docker volume COMMAND --help' for more information on a command.
+
+```
+
+
 
 
 ### 跨主机管理 data volume
