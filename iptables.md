@@ -121,6 +121,14 @@ $ iptables -I FORWARD 1 -j LOG --log-prefix "iptables"
 [参考1](https://backreference.org/2010/06/11/iptables-debugging/)
 [参考2](https://github.com/lanzhiwang/awesome-huzhi/blob/master/iptables_debugging.pdf)
 
+
+
+方法三：使用  `ulogd` 日志
+
+[参考1](https://github.com/lanzhiwang/awesome-huzhi/blob/master/ulogd.md)
+
+
+
 #### ebtables 常见用法
 
 ```bash
