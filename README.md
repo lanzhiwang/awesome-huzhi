@@ -400,9 +400,15 @@ Author: `huzhi`
 
 * [机器学习常见算法](https://github.com/lanzhiwang/awesome-huzhi/wiki/Machine-learning-common-algorithm)
 
-* `线性回归模型`、`逻辑回归模型`、`卷积神经网络(CNN)`等模型的数学公式 : ![](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/linear_function.gif)
+* `线性回归模型`、`逻辑回归模型`、`卷积神经网络(CNN)`等模型的数学公式 :
+  $$
+  y = (wx + b) + noise
+  $$
 
-* `循环神经网络(RNN)`的数学公式常见算法 : ![](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/tanh.gif)
+* `循环神经网络(RNN)`的数学公式常见算法 : 
+  $$
+  h_{t} = \tanh(W_{x}x_{t} + W_{h}h_{t-1}$ + b)
+  $$
 
 * [代码学习](https://github.com/lanzhiwang/awesome-huzhi/wiki/machine-learning-example)
 
@@ -418,11 +424,7 @@ Author: `huzhi`
 
 * [机器学习50个最佳免费数据集](https://gengo.ai/datasets/the-50-best-free-datasets-for-machine-learning/)
 
-```
-y = (wx + b) + noise
-h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
-# http://www.codecogs.com/latex/eqneditor.php
-```
+
 
 ## 计算机基础
 
