@@ -89,8 +89,17 @@ $ iptables -t filter -N DOCKER
 -A FORWARD -o br-12f5421c9cfd -j DOCKER
 ```
 
+##### 在 iptables 中使用日志
 
-##### 在 iptables 规则中插入日志
+方法一：添加日志规则，目标使用`-j LOG`
+
+方法二：raw table, with the TRACE target
+
+方法三：使用  `ulogd` 日志
+
+
+
+方法一：添加日志规则，目标使用 `-j LOG`  具体操作方法
 
 1. 在需要写入日志的位置添加规则
 2. 开启系统日志或者开启iptables的独立日志
@@ -105,7 +114,9 @@ $ iptables -I FORWARD 1 -j LOG --log-prefix "iptables"
 
 ```
 
-##### iptables debugging
+##### 
+
+方法二：raw table, with the TRACE target 
 
 [参考1](https://backreference.org/2010/06/11/iptables-debugging/)
 [参考2](https://github.com/lanzhiwang/awesome-huzhi/blob/master/iptables_debugging.pdf)
