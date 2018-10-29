@@ -481,7 +481,7 @@ h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
 
 * Markdown
 
-	* [haroopress](http://pad.haroopress.com/)
+	* [haroopress](http://pad.haroopress.com/)、[typora](https://typora.io/)
 
 	* [vnote](https://github.com/tamlok/vnote)
 
