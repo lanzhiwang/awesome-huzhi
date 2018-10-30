@@ -114,7 +114,7 @@ Author: `huzhi`
 
 * [Python 脚本到打包项目的标准化指南](http://veekaybee.github.io/2017/09/26/python-packaging/)
 
-* [Python 项目标准结构](https://www.kennethreitz.org/essays/repository-structure-and-python)
+* [Python 项目标准结构](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Repository_Structure_and_Python.md)
 
 * [Python 线程安全](https://github.com/lanzhiwang/awesome-huzhi/wiki/python-thread-safe)
 
