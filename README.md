@@ -112,7 +112,7 @@ Author: `huzhi`
 
 * [布隆过滤器](https://github.com/jaybaird/python-bloomfilter)
 
-* [Python 脚本到打包项目的标准化指南](http://veekaybee.github.io/2017/09/26/python-packaging/)
+* [Python 脚本到打包项目的标准化指南](https://veekaybee.github.io/2017/09/26/python-packaging/)
 
 * [Python 项目标准结构](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Repository_Structure_and_Python.md)
 
