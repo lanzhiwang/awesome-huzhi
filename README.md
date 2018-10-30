@@ -45,12 +45,10 @@ Author: `huzhi`
 * [Python并行编程](https://github.com/lanzhiwang/Python_Parallel_Programming)
 
     1. 基于线程的并行 - `threading`
-
     2. 基于进程的并行 - `multiprocessing`
-
     3. 异步编程 - `async` `concurrent` `gevent`
-
     4. 分布式Python - `celery` `RPC`
+    5. GPU 编程 - `Numba ` `PyCUDA` `PyOpenCL`
 
 * Python 源码阅读
 
@@ -110,7 +108,7 @@ Author: `huzhi`
 * [SQLAlchemy example](https://github.com/lanzhiwang/awesome-huzhi/wiki/SQLAlchemy-example) - `SQLAlchemy`示例说明 SQLAlchemy 的使用方法
 
 * [Python 技巧](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python_Tips)
-	* [有趣实用的代码片段](https://github.com/satwikkansal/wtfPython)
+  * [有趣实用的代码片段](https://github.com/satwikkansal/wtfPython)
 
 * [布隆过滤器](https://github.com/jaybaird/python-bloomfilter)
 
@@ -133,12 +131,12 @@ Author: `huzhi`
 * [不太常见的包或者模块、函数](https://github.com/lanzhiwang/awesome-huzhi/wiki/Less-common-packages-or-modules-or-functions)
 
 * 不太常见的Python语言特性
-	* [exec-eval](https://anandology.com/python-practice-book/functional-programming.html#exec-eval)
-	* [魔术方法](https://rszalski.github.io/magicmethods/)
+  * [exec-eval](https://anandology.com/python-practice-book/functional-programming.html#exec-eval)
+  * [魔术方法](https://rszalski.github.io/magicmethods/)
 
 * Python 虚拟环境
-	* 解决依赖包问题: virtualenv
-	* 解决 python 版本问题: pyenv
+  * 解决依赖包问题: virtualenv
+  * 解决 python 版本问题: pyenv
 
 * [Python3 实例教程](https://github.com/jerry-git/learn-python3)
 
