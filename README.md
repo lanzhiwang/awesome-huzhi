@@ -389,26 +389,17 @@ Author: `huzhi`
 ## 机器学习
 
 * [人工智能、机器学习、深度学习的关系](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/artificial_intelligence_Machine_learning_Deep_learning.png)
-
 * [机器学习常见算法](https://github.com/lanzhiwang/awesome-huzhi/wiki/Machine-learning-common-algorithm)
-
 * `线性回归模型`、`逻辑回归模型`、`卷积神经网络(CNN)`等模型的数学公式 : ![](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/linear_function.gif)
-
 * `循环神经网络(RNN)`的数学公式常见算法 : ![](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/tanh.gif)
-
 * [代码学习](https://github.com/lanzhiwang/awesome-huzhi/wiki/machine-learning-example)
-
 * [fastText 使用示例](https://github.com/lanzhiwang/awesome-huzhi/blob/master/fastText.md)
-
 * 《Python神经网络编程》
-
 * [《TensorFlow学习指南:深度学习系统构建详解》](https://github.com/Hezi-Resheff/Oreilly-Learning-TensorFlow)
-
 * [tensorflow_cookbook](https://github.com/nfmcclure/tensorflow_cookbook)
-
 * 《深度学习入门 基于Python的理论与实现》
-
 * [机器学习50个最佳免费数据集](https://gengo.ai/datasets/the-50-best-free-datasets-for-machine-learning/)
+* [cuda](https://github.com/lanzhiwang/awesome-huzhi/blob/master/cuda/cuda.md)
 
 ```
 y = (wx + b) + noise
