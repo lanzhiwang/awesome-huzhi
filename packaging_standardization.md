@@ -1186,7 +1186,7 @@ To fix a bug, feel free to submit a pull request.
 
 
 
-[参考1](https://veekaybee.github.io/2017/09/26/python-packaging/#python-hides-the-hurt)
+[参考1](https://veekaybee.github.io/2017/09/26/python-packaging/)
 
 [参考2](https://github.com/veekaybee/textedit)
 
