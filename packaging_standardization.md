@@ -785,109 +785,125 @@ nltk==3.2
 
 
 ### Documentation
-Let’s add some documentation, as well. Good documentation is really important, paricularly to someone just coming into your project. And, even more so, for yourself tomorrow morning. :) The easiest way to add documentation is to add a  README to the top level of your module, the same place as requirements.txt.
+Let’s add some documentation, as well. Good documentation is really important, paricularly to someone just coming into your project. And, even more so, for yourself tomorrow morning. :) The easiest way to add documentation is to add a  `README` to the top level of your module, the same place as `requirements.txt`.
 
+```bash
  textedit - package
  	textedit - module
-​		├── edit
-​			├── replace.py
-​			├── spacing.py
-​		├── review
-​			├── wordcount.py
-​			└── readability.py
-​		├── tests
-​			└── test_wordcount.py
-​	README.MD
-​	requirements.txt
-​		
-​		
-Here are some aspirational examples of what good documentation should look like, but remember, these are really complicated examples. Here’s a good, simple one.
+		├── edit
+			├── replace.py
+			├── spacing.py
+		├── review
+			├── wordcount.py
+			└── readability.py
+		├── tests
+			└── test_wordcount.py
+	README.MD
+	requirements.txt
+```
 
-The advanced next level is to generate your documentation with Sphinx or reST. Don’t worry about that yet.
+
+Here are some aspirational examples of what [good documentation](https://github.com/PharkMillups/beautiful-docs) should look like, but remember, these are really complicated examples. Here’s a [good, simple one](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2).
+
+The advanced next level is to generate your documentation with `Sphinx` or `reST`. Don’t worry about that yet.
 
 Documentation also includes your code. All of your code should have headers, and your classes should have docstrings, as well. Comments are good!
 
 For headers, there are mixed opinions onto what one should contain, but I think headers help.
 
+```python
 """This module contains x, y
 Author: Vicki Boykis
 """
-For classes, check out Scikit-learn; it’s really good at documentation
+```
 
-Scripts
-If you have any shell scripts or additional helper methods associated with your project, you can create a bin directory for them. We don’t, so that folder will be empty. But scripts are usually present anywhere you have to deploy stuff, add it to cron, or generally put it in production in any way.
+
+For classes, check out Scikit-learn; it’s really good at [documentation](https://github.com/scikit-learn/scikit-learn/blob/master/sklearn/cluster/k_means_.py)
+
+### Scripts
+If you have any shell scripts or additional helper methods associated with your project, you can create a `bin` directory for them. We don’t, so that folder will be empty. But scripts are usually present anywhere you have to deploy stuff, add it to cron, or generally put it in production in any way.
 
 This is also where continuous integration can come in.
 
- textedit - package
+```bash
+textedit - package
  	__init__.py
  	bin/ # scripts
  	textedit - module
  		__init__.py
-​		├── edit
-​			├── replace.py
-​			├── spacing.py
-​		├── review
-​			__init__.py
-​			├── wordcount.py
-​			└── readability.py
-​		├── tests
-​		    __init__.py
-​			└── test_wordcount.py
-​	README.MD
-​	requirements.txt
-​			
-__init__.py
-And, finally and most importantly, the __init__.py, which we’ll want to add to every directory where you have runable Python modules.
+		├── edit
+			├── replace.py
+			├── spacing.py
+		├── review
+			__init__.py
+			├── wordcount.py
+			└── readability.py
+		├── tests
+		    __init__.py
+			└── test_wordcount.py
+	README.MD
+	requirements.txt
+```
 
-If you remember from the Python innards overview __init__ is a special file that will make Python realize that you have a package working together instead of a single file.
+### \_\_init\_\_.py
 
-We can leave it null. Or you can add things to it that will initialize when the module is run. Let’s leave it null for now.
+And, finally and most importantly, the `__init__.py`, which we’ll want to add to every directory where you have runable Python modules.
 
-When Python imports the module for the first time, it checks the module registry for a list of modules that it can use. Init allows your module to be put in that registry..
+If you remember from the Python innards overview `__init__` is a special file that will make Python realize that you have a package working together instead of a single file. -- 如果你记得Python内部概述`__init__`是一个特殊的文件，它将使Python意识到你有一个包在一起工作而不是一个文件。
 
-__main__.py driver
-There is this concept in Java of a driver program that you can run and have it call all the other programs in the package.
+We can leave it null. Or you can [add things to it](http://mikegrouchy.com/blog/2012/05/be-pythonic-__init__py.html) that will initialize when the module is run. Let’s leave it null for now.
 
-In Python, we can also have a __main__.py file, which will execute everything in it first and pull in from other directories. This might be helpful if you’re pre-executing things, like for example a script has to kick off right away to load the word document, for example.
+When Python imports the module for the first time, it checks the module registry for a list of modules that it can use. `Init` allows your module to be [put in that registry..](http://effbot.org/zone/import-confusion.htm#what-does-python-do)
 
-Here, since we’re just performing different things to a document in a single state, we don’t really need it.
+### \_\_main\_\_.py driver
 
-Additionally, there are mixed thoughts about having a driver. Google’s Python code, for example, says that every file should have a name/main pattern.
+There is this concept in Java of a driver program that you can run and have it call all the other programs in the package. -- 在Java中有一个驱动程序的概念，你可以运行它并让它调用包中的所有其他程序。
 
+In Python, we can also have a `__main__.py` file, which will execute everything in it first and pull in from other directories. This might be helpful if you’re pre-executing things, like for example a script has to kick off right away to load the word document, for example. -- 在Python中，我们还可以有一个`__main__.py`文件，它将首先执行其中的所有内容并从其他目录中获取。 如果您正在执行某些操作，这可能会有所帮助，例如，脚本必须立即开始加载word文档。
+
+Here, since we’re just performing different things to a document in a single state, we don’t really need it. -- 在这里，由于我们只是在单个状态下对文档执行不同的操作，因此我们并不真正需要它。
+
+Additionally, there are mixed thoughts about having a driver. Google’s Python code, for example, says that every [file should have a name/main pattern](https://google.github.io/styleguide/pyguide.html#Main).
+
+```bash
  textedit - package
  	__init__.py
  	__main__.py
  	bin/
  	textedit - module
  		__init__.py
-​		├── edit
-​			├── replace.py
-​			├── spacing.py
-​		├── review
-​			__init__.py
-​			├── wordcount.py
-​			└── readability.py
-​		├── tests
-​			└── test_wordcount.py
-​	README.MD
-​	requirements.txt
-​			
-setup.py
-Now that we have the scaffolding in place, we can add things that will help us set up the module after we import it from pip or download it.
+		├── edit
+			├── replace.py
+			├── spacing.py
+		├── review
+			__init__.py
+			├── wordcount.py
+			└── readability.py
+		├── tests
+			└── test_wordcount.py
+	README.MD
+	requirements.txt
+```
 
-This is setup.py, the heart of a project.
+### setup.py
 
-It has metadata about the project, import distutils, which does the actual program setup whenever someone downloads it, as we specified in the README.md, and be at the top level of the package..
+Now that we have the scaffolding in place, we can add things that will help us set up the module after we import it from pip or download it. -- 现在我们已经建立了脚手架，我们可以添加一些东西来帮助我们在从pip导入或下载它之后设置模块。
 
-Here’s more really good background on what goes into the file.
+This is `setup.py`, the heart of a project.
 
-Here’s what ours will look like. The most important part is setting the here variable to the current filepath.
+It has metadata about the project, `import distutils`, which does the actual program setup whenever someone downloads it, as we specified in the `README.md`, and be at the [top level of the package..](https://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/creation.html#setup-py-description) -- 它包含有关项目的元数据，import distutils，它可以在有人下载时执行实际的程序设置，就像我们在README.md中指定的那样，并且位于包的顶层。
 
-Remember how we had to do crazy things to get our modules to reference each other in the context of the package? sys.path.append(os.path.abspath("python_packaging/textedit/textedit/review"))
+Here’s more [really good background](https://github.com/kennethreitz/setup.py) on what goes into the file.
+
+Here’s what ours will look like. The most important part is setting the `here` variable to the current filepath. -- 这就是我们的样子。 最重要的部分是将here变量设置为当前文件路径。
+
+Remember how we had to do crazy things to get our modules to reference each other in the context of the package? -- 还记得我们如何做疯狂的事情让我们的模块在包的上下文中相互引用？
+
+`sys.path.append(os.path.abspath("python_packaging/textedit/textedit/review"))`
 
 This lets us avoid all of that and forces a root directory.
 
+```python
 import io
 import os
 import sys
@@ -904,7 +920,7 @@ AUTHOR = 'Vicki Boykis'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
-​    # 'requests', 'maya', 'records',
+    # 'requests', 'maya', 'records',
 ]
 
 # The rest you shouldn't have to touch too much :)
@@ -918,16 +934,16 @@ here = os.path.abspath(os.path.dirname(__file__))
 
 # Where the magic happens:
 setup(
-​    name=NAME,
-​    #version=about['__version__'],
-​    description=DESCRIPTION,
-​    # long_description=long_description,
-​    author=AUTHOR,
-​    author_email=EMAIL,
-​    url=URL,
-​    packages=find_packages(exclude=('tests',)),
-​    # If your package is a single module, use this instead of 'packages':
-​    # py_modules=['mypackage'],
+    name=NAME,
+    #version=about['__version__'],
+    description=DESCRIPTION,
+    # long_description=long_description,
+    author=AUTHOR,
+    author_email=EMAIL,
+    url=URL,
+    packages=find_packages(exclude=('tests',)),
+    # If your package is a single module, use this instead of 'packages':
+    # py_modules=['mypackage'],
 
     # entry_points={
     #     'console_scripts': ['mycli=mymodule:cli'],
@@ -952,25 +968,27 @@ setup(
     ],
 
 )
+```
 
 Now, once we run setup.py like the README specifices, we can follow the accepted module import naming structure, which is:
 
-import module.submodule
+`import module.submodule`
 
 For us, it would be:
 
-import edit.replace
+`import edit.replace`
 
-The rest is metadata about who you are and what the package looks like. It’s really top-loaded for use in PyPI, so I removed those components and kepts the ones necessary for use locally.
+The rest is metadata about who you are and what the package looks like. It’s really top-loaded for use in PyPI, so I removed those components and kepts the ones necessary for use locally. -- 其余的是关于你是谁以及包的样子的元数据。 它实际上是在PyPI中使用的最高负载，所以我删除了那些组件并记录了本地使用所需的组件。
 
-One of the things included in here is the install_requires which lists the requirements that will be installed for the file to continue. But wait, you say. Don’t we already have a requirements.txt file? Yes, we do. We’ll be using that one, instead.
+One of the things included in here is the `install_requires` which lists the requirements that will be installed for the file to continue. But wait, you say. Don’t we already have a `requirements.txt` file? Yes, we do. We’ll be using that one, instead.
 
-The difference between the two is that install_requires is configured more if you’re packaging for production-ready systems and putting your package in PyPi, the Python package repository. If you are targeting specific packages in development or testing, use requirements.txt.
+The difference between the two is that `install_requires` is configured more if you’re packaging for production-ready systems and putting your package in PyPi, the Python package repository. If you are targeting specific packages in [development or testing, use requirements.txt](https://www.reddit.com/r/Python/comments/3uzl2a/setuppy_requirementstxt_or_a_combination/). -- 两者之间的区别在于，如果要为生产就绪系统打包并将包放在PyPi（Python包存储库）中，则install_requires配置更多。 如果您要在开发或测试中定位特定包，请使用requirements.txt。
 
-Since we’re not exactly focusing on targeting PyPi here to keep things simple, we’ll use requirements.
+Since we’re not exactly focusing on targeting PyPi here to keep things simple, we’ll use requirements. -- 由于我们并不完全专注于将PyPi定位于此处以保持简单，因此我们将使用需求。
 
 So now, finally we have:
 
+```bash
  textedit - package
  	__init__.py
  	setup.py
@@ -978,58 +996,68 @@ So now, finally we have:
  		__init__.py
  		├── texts
  			├── alice.txt
-​			├── pool_of_tears.txt
-​		├── edit
-​			__init__.py
-​			├── replace.py
-​			├── spacing.py
-​		├── review
-​			__init__.py
-​			├── wordcount.py
-​			└── spellcheck.py 
-​		├── tests
-​	README.md
-​	requirements.txt
-​	
-​			
-Now that we have everything set up, let’s convert the rest of the code to more OOP-like practices, clean it up, and take a look.
+			├── pool_of_tears.txt
+		├── edit
+			__init__.py
+			├── replace.py
+			├── spacing.py
+		├── review
+			__init__.py
+			├── wordcount.py
+			└── spellcheck.py 
+		├── tests
+	README.md
+	requirements.txt
+```
 
-An extra step we can take here is to make sure that none of the modules actually have an if __name__ == '__main__' piece of code so that they don’t run on their own, and create that driver module we were talking about so that there is only one entry point to the package.
 
-You can see that in action here, for example. that’s a matter of style and might or might not make sense for your program.
+Now that we have everything set up, let’s convert the rest of the code to more OOP-like practices, clean it up, and take a look. -- 现在我们已经完成了所有设置，让我们将其余代码转换为更多类似OOP的实践，清理它并查看。
 
-Sharing and using our package
-wordmenu
+An extra step we can take here is to make sure that none of the modules actually have an `if __name__ == '__main__'` piece of code so that they don’t run on their own, and create that driver module we were talking about so that there is only one entry point to the package. -- 我们可以采取的另一个步骤是确保没有任何模块实际上有一个`if __name__ =='__ main__'`代码片段，这样它们就不能独立运行，并创建我们正在讨论的驱动程序模块 包只有一个入口点。
 
-Ok, we’re done writing all of our code, our tests, making sure objects are accessible, and we have our structure all layed out. What do we do now? Let’s package it!
+You can see that in action here, [for example](https://github.com/pallets/flask/blob/master/flask/cli.py#L721). that’s a matter of style and might or might not make sense for your program. -- 例如，你可以看到这里的行动。 这是一个风格问题，可能或可能没有意义的程序。
 
-Let’s go to the module level of our package - where our setup.py file that will actually handle the install is located
+### Sharing and using our package
+Ok, we’re done writing all of our code, our tests, making sure objects are accessible, and we have our structure all layed out. What do we do now? Let’s package it! -- 好的，我们已经完成了编写所有代码，测试，确保对象可访问，并且我们的结构都已完成。 我们现在干什么？ 我们打包吧！
 
-mbp-vboykis:textedit vboykis$ cd /python_packaging/textedit/textedit
+Let’s go to the module level of our package - where our `setup.py` file that will actually handle the install is located -- 让我们转到我们的软件包的模块级别 - 我们的setup.py文件将实际处理安装
+
+`mbp-vboykis:textedit vboykis$ cd /python_packaging/textedit/textedit`
 
 and run
 
-pip install .
+`pip install .`
 
 You should see something like this:
 
+```bash
 mbp-vboykis:textedit vboykis$ pip install .
 Processing /python_packaging/textedit/textedit
 Installing collected packages: textedit
   Running setup.py install for textedit ... done
 Successfully installed textedit-0.0.0
+```
+
+
 ✨ We’ve installed our package locally! ✨
 
 Let’s see that it’s in our PYTHONPATH:
 
+```python
 python3/3.5.1/Frameworks/Python.framework/Versions/3.5/lib/python35.zip
 python3/3.5.1/Frameworks/Python.framework/Versions/3.5/lib/python3.5
 python3/3.5.1/Frameworks/Python.framework/Versions/3.5/lib/python3.5/plat-darwin
 python3/3.5.1/Frameworks/Python.framework/Versions/3.5/lib/python3.5/lib-dynload
 /usr/local/lib/python3.5/site-packages
 /usr/local/lib/python3.5/site-packages/textedit-0.0.0-py3.5.egg
+```
+
+
+
+
 And now, let’s write some code with it! We can either use the command line to run individual modules:
 
+```bash
 #Replace 
 
 python replace.py ../texts/alice.txt "Alice" "Dora the Explorer"
@@ -1049,8 +1077,11 @@ mbp-vboykis:review vboykis$ python wordcount.py "../texts/alice.txt"
 
 mbp-vboykis:review vboykis$ python readability.py "../texts/alice.txt"
 ('Reading Grade Level of Text:', 7)
-Or we can now call the package from a completely new program, since we have it installed. Note the import structure. Each folder and subfolder is folder.subfolder, and each module name is after the import. Classes are referenced later down.
+```
 
+Or we can now call the package from a completely new program, since we have it installed. Note the import structure. Each folder and subfolder is `folder.subfolder`, and each module name is after the import. Classes are referenced later down. -- 或者我们现在可以从一个全新的程序中调用该程序包，因为我们安装了它。 注意导入结构。 每个文件夹和子文件夹都是`folder.subfolder`，每个模块名称都在导入后。 稍后将引用类。
+
+```python
 """Tests textedit functionality on the pool_of_tears.txt file"""
 
 
@@ -1083,12 +1114,13 @@ print('Spaces replaced')
 
 replace.Replace(test_file, "Alice", "Dora the Explorer")
 print('Words replaces')
+```
+
 The next step would be to use argparse to pass arguments a bit more cleanly.
 
-And that’s it! We’ve imported a package that we can now use to write other software.
+And that’s it! We’ve imported a package that we can now use to write other software. -- 就是这样！ 我们已经导入了一个包，我们现在可以用它来编写其他软件。
 
-Next steps
-wordmenu
+### Next steps
 
 🎉 Congratulations! We’ve built a Python package! 🎉
 
