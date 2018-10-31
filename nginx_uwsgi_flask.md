@@ -150,3 +150,10 @@ $
 $ systemctl start uwsgi.service
 
 ```
+
+## nginx + gunicorn + Django
+
+```bash
+nohup gunicorn -b 0.0.0.0:8088 -k gevent -w 8 MultiMediaApi.wsgi --timeout 5000 --reload> rungunicorn.log &
+```
+
