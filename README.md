@@ -172,7 +172,7 @@ Author: `huzhi`
 * whiptail - 创建交互式shell脚本对话框
 * [代理服务、翻墙](https://github.com/lanzhiwang/awesome-huzhi/wiki/%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1)
 * [nginx uwsgi flask](https://github.com/lanzhiwang/awesome-huzhi/blob/master/nginx_uwsgi_flask.md)
-* [监控系统基本原理]()
+* [监控系统基本原理](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/monitoring_architecture.png)
 
 
 ## MySQL
