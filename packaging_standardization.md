@@ -1,34 +1,6 @@
 ## Alice in Python projectland
 
-Intro
-Python hides the hurt
-Building a simple word processor
-Creating a single object
-Combining objects into a program
-Refactoring a single program
-Combining programs into scripts
-Combining scripts into a module
-Project structure
-Modular Code
-Unit Tests
-Requirements.txt and package dependencies
-Documentation
-Scripts
-__init__.py
-__main__.py driver
-setup.py
-Sharing and using our package
-Next steps
-Testing environments
-More advanced testing
-Continuous Integration
-Git Hooks and Version Control
-Setup.cfg
-Sphinx/reST
-Wheels
-PyPi
-Conclusion
-Acknowledgements
+[TOC]
 
 ### Intro
 Python project structure and packaging standardization is still not a solved problem, something that became even more apparent to me when I recently worked on packaging a machine learning natural language app. -- Python项目结构和打包标准化仍然不是一个已经解决的问题，当我最近在打包机器学习自然语言应用程序时，这一点对我来说变得更加明显。
@@ -330,7 +302,8 @@ If you want to see what the byte code of our program looks like, [digging into i
 
 We’ve just created a Python runtime environment, told Python which directories it should be reading from, imported some stuff, allocated memory, and given some output. Basically all of the things we do to run a program. -- 我们刚刚创建了一个Python运行时环境，告诉Python它应该从哪个目录读取，导入一些东西，分配内存，并给出一些输出。 基本上我们为运行程序所做的所有事情。
 
-### Refactoring a single program
+#### Refactoring a single program
+
 Ok, so we’ve run our program. But, if we try to run it on any other file, not just `alice.txt`, we won’t be able to. Let’s make it a bit more robust. First, we’ll abstract out some of the hard coding referencing `alice.txt`. -- 好的，我们运行我们的程序。 但是，如果我们尝试在任何其他文件上运行它，而不仅仅是alice.txt，我们将无法执行。 让我们更健壮一点。 首先，我们将抽象出一些硬编码引用alice.txt。
 
 Second, we’ll turn the code from a simple loop, into a function that acts like an API so that we can access a single pointer to our loop from other places in the file, and from other files. -- 其次，我们将代码从一个简单的循环转换为一个像API一样的函数，这样我们就可以从文件的其他位置和其他文件访问我们循环的单个指针。
@@ -644,7 +617,8 @@ Generally, it’s a good idea to look at other people’s work, so here are some
 
 So how do you go from two scripts to a fully-functional package? -- 那么你如何从两个脚本转变为一个功能齐全的包呢？
 
-### Modular Code
+#### Modular Code
+
 First, Python needs to have all of the files of the [project in its same directory and subdirectory:](https://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/creation.html#directory-layout). The top-level textedit is the distribution or package, and the lower-level one is the actual module. -- 首先，Python需要将项目的所有文件放在同一目录和子目录中： 顶级textedit是分发或包，而低级textedit是实际模块。
 
 ```bash
@@ -661,7 +635,7 @@ textedit - package
 			└── pool_of_tears.txt
 ```
 
-### Unit Tests
+#### Unit Tests
 Then, you’ll want to add tests. Unit tests help you make sure that your code runs as expected, even as you change it. You usually want to write a test for each function or package.
 
 There is a whole art/science to unit testing, but for the sake of this example, I’m going to skip it and just write an example test, called `test_wordcount.py`.
@@ -751,7 +725,7 @@ And there it is, at the end. For now, we have to add `sys.path.append` to every 
 
 And, speaking of imports, we now have external packages that we’re calling: os, re, and sys, common modules. How does our package know how to call those? -- 而且，谈到导入，我们现在有外部包，我们正在调用：os，re和sys，通用模块。 我们的包裹如何知道如何调用它们？
 
-### Requirements.txt and package dependencies
+#### Requirements.txt and package dependencies
 ```bash
 textedit - package
  	textedit - module
@@ -784,7 +758,7 @@ nltk==3.2
 ```
 
 
-### Documentation
+#### Documentation
 Let’s add some documentation, as well. Good documentation is really important, paricularly to someone just coming into your project. And, even more so, for yourself tomorrow morning. :) The easiest way to add documentation is to add a  `README` to the top level of your module, the same place as `requirements.txt`.
 
 ```bash
@@ -820,7 +794,7 @@ Author: Vicki Boykis
 
 For classes, check out Scikit-learn; it’s really good at [documentation](https://github.com/scikit-learn/scikit-learn/blob/master/sklearn/cluster/k_means_.py)
 
-### Scripts
+#### Scripts
 If you have any shell scripts or additional helper methods associated with your project, you can create a `bin` directory for them. We don’t, so that folder will be empty. But scripts are usually present anywhere you have to deploy stuff, add it to cron, or generally put it in production in any way.
 
 This is also where continuous integration can come in.
@@ -845,7 +819,7 @@ textedit - package
 	requirements.txt
 ```
 
-### \_\_init\_\_.py
+#### \_\_init\_\_.py
 
 And, finally and most importantly, the `__init__.py`, which we’ll want to add to every directory where you have runable Python modules.
 
@@ -855,7 +829,7 @@ We can leave it null. Or you can [add things to it](http://mikegrouchy.com/blog/
 
 When Python imports the module for the first time, it checks the module registry for a list of modules that it can use. `Init` allows your module to be [put in that registry..](http://effbot.org/zone/import-confusion.htm#what-does-python-do)
 
-### \_\_main\_\_.py driver
+#### \_\_main\_\_.py driver
 
 There is this concept in Java of a driver program that you can run and have it call all the other programs in the package. -- 在Java中有一个驱动程序的概念，你可以运行它并让它调用包中的所有其他程序。
 
@@ -885,7 +859,7 @@ Additionally, there are mixed thoughts about having a driver. Google’s Python 
 	requirements.txt
 ```
 
-### setup.py
+#### setup.py
 
 Now that we have the scaffolding in place, we can add things that will help us set up the module after we import it from pip or download it. -- 现在我们已经建立了脚手架，我们可以添加一些东西来帮助我们在从pip导入或下载它之后设置模块。
 
@@ -1130,7 +1104,7 @@ But, now that we’ve taken our first step into a much larger and more insane wo
 
 Here are some great places to start exploring once you’ve gotten the hang of the above: -- 一旦你掌握了上述内容，这里有一些很棒的地方可以开始探索：
 
-### Testing environments
+#### Testing environments
 I mentioned before that there are several ways to create specific environments to build your applications so you’re isolated from whatever else is going on in your Python ecosystem. -- 我之前提到过，有几种方法可以创建特定的环境来构建应用程序，因此您可以与Python生态系统中的其他任何内容隔离开来。
 
 1) Use [virtualenv](https://virtualenv.pypa.io/en/stable/), which acts like a container and isolates the application you’re developing to a single environment that just has the packages you’re interested in for that specific application.
@@ -1141,29 +1115,29 @@ Both of these are involved in modifying the `sys.path` that we looked at earlier
 
 Your next step would be to use either of these instead of your local Python environment.
 
-### More advanced testing
+#### More advanced testing
 Unittest is a great starting point, but there’s also `pytest`, `nose`, mock testing (when you have complex object dependencies), and [much, much more](https://wiki.python.org/moin/PythonTestingToolsTaxonomy). All of these work slightly differently.
 
-### Continuous Integration
+#### Continuous Integration
 Once you build a package, you’ll probably want to make changes to it. And push those changes to some remote version-controlled repository so that others can use them. And you’ll want to automate this process so that you’re not manually doing `pip install ..` This process is known as [continuous integration](https://www.thoughtworks.com/continuous-integration). -- 构建包后，您可能希望对其进行更改。 并将这些更改推送到某个远程版本控制的存储库，以便其他人可以使用它们。 并且您需要自动执行此过程，以便您不会手动执行pip安装。此过程称为持续集成。
 
 There’s a number of fantastic tools for Python CI. The most popular one these days is [Travis](https://docs.python-guide.org/scenarios/ci/), which involves adding a `travis.yml` file that will test your code against your tests and known Python versions. -- Python CI有许多出色的工具。 目前最受欢迎的是Travis，它涉及添加一个travis.yml文件，该文件将根据您的测试和已知的Python版本测试您的代码。
 
-### Git Hooks and Version Control
+#### Git Hooks and Version Control
 We haven’t touched the subject of version control for your package, but you’ll want to add it to specific repositories. We can also add [pre-commit and post-commit hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) to our code, which mean that the code gets checked, or some specific action is triggered, when you try to check in your code.
 
-### Setup.cfg
+#### Setup.cfg
 In our module, there are no passwords or usernames. But if you’re working with databases, webforms, or any number of software options that require you to log in, you’ll need a separate `setup.cfg` file that stores your passwords and keeps them safe on your local or testing machine while not sharing them with others.
 
-### Sphinx/reST
+#### Sphinx/reST
 We’ve already written README.md. But what if you have multiple files that rely on each other? Or you want to use your docstrings to build documentation? [Sphinx and reST](https://thomas-cokelaer.info/tutorials/sphinx/introduction.html) are some ways popular Python packages are documented.
 
-### Wheels
+#### Wheels
 Once you’re done refining all of that, and you’re ready to go to production, you should build a wheel. Python [wheels](https://packaging.python.org/tutorials/distributing-packages/#wheels) are similar to JAR packages in Java, and are a much faster and lightweight process to use in production environments. You can use `setup.py` to build wheels (which is why it’s so important to get it right initially), `python setup.py bdist_wheel --universal`. -- 一旦你完成了所有这些，你已经准备好投入生产了，你应该建造一个轮子。 Python轮子类似于Java中的JAR包，并且是在生产环境中使用的更快更轻的过程。 你可以使用setup.py来构建轮子（这就是为什么最初要把它弄好的原因），python setup.py bdist_wheel --universal。
 
 For much, much more info on wheels, see [here](http://pythonwheels.com/)
 
-### PyPi
+#### PyPi
 This is the big one. If your module is stable enough, you [can release it to PyPi](https://glyph.twistedmatrix.com/2016/08/python-packaging.html), which means anyone in the world can download it through `pip`. There are some [extra hoops you have to jump through here](https://hynek.me/articles/sharing-your-labor-of-love-pypi-quick-and-dirty/), namely in how you configure your setup.py file. For an easier way to do this, [Flit](https://flit.readthedocs.io/en/latest/) is a potential option. -- 这是最重要的一个。 如果你的模块足够稳定，你可以将它发布到PyPi，这意味着世界上任何人都可以通过pip下载它。 你必须在这里跳过一些额外的箍，即你如何配置你的setup.py文件。 为了更简单的方法，Flit是一个潜在的选择。
 
 Once you’re ready, the whole world can see and use your text editor.
