@@ -1122,69 +1122,56 @@ And that’s it! We’ve imported a package that we can now use to write other s
 
 ### Next steps
 
-🎉 Congratulations! We’ve built a Python package! 🎉
+🎉 Congratulations! We’ve built a Python package! 🎉 -- 恭喜！ 我们已经构建了一个Python包！
 
-What’s next? A lot. But we’re not going to cover any of it in this post, because the goal, again, was to understand the basics of packaging.
+What’s next? A lot. But we’re not going to cover any of it in this post, because the goal, again, was to understand the basics of packaging. -- 下一步是什么？ 很多。 但是我们不会在这篇文章中介绍任何内容，因为再次目标是了解包装的基本知识。
 
-But, now that we’ve taken our first step into a much larger and more insane world, there are a lot more next steps we can take to make sure our code is clean, secure, and easy to use.
+But, now that we’ve taken our first step into a much larger and more insane world, there are a lot more next steps we can take to make sure our code is clean, secure, and easy to use. -- 但是，既然我们已经迈出了更大，更疯狂的世界的第一步，我们可以采取更多的后续步骤来确保我们的代码干净，安全且易于使用。
 
-Here are some great places to start exploring once you’ve gotten the hang of the above:
+Here are some great places to start exploring once you’ve gotten the hang of the above: -- 一旦你掌握了上述内容，这里有一些很棒的地方可以开始探索：
 
-Testing environments
-I mentioned before that there are several ways to create specific environments to build your applications so you’re isolated from whatever else is going on in your Python ecosystem.
+### Testing environments
+I mentioned before that there are several ways to create specific environments to build your applications so you’re isolated from whatever else is going on in your Python ecosystem. -- 我之前提到过，有几种方法可以创建特定的环境来构建应用程序，因此您可以与Python生态系统中的其他任何内容隔离开来。
 
-1) Use virtualenv, which acts like a container and isolates the application you’re developing to a single environment that just has the packages you’re interested in for that specific application.
+1) Use [virtualenv](https://virtualenv.pypa.io/en/stable/), which acts like a container and isolates the application you’re developing to a single environment that just has the packages you’re interested in for that specific application.
 
-2) Use pipenv, in which you install packages through pipenv install requests instead of pip. It will create a Pipfile, which keeps track of all your libraries.
+2) Use [pipenv](https://docs.python-guide.org/dev/virtualenvs/), in which you install packages through pipenv install requests instead of pip. It will create a Pipfile, which keeps track of all your libraries.
 
-Both of these are involved in modifying the sys.path that we looked at earlier so that Python knows where to find other files.
+Both of these are involved in modifying the `sys.path` that we looked at earlier so that Python knows where to find other files. -- 这两个都涉及修改我们之前看过的`sys.path`，以便Python知道在哪里可以找到其他文件。
 
 Your next step would be to use either of these instead of your local Python environment.
 
-More advanced testing
-Unittest is a great starting point, but there’s also pytest, nose, mock testing (when you have complex object dependencies), and much, much more. All of these work slightly differently.
+### More advanced testing
+Unittest is a great starting point, but there’s also `pytest`, `nose`, mock testing (when you have complex object dependencies), and [much, much more](https://wiki.python.org/moin/PythonTestingToolsTaxonomy). All of these work slightly differently.
 
-Continuous Integration
-Once you build a package, you’ll probably want to make changes to it. And push those changes to some remote version-controlled repository so that others can use them. And you’ll want to automate this process so that you’re not manually doing pip install .. This process is known as continuous integration.
+### Continuous Integration
+Once you build a package, you’ll probably want to make changes to it. And push those changes to some remote version-controlled repository so that others can use them. And you’ll want to automate this process so that you’re not manually doing `pip install ..` This process is known as [continuous integration](https://www.thoughtworks.com/continuous-integration). -- 构建包后，您可能希望对其进行更改。 并将这些更改推送到某个远程版本控制的存储库，以便其他人可以使用它们。 并且您需要自动执行此过程，以便您不会手动执行pip安装。此过程称为持续集成。
 
-There’s a number of fantastic tools for Python CI. The most popular one these days is Travis, which involves adding a travis.yml file that will test your code against your tests and known Python versions.
+There’s a number of fantastic tools for Python CI. The most popular one these days is [Travis](https://docs.python-guide.org/scenarios/ci/), which involves adding a `travis.yml` file that will test your code against your tests and known Python versions. -- Python CI有许多出色的工具。 目前最受欢迎的是Travis，它涉及添加一个travis.yml文件，该文件将根据您的测试和已知的Python版本测试您的代码。
 
-Git Hooks and Version Control
-We haven’t touched the subject of version control for your package, but you’ll want to add it to specific repositories. We can also add pre-commit and post-commit hooks to our code, which mean that the code gets checked, or some specific action is triggered, when you try to check in your code.
+### Git Hooks and Version Control
+We haven’t touched the subject of version control for your package, but you’ll want to add it to specific repositories. We can also add [pre-commit and post-commit hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) to our code, which mean that the code gets checked, or some specific action is triggered, when you try to check in your code.
 
-Setup.cfg
-In our module, there are no passwords or usernames. But if you’re working with databases, webforms, or any number of software options that require you to log in, you’ll need a separate setup.cfg file that stores your passwords and keeps them safe on your local or testing machine while not sharing them with others.
+### Setup.cfg
+In our module, there are no passwords or usernames. But if you’re working with databases, webforms, or any number of software options that require you to log in, you’ll need a separate `setup.cfg` file that stores your passwords and keeps them safe on your local or testing machine while not sharing them with others.
 
-Sphinx/reST
-We’ve already written README.md. But what if you have multiple files that rely on each other? Or you want to use your docstrings to build documentation? Sphinx and reST are some ways popular Python packages are documented.
+### Sphinx/reST
+We’ve already written README.md. But what if you have multiple files that rely on each other? Or you want to use your docstrings to build documentation? [Sphinx and reST](https://thomas-cokelaer.info/tutorials/sphinx/introduction.html) are some ways popular Python packages are documented.
 
-Wheels
-Once you’re done refining all of that, and you’re ready to go to production, you should build a wheel. Python wheels are similar to JAR packages in Java, and are a much faster and lightweight process to use in production environments. You can use setup.py to build wheels (which is why it’s so important to get it right initially), python setup.py bdist_wheel --universal.
+### Wheels
+Once you’re done refining all of that, and you’re ready to go to production, you should build a wheel. Python [wheels](https://packaging.python.org/tutorials/distributing-packages/#wheels) are similar to JAR packages in Java, and are a much faster and lightweight process to use in production environments. You can use `setup.py` to build wheels (which is why it’s so important to get it right initially), `python setup.py bdist_wheel --universal`. -- 一旦你完成了所有这些，你已经准备好投入生产了，你应该建造一个轮子。 Python轮子类似于Java中的JAR包，并且是在生产环境中使用的更快更轻的过程。 你可以使用setup.py来构建轮子（这就是为什么最初要把它弄好的原因），python setup.py bdist_wheel --universal。
 
-For much, much more info on wheels, see here
+For much, much more info on wheels, see [here](http://pythonwheels.com/)
 
-PyPi
-This is the big one. If your module is stable enough, you can release it to PyPi, which means anyone in the world can download it through pip. There are some extra hoops you have to jump through here, namely in how you configure your setup.py file. For an easier way to do this, Flit is a potential option.
+### PyPi
+This is the big one. If your module is stable enough, you [can release it to PyPi](https://glyph.twistedmatrix.com/2016/08/python-packaging.html), which means anyone in the world can download it through `pip`. There are some [extra hoops you have to jump through here](https://hynek.me/articles/sharing-your-labor-of-love-pypi-quick-and-dirty/), namely in how you configure your setup.py file. For an easier way to do this, [Flit](https://flit.readthedocs.io/en/latest/) is a potential option. -- 这是最重要的一个。 如果你的模块足够稳定，你可以将它发布到PyPi，这意味着世界上任何人都可以通过pip下载它。 你必须在这里跳过一些额外的箍，即你如何配置你的setup.py文件。 为了更简单的方法，Flit是一个潜在的选择。
 
 Once you’re ready, the whole world can see and use your text editor.
 
-Conclusion
-Python project structure and packaging can be intimidating, but, if you take it step by step, it doesn’t have to be.
+### Conclusion
+Python project structure and packaging can be intimidating, but, if you take it step by step, it doesn’t have to be. -- Python项目结构和包装可能令人生畏，但是，如果你一步一步地采取它，它不一定是。
 
-Look at other people’s code, particularly smaller, modular projects, break the work up into pieces, and work through it piece by piece, until you’re all the way down the rabbit hole.
-
-Good luck!
-
-Acknowledgements
-A huge thank you to Sam Zeitlin, Tom Ausperger, William Cox, and Mark Roddy for reading drafts of this post.
-
-Any additional errors are wholly my own and the fault of too many late nights spent in the Tenniel Alice in Wonderland illustrations.
-
-To fix a bug, feel free to submit a pull request.
-
-© 2018. Vicki Boykis All rights reserved.
-
-
+Look at other people’s code, particularly smaller, modular projects, break the work up into pieces, and work through it piece by piece, until you’re all the way down the rabbit hole. -- 看看其他人的代码，特别是较小的模块化项目，将工作分解成碎片，然后逐个完成，直到你一直沿着兔子洞走下去。
 
 [参考1](https://veekaybee.github.io/2017/09/26/python-packaging/)
 
