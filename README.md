@@ -151,39 +151,28 @@ Author: `huzhi`
 
 * shell 编程
 
-	* [pure-bash-bible](https://github.com/dylanaraps/pure-bash-bible) - shell 字符串，变量，循环，文件处理等的高效处理方法
+  * [pure-bash-bible](https://github.com/dylanaraps/pure-bash-bible) - shell 字符串，变量，循环，文件处理等的高效处理方法
 
-	* [shell](https://google.github.io/styleguide/shell.xml) - shell代码规范
-
+  * [shell](https://google.github.io/styleguide/shell.xml) - shell代码规范
 * [Linux 使用技巧](https://github.com/jlevy/the-art-of-command-line)
-
 * [unix/linux 命令列表及说明](https://github.com/lanzhiwang/awesome-huzhi/wiki/unix-linux-command-list)
-
 * [free 命令输出详解](https://github.com/lanzhiwang/awesome-huzhi/wiki/free-output-explanation)
-
 * [ uptime 命令输出 linux 负载说明](https://github.com/lanzhiwang/awesome-huzhi/wiki/linux-load-explanation)
-
 * vim 常见操作
-
 * Linux常见命令使用示例
 
-	* [https://cheat.sh/](https://cheat.sh/)
+  * [https://cheat.sh/](https://cheat.sh/)
 
-	* [cheat.sh](https://github.com/chubin/cheat.sh)
+  * [cheat.sh](https://github.com/chubin/cheat.sh)
 
-	* [tldr](https://github.com/lanzhiwang/tldr)
-
+  * [tldr](https://github.com/lanzhiwang/tldr)
 * [Linux-Explore](https://github.com/lanzhiwang/awesome-huzhi/wiki/Linux-Explore) - 了解Linux服务器
-
 * openssl、gpg
-
 * firewall、[iptables](https://github.com/lanzhiwang/awesome-huzhi/blob/master/iptables.md)
-
 * whiptail - 创建交互式shell脚本对话框
-
 * [代理服务、翻墙](https://github.com/lanzhiwang/awesome-huzhi/wiki/%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1)
-
 * [nginx uwsgi flask](https://github.com/lanzhiwang/awesome-huzhi/blob/master/nginx_uwsgi_flask.md)
+* [监控系统基本原理]()
 
 
 ## MySQL
