@@ -835,7 +835,7 @@ You have mail in /var/spool/mail/root
 [root@localhost ~]# docker images
 REPOSITORY                                    TAG                 IMAGE ID            CREATED             SIZE
 registry.aspider.avlyun.org/library/centos7   latest              3b176d01caf2        6 weeks ago         205MB
-[root@localhost ~]#
+[root@localhost ~]# docker logout
 ```
 
 ### 资源限制
@@ -859,6 +859,3 @@ docker top
 docker stats
 ```
 
-
-
- 
