@@ -1,6 +1,33 @@
 ## Alice in Python projectland
 
-[TOC]
+- [Intro](#intro)
+- [Python hides the hurt](#python-hides-the-hurt)
+- [Building a simple word processor](#building-a-simple-word-processor)
+- [Creating a single object](#creating-a-single-object)
+- [Combining objects into a program](#combining-objects-into-a-program)
+  - [Refactoring a single program](#refactoring-a-single-program)
+- [Combining programs into scripts](#combining-programs-into-scripts)
+- [Combining scripts into a module](#combining-scripts-into-a-module)
+- [Project structure](#project-structure)
+  - [Modular Code](#modular-code)
+  - [Unit Tests](#unit-tests)
+  - [Requirements.txt and package dependencies](#requirementstxt-and-package-dependencies)
+  - [Documentation](#documentation)
+  - [Scripts](#scripts)
+  - [\_\_init\_\_.py](#__init__py)
+  - [\_\_main\_\_.py driver](#__main__py-driver)
+  - [setup.py](#setuppy)
+- [Sharing and using our package](#sharing-and-using-our-package)
+- [Next steps](#next-steps)
+  - [Testing environments](#testing-environments)
+  - [More advanced testing](#more-advanced-testing)
+  - [Continuous Integration](#continuous-integration)
+  - [Git Hooks and Version Control](#git-hooks-and-version-control)
+  - [Setup.cfg](#setupcfg)
+  - [Sphinx/reST](#sphinxrest)
+  - [Wheels](#wheels)
+  - [PyPi](#pypi)
+- [Conclusion](#conclusion)
 
 ### Intro
 Python project structure and packaging standardization is still not a solved problem, something that became even more apparent to me when I recently worked on packaging a machine learning natural language app. -- Python项目结构和打包标准化仍然不是一个已经解决的问题，当我最近在打包机器学习自然语言应用程序时，这一点对我来说变得更加明显。
