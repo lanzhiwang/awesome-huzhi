@@ -190,8 +190,7 @@ Author: `huzhi`
 
 * 事务特性
 
-	* [ACID](https://github.com/donnemartin/system-design-primer#relational-database-management-system-rdbms)
-
+  * [ACID](https://github.com/donnemartin/system-design-primer#relational-database-management-system-rdbms)
 * 事务并发时的问题
 
     1. 脏读
@@ -199,7 +198,6 @@ Author: `huzhi`
     2. 不可重复读
 
     3. 幻读
-
 * 事务隔离级别([事务隔离级别测试准备工作](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-transaction-isolation#%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E6%B5%8B%E8%AF%95%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C))
 
     1. [读未提交(read-uncommitted)](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-transaction-isolation#%E8%AF%BB%E6%9C%AA%E6%8F%90%E4%BA%A4read-uncommitted)
@@ -209,18 +207,13 @@ Author: `huzhi`
     3. [可重复读(repeatable-read)](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-transaction-isolation#%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BBrepeatable-read)
 
     4. [串行化(serializable)](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-transaction-isolation#%E4%B8%B2%E8%A1%8C%E5%8C%96serializable)
-
 * 锁表、锁数据行、异步处理
-
 * [MySQL 表锁](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-lock)
-
 * [InnoDB记录存储结构、InnoDB数据页结构、MySQL的索引](https://github.com/lanzhiwang/awesome-huzhi/wiki/MySQL-index)
-
 * 数据库分库分表方案
-
 * [水平分表后页面分页处理办法](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-sub-table)
-
 * MySQL的压测工具 - mysqlslap
+* [MySQL 博客](https://mysqlserverteam.com/)
 
 
 ## Docker/Kubernetes
