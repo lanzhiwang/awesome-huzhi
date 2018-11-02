@@ -319,3 +319,9 @@ if __name__ == '__main__':
 
 ```
 
+
+
+[参考1](https://www.ibm.com/developerworks/cn/cloud/library/cl-lo-prometheus-getting-started-and-practice/index.html)
+
+[参考2](https://www.zybuluo.com/rickyChen/note/831219)
+
