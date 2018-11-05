@@ -451,35 +451,35 @@ h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
 
 * Python
 
-	* 图灵程序设计丛书:Python基础教程(第2版)
+  * 图灵程序设计丛书:Python基础教程(第2版)
 
-	* 流畅的Python (图灵程序设计丛书)
+  * 流畅的Python (图灵程序设计丛书)
 
-	* Effective Python:编写高质量Python代码的59个有效方法
+  * Effective Python:编写高质量Python代码的59个有效方法
 
-	* Python 并行编程手册
+  * Python 并行编程手册
 
-	* Python 参考手册
+  * Python 参考手册
 
-	* Python核心编程(第3版)
+  * Python核心编程(第3版)
 
-	* Python编程之美(最佳实践指南)
+  * Python编程之美(最佳实践指南)
 
-	* Python网络编程攻略 (图灵程序设计丛书)
+  * Python网络编程攻略 (图灵程序设计丛书)
 
-	* Python极客项目编程
+  * Python极客项目编程
 
-	* Flask Web开发 基于Python的Web应用开发实战 (图灵程序设计丛书)
+  * Flask Web开发 基于Python的Web应用开发实战 (图灵程序设计丛书)
 
-	* Python Web开发 测试驱动方法 (图灵程序设计丛书)
+  * Python Web开发 测试驱动方法 (图灵程序设计丛书)
 
-	* Python数据分析基础教程：NumPy学习指南（第2版）
+  * Python数据分析基础教程：NumPy学习指南（第2版）
 
-	* Python数据可视化编程实战 第2版
+  * Python数据可视化编程实战 第2版
 
-	* Selenium自动化测试 基于 Python 语言
+  * Selenium自动化测试 基于 Python 语言
 
-	* Python高手之路
+  * Python高手之路
 
 * Linux
 
@@ -498,44 +498,43 @@ h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
 * Docker
 
     * 第一本Docker书
-
     * Docker经典实例 (图灵程序设计丛书)
-
     * 每天5分钟玩转Docker容器技术
-
     * 每天5分钟玩转Kubernetes
+    * 容器即服务：从零构建企业级容器集群
+    * Kubernetes权威指南：企业级容器云实战
 
 * go
 
-	* The Go Programming Language (英语)
+  * The Go Programming Language (英语)
 
-	* Go并发编程实战(第2版)
+  * Go并发编程实战(第2版)
 
-	* Go语言入门经典
+  * Go语言入门经典
 
-	* Go语言实战
+  * Go语言实战
 
-	* Go Web编程
+  * Go Web编程
 
-	* 微服务设计
+  * 微服务设计
 
-	* [Go语言高级编程](https://github.com/chai2010/advanced-go-programming-book)
+  * [Go语言高级编程](https://github.com/chai2010/advanced-go-programming-book)
 
 * MySQL
 
-	* 高性能MySQL(第3版)
+  * 高性能MySQL(第3版)
 
-	* MySQL数据库入门
+  * MySQL数据库入门
 
-	* MySQL技术内幕(第5版)
+  * MySQL技术内幕(第5版)
 
-	* 深入浅出MySQL:数据库开发、优化与管理维护(第2版)
+  * 深入浅出MySQL:数据库开发、优化与管理维护(第2版)
 
 * Android
 
-	* Android安全攻防实践
+  * Android安全攻防实践
 
-	* Android恶意代码分析与渗透测试
+  * Android恶意代码分析与渗透测试
 
 * other
 
