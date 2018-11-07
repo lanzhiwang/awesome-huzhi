@@ -41,7 +41,6 @@ Author: `huzhi`
 ## python
 
 * [pool](https://github.com/lanzhiwang/pool) - Python 进程池，线程池，连接池等的实现方法
-
 * [Python并行编程](https://github.com/lanzhiwang/Python_Parallel_Programming)
 
     1. 基于线程的并行 - `threading`
@@ -49,7 +48,6 @@ Author: `huzhi`
     3. 异步编程 - `async` `concurrent` `gevent`
     4. 分布式Python - `celery` `RPC`
     5. GPU 编程 - `Numba ` `PyCUDA` `PyOpenCL`
-
 * Python 源码阅读
 
     * [Python 源码阅读最佳实践](https://github.com/lanzhiwang/awesome-huzhi/wiki/Source-reading)
@@ -66,7 +64,6 @@ Author: `huzhi`
         * [werkzeug](https://github.com/pallets/werkzeug)
         * [flask](https://github.com/pallets/flask)
         * [fuqit](https://github.com/zedshaw/fuqit) - The FuqIt Web Framework
-
 * 深入理解 Python ( 参考 [流畅的Python](https://github.com/fluentpython/example-code) )
     * [Python 数据模型](https://github.com/fluentpython/example-code/tree/master/01-data-model)
     * Python 数据结构
@@ -86,65 +83,39 @@ Author: `huzhi`
     	* [动态属性和特性](https://github.com/fluentpython/example-code/tree/master/19-dyn-attr-prop)
     	* [属性描述符](https://github.com/fluentpython/example-code/tree/master/20-descriptor)
     	* [类元编程](https://github.com/fluentpython/example-code/tree/master/21-class-metaprog)
-
 * [python-patterns](https://github.com/lanzhiwang/python-patterns) - 常见设计模式UML类图说明-Python实现
-
 * [learn-wsgiref](https://github.com/lanzhiwang/learn-wsgiref) - `wsgi`规范UML说明和相关实现
-
 * [first-diy-framework](https://github.com/lanzhiwang/first-diy-framework) - 自定义 Python 框架和`asyncio`实现
-
 * [lsbaws](https://github.com/rspivak/lsbaws) - 使用`socket`构建简单的`web`服务器
-
 * [learn_bottle](https://github.com/lanzhiwang/awesome-huzhi/wiki/learn_bottle) - `bottle`框架中常见类的UML图
-
 * [pyguide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md) - python代码规范
-
 * [thread_signal](https://github.com/lanzhiwang/Python/blob/master/thread_signal.py) - 线程响应`ctrl+c`信号退出
-
 * [data_analysis](https://github.com/lanzhiwang/data_analysis) -`Numpy`、`Pandas`、`Scipy`、`Matplotlib`的使用方法([参考文档](https://github.com/donnemartin/data-science-ipython-notebooks))
-
 * [records](https://github.com/lanzhiwang/records) - 使用 UML 类图说明`records`设计架构
-
 * [SQLAlchemy example](https://github.com/lanzhiwang/awesome-huzhi/blob/master/SQLAlchemy.md) - `SQLAlchemy`示例说明 SQLAlchemy 的使用方法
-
 * [Python 技巧](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python_Tips)
   * [有趣实用的代码片段](https://github.com/satwikkansal/wtfPython)
-
 * [布隆过滤器](https://github.com/jaybaird/python-bloomfilter)
-
 * [Python 脚本到打包项目的标准化指南](https://github.com/lanzhiwang/awesome-huzhi/blob/master/packaging_standardization.md)
-
 * [Python 项目标准结构](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Repository_Structure_and_Python.md)
-
 * [Python 线程安全](https://github.com/lanzhiwang/awesome-huzhi/wiki/python-thread-safe)
-
 * [Python 对象序列化](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python-object-serialization)
-
 * [Python 深复制和浅复制](https://github.com/fluentpython/example-code/blob/master/08-obj-ref/bus.py)
-
 * [Python 弱引用](https://github.com/fluentpython/example-code/blob/master/08-obj-ref/cheese.py)
-
 * [Python 对象可散列](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python-object-hash)
-
 * [Python 动态导入](https://github.com/lanzhiwang/awesome-huzhi/wiki/python-dynamic-import)
-
 * [不太常见的包或者模块、函数](https://github.com/lanzhiwang/awesome-huzhi/wiki/Less-common-packages-or-modules-or-functions)
-
 * 不太常见的Python语言特性
   * [exec-eval](https://anandology.com/python-practice-book/functional-programming.html#exec-eval)
   * [魔术方法](https://rszalski.github.io/magicmethods/)
-
 * Python 虚拟环境
   * 解决依赖包问题: virtualenv
   * 解决 python 版本问题: pyenv
-
 * [Python3 实例教程](https://github.com/jerry-git/learn-python3)
-
 * [爬虫采集和调度框架](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/Reptile_frame.png)
-
 * [httpie 使用说明](https://keelii.com/2018/09/03/HTTPie/)
-
 * [将 python 源码编译成 exe 文件](https://www.ctolib.com/topics-119121.html)
+* [flask 启动脚本](https://github.com/lanzhiwang/awesome-huzhi/blob/master/flask_manager.md)
 
 
 ## Linux
