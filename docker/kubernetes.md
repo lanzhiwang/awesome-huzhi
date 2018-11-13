@@ -29,7 +29,7 @@
   * 安装
   * 修改 dashboard service 的 type 为 NodePort 以便通过浏览器访问
   * 配置 dashboard 登陆权限
-* 安装日志插件
+* 安装[日志插件](https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/fluentd-elasticsearch)
 * 安装监控工具 Weave Scope
 
 
