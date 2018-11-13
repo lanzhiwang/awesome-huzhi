@@ -2,6 +2,10 @@
 
 
 
+![](./kubernetes.svg)
+
+
+
 * 检查机器相关配置
 * 在所有节点安装 docker 
 * 在所有节点安装 kubeadm, kubelet 和 kubectl
