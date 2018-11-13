@@ -187,6 +187,7 @@ Author: `huzhi`
 * [Docker 数据管理](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/data_manager.md)
 * [Docker/Kubernetes线路图](https://github.com/lanzhiwang/awesome-huzhi/wiki/docker-and-kubernetes)
 * [Linux 容器技术基础](http://pierrchen.blogspot.com/2018/08/understand-container-index.html)
+* [kubernetes ](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/kubernetes.md)
 
 
 ## Component
