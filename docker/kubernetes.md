@@ -2,6 +2,16 @@
 
 
 
+
+
+![](./Kubernetes_Architecture.svg)
+
+
+
+
+
+
+
 ![](./kubernetes.svg)
 
 
@@ -19,6 +29,8 @@
   * 安装
   * 修改 dashboard service 的 type 为 NodePort 以便通过浏览器访问
   * 配置 dashboard 登陆权限
+* 安装日志插件
+* 安装监控工具 Weave Scope
 
 
 
