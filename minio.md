@@ -231,3 +231,12 @@ VERSION:
 
 [Linux服务器上Minio生产环境的内核调优](https://blog.csdn.net/dingjs520/article/details/79111037)
 
+
+
+
+
+缺点
+
+* 社区不够成熟，业界参考资料较少
+* 不支持动态增加节点，minio创始人的设计理念就是动态增加节点太复杂，后续会采用其它方案来支持扩容。 
+
