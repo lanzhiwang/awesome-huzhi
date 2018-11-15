@@ -254,7 +254,7 @@ Author: `huzhi`
 * 分布式实现
 
 	* 分布式文件系统
-		* [seaweedfs](https://github.com/chrislusf/seaweedfs)
+		* [minio](https://github.com/lanzhiwang/awesome-huzhi/blob/master/minio.md)
 		* [fastdfs](https://github.com/happyfish100/fastdfs)
 		* [分布式文件系统选型要考虑的问题](https://github.com/lanzhiwang/awesome-huzhi/wiki/distributed-file-system)
 
