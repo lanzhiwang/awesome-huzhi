@@ -231,7 +231,11 @@ VERSION:
 
 [Linux服务器上Minio生产环境的内核调优](https://blog.csdn.net/dingjs520/article/details/79111037)
 
+[参考1](https://www.maideliang.com/index.php/archives/22/)
 
+[参考2](https://juejin.im/post/5ae134176fb9a07aaf34e609)
+
+[参考3](https://blog.csdn.net/dingjs520/article/details/79111029)
 
 
 

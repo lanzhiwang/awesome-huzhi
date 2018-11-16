@@ -235,38 +235,34 @@ Author: `huzhi`
 
 * 分布式理论
 
-	* [CAP theorem](https://github.com/donnemartin/system-design-primer#cap-theorem)
+  * [CAP theorem](https://github.com/donnemartin/system-design-primer#cap-theorem)
 
-	* [分布式系统中的幂等性](https://www.cnblogs.com/vveiliang/p/6643874.html)
+  * [分布式系统中的幂等性](https://www.cnblogs.com/vveiliang/p/6643874.html)
 
 * [分布式系统介绍](https://hackernoon.com/a-thorough-introduction-to-distributed-systems-3b91562c9b3c)
 
 * 分布式系统存在的问题
 
-	* [拜占庭将军问题](https://github.com/lanzhiwang/awesome-huzhi/wiki/The_Byzantine_General_Problem)
+  * [拜占庭将军问题](https://github.com/lanzhiwang/awesome-huzhi/wiki/The_Byzantine_General_Problem)
 
 * 分布式协议
 
-	* Paxos
+  * Paxos
 
-	* [Raft](https://github.com/lanzhiwang/awesome-huzhi/wiki/raft)
+  * [Raft](https://github.com/lanzhiwang/awesome-huzhi/wiki/raft)
 
 * 分布式实现
 
-	* 分布式文件系统
-		* [minio](https://github.com/lanzhiwang/awesome-huzhi/blob/master/minio.md)
-		* [fastdfs](https://github.com/happyfish100/fastdfs)
-		* [分布式文件系统选型要考虑的问题](https://github.com/lanzhiwang/awesome-huzhi/wiki/distributed-file-system)
-
-	* [一致性hash](https://github.com/lanzhiwang/awesome-huzhi/wiki/Consistency-Hash)
-
-	* [分布式 id 生成器](https://chai2010.cn/advanced-go-programming-book/ch6-cloud/ch6-01-dist-id.html)
-
-	* [分布式锁](https://chai2010.cn/advanced-go-programming-book/ch6-cloud/ch6-02-lock.html)
-
-	* [分布式配置管理](https://chai2010.cn/advanced-go-programming-book/ch6-cloud/ch6-06-config.html)
-
-	* [分布式爬虫](https://chai2010.cn/advanced-go-programming-book/ch6-cloud/ch6-07-crawler.html)
+  * 分布式文件系统
+    * [minio](https://github.com/lanzhiwang/awesome-huzhi/blob/master/minio.md)
+    * [fastdfs](https://github.com/happyfish100/fastdfs)
+    * [分布式文件系统选型要考虑的问题](https://github.com/lanzhiwang/awesome-huzhi/wiki/distributed-file-system)
+  * [一致性hash](https://github.com/lanzhiwang/awesome-huzhi/wiki/Consistency-Hash)
+  * [分布式 id 生成器](https://chai2010.cn/advanced-go-programming-book/ch6-cloud/ch6-01-dist-id.html)
+  * [分布式锁](https://chai2010.cn/advanced-go-programming-book/ch6-cloud/ch6-02-lock.html)
+  * [分布式配置管理](https://chai2010.cn/advanced-go-programming-book/ch6-cloud/ch6-06-config.html)
+  * [分布式爬虫](https://chai2010.cn/advanced-go-programming-book/ch6-cloud/ch6-07-crawler.html)
+* [对象存储(Object Storage)](https://www.ibm.com/cloud-computing/cn-zh/learn-more/what-is-object-storage/)
 
 
 ## PHP
