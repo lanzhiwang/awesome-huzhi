@@ -17,7 +17,7 @@
 | 编号 |       IP       |   hostname   |                功能                |
 | :--: | :------------: | :----------: | :--------------------------------: |
 |  1   | 192.168.57.101 |  ceph-node1  | ceph-deploy，momtor，OSD，RBD，MDS |
-|  2   | 192.168.57.102 |  ceph-node2  |             momtorOSD              |
+|  2   | 192.168.57.102 |  ceph-node2  |            momtor，OSD             |
 |  3   | 192.168.57.103 |  ceph-node3  |            momtor，OSD             |
 |  4   | 192.168.57.200 | ceph-client1 |    RADOS 块设备客户端， CephFS     |
 |  5   | 192.168.57.110 |   ceph-rgw   |              RADOS GW              |
