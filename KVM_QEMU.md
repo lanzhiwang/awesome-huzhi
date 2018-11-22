@@ -227,7 +227,7 @@ The `libvirt-client` spackage provides the client-side APIs and libraries for ac
    WebVirtCloud
    arp -an 52:50:0c:7a:20:01 （这里只根据通信缓存记录的mac 、IP地址手段做排查。也有可能找不到。最好的办法是自己写一个脚本跟网段内的所有服务器都ping一次，记录下mac、ip地址以后再查找就没问题）
    grep 52:50:0c:7a:20:01 -rn /var/lib/libvirt/dnsmasq
-   vncviewer port-id
+   vncviewer port-id （ssh sk@192.168.225.22 -L 5900:127.0.0.1:5900）
 
 6. 关闭虚拟机
    最正常的关闭虚拟机的方式就是在虚拟机系统中执行关机命令来关闭系统，如果虚拟机系统支持acpi，还可以使用以下的命令在外部优雅地关闭该虚拟机：
