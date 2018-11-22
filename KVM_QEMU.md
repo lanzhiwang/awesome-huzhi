@@ -102,17 +102,17 @@ The `libvirt-client` spackage provides the client-side APIs and libraries for ac
 
 #### kvm虚拟机的命令行管理方式
 
-1、虚拟机磁盘的创建
-创建一个全新的kvm虚拟机，第一步应该是创建需要使用的虚拟机磁盘，qemu-img命令用于创建虚拟机磁盘：
-a. 创建一个空间为40G的虚拟机磁盘文件disk.img，镜像格式为qcow2:
-​    qemu-img create -f qcow2 ./disk.img 40G
-​    注意，由于是松散文件，此时创建后的磁盘文件体积暂时还很小。
-b.基于已有的虚拟磁盘文件base.img来创建虚拟磁盘disk.img，相当于“克隆”的功能：
-   qemu-img create -b base.img -f qcow2 ./disk.img 40G
-   注意，此处使用-b参数来指定已有的磁盘文件，使用该方式生成的虚拟机磁盘文件虽然体积小，但已具有磁盘文件base.img的全部功能，且此时disk.img文件仅会存储与基础镜像的差异，是大规模部署相同业务时的首选方案。但在进行虚拟机迁移的时候，千万不要忘记将base.img文件也一并移走。
+1. 虚拟机磁盘的创建
+   创建一个全新的kvm虚拟机，第一步应该是创建需要使用的虚拟机磁盘，qemu-img命令用于创建虚拟机磁盘：
+   * 创建一个空间为40G的虚拟机磁盘文件disk.img，镜像格式为qcow2:
+     ​    qemu-img create -f qcow2 ./disk.img 40G
+     ​    注意，由于是松散文件，此时创建后的磁盘文件体积暂时还很小。
+   * 基于已有的虚拟磁盘文件base.img来创建虚拟磁盘disk.img，相当于“克隆”的功能：
+        qemu-img create -b base.img -f qcow2 ./disk.img 40G
+        注意，此处使用-b参数来指定已有的磁盘文件，使用该方式生成的虚拟机磁盘文件虽然体积小，但已具有磁盘文件base.img的全部功能，且此时disk.img文件仅会存储与基础镜像的差异，是大规模部署相同业务时的首选方案。但在进行虚拟机迁移的时候，千万不要忘记将base.img文件也一并移走。
 
-2、编写虚拟机配置文件origin.xml
-kvm虚拟机可以使用命令行的方式启动，但是需要带着众多参数，记忆麻烦，管理也困难，因此libvirtd这个服务在管理kvm虚拟机时，使用了xml文件来存储虚拟机的参数配置，一个标准的kvm虚拟机配置文件如下：
+2. 编写虚拟机配置文件origin.xml
+   kvm虚拟机可以使用命令行的方式启动，但是需要带着众多参数，记忆麻烦，管理也困难，因此libvirtd这个服务在管理kvm虚拟机时，使用了xml文件来存储虚拟机的参数配置，一个标准的kvm虚拟机配置文件如下：
 
 ```
 <domain type='kvm'>
@@ -212,32 +212,32 @@ kvm虚拟机可以使用命令行的方式启动，但是需要带着众多参�
 </domain>
 ```
 
-3、定义虚拟机
-虚拟机的配置文件origin.xml编写完成后，可以使用以下命令来定义该虚拟机：
-virsh define origin.xml
+3. 定义虚拟机
+   虚拟机的配置文件origin.xml编写完成后，可以使用以下命令来定义该虚拟机：
+   virsh define origin.xml
 
-4、启动虚拟机
-可以使用“start + 虚拟机名称”命令来启动已定义的虚拟机：
-virsh start origin
+4. 启动虚拟机
+   可以使用“start + 虚拟机名称”命令来启动已定义的虚拟机：
+   virsh start origin
 
-5、查看虚拟机的vnc端口
-使用vncdisplay来查看虚拟机使用vnc端口
-virsh vncdisplay origin
-virt-manager
-WebVirtCloud
-arp -an 52:50:0c:7a:20:01 （这里只根据通信缓存记录的mac 、IP地址手段做排查。也有可能找不到。最好的办法是自己写一个脚本跟网段内的所有服务器都ping一次，记录下mac、ip地址以后再查找就没问题）
-grep 52:50:0c:7a:20:01 -rn /var/lib/libvirt/dnsmasq
-vncviewer port-id
+5. 查看虚拟机的vnc端口
+   使用vncdisplay来查看虚拟机使用vnc端口
+   virsh vncdisplay origin
+   virt-manager
+   WebVirtCloud
+   arp -an 52:50:0c:7a:20:01 （这里只根据通信缓存记录的mac 、IP地址手段做排查。也有可能找不到。最好的办法是自己写一个脚本跟网段内的所有服务器都ping一次，记录下mac、ip地址以后再查找就没问题）
+   grep 52:50:0c:7a:20:01 -rn /var/lib/libvirt/dnsmasq
+   vncviewer port-id
 
-6、关闭虚拟机
-最正常的关闭虚拟机的方式就是在虚拟机系统中执行关机命令来关闭系统，如果虚拟机系统支持acpi，还可以使用以下的命令在外部优雅地关闭该虚拟机：
-virsh shutdown origin
-如果虚拟机已死机，或是该虚拟机不再重要，需要删除，则可以使用以下的命令来直接对虚拟机造成“拔电源”的效果：
-virsh destroy origin
+6. 关闭虚拟机
+   最正常的关闭虚拟机的方式就是在虚拟机系统中执行关机命令来关闭系统，如果虚拟机系统支持acpi，还可以使用以下的命令在外部优雅地关闭该虚拟机：
+   virsh shutdown origin
+   如果虚拟机已死机，或是该虚拟机不再重要，需要删除，则可以使用以下的命令来直接对虚拟机造成“拔电源”的效果：
+   virsh destroy origin
 
-7、删除虚拟机
-如果需要删除虚拟机，则需要执行undefine命令来取消该虚拟机的定义：
-virsh undefine origin
+7. 删除虚拟机
+   如果需要删除虚拟机，则需要执行undefine命令来取消该虚拟机的定义：
+   virsh undefine origin
 
 kvm虚拟机默认XML文件存放位置
 /etc/libvirt/qemu
@@ -251,10 +251,10 @@ kvm虚拟机默认镜像文件存放位置
 
 默认情况下kvm虚拟机使用NAT方式来联网，如果希望使用桥接方式来联网，则需要按照以下的方式来进行配置：
 
-1、配置桥接网络
-已redhat系列的操作系统为例，我们需要在实体机中创建一个桥接设备，让实体机网卡及kvm虚拟机的网卡直接连接到这个桥接设备上，可以在/etc/sysconfig/network-scripts目录下创建配置文件ifcfg-br0来创建一个网桥设备br0：
-vim /etc/sysconfig/network-scripts/ifcfg-br0 ，实际上该网桥设备的配置与当前实体机使用的物理网卡的配置内容相似，只是类型是网桥而已。
-该配置文件内容如下：
+1. 配置桥接网络
+   已redhat系列的操作系统为例，我们需要在实体机中创建一个桥接设备，让实体机网卡及kvm虚拟机的网卡直接连接到这个桥接设备上，可以在/etc/sysconfig/network-scripts目录下创建配置文件ifcfg-br0来创建一个网桥设备br0：
+   vim /etc/sysconfig/network-scripts/ifcfg-br0 ，实际上该网桥设备的配置与当前实体机使用的物理网卡的配置内容相似，只是类型是网桥而已。
+   该配置文件内容如下：
 
 ```
 DEVICE="br0"
@@ -267,8 +267,8 @@ NETMASK=255.255.255.0
 GATEWAY=192.168.12.1
 ```
 
-2、配置物理网卡
-创建网桥设备br0之后，需要将当前实体机使用的物理网卡连接到这个网桥上，如果当前实体机使用的网卡是eth0，则此时ifcfg-eth0配置文件的内容需要修改为以下的样子：
+2. 配置物理网卡
+   创建网桥设备br0之后，需要将当前实体机使用的物理网卡连接到这个网桥上，如果当前实体机使用的网卡是eth0，则此时ifcfg-eth0配置文件的内容需要修改为以下的样子：
 
 ```
 DEVICE="eth0"
@@ -280,8 +280,8 @@ BRIDGE=br0
 
 可以看到，此时eth0的配置文件不需要指定IP，只需要指定连接至br0这个网桥即可。
 
-3、修改虚拟机配置文件
-此时在需要使用网桥来连接网络的虚拟机中配置网络如下即可：
+3. 修改虚拟机配置文件
+   此时在需要使用网桥来连接网络的虚拟机中配置网络如下即可：
 
 ```
 <interface type='bridge'>
