@@ -40,16 +40,20 @@ The `libvirt` package provides the server and host-side libraries for interactin
 
 **yum install libvirt-python virt-manager virt-install libvirt-client**
 
-libvirt-python
+* libvirt-python
+
 The `libvirt-python` package contains a module that permits允许 applications written in the Python programming language to use the interface supplied by the libvirt API.
 
-virt-manager
+* virt-manager
+
 `virt-manager`, also known as Virtual Machine Manager, provides `a graphical tool` for administering virtual machines. It uses the libvirt-client library as the management API.
 
-virt-install
+* virt-install
+
 This package provides the virt-install command for `creating virtual machines` from the command line.
 
-libvirt-client
+* libvirt-client
+
 The `libvirt-client` spackage provides the client-side APIs and libraries for accessing libvirt servers. The libvirt-client package includes the virsh command-line tool to manage and control virtual machines and hypervisors from the command line or a special virtualization shell.
 
 
@@ -58,18 +62,17 @@ The `libvirt-client` spackage provides the client-side APIs and libraries for ac
 
 创建KVM虚拟机的步骤：
 
-1、创建虚拟机磁盘
-
-2、编写虚拟机配置文件
+1. 创建虚拟机磁盘
+2. 编写虚拟机配置文件
 
 - 配置虚拟机使用的硬盘
 - 配置cdrom设备
 - 配置指定了虚拟机的网卡信息
 - 配置虚拟机使用的图形设备的信息
 
-3、定义虚拟机
+3. 定义虚拟机
 
-4、启动虚拟机
+4. 启动虚拟机
 
 此时启动有两种情况：
 
@@ -86,7 +89,7 @@ The `libvirt-client` spackage provides the client-side APIs and libraries for ac
   * 在虚拟机配置文件中定义图形设备信息，使用 virt-manager
 * 系统安装完成后需要修改 bios 引导顺序，启动网卡，修改网卡配置，启动 ssh server
 
-5、连接虚拟机
+5. 连接虚拟机
 
 连接虚拟机的方法：
 
