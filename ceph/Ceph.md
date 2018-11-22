@@ -1106,9 +1106,1367 @@ ceph version 12.2.9 (9e300932ef8a8916fb3fda78c58691a6ab0f4217) luminous (stable)
 /usr/share/licenses/rdma-core-15/COPYING.md
 /usr/share/man/man8/rdma-ndd.8.gz
 [root@app1 ceph]# 
+[root@app1 ~]# rpm -ql ceph-base
+/etc/logrotate.d/ceph
+/etc/sysconfig/ceph
+/usr/bin/ceph-detect-init
+/usr/bin/ceph-kvstore-tool
+/usr/bin/ceph-run
+/usr/bin/crushtool
+/usr/bin/monmaptool
+/usr/bin/osdmaptool
+/usr/lib/ceph
+/usr/lib/ceph/ceph_common.sh
+/usr/lib/python2.7/site-packages/ceph_detect_init
+/usr/lib/python2.7/site-packages/ceph_detect_init-1.0.1-py2.7.egg-info
+/usr/lib/python2.7/site-packages/ceph_detect_init-1.0.1-py2.7.egg-info/PKG-INFO
+/usr/lib/python2.7/site-packages/ceph_detect_init-1.0.1-py2.7.egg-info/SOURCES.txt
+/usr/lib/python2.7/site-packages/ceph_detect_init-1.0.1-py2.7.egg-info/dependency_links.txt
+/usr/lib/python2.7/site-packages/ceph_detect_init-1.0.1-py2.7.egg-info/entry_points.txt
+/usr/lib/python2.7/site-packages/ceph_detect_init-1.0.1-py2.7.egg-info/requires.txt
+/usr/lib/python2.7/site-packages/ceph_detect_init-1.0.1-py2.7.egg-info/top_level.txt
+/usr/lib/python2.7/site-packages/ceph_detect_init/__init__.py
+/usr/lib/python2.7/site-packages/ceph_detect_init/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_detect_init/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_detect_init/alpine
+/usr/lib/python2.7/site-packages/ceph_detect_init/alpine/__init__.py
+/usr/lib/python2.7/site-packages/ceph_detect_init/alpine/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_detect_init/alpine/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_detect_init/arch
+/usr/lib/python2.7/site-packages/ceph_detect_init/arch/__init__.py
+/usr/lib/python2.7/site-packages/ceph_detect_init/arch/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_detect_init/arch/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_detect_init/centos
+/usr/lib/python2.7/site-packages/ceph_detect_init/centos/__init__.py
+/usr/lib/python2.7/site-packages/ceph_detect_init/centos/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_detect_init/centos/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_detect_init/debian
+/usr/lib/python2.7/site-packages/ceph_detect_init/debian/__init__.py
+/usr/lib/python2.7/site-packages/ceph_detect_init/debian/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_detect_init/debian/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_detect_init/docker
+/usr/lib/python2.7/site-packages/ceph_detect_init/docker/__init__.py
+/usr/lib/python2.7/site-packages/ceph_detect_init/docker/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_detect_init/docker/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_detect_init/exc.py
+/usr/lib/python2.7/site-packages/ceph_detect_init/exc.pyc
+/usr/lib/python2.7/site-packages/ceph_detect_init/exc.pyo
+/usr/lib/python2.7/site-packages/ceph_detect_init/fedora
+/usr/lib/python2.7/site-packages/ceph_detect_init/fedora/__init__.py
+/usr/lib/python2.7/site-packages/ceph_detect_init/fedora/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_detect_init/fedora/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_detect_init/freebsd
+/usr/lib/python2.7/site-packages/ceph_detect_init/freebsd/__init__.py
+/usr/lib/python2.7/site-packages/ceph_detect_init/freebsd/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_detect_init/freebsd/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_detect_init/gentoo
+/usr/lib/python2.7/site-packages/ceph_detect_init/gentoo/__init__.py
+/usr/lib/python2.7/site-packages/ceph_detect_init/gentoo/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_detect_init/gentoo/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_detect_init/main.py
+/usr/lib/python2.7/site-packages/ceph_detect_init/main.pyc
+/usr/lib/python2.7/site-packages/ceph_detect_init/main.pyo
+/usr/lib/python2.7/site-packages/ceph_detect_init/oraclevms
+/usr/lib/python2.7/site-packages/ceph_detect_init/oraclevms/__init__.py
+/usr/lib/python2.7/site-packages/ceph_detect_init/oraclevms/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_detect_init/oraclevms/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_detect_init/rhel
+/usr/lib/python2.7/site-packages/ceph_detect_init/rhel/__init__.py
+/usr/lib/python2.7/site-packages/ceph_detect_init/rhel/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_detect_init/rhel/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_detect_init/suse
+/usr/lib/python2.7/site-packages/ceph_detect_init/suse/__init__.py
+/usr/lib/python2.7/site-packages/ceph_detect_init/suse/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_detect_init/suse/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_disk
+/usr/lib/python2.7/site-packages/ceph_disk-1.0.0-py2.7.egg-info
+/usr/lib/python2.7/site-packages/ceph_disk-1.0.0-py2.7.egg-info/PKG-INFO
+/usr/lib/python2.7/site-packages/ceph_disk-1.0.0-py2.7.egg-info/SOURCES.txt
+/usr/lib/python2.7/site-packages/ceph_disk-1.0.0-py2.7.egg-info/dependency_links.txt
+/usr/lib/python2.7/site-packages/ceph_disk-1.0.0-py2.7.egg-info/entry_points.txt
+/usr/lib/python2.7/site-packages/ceph_disk-1.0.0-py2.7.egg-info/requires.txt
+/usr/lib/python2.7/site-packages/ceph_disk-1.0.0-py2.7.egg-info/top_level.txt
+/usr/lib/python2.7/site-packages/ceph_disk/__init__.py
+/usr/lib/python2.7/site-packages/ceph_disk/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_disk/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_disk/main.py
+/usr/lib/python2.7/site-packages/ceph_disk/main.pyc
+/usr/lib/python2.7/site-packages/ceph_disk/main.pyo
+/usr/lib/python2.7/site-packages/ceph_volume
+/usr/lib/python2.7/site-packages/ceph_volume-1.0.0-py2.7.egg-info
+/usr/lib/python2.7/site-packages/ceph_volume-1.0.0-py2.7.egg-info/PKG-INFO
+/usr/lib/python2.7/site-packages/ceph_volume-1.0.0-py2.7.egg-info/SOURCES.txt
+/usr/lib/python2.7/site-packages/ceph_volume-1.0.0-py2.7.egg-info/dependency_links.txt
+/usr/lib/python2.7/site-packages/ceph_volume-1.0.0-py2.7.egg-info/not-zip-safe
+/usr/lib/python2.7/site-packages/ceph_volume-1.0.0-py2.7.egg-info/top_level.txt
+/usr/lib/python2.7/site-packages/ceph_volume/__init__.py
+/usr/lib/python2.7/site-packages/ceph_volume/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/api
+/usr/lib/python2.7/site-packages/ceph_volume/api/__init__.py
+/usr/lib/python2.7/site-packages/ceph_volume/api/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/api/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/api/lvm.py
+/usr/lib/python2.7/site-packages/ceph_volume/api/lvm.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/api/lvm.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/configuration.py
+/usr/lib/python2.7/site-packages/ceph_volume/configuration.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/configuration.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/decorators.py
+/usr/lib/python2.7/site-packages/ceph_volume/decorators.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/decorators.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/devices
+/usr/lib/python2.7/site-packages/ceph_volume/devices/__init__.py
+/usr/lib/python2.7/site-packages/ceph_volume/devices/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/devices/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/__init__.py
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/activate.py
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/activate.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/activate.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/batch.py
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/batch.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/batch.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/common.py
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/common.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/common.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/create.py
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/create.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/create.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/listing.py
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/listing.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/listing.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/main.py
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/main.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/main.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/prepare.py
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/prepare.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/prepare.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/strategies
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/strategies/__init__.py
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/strategies/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/strategies/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/strategies/bluestore.py
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/strategies/bluestore.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/strategies/bluestore.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/strategies/filestore.py
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/strategies/filestore.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/strategies/filestore.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/strategies/validators.py
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/strategies/validators.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/strategies/validators.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/trigger.py
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/trigger.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/trigger.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/zap.py
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/zap.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/devices/lvm/zap.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/devices/simple
+/usr/lib/python2.7/site-packages/ceph_volume/devices/simple/__init__.py
+/usr/lib/python2.7/site-packages/ceph_volume/devices/simple/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/devices/simple/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/devices/simple/activate.py
+/usr/lib/python2.7/site-packages/ceph_volume/devices/simple/activate.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/devices/simple/activate.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/devices/simple/main.py
+/usr/lib/python2.7/site-packages/ceph_volume/devices/simple/main.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/devices/simple/main.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/devices/simple/scan.py
+/usr/lib/python2.7/site-packages/ceph_volume/devices/simple/scan.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/devices/simple/scan.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/devices/simple/trigger.py
+/usr/lib/python2.7/site-packages/ceph_volume/devices/simple/trigger.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/devices/simple/trigger.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/exceptions.py
+/usr/lib/python2.7/site-packages/ceph_volume/exceptions.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/exceptions.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/log.py
+/usr/lib/python2.7/site-packages/ceph_volume/log.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/log.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/main.py
+/usr/lib/python2.7/site-packages/ceph_volume/main.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/main.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/process.py
+/usr/lib/python2.7/site-packages/ceph_volume/process.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/process.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/systemd
+/usr/lib/python2.7/site-packages/ceph_volume/systemd/__init__.py
+/usr/lib/python2.7/site-packages/ceph_volume/systemd/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/systemd/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/systemd/main.py
+/usr/lib/python2.7/site-packages/ceph_volume/systemd/main.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/systemd/main.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/systemd/systemctl.py
+/usr/lib/python2.7/site-packages/ceph_volume/systemd/systemctl.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/systemd/systemctl.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/terminal.py
+/usr/lib/python2.7/site-packages/ceph_volume/terminal.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/terminal.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/tests
+/usr/lib/python2.7/site-packages/ceph_volume/tests/__init__.py
+/usr/lib/python2.7/site-packages/ceph_volume/tests/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/tests/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/tests/conftest.py
+/usr/lib/python2.7/site-packages/ceph_volume/tests/conftest.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/tests/conftest.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/__init__.py
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/__init__.py
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/strategies
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/strategies/__init__.py
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/strategies/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/strategies/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/strategies/test_bluestore.py
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/strategies/test_bluestore.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/strategies/test_bluestore.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/strategies/test_filestore.py
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/strategies/test_filestore.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/strategies/test_filestore.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/strategies/test_validate.py
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/strategies/test_validate.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/strategies/test_validate.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/test_activate.py
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/test_activate.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/test_activate.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/test_batch.py
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/test_batch.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/test_batch.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/test_create.py
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/test_create.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/test_create.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/test_listing.py
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/test_listing.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/test_listing.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/test_prepare.py
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/test_prepare.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/test_prepare.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/test_trigger.py
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/test_trigger.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/lvm/test_trigger.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/test_zap.py
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/test_zap.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/tests/devices/test_zap.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/tests/test_configuration.py
+/usr/lib/python2.7/site-packages/ceph_volume/tests/test_configuration.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/tests/test_configuration.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/tests/test_decorators.py
+/usr/lib/python2.7/site-packages/ceph_volume/tests/test_decorators.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/tests/test_decorators.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/tests/test_main.py
+/usr/lib/python2.7/site-packages/ceph_volume/tests/test_main.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/tests/test_main.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/tests/test_process.py
+/usr/lib/python2.7/site-packages/ceph_volume/tests/test_process.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/tests/test_process.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/tests/test_terminal.py
+/usr/lib/python2.7/site-packages/ceph_volume/tests/test_terminal.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/tests/test_terminal.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/util
+/usr/lib/python2.7/site-packages/ceph_volume/util/__init__.py
+/usr/lib/python2.7/site-packages/ceph_volume/util/__init__.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/util/__init__.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/util/arg_validators.py
+/usr/lib/python2.7/site-packages/ceph_volume/util/arg_validators.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/util/arg_validators.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/util/constants.py
+/usr/lib/python2.7/site-packages/ceph_volume/util/constants.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/util/constants.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/util/device.py
+/usr/lib/python2.7/site-packages/ceph_volume/util/device.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/util/device.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/util/disk.py
+/usr/lib/python2.7/site-packages/ceph_volume/util/disk.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/util/disk.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/util/encryption.py
+/usr/lib/python2.7/site-packages/ceph_volume/util/encryption.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/util/encryption.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/util/prepare.py
+/usr/lib/python2.7/site-packages/ceph_volume/util/prepare.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/util/prepare.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/util/system.py
+/usr/lib/python2.7/site-packages/ceph_volume/util/system.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/util/system.pyo
+/usr/lib/python2.7/site-packages/ceph_volume/util/templates.py
+/usr/lib/python2.7/site-packages/ceph_volume/util/templates.pyc
+/usr/lib/python2.7/site-packages/ceph_volume/util/templates.pyo
+/usr/lib/systemd/system-preset/50-ceph.preset
+/usr/lib/systemd/system/ceph-disk@.service
+/usr/lib/systemd/system/ceph.target
+/usr/lib64/ceph
+/usr/lib64/ceph/compressor
+/usr/lib64/ceph/compressor/libceph_snappy.so
+/usr/lib64/ceph/compressor/libceph_snappy.so.2
+/usr/lib64/ceph/compressor/libceph_snappy.so.2.0.0
+/usr/lib64/ceph/compressor/libceph_zlib.so
+/usr/lib64/ceph/compressor/libceph_zlib.so.2
+/usr/lib64/ceph/compressor/libceph_zlib.so.2.0.0
+/usr/lib64/ceph/compressor/libceph_zstd.so
+/usr/lib64/ceph/compressor/libceph_zstd.so.2
+/usr/lib64/ceph/compressor/libceph_zstd.so.2.0.0
+/usr/lib64/ceph/crypto
+/usr/lib64/ceph/crypto/libceph_crypto_isal.so
+/usr/lib64/ceph/crypto/libceph_crypto_isal.so.1
+/usr/lib64/ceph/crypto/libceph_crypto_isal.so.1.0.0
+/usr/lib64/ceph/erasure-code
+/usr/lib64/ceph/erasure-code/libec_isa.so
+/usr/lib64/ceph/erasure-code/libec_jerasure.so
+/usr/lib64/ceph/erasure-code/libec_jerasure_generic.so
+/usr/lib64/ceph/erasure-code/libec_jerasure_sse3.so
+/usr/lib64/ceph/erasure-code/libec_jerasure_sse4.so
+/usr/lib64/ceph/erasure-code/libec_lrc.so
+/usr/lib64/ceph/erasure-code/libec_shec.so
+/usr/lib64/ceph/erasure-code/libec_shec_generic.so
+/usr/lib64/ceph/erasure-code/libec_shec_sse3.so
+/usr/lib64/ceph/erasure-code/libec_shec_sse4.so
+/usr/lib64/libos_tp.so
+/usr/lib64/libos_tp.so.1
+/usr/lib64/libos_tp.so.1.0.0
+/usr/lib64/libosd_tp.so
+/usr/lib64/libosd_tp.so.1
+/usr/lib64/libosd_tp.so.1.0.0
+/usr/lib64/rados-classes
+/usr/lib64/rados-classes/libcls_cephfs.so
+/usr/lib64/rados-classes/libcls_cephfs.so.1
+/usr/lib64/rados-classes/libcls_cephfs.so.1.0.0
+/usr/lib64/rados-classes/libcls_hello.so
+/usr/lib64/rados-classes/libcls_hello.so.1
+/usr/lib64/rados-classes/libcls_hello.so.1.0.0
+/usr/lib64/rados-classes/libcls_journal.so
+/usr/lib64/rados-classes/libcls_journal.so.1
+/usr/lib64/rados-classes/libcls_journal.so.1.0.0
+/usr/lib64/rados-classes/libcls_kvs.so
+/usr/lib64/rados-classes/libcls_kvs.so.1
+/usr/lib64/rados-classes/libcls_kvs.so.1.0.0
+/usr/lib64/rados-classes/libcls_lock.so
+/usr/lib64/rados-classes/libcls_lock.so.1
+/usr/lib64/rados-classes/libcls_lock.so.1.0.0
+/usr/lib64/rados-classes/libcls_log.so
+/usr/lib64/rados-classes/libcls_log.so.1
+/usr/lib64/rados-classes/libcls_log.so.1.0.0
+/usr/lib64/rados-classes/libcls_lua.so
+/usr/lib64/rados-classes/libcls_lua.so.1
+/usr/lib64/rados-classes/libcls_lua.so.1.0.0
+/usr/lib64/rados-classes/libcls_numops.so
+/usr/lib64/rados-classes/libcls_numops.so.1
+/usr/lib64/rados-classes/libcls_numops.so.1.0.0
+/usr/lib64/rados-classes/libcls_rbd.so
+/usr/lib64/rados-classes/libcls_rbd.so.1
+/usr/lib64/rados-classes/libcls_rbd.so.1.0.0
+/usr/lib64/rados-classes/libcls_refcount.so
+/usr/lib64/rados-classes/libcls_refcount.so.1
+/usr/lib64/rados-classes/libcls_refcount.so.1.0.0
+/usr/lib64/rados-classes/libcls_replica_log.so
+/usr/lib64/rados-classes/libcls_replica_log.so.1
+/usr/lib64/rados-classes/libcls_replica_log.so.1.0.0
+/usr/lib64/rados-classes/libcls_rgw.so
+/usr/lib64/rados-classes/libcls_rgw.so.1
+/usr/lib64/rados-classes/libcls_rgw.so.1.0.0
+/usr/lib64/rados-classes/libcls_sdk.so
+/usr/lib64/rados-classes/libcls_sdk.so.1
+/usr/lib64/rados-classes/libcls_sdk.so.1.0.0
+/usr/lib64/rados-classes/libcls_statelog.so
+/usr/lib64/rados-classes/libcls_statelog.so.1
+/usr/lib64/rados-classes/libcls_statelog.so.1.0.0
+/usr/lib64/rados-classes/libcls_timeindex.so
+/usr/lib64/rados-classes/libcls_timeindex.so.1
+/usr/lib64/rados-classes/libcls_timeindex.so.1.0.0
+/usr/lib64/rados-classes/libcls_user.so
+/usr/lib64/rados-classes/libcls_user.so.1
+/usr/lib64/rados-classes/libcls_user.so.1.0.0
+/usr/lib64/rados-classes/libcls_version.so
+/usr/lib64/rados-classes/libcls_version.so.1
+/usr/lib64/rados-classes/libcls_version.so.1.0.0
+/usr/sbin/ceph-create-keys
+/usr/sbin/ceph-disk
+/usr/sbin/rcceph
+/usr/share/man/man8/ceph-create-keys.8.gz
+/usr/share/man/man8/ceph-deploy.8.gz
+/usr/share/man/man8/ceph-detect-init.8.gz
+/usr/share/man/man8/ceph-disk.8.gz
+/usr/share/man/man8/ceph-kvstore-tool.8.gz
+/usr/share/man/man8/ceph-run.8.gz
+/usr/share/man/man8/crushtool.8.gz
+/usr/share/man/man8/monmaptool.8.gz
+/usr/share/man/man8/osdmaptool.8.gz
+/var/lib/ceph/bootstrap-mds
+/var/lib/ceph/bootstrap-mgr
+/var/lib/ceph/bootstrap-osd
+/var/lib/ceph/bootstrap-rbd
+/var/lib/ceph/bootstrap-rgw
+/var/lib/ceph/tmp
+[root@app1 ~]# 
+[root@app1 ~]# rpm -ql ceph-common 
+/etc/bash_completion.d/ceph
+/etc/bash_completion.d/rados
+/etc/bash_completion.d/radosgw-admin
+/etc/bash_completion.d/rbd
+/etc/ceph
+/etc/ceph/rbdmap
+/usr/bin/ceph
+/usr/bin/ceph-authtool
+/usr/bin/ceph-brag
+/usr/bin/ceph-conf
+/usr/bin/ceph-crush-location
+/usr/bin/ceph-dencoder
+/usr/bin/ceph-post-file
+/usr/bin/ceph-rbdnamer
+/usr/bin/ceph-syn
+/usr/bin/cephfs-data-scan
+/usr/bin/cephfs-journal-tool
+/usr/bin/cephfs-table-tool
+/usr/bin/rados
+/usr/bin/radosgw-admin
+/usr/bin/rbd
+/usr/bin/rbd-replay
+/usr/bin/rbd-replay-many
+/usr/bin/rbd-replay-prep
+/usr/bin/rbdmap
+/usr/lib/python2.7/site-packages/ceph_argparse.py
+/usr/lib/python2.7/site-packages/ceph_argparse.pyc
+/usr/lib/python2.7/site-packages/ceph_argparse.pyo
+/usr/lib/python2.7/site-packages/ceph_daemon.py
+/usr/lib/python2.7/site-packages/ceph_daemon.pyc
+/usr/lib/python2.7/site-packages/ceph_daemon.pyo
+/usr/lib/systemd/system/rbdmap.service
+/usr/lib/tmpfiles.d/ceph-common.conf
+/usr/lib/udev/rules.d
+/usr/lib/udev/rules.d/50-rbd.rules
+/usr/sbin/mount.ceph
+/usr/share/ceph
+/usr/share/ceph/id_rsa_drop.ceph.com
+/usr/share/ceph/id_rsa_drop.ceph.com.pub
+/usr/share/ceph/known_hosts_drop.ceph.com
+/usr/share/doc/ceph
+/usr/share/doc/ceph/COPYING
+/usr/share/doc/ceph/sample.ceph.conf
+/usr/share/man/man8/ceph-authtool.8.gz
+/usr/share/man/man8/ceph-conf.8.gz
+/usr/share/man/man8/ceph-dencoder.8.gz
+/usr/share/man/man8/ceph-post-file.8.gz
+/usr/share/man/man8/ceph-rbdnamer.8.gz
+/usr/share/man/man8/ceph-syn.8.gz
+/usr/share/man/man8/ceph.8.gz
+/usr/share/man/man8/mount.ceph.8.gz
+/usr/share/man/man8/rados.8.gz
+/usr/share/man/man8/radosgw-admin.8.gz
+/usr/share/man/man8/rbd-replay-many.8.gz
+/usr/share/man/man8/rbd-replay-prep.8.gz
+/usr/share/man/man8/rbd-replay.8.gz
+/usr/share/man/man8/rbd.8.gz
+/usr/share/man/man8/rbdmap.8.gz
+/var/lib/ceph
+/var/log/ceph
+[root@app1 ~]# 
+[root@app1 ~]# rpm -ql ceph-mgr
+/usr/bin/ceph-mgr
+/usr/lib/systemd/system/ceph-mgr.target
+/usr/lib/systemd/system/ceph-mgr@.service
+/usr/lib64/ceph/mgr
+/usr/lib64/ceph/mgr/.gitignore
+/usr/lib64/ceph/mgr/balancer
+/usr/lib64/ceph/mgr/balancer/__init__.py
+/usr/lib64/ceph/mgr/balancer/__init__.pyc
+/usr/lib64/ceph/mgr/balancer/__init__.pyo
+/usr/lib64/ceph/mgr/balancer/module.py
+/usr/lib64/ceph/mgr/balancer/module.pyc
+/usr/lib64/ceph/mgr/balancer/module.pyo
+/usr/lib64/ceph/mgr/dashboard
+/usr/lib64/ceph/mgr/dashboard/HACKING.rst
+/usr/lib64/ceph/mgr/dashboard/README.rst
+/usr/lib64/ceph/mgr/dashboard/__init__.py
+/usr/lib64/ceph/mgr/dashboard/__init__.pyc
+/usr/lib64/ceph/mgr/dashboard/__init__.pyo
+/usr/lib64/ceph/mgr/dashboard/base.html
+/usr/lib64/ceph/mgr/dashboard/cephfs_clients.py
+/usr/lib64/ceph/mgr/dashboard/cephfs_clients.pyc
+/usr/lib64/ceph/mgr/dashboard/cephfs_clients.pyo
+/usr/lib64/ceph/mgr/dashboard/clients.html
+/usr/lib64/ceph/mgr/dashboard/config_options.html
+/usr/lib64/ceph/mgr/dashboard/filesystem.html
+/usr/lib64/ceph/mgr/dashboard/health.html
+/usr/lib64/ceph/mgr/dashboard/module.py
+/usr/lib64/ceph/mgr/dashboard/module.pyc
+/usr/lib64/ceph/mgr/dashboard/module.pyo
+/usr/lib64/ceph/mgr/dashboard/osd_perf.html
+/usr/lib64/ceph/mgr/dashboard/osds.html
+/usr/lib64/ceph/mgr/dashboard/rbd_iscsi.html
+/usr/lib64/ceph/mgr/dashboard/rbd_iscsi.py
+/usr/lib64/ceph/mgr/dashboard/rbd_iscsi.pyc
+/usr/lib64/ceph/mgr/dashboard/rbd_iscsi.pyo
+/usr/lib64/ceph/mgr/dashboard/rbd_ls.py
+/usr/lib64/ceph/mgr/dashboard/rbd_ls.pyc
+/usr/lib64/ceph/mgr/dashboard/rbd_ls.pyo
+/usr/lib64/ceph/mgr/dashboard/rbd_mirroring.html
+/usr/lib64/ceph/mgr/dashboard/rbd_mirroring.py
+/usr/lib64/ceph/mgr/dashboard/rbd_mirroring.pyc
+/usr/lib64/ceph/mgr/dashboard/rbd_mirroring.pyo
+/usr/lib64/ceph/mgr/dashboard/rbd_pool.html
+/usr/lib64/ceph/mgr/dashboard/remote_view_cache.py
+/usr/lib64/ceph/mgr/dashboard/remote_view_cache.pyc
+/usr/lib64/ceph/mgr/dashboard/remote_view_cache.pyo
+/usr/lib64/ceph/mgr/dashboard/servers.html
+/usr/lib64/ceph/mgr/dashboard/standby.html
+/usr/lib64/ceph/mgr/dashboard/static
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/.gitignore
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/.jshintrc
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/LICENSE
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/README.md
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/bootstrap
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/bootstrap/css
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/bootstrap/css/bootstrap.min.css
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/bootstrap/css/bootstrap.min.css.map
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/bootstrap/fonts
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/bootstrap/fonts/glyphicons-halflings-regular.woff
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/bootstrap/fonts/glyphicons-halflings-regular.woff2
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/bootstrap/js
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/bootstrap/js/bootstrap.min.js
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist/css
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist/css/AdminLTE.min.css
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist/css/skins
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist/css/skins/_all-skins.min.css
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist/css/skins/skin-black-light.min.css
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist/css/skins/skin-black.min.css
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist/css/skins/skin-blue-light.min.css
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist/css/skins/skin-blue.min.css
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist/css/skins/skin-green-light.min.css
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist/css/skins/skin-green.min.css
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist/css/skins/skin-purple-light.min.css
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist/css/skins/skin-purple.min.css
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist/css/skins/skin-red-light.min.css
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist/css/skins/skin-red.min.css
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist/css/skins/skin-yellow-light.min.css
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist/css/skins/skin-yellow.min.css
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist/img
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist/img/boxed-bg.jpg
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist/img/boxed-bg.png
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist/img/default-50x50.gif
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist/img/icons.png
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist/js
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/dist/js/app.min.js
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/chartjs
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/chartjs/Chart.js
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/chartjs/Chart.min.js
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/datatables
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/datatables/dataTables.bootstrap.min.js
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/datatables/images
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/datatables/images/sort_asc.png
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/datatables/images/sort_asc_disabled.png
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/datatables/images/sort_both.png
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/datatables/images/sort_desc.png
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/datatables/images/sort_desc_disabled.png
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/datatables/jquery.dataTables.min.css
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/datatables/jquery.dataTables.min.js
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/datatables/jquery.dataTables_themeroller.css
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/ionslider
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/ionslider/img
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/ionslider/img/sprite-skin-flat.png
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/ionslider/img/sprite-skin-nice.png
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/ionslider/ion.rangeSlider.css
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/ionslider/ion.rangeSlider.min.js
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/ionslider/ion.rangeSlider.skinFlat.css
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/ionslider/ion.rangeSlider.skinNice.css
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/jQuery
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/jQuery/jquery-2.2.3.min.js
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/sparkline
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/sparkline/jquery.sparkline.js
+/usr/lib64/ceph/mgr/dashboard/static/AdminLTE-2.3.7/plugins/sparkline/jquery.sparkline.min.js
+/usr/lib64/ceph/mgr/dashboard/static/Ceph_Logo_Standard_RGB_White_120411_fa.png
+/usr/lib64/ceph/mgr/dashboard/static/favicon.ico
+/usr/lib64/ceph/mgr/dashboard/static/libs
+/usr/lib64/ceph/mgr/dashboard/static/libs/Chart.js
+/usr/lib64/ceph/mgr/dashboard/static/libs/Chart.js/2.4.0
+/usr/lib64/ceph/mgr/dashboard/static/libs/Chart.js/2.4.0/Chart.min.js
+/usr/lib64/ceph/mgr/dashboard/static/libs/Chart.js/LICENSE.md
+/usr/lib64/ceph/mgr/dashboard/static/libs/font-awesome
+/usr/lib64/ceph/mgr/dashboard/static/libs/font-awesome/4.7.0
+/usr/lib64/ceph/mgr/dashboard/static/libs/font-awesome/4.7.0/HELP-US-OUT.txt
+/usr/lib64/ceph/mgr/dashboard/static/libs/font-awesome/4.7.0/css
+/usr/lib64/ceph/mgr/dashboard/static/libs/font-awesome/4.7.0/css/font-awesome.min.css
+/usr/lib64/ceph/mgr/dashboard/static/libs/font-awesome/4.7.0/fonts
+/usr/lib64/ceph/mgr/dashboard/static/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff
+/usr/lib64/ceph/mgr/dashboard/static/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2
+/usr/lib64/ceph/mgr/dashboard/static/libs/font-awesome/COPYING
+/usr/lib64/ceph/mgr/dashboard/static/libs/moment.js
+/usr/lib64/ceph/mgr/dashboard/static/libs/moment.js/2.17.1
+/usr/lib64/ceph/mgr/dashboard/static/libs/moment.js/2.17.1/moment.min.js
+/usr/lib64/ceph/mgr/dashboard/static/libs/rivets
+/usr/lib64/ceph/mgr/dashboard/static/libs/rivets/0.9.6
+/usr/lib64/ceph/mgr/dashboard/static/libs/rivets/0.9.6/rivets.bundled.min.js
+/usr/lib64/ceph/mgr/dashboard/static/libs/underscore.js
+/usr/lib64/ceph/mgr/dashboard/static/libs/underscore.js/1.8.3
+/usr/lib64/ceph/mgr/dashboard/static/libs/underscore.js/1.8.3/underscore-min.js
+/usr/lib64/ceph/mgr/dashboard/static/logo-mini.png
+/usr/lib64/ceph/mgr/dashboard/types.py
+/usr/lib64/ceph/mgr/dashboard/types.pyc
+/usr/lib64/ceph/mgr/dashboard/types.pyo
+/usr/lib64/ceph/mgr/influx
+/usr/lib64/ceph/mgr/influx/__init__.py
+/usr/lib64/ceph/mgr/influx/__init__.pyc
+/usr/lib64/ceph/mgr/influx/__init__.pyo
+/usr/lib64/ceph/mgr/influx/module.py
+/usr/lib64/ceph/mgr/influx/module.pyc
+/usr/lib64/ceph/mgr/influx/module.pyo
+/usr/lib64/ceph/mgr/localpool
+/usr/lib64/ceph/mgr/localpool/__init__.py
+/usr/lib64/ceph/mgr/localpool/__init__.pyc
+/usr/lib64/ceph/mgr/localpool/__init__.pyo
+/usr/lib64/ceph/mgr/localpool/module.py
+/usr/lib64/ceph/mgr/localpool/module.pyc
+/usr/lib64/ceph/mgr/localpool/module.pyo
+/usr/lib64/ceph/mgr/mgr_module.py
+/usr/lib64/ceph/mgr/mgr_module.pyc
+/usr/lib64/ceph/mgr/mgr_module.pyo
+/usr/lib64/ceph/mgr/prometheus
+/usr/lib64/ceph/mgr/prometheus/__init__.py
+/usr/lib64/ceph/mgr/prometheus/__init__.pyc
+/usr/lib64/ceph/mgr/prometheus/__init__.pyo
+/usr/lib64/ceph/mgr/prometheus/module.py
+/usr/lib64/ceph/mgr/prometheus/module.pyc
+/usr/lib64/ceph/mgr/prometheus/module.pyo
+/usr/lib64/ceph/mgr/restful
+/usr/lib64/ceph/mgr/restful/__init__.py
+/usr/lib64/ceph/mgr/restful/__init__.pyc
+/usr/lib64/ceph/mgr/restful/__init__.pyo
+/usr/lib64/ceph/mgr/restful/api
+/usr/lib64/ceph/mgr/restful/api/__init__.py
+/usr/lib64/ceph/mgr/restful/api/__init__.pyc
+/usr/lib64/ceph/mgr/restful/api/__init__.pyo
+/usr/lib64/ceph/mgr/restful/api/config.py
+/usr/lib64/ceph/mgr/restful/api/config.pyc
+/usr/lib64/ceph/mgr/restful/api/config.pyo
+/usr/lib64/ceph/mgr/restful/api/crush.py
+/usr/lib64/ceph/mgr/restful/api/crush.pyc
+/usr/lib64/ceph/mgr/restful/api/crush.pyo
+/usr/lib64/ceph/mgr/restful/api/doc.py
+/usr/lib64/ceph/mgr/restful/api/doc.pyc
+/usr/lib64/ceph/mgr/restful/api/doc.pyo
+/usr/lib64/ceph/mgr/restful/api/mon.py
+/usr/lib64/ceph/mgr/restful/api/mon.pyc
+/usr/lib64/ceph/mgr/restful/api/mon.pyo
+/usr/lib64/ceph/mgr/restful/api/osd.py
+/usr/lib64/ceph/mgr/restful/api/osd.pyc
+/usr/lib64/ceph/mgr/restful/api/osd.pyo
+/usr/lib64/ceph/mgr/restful/api/pool.py
+/usr/lib64/ceph/mgr/restful/api/pool.pyc
+/usr/lib64/ceph/mgr/restful/api/pool.pyo
+/usr/lib64/ceph/mgr/restful/api/request.py
+/usr/lib64/ceph/mgr/restful/api/request.pyc
+/usr/lib64/ceph/mgr/restful/api/request.pyo
+/usr/lib64/ceph/mgr/restful/api/server.py
+/usr/lib64/ceph/mgr/restful/api/server.pyc
+/usr/lib64/ceph/mgr/restful/api/server.pyo
+/usr/lib64/ceph/mgr/restful/common.py
+/usr/lib64/ceph/mgr/restful/common.pyc
+/usr/lib64/ceph/mgr/restful/common.pyo
+/usr/lib64/ceph/mgr/restful/decorators.py
+/usr/lib64/ceph/mgr/restful/decorators.pyc
+/usr/lib64/ceph/mgr/restful/decorators.pyo
+/usr/lib64/ceph/mgr/restful/hooks.py
+/usr/lib64/ceph/mgr/restful/hooks.pyc
+/usr/lib64/ceph/mgr/restful/hooks.pyo
+/usr/lib64/ceph/mgr/restful/module.py
+/usr/lib64/ceph/mgr/restful/module.pyc
+/usr/lib64/ceph/mgr/restful/module.pyo
+/usr/lib64/ceph/mgr/selftest
+/usr/lib64/ceph/mgr/selftest/__init__.py
+/usr/lib64/ceph/mgr/selftest/__init__.pyc
+/usr/lib64/ceph/mgr/selftest/__init__.pyo
+/usr/lib64/ceph/mgr/selftest/module.py
+/usr/lib64/ceph/mgr/selftest/module.pyc
+/usr/lib64/ceph/mgr/selftest/module.pyo
+/usr/lib64/ceph/mgr/status
+/usr/lib64/ceph/mgr/status/__init__.py
+/usr/lib64/ceph/mgr/status/__init__.pyc
+/usr/lib64/ceph/mgr/status/__init__.pyo
+/usr/lib64/ceph/mgr/status/module.py
+/usr/lib64/ceph/mgr/status/module.pyc
+/usr/lib64/ceph/mgr/status/module.pyo
+/usr/lib64/ceph/mgr/zabbix
+/usr/lib64/ceph/mgr/zabbix/__init__.py
+/usr/lib64/ceph/mgr/zabbix/__init__.pyc
+/usr/lib64/ceph/mgr/zabbix/__init__.pyo
+/usr/lib64/ceph/mgr/zabbix/module.py
+/usr/lib64/ceph/mgr/zabbix/module.pyc
+/usr/lib64/ceph/mgr/zabbix/module.pyo
+/usr/lib64/ceph/mgr/zabbix/zabbix_template.xml
+/var/lib/ceph/mgr
+[root@app1 ~]# 
+[root@app1 ~]# rpm -ql ceph-mon
+/usr/bin/ceph-mon
+/usr/bin/ceph-monstore-tool
+/usr/bin/ceph-rest-api
+/usr/lib/python2.7/site-packages/ceph_rest_api.py
+/usr/lib/python2.7/site-packages/ceph_rest_api.pyc
+/usr/lib/python2.7/site-packages/ceph_rest_api.pyo
+/usr/lib/systemd/system/ceph-mon.target
+/usr/lib/systemd/system/ceph-mon@.service
+/usr/share/man/man8/ceph-mon.8.gz
+/usr/share/man/man8/ceph-rest-api.8.gz
+/var/lib/ceph/mon
+[root@app1 ~]# 
+[root@app1 ~]# rpm -ql ceph-osd
+/usr/bin/ceph-bluestore-tool
+/usr/bin/ceph-clsinfo
+/usr/bin/ceph-objectstore-tool
+/usr/bin/ceph-osd
+/usr/bin/ceph-osdomap-tool
+/usr/lib/ceph/ceph-osd-prestart.sh
+/usr/lib/sysctl.d/90-ceph-osd.conf
+/usr/lib/systemd/system/ceph-osd.target
+/usr/lib/systemd/system/ceph-osd@.service
+/usr/lib/systemd/system/ceph-volume@.service
+/usr/lib/udev/rules.d
+/usr/lib/udev/rules.d/60-ceph-by-parttypeuuid.rules
+/usr/lib/udev/rules.d/95-ceph-osd.rules
+/usr/sbin/ceph-volume
+/usr/sbin/ceph-volume-systemd
+/usr/share/man/man8/ceph-bluestore-tool.8.gz
+/usr/share/man/man8/ceph-clsinfo.8.gz
+/usr/share/man/man8/ceph-osd.8.gz
+/usr/share/man/man8/ceph-volume-systemd.8.gz
+/usr/share/man/man8/ceph-volume.8.gz
+/var/lib/ceph/osd
+[root@app1 ~]# 
+[root@app1 ~]# rpm -ql ceph-selinux
+/usr/share/man/man8/ceph_selinux.8.gz
+/usr/share/selinux/devel/include/contrib/ceph.if
+/usr/share/selinux/packages/ceph.pp
+[root@app1 ~]# 
+
+
+[root@app1 yum.repos.d]# ceph-deploy install --release luminous app1 app2 app3
+[ceph_deploy.conf][DEBUG ] found configuration file at: /root/.cephdeploy.conf
+[ceph_deploy.cli][INFO  ] Invoked (2.0.1): /usr/bin/ceph-deploy install --release luminous app1 app2 app3
+[ceph_deploy.cli][INFO  ] ceph-deploy options:
+[ceph_deploy.cli][INFO  ]  verbose                       : False
+[ceph_deploy.cli][INFO  ]  testing                       : None
+[ceph_deploy.cli][INFO  ]  cd_conf                       : <ceph_deploy.conf.cephdeploy.Conf instance at 0x1d24e60>
+[ceph_deploy.cli][INFO  ]  cluster                       : ceph
+[ceph_deploy.cli][INFO  ]  dev_commit                    : None
+[ceph_deploy.cli][INFO  ]  install_mds                   : False
+[ceph_deploy.cli][INFO  ]  stable                        : None
+[ceph_deploy.cli][INFO  ]  default_release               : False
+[ceph_deploy.cli][INFO  ]  username                      : None
+[ceph_deploy.cli][INFO  ]  adjust_repos                  : True
+[ceph_deploy.cli][INFO  ]  func                          : <function install at 0x1ccf938>
+[ceph_deploy.cli][INFO  ]  install_mgr                   : False
+[ceph_deploy.cli][INFO  ]  install_all                   : False
+[ceph_deploy.cli][INFO  ]  repo                          : False
+[ceph_deploy.cli][INFO  ]  host                          : ['app1', 'app2', 'app3']
+[ceph_deploy.cli][INFO  ]  install_rgw                   : False
+[ceph_deploy.cli][INFO  ]  install_tests                 : False
+[ceph_deploy.cli][INFO  ]  repo_url                      : None
+[ceph_deploy.cli][INFO  ]  ceph_conf                     : None
+[ceph_deploy.cli][INFO  ]  install_osd                   : False
+[ceph_deploy.cli][INFO  ]  version_kind                  : stable
+[ceph_deploy.cli][INFO  ]  install_common                : False
+[ceph_deploy.cli][INFO  ]  overwrite_conf                : False
+[ceph_deploy.cli][INFO  ]  quiet                         : False
+[ceph_deploy.cli][INFO  ]  dev                           : master
+[ceph_deploy.cli][INFO  ]  nogpgcheck                    : False
+[ceph_deploy.cli][INFO  ]  local_mirror                  : None
+[ceph_deploy.cli][INFO  ]  release                       : luminous
+[ceph_deploy.cli][INFO  ]  install_mon                   : False
+[ceph_deploy.cli][INFO  ]  gpg_url                       : None
+[ceph_deploy.install][DEBUG ] Installing stable version luminous on cluster ceph hosts app1 app2 app3
+[ceph_deploy.install][DEBUG ] Detecting platform for host app1 ...
+[app1][DEBUG ] connected to host: app1 
+[app1][DEBUG ] detect platform information from remote host
+[app1][DEBUG ] detect machine type
+[ceph_deploy.install][INFO  ] Distro info: CentOS Linux 7.3.1611 Core
+[app1][INFO  ] installing Ceph on app1
+[app1][INFO  ] Running command: yum clean all
+[app1][DEBUG ] Loaded plugins: fastestmirror, priorities
+[app1][DEBUG ] Cleaning repos: Ceph Ceph-noarch base ceph-source epel extras
+[app1][DEBUG ]               : mysql-connectors-community mysql-tools-community
+[app1][DEBUG ]               : mysql57-community updates
+[app1][DEBUG ] Cleaning up everything
+[app1][DEBUG ] Cleaning up list of fastest mirrors
+[app1][INFO  ] Running command: yum -y install epel-release
+[app1][DEBUG ] Loaded plugins: fastestmirror, priorities
+[app1][WARNIN] http://sg.fedora.ipserverone.com/epel/7/x86_64/repodata/e97bc29265492560bd71be80663f2d85fa3192151c094a8d4ae6b1b4de6b5cd1-primary.xml.gz: [Errno 14] HTTP Error 404 - Not Found
+[app1][WARNIN] Trying other mirror.
+[app1][WARNIN] To address this issue please refer to the below knowledge base article 
+[app1][WARNIN] 
+[app1][WARNIN] https://access.redhat.com/articles/1320623
+[app1][WARNIN] 
+[app1][WARNIN] If above article doesn't help to resolve this issue please create a bug on https://bugs.centos.org/
+[app1][WARNIN] 
+[app1][DEBUG ] Determining fastest mirrors
+[app1][DEBUG ]  * base: mirrors.aliyun.com
+[app1][DEBUG ]  * epel: fedora.cs.nctu.edu.tw
+[app1][DEBUG ]  * extras: mirror.bit.edu.cn
+[app1][DEBUG ]  * updates: mirror.bit.edu.cn
+[app1][DEBUG ] 8 packages excluded due to repository priority protections
+[app1][DEBUG ] Package epel-release-7-11.noarch already installed and latest version
+[app1][DEBUG ] Nothing to do
+[app1][INFO  ] Running command: yum -y install yum-plugin-priorities
+[app1][DEBUG ] Loaded plugins: fastestmirror, priorities
+[app1][DEBUG ] Loading mirror speeds from cached hostfile
+[app1][DEBUG ]  * base: mirrors.aliyun.com
+[app1][DEBUG ]  * epel: fedora.cs.nctu.edu.tw
+[app1][DEBUG ]  * extras: mirror.bit.edu.cn
+[app1][DEBUG ]  * updates: mirror.bit.edu.cn
+[app1][DEBUG ] 8 packages excluded due to repository priority protections
+[app1][DEBUG ] Package yum-plugin-priorities-1.1.31-46.el7_5.noarch already installed and latest version
+[app1][DEBUG ] Nothing to do
+[app1][DEBUG ] Configure Yum priorities to include obsoletes
+[app1][WARNIN] check_obsoletes has been enabled for Yum priorities plugin
+[app1][INFO  ] Running command: rpm --import https://download.ceph.com/keys/release.asc
+[app1][INFO  ] Running command: yum remove -y ceph-release
+[app1][DEBUG ] Loaded plugins: fastestmirror, priorities
+[app1][DEBUG ] Resolving Dependencies
+[app1][DEBUG ] --> Running transaction check
+[app1][DEBUG ] ---> Package ceph-release.noarch 0:1-1.el7 will be erased
+[app1][DEBUG ] --> Finished Dependency Resolution
+[app1][DEBUG ] 
+[app1][DEBUG ] Dependencies Resolved
+[app1][DEBUG ] 
+[app1][DEBUG ] ================================================================================
+[app1][DEBUG ]  Package              Arch           Version            Repository         Size
+[app1][DEBUG ] ================================================================================
+[app1][DEBUG ] Removing:
+[app1][DEBUG ]  ceph-release         noarch         1-1.el7            installed         544  
+[app1][DEBUG ] 
+[app1][DEBUG ] Transaction Summary
+[app1][DEBUG ] ================================================================================
+[app1][DEBUG ] Remove  1 Package
+[app1][DEBUG ] 
+[app1][DEBUG ] Installed size: 544  
+[app1][DEBUG ] Downloading packages:
+[app1][DEBUG ] Running transaction check
+[app1][DEBUG ] Running transaction test
+[app1][DEBUG ] Transaction test succeeded
+[app1][DEBUG ] Running transaction
+[app1][DEBUG ]   Erasing    : ceph-release-1-1.el7.noarch                                  1/1 
+[app1][DEBUG ] warning: /etc/yum.repos.d/ceph.repo saved as /etc/yum.repos.d/ceph.repo.rpmsave
+[app1][DEBUG ]   Verifying  : ceph-release-1-1.el7.noarch                                  1/1 
+[app1][DEBUG ] 
+[app1][DEBUG ] Removed:
+[app1][DEBUG ]   ceph-release.noarch 0:1-1.el7                                                 
+[app1][DEBUG ] 
+[app1][DEBUG ] Complete!
+[app1][INFO  ] Running command: yum install -y https://download.ceph.com/rpm-luminous/el7/noarch/ceph-release-1-0.el7.noarch.rpm
+[app1][DEBUG ] Loaded plugins: fastestmirror, priorities
+[app1][DEBUG ] Examining /var/tmp/yum-root-akaOKp/ceph-release-1-0.el7.noarch.rpm: ceph-release-1-1.el7.noarch
+[app1][DEBUG ] Marking /var/tmp/yum-root-akaOKp/ceph-release-1-0.el7.noarch.rpm to be installed
+[app1][DEBUG ] Resolving Dependencies
+[app1][DEBUG ] --> Running transaction check
+[app1][DEBUG ] ---> Package ceph-release.noarch 0:1-1.el7 will be installed
+[app1][DEBUG ] --> Finished Dependency Resolution
+[app1][DEBUG ] 
+[app1][DEBUG ] Dependencies Resolved
+[app1][DEBUG ] 
+[app1][DEBUG ] ================================================================================
+[app1][DEBUG ]  Package          Arch       Version     Repository                        Size
+[app1][DEBUG ] ================================================================================
+[app1][DEBUG ] Installing:
+[app1][DEBUG ]  ceph-release     noarch     1-1.el7     /ceph-release-1-0.el7.noarch     544  
+[app1][DEBUG ] 
+[app1][DEBUG ] Transaction Summary
+[app1][DEBUG ] ================================================================================
+[app1][DEBUG ] Install  1 Package
+[app1][DEBUG ] 
+[app1][DEBUG ] Total size: 544  
+[app1][DEBUG ] Installed size: 544  
+[app1][DEBUG ] Downloading packages:
+[app1][DEBUG ] Running transaction check
+[app1][DEBUG ] Running transaction test
+[app1][DEBUG ] Transaction test succeeded
+[app1][DEBUG ] Running transaction
+[app1][DEBUG ]   Installing : ceph-release-1-1.el7.noarch                                  1/1 
+[app1][DEBUG ]   Verifying  : ceph-release-1-1.el7.noarch                                  1/1 
+[app1][DEBUG ] 
+[app1][DEBUG ] Installed:
+[app1][DEBUG ]   ceph-release.noarch 0:1-1.el7                                                 
+[app1][DEBUG ] 
+[app1][DEBUG ] Complete!
+[app1][WARNIN] ensuring that /etc/yum.repos.d/ceph.repo contains a high priority
+[app1][WARNIN] altered ceph.repo priorities to contain: priority=1
+[app1][INFO  ] Running command: yum -y install ceph ceph-radosgw
+[app1][DEBUG ] Loaded plugins: fastestmirror, priorities
+[app1][DEBUG ] Loading mirror speeds from cached hostfile
+[app1][DEBUG ]  * base: mirrors.aliyun.com
+[app1][DEBUG ]  * epel: fedora.cs.nctu.edu.tw
+[app1][DEBUG ]  * extras: mirror.bit.edu.cn
+[app1][DEBUG ]  * updates: mirror.bit.edu.cn
+[app1][DEBUG ] 8 packages excluded due to repository priority protections
+[app1][DEBUG ] Package 2:ceph-12.2.9-0.el7.x86_64 already installed and latest version
+[app1][DEBUG ] Package 2:ceph-radosgw-12.2.9-0.el7.x86_64 already installed and latest version
+[app1][DEBUG ] Nothing to do
+[app1][INFO  ] Running command: ceph --version
+[app1][DEBUG ] ceph version 12.2.9 (9e300932ef8a8916fb3fda78c58691a6ab0f4217) luminous (stable)
+[ceph_deploy.install][DEBUG ] Detecting platform for host app2 ...
+[app2][DEBUG ] connected to host: app2 
+[app2][DEBUG ] detect platform information from remote host
+[app2][DEBUG ] detect machine type
+[ceph_deploy.install][INFO  ] Distro info: CentOS Linux 7.5.1804 Core
+[app2][INFO  ] installing Ceph on app2
+[app2][INFO  ] Running command: yum clean all
+[app2][DEBUG ] Loaded plugins: fastestmirror, priorities
+[app2][DEBUG ] Cleaning repos: Ceph Ceph-noarch base ceph-source epel extras ius
+[app2][DEBUG ]               : mysql-connectors-community mysql-tools-community
+[app2][DEBUG ]               : mysql57-community updates
+[app2][DEBUG ] Cleaning up everything
+[app2][DEBUG ] Maybe you want: rm -rf /var/cache/yum, to also free up space taken by orphaned data from disabled or removed repos
+[app2][DEBUG ] Cleaning up list of fastest mirrors
+[app2][INFO  ] Running command: yum -y install epel-release
+[app2][DEBUG ] Loaded plugins: fastestmirror, priorities
+[app2][DEBUG ] Determining fastest mirrors
+[app2][DEBUG ]  * base: mirrors.aliyun.com
+[app2][DEBUG ]  * epel: mirror01.idc.hinet.net
+[app2][DEBUG ]  * extras: mirrors.163.com
+[app2][DEBUG ]  * ius: hkg.mirror.rackspace.com
+[app2][DEBUG ]  * updates: mirrors.163.com
+[app2][DEBUG ] 8 packages excluded due to repository priority protections
+[app2][DEBUG ] Package epel-release-7-11.noarch already installed and latest version
+[app2][DEBUG ] Nothing to do
+[app2][INFO  ] Running command: yum -y install yum-plugin-priorities
+[app2][DEBUG ] Loaded plugins: fastestmirror, priorities
+[app2][DEBUG ] Loading mirror speeds from cached hostfile
+[app2][DEBUG ]  * base: mirrors.aliyun.com
+[app2][DEBUG ]  * epel: mirror01.idc.hinet.net
+[app2][DEBUG ]  * extras: mirrors.163.com
+[app2][DEBUG ]  * ius: hkg.mirror.rackspace.com
+[app2][DEBUG ]  * updates: mirrors.163.com
+[app2][DEBUG ] 8 packages excluded due to repository priority protections
+[app2][DEBUG ] Package yum-plugin-priorities-1.1.31-46.el7_5.noarch already installed and latest version
+[app2][DEBUG ] Nothing to do
+[app2][DEBUG ] Configure Yum priorities to include obsoletes
+[app2][WARNIN] check_obsoletes has been enabled for Yum priorities plugin
+[app2][INFO  ] Running command: rpm --import https://download.ceph.com/keys/release.asc
+[app2][INFO  ] Running command: yum remove -y ceph-release
+[app2][DEBUG ] Loaded plugins: fastestmirror, priorities
+[app2][DEBUG ] Resolving Dependencies
+[app2][DEBUG ] --> Running transaction check
+[app2][DEBUG ] ---> Package ceph-release.noarch 0:1-1.el7 will be erased
+[app2][DEBUG ] --> Finished Dependency Resolution
+[app2][DEBUG ] 
+[app2][DEBUG ] Dependencies Resolved
+[app2][DEBUG ] 
+[app2][DEBUG ] ================================================================================
+[app2][DEBUG ]  Package              Arch           Version            Repository         Size
+[app2][DEBUG ] ================================================================================
+[app2][DEBUG ] Removing:
+[app2][DEBUG ]  ceph-release         noarch         1-1.el7            installed         544  
+[app2][DEBUG ] 
+[app2][DEBUG ] Transaction Summary
+[app2][DEBUG ] ================================================================================
+[app2][DEBUG ] Remove  1 Package
+[app2][DEBUG ] 
+[app2][DEBUG ] Installed size: 544  
+[app2][DEBUG ] Downloading packages:
+[app2][DEBUG ] Running transaction check
+[app2][DEBUG ] Running transaction test
+[app2][DEBUG ] Transaction test succeeded
+[app2][DEBUG ] Running transaction
+[app2][DEBUG ]   Erasing    : ceph-release-1-1.el7.noarch                                  1/1 
+[app2][DEBUG ] warning: /etc/yum.repos.d/ceph.repo saved as /etc/yum.repos.d/ceph.repo.rpmsave
+[app2][DEBUG ]   Verifying  : ceph-release-1-1.el7.noarch                                  1/1 
+[app2][DEBUG ] 
+[app2][DEBUG ] Removed:
+[app2][DEBUG ]   ceph-release.noarch 0:1-1.el7                                                 
+[app2][DEBUG ] 
+[app2][DEBUG ] Complete!
+[app2][INFO  ] Running command: yum install -y https://download.ceph.com/rpm-luminous/el7/noarch/ceph-release-1-0.el7.noarch.rpm
+[app2][DEBUG ] Loaded plugins: fastestmirror, priorities
+[app2][DEBUG ] Examining /var/tmp/yum-root-omvSj2/ceph-release-1-0.el7.noarch.rpm: ceph-release-1-1.el7.noarch
+[app2][DEBUG ] Marking /var/tmp/yum-root-omvSj2/ceph-release-1-0.el7.noarch.rpm to be installed
+[app2][DEBUG ] Resolving Dependencies
+[app2][DEBUG ] --> Running transaction check
+[app2][DEBUG ] ---> Package ceph-release.noarch 0:1-1.el7 will be installed
+[app2][DEBUG ] --> Finished Dependency Resolution
+[app2][DEBUG ] 
+[app2][DEBUG ] Dependencies Resolved
+[app2][DEBUG ] 
+[app2][DEBUG ] ================================================================================
+[app2][DEBUG ]  Package          Arch       Version     Repository                        Size
+[app2][DEBUG ] ================================================================================
+[app2][DEBUG ] Installing:
+[app2][DEBUG ]  ceph-release     noarch     1-1.el7     /ceph-release-1-0.el7.noarch     544  
+[app2][DEBUG ] 
+[app2][DEBUG ] Transaction Summary
+[app2][DEBUG ] ================================================================================
+[app2][DEBUG ] Install  1 Package
+[app2][DEBUG ] 
+[app2][DEBUG ] Total size: 544  
+[app2][DEBUG ] Installed size: 544  
+[app2][DEBUG ] Downloading packages:
+[app2][DEBUG ] Running transaction check
+[app2][DEBUG ] Running transaction test
+[app2][DEBUG ] Transaction test succeeded
+[app2][DEBUG ] Running transaction
+[app2][DEBUG ]   Installing : ceph-release-1-1.el7.noarch                                  1/1 
+[app2][DEBUG ]   Verifying  : ceph-release-1-1.el7.noarch                                  1/1 
+[app2][DEBUG ] 
+[app2][DEBUG ] Installed:
+[app2][DEBUG ]   ceph-release.noarch 0:1-1.el7                                                 
+[app2][DEBUG ] 
+[app2][DEBUG ] Complete!
+[app2][WARNIN] ensuring that /etc/yum.repos.d/ceph.repo contains a high priority
+[app2][WARNIN] altered ceph.repo priorities to contain: priority=1
+[app2][INFO  ] Running command: yum -y install ceph ceph-radosgw
+[app2][DEBUG ] Loaded plugins: fastestmirror, priorities
+[app2][DEBUG ] Loading mirror speeds from cached hostfile
+[app2][DEBUG ]  * base: mirrors.aliyun.com
+[app2][DEBUG ]  * epel: mirror01.idc.hinet.net
+[app2][DEBUG ]  * extras: mirrors.163.com
+[app2][DEBUG ]  * ius: hkg.mirror.rackspace.com
+[app2][DEBUG ]  * updates: mirrors.163.com
+[app2][DEBUG ] 8 packages excluded due to repository priority protections
+[app2][DEBUG ] Package 2:ceph-12.2.9-0.el7.x86_64 already installed and latest version
+[app2][DEBUG ] Package 2:ceph-radosgw-12.2.9-0.el7.x86_64 already installed and latest version
+[app2][DEBUG ] Nothing to do
+[app2][INFO  ] Running command: ceph --version
+[app2][DEBUG ] ceph version 12.2.9 (9e300932ef8a8916fb3fda78c58691a6ab0f4217) luminous (stable)
+[ceph_deploy.install][DEBUG ] Detecting platform for host app3 ...
+[app3][DEBUG ] connected to host: app3 
+[app3][DEBUG ] detect platform information from remote host
+[app3][DEBUG ] detect machine type
+[ceph_deploy.install][INFO  ] Distro info: CentOS Linux 7.3.1611 Core
+[app3][INFO  ] installing Ceph on app3
+[app3][INFO  ] Running command: yum clean all
+[app3][DEBUG ] Loaded plugins: fastestmirror, priorities
+[app3][DEBUG ] Cleaning repos: Ceph Ceph-noarch base ceph-source epel extras
+[app3][DEBUG ]               : mysql-connectors-community mysql-tools-community
+[app3][DEBUG ]               : mysql57-community updates
+[app3][DEBUG ] Cleaning up everything
+[app3][DEBUG ] Cleaning up list of fastest mirrors
+[app3][INFO  ] Running command: yum -y install epel-release
+[app3][DEBUG ] Loaded plugins: fastestmirror, priorities
+[app3][WARNIN] http://mirrors.cqu.edu.cn/CentOS/7.5.1804/os/x86_64/repodata/03d0a660eb33174331aee3e077e11d4c017412d761b7f2eaa8555e7898e701e0-primary.sqlite.bz2: [Errno 14] curl#56 - "Recv failure: Connection reset by peer"
+[app3][WARNIN] Trying other mirror.
+[app3][DEBUG ] Determining fastest mirrors
+[app3][DEBUG ]  * base: mirrors.aliyun.com
+[app3][DEBUG ]  * epel: mirror01.idc.hinet.net
+[app3][DEBUG ]  * extras: mirrors.cn99.com
+[app3][DEBUG ]  * updates: mirrors.163.com
+[app3][DEBUG ] 8 packages excluded due to repository priority protections
+[app3][DEBUG ] Package epel-release-7-11.noarch already installed and latest version
+[app3][DEBUG ] Nothing to do
+[app3][INFO  ] Running command: yum -y install yum-plugin-priorities
+[app3][DEBUG ] Loaded plugins: fastestmirror, priorities
+[app3][DEBUG ] Loading mirror speeds from cached hostfile
+[app3][DEBUG ]  * base: mirrors.aliyun.com
+[app3][DEBUG ]  * epel: mirror01.idc.hinet.net
+[app3][DEBUG ]  * extras: mirrors.cn99.com
+[app3][DEBUG ]  * updates: mirrors.163.com
+[app3][DEBUG ] 8 packages excluded due to repository priority protections
+[app3][DEBUG ] Package yum-plugin-priorities-1.1.31-46.el7_5.noarch already installed and latest version
+[app3][DEBUG ] Nothing to do
+[app3][DEBUG ] Configure Yum priorities to include obsoletes
+[app3][WARNIN] check_obsoletes has been enabled for Yum priorities plugin
+[app3][INFO  ] Running command: rpm --import https://download.ceph.com/keys/release.asc
+[app3][INFO  ] Running command: yum remove -y ceph-release
+[app3][DEBUG ] Loaded plugins: fastestmirror, priorities
+[app3][DEBUG ] Resolving Dependencies
+[app3][DEBUG ] --> Running transaction check
+[app3][DEBUG ] ---> Package ceph-release.noarch 0:1-1.el7 will be erased
+[app3][DEBUG ] --> Finished Dependency Resolution
+[app3][DEBUG ] 
+[app3][DEBUG ] Dependencies Resolved
+[app3][DEBUG ] 
+[app3][DEBUG ] ================================================================================
+[app3][DEBUG ]  Package              Arch           Version            Repository         Size
+[app3][DEBUG ] ================================================================================
+[app3][DEBUG ] Removing:
+[app3][DEBUG ]  ceph-release         noarch         1-1.el7            installed         544  
+[app3][DEBUG ] 
+[app3][DEBUG ] Transaction Summary
+[app3][DEBUG ] ================================================================================
+[app3][DEBUG ] Remove  1 Package
+[app3][DEBUG ] 
+[app3][DEBUG ] Installed size: 544  
+[app3][DEBUG ] Downloading packages:
+[app3][DEBUG ] Running transaction check
+[app3][DEBUG ] Running transaction test
+[app3][DEBUG ] Transaction test succeeded
+[app3][DEBUG ] Running transaction
+[app3][DEBUG ]   Erasing    : ceph-release-1-1.el7.noarch                                  1/1 
+[app3][DEBUG ] warning: /etc/yum.repos.d/ceph.repo saved as /etc/yum.repos.d/ceph.repo.rpmsave
+[app3][DEBUG ]   Verifying  : ceph-release-1-1.el7.noarch                                  1/1 
+[app3][DEBUG ] 
+[app3][DEBUG ] Removed:
+[app3][DEBUG ]   ceph-release.noarch 0:1-1.el7                                                 
+[app3][DEBUG ] 
+[app3][DEBUG ] Complete!
+[app3][INFO  ] Running command: yum install -y https://download.ceph.com/rpm-luminous/el7/noarch/ceph-release-1-0.el7.noarch.rpm
+[app3][DEBUG ] Loaded plugins: fastestmirror, priorities
+[app3][DEBUG ] Examining /var/tmp/yum-root-2cHImf/ceph-release-1-0.el7.noarch.rpm: ceph-release-1-1.el7.noarch
+[app3][DEBUG ] Marking /var/tmp/yum-root-2cHImf/ceph-release-1-0.el7.noarch.rpm to be installed
+[app3][DEBUG ] Resolving Dependencies
+[app3][DEBUG ] --> Running transaction check
+[app3][DEBUG ] ---> Package ceph-release.noarch 0:1-1.el7 will be installed
+[app3][DEBUG ] --> Finished Dependency Resolution
+[app3][DEBUG ] 
+[app3][DEBUG ] Dependencies Resolved
+[app3][DEBUG ] 
+[app3][DEBUG ] ================================================================================
+[app3][DEBUG ]  Package          Arch       Version     Repository                        Size
+[app3][DEBUG ] ================================================================================
+[app3][DEBUG ] Installing:
+[app3][DEBUG ]  ceph-release     noarch     1-1.el7     /ceph-release-1-0.el7.noarch     544  
+[app3][DEBUG ] 
+[app3][DEBUG ] Transaction Summary
+[app3][DEBUG ] ================================================================================
+[app3][DEBUG ] Install  1 Package
+[app3][DEBUG ] 
+[app3][DEBUG ] Total size: 544  
+[app3][DEBUG ] Installed size: 544  
+[app3][DEBUG ] Downloading packages:
+[app3][DEBUG ] Running transaction check
+[app3][DEBUG ] Running transaction test
+[app3][DEBUG ] Transaction test succeeded
+[app3][DEBUG ] Running transaction
+[app3][DEBUG ]   Installing : ceph-release-1-1.el7.noarch                                  1/1 
+[app3][DEBUG ]   Verifying  : ceph-release-1-1.el7.noarch                                  1/1 
+[app3][DEBUG ] 
+[app3][DEBUG ] Installed:
+[app3][DEBUG ]   ceph-release.noarch 0:1-1.el7                                                 
+[app3][DEBUG ] 
+[app3][DEBUG ] Complete!
+[app3][WARNIN] ensuring that /etc/yum.repos.d/ceph.repo contains a high priority
+[app3][WARNIN] altered ceph.repo priorities to contain: priority=1
+[app3][INFO  ] Running command: yum -y install ceph ceph-radosgw
+[app3][DEBUG ] Loaded plugins: fastestmirror, priorities
+[app3][DEBUG ] Loading mirror speeds from cached hostfile
+[app3][DEBUG ]  * base: mirrors.aliyun.com
+[app3][DEBUG ]  * epel: mirror01.idc.hinet.net
+[app3][DEBUG ]  * extras: mirrors.cn99.com
+[app3][DEBUG ]  * updates: mirrors.163.com
+[app3][DEBUG ] 8 packages excluded due to repository priority protections
+[app3][DEBUG ] Package 2:ceph-12.2.9-0.el7.x86_64 already installed and latest version
+[app3][DEBUG ] Package 2:ceph-radosgw-12.2.9-0.el7.x86_64 already installed and latest version
+[app3][DEBUG ] Nothing to do
+[app3][INFO  ] Running command: ceph --version
+[app3][DEBUG ] ceph version 12.2.9 (9e300932ef8a8916fb3fda78c58691a6ab0f4217) luminous (stable)
+[root@app1 yum.repos.d]# 
+
+
+
+
+
+
 
 #############################################
+[root@app1 yum.repos.d]# ceph-deploy mon create-initial
+[ceph_deploy.conf][DEBUG ] found configuration file at: /root/.cephdeploy.conf
+[ceph_deploy.cli][INFO  ] Invoked (2.0.1): /usr/bin/ceph-deploy mon create-initial
+[ceph_deploy.cli][INFO  ] ceph-deploy options:
+[ceph_deploy.cli][INFO  ]  username                      : None
+[ceph_deploy.cli][INFO  ]  verbose                       : False
+[ceph_deploy.cli][INFO  ]  overwrite_conf                : False
+[ceph_deploy.cli][INFO  ]  subcommand                    : create-initial
+[ceph_deploy.cli][INFO  ]  quiet                         : False
+[ceph_deploy.cli][INFO  ]  cd_conf                       : <ceph_deploy.conf.cephdeploy.Conf instance at 0x1154f38>
+[ceph_deploy.cli][INFO  ]  cluster                       : ceph
+[ceph_deploy.cli][INFO  ]  func                          : <function mon at 0x114a758>
+[ceph_deploy.cli][INFO  ]  ceph_conf                     : None
+[ceph_deploy.cli][INFO  ]  default_release               : False
+[ceph_deploy.cli][INFO  ]  keyrings                      : None
+[ceph_deploy][ERROR ] ConfigError: Cannot load config: [Errno 2] No such file or directory: 'ceph.conf'; has `ceph-deploy new` been run in this directory?
+                 
+[root@app1 yum.repos.d]# cd /etc/ceph/
+[root@app1 ceph]# 
+[root@app1 ceph]# pwd
+/etc/ceph
+[root@app1 ceph]# 
+[root@app1 ceph]# 
+[root@app1 ceph]# 
+[root@app1 ceph]# ceph-deploy mon create-initial
+[ceph_deploy.conf][DEBUG ] found configuration file at: /root/.cephdeploy.conf
+[ceph_deploy.cli][INFO  ] Invoked (2.0.1): /usr/bin/ceph-deploy mon create-initial
+[ceph_deploy.cli][INFO  ] ceph-deploy options:
+[ceph_deploy.cli][INFO  ]  username                      : None
+[ceph_deploy.cli][INFO  ]  verbose                       : False
+[ceph_deploy.cli][INFO  ]  overwrite_conf                : False
+[ceph_deploy.cli][INFO  ]  subcommand                    : create-initial
+[ceph_deploy.cli][INFO  ]  quiet                         : False
+[ceph_deploy.cli][INFO  ]  cd_conf                       : <ceph_deploy.conf.cephdeploy.Conf instance at 0x2139f38>
+[ceph_deploy.cli][INFO  ]  cluster                       : ceph
+[ceph_deploy.cli][INFO  ]  func                          : <function mon at 0x212f758>
+[ceph_deploy.cli][INFO  ]  ceph_conf                     : None
+[ceph_deploy.cli][INFO  ]  default_release               : False
+[ceph_deploy.cli][INFO  ]  keyrings                      : None
+[ceph_deploy.mon][DEBUG ] Deploying mon, cluster ceph hosts app1
+[ceph_deploy.mon][DEBUG ] detecting platform for host app1 ...
+[app1][DEBUG ] connected to host: app1 
+[app1][DEBUG ] detect platform information from remote host
+[app1][DEBUG ] detect machine type
+[app1][DEBUG ] find the location of an executable
+[ceph_deploy.mon][INFO  ] distro info: CentOS Linux 7.3.1611 Core
+[app1][DEBUG ] determining if provided host has same hostname in remote
+[app1][DEBUG ] get remote short hostname
+[app1][DEBUG ] deploying mon to app1
+[app1][DEBUG ] get remote short hostname
+[app1][DEBUG ] remote hostname: app1
+[app1][DEBUG ] write cluster configuration to /etc/ceph/{cluster}.conf
+[app1][DEBUG ] create the mon path if it does not exist
+[app1][DEBUG ] checking for done path: /var/lib/ceph/mon/ceph-app1/done
+[app1][DEBUG ] done path does not exist: /var/lib/ceph/mon/ceph-app1/done
+[app1][INFO  ] creating keyring file: /var/lib/ceph/tmp/ceph-app1.mon.keyring
+[app1][DEBUG ] create the monitor keyring file
+[app1][INFO  ] Running command: ceph-mon --cluster ceph --mkfs -i app1 --keyring /var/lib/ceph/tmp/ceph-app1.mon.keyring --setuser 167 --setgroup 167
+[app1][INFO  ] unlinking keyring file /var/lib/ceph/tmp/ceph-app1.mon.keyring
+[app1][DEBUG ] create a done file to avoid re-doing the mon deployment
+[app1][DEBUG ] create the init path if it does not exist
+[app1][INFO  ] Running command: systemctl enable ceph.target
+[app1][INFO  ] Running command: systemctl enable ceph-mon@app1
+[app1][WARNIN] Created symlink from /etc/systemd/system/ceph-mon.target.wants/ceph-mon@app1.service to /usr/lib/systemd/system/ceph-mon@.service.
+[app1][INFO  ] Running command: systemctl start ceph-mon@app1
+[app1][INFO  ] Running command: ceph --cluster=ceph --admin-daemon /var/run/ceph/ceph-mon.app1.asok mon_status
+[app1][DEBUG ] ********************************************************************************
+[app1][DEBUG ] status for monitor: mon.app1
+[app1][DEBUG ] {
+[app1][DEBUG ]   "election_epoch": 3, 
+[app1][DEBUG ]   "extra_probe_peers": [], 
+[app1][DEBUG ]   "feature_map": {
+[app1][DEBUG ]     "mon": {
+[app1][DEBUG ]       "group": {
+[app1][DEBUG ]         "features": "0x3ffddff8eea4fffb", 
+[app1][DEBUG ]         "num": 1, 
+[app1][DEBUG ]         "release": "luminous"
+[app1][DEBUG ]       }
+[app1][DEBUG ]     }
+[app1][DEBUG ]   }, 
+[app1][DEBUG ]   "features": {
+[app1][DEBUG ]     "quorum_con": "4611087853745930235", 
+[app1][DEBUG ]     "quorum_mon": [
+[app1][DEBUG ]       "kraken", 
+[app1][DEBUG ]       "luminous"
+[app1][DEBUG ]     ], 
+[app1][DEBUG ]     "required_con": "153140804152475648", 
+[app1][DEBUG ]     "required_mon": [
+[app1][DEBUG ]       "kraken", 
+[app1][DEBUG ]       "luminous"
+[app1][DEBUG ]     ]
+[app1][DEBUG ]   }, 
+[app1][DEBUG ]   "monmap": {
+[app1][DEBUG ]     "created": "2018-11-21 16:57:49.992274", 
+[app1][DEBUG ]     "epoch": 1, 
+[app1][DEBUG ]     "features": {
+[app1][DEBUG ]       "optional": [], 
+[app1][DEBUG ]       "persistent": [
+[app1][DEBUG ]         "kraken", 
+[app1][DEBUG ]         "luminous"
+[app1][DEBUG ]       ]
+[app1][DEBUG ]     }, 
+[app1][DEBUG ]     "fsid": "c23d9371-3e7b-4276-bd77-0f21b4c1ad9b", 
+[app1][DEBUG ]     "modified": "2018-11-21 16:57:49.992274", 
+[app1][DEBUG ]     "mons": [
+[app1][DEBUG ]       {
+[app1][DEBUG ]         "addr": "192.168.6.211:6789/0", 
+[app1][DEBUG ]         "name": "app1", 
+[app1][DEBUG ]         "public_addr": "192.168.6.211:6789/0", 
+[app1][DEBUG ]         "rank": 0
+[app1][DEBUG ]       }
+[app1][DEBUG ]     ]
+[app1][DEBUG ]   }, 
+[app1][DEBUG ]   "name": "app1", 
+[app1][DEBUG ]   "outside_quorum": [], 
+[app1][DEBUG ]   "quorum": [
+[app1][DEBUG ]     0
+[app1][DEBUG ]   ], 
+[app1][DEBUG ]   "rank": 0, 
+[app1][DEBUG ]   "state": "leader", 
+[app1][DEBUG ]   "sync_provider": []
+[app1][DEBUG ] }
+[app1][DEBUG ] ********************************************************************************
+[app1][INFO  ] monitor: mon.app1 is running
+[app1][INFO  ] Running command: ceph --cluster=ceph --admin-daemon /var/run/ceph/ceph-mon.app1.asok mon_status
+[ceph_deploy.mon][INFO  ] processing monitor mon.app1
+[app1][DEBUG ] connected to host: app1 
+[app1][DEBUG ] detect platform information from remote host
+[app1][DEBUG ] detect machine type
+[app1][DEBUG ] find the location of an executable
+[app1][INFO  ] Running command: ceph --cluster=ceph --admin-daemon /var/run/ceph/ceph-mon.app1.asok mon_status
+[ceph_deploy.mon][INFO  ] mon.app1 monitor has reached quorum!
+[ceph_deploy.mon][INFO  ] all initial monitors are running and have formed quorum
+[ceph_deploy.mon][INFO  ] Running gatherkeys...
+[ceph_deploy.gatherkeys][INFO  ] Storing keys in temp directory /tmp/tmpbimlel
+[app1][DEBUG ] connected to host: app1 
+[app1][DEBUG ] detect platform information from remote host
+[app1][DEBUG ] detect machine type
+[app1][DEBUG ] get remote short hostname
+[app1][DEBUG ] fetch remote file
+[app1][INFO  ] Running command: /usr/bin/ceph --connect-timeout=25 --cluster=ceph --admin-daemon=/var/run/ceph/ceph-mon.app1.asok mon_status
+[app1][INFO  ] Running command: /usr/bin/ceph --connect-timeout=25 --cluster=ceph --name mon. --keyring=/var/lib/ceph/mon/ceph-app1/keyring auth get client.admin
+[app1][INFO  ] Running command: /usr/bin/ceph --connect-timeout=25 --cluster=ceph --name mon. --keyring=/var/lib/ceph/mon/ceph-app1/keyring auth get-or-create client.admin osd allow * mds allow * mon allow * mgr allow *
+[app1][INFO  ] Running command: /usr/bin/ceph --connect-timeout=25 --cluster=ceph --name mon. --keyring=/var/lib/ceph/mon/ceph-app1/keyring auth get client.bootstrap-mds
+[app1][INFO  ] Running command: /usr/bin/ceph --connect-timeout=25 --cluster=ceph --name mon. --keyring=/var/lib/ceph/mon/ceph-app1/keyring auth get-or-create client.bootstrap-mds mon allow profile bootstrap-mds
+[app1][INFO  ] Running command: /usr/bin/ceph --connect-timeout=25 --cluster=ceph --name mon. --keyring=/var/lib/ceph/mon/ceph-app1/keyring auth get client.bootstrap-mgr
+[app1][INFO  ] Running command: /usr/bin/ceph --connect-timeout=25 --cluster=ceph --name mon. --keyring=/var/lib/ceph/mon/ceph-app1/keyring auth get-or-create client.bootstrap-mgr mon allow profile bootstrap-mgr
+[app1][INFO  ] Running command: /usr/bin/ceph --connect-timeout=25 --cluster=ceph --name mon. --keyring=/var/lib/ceph/mon/ceph-app1/keyring auth get client.bootstrap-osd
+[app1][INFO  ] Running command: /usr/bin/ceph --connect-timeout=25 --cluster=ceph --name mon. --keyring=/var/lib/ceph/mon/ceph-app1/keyring auth get-or-create client.bootstrap-osd mon allow profile bootstrap-osd
+[app1][INFO  ] Running command: /usr/bin/ceph --connect-timeout=25 --cluster=ceph --name mon. --keyring=/var/lib/ceph/mon/ceph-app1/keyring auth get client.bootstrap-rgw
+[app1][INFO  ] Running command: /usr/bin/ceph --connect-timeout=25 --cluster=ceph --name mon. --keyring=/var/lib/ceph/mon/ceph-app1/keyring auth get-or-create client.bootstrap-rgw mon allow profile bootstrap-rgw
+[ceph_deploy.gatherkeys][INFO  ] Storing ceph.client.admin.keyring
+[ceph_deploy.gatherkeys][INFO  ] Storing ceph.bootstrap-mds.keyring
+[ceph_deploy.gatherkeys][INFO  ] Storing ceph.bootstrap-mgr.keyring
+[ceph_deploy.gatherkeys][INFO  ] keyring 'ceph.mon.keyring' already exists
+[ceph_deploy.gatherkeys][INFO  ] Storing ceph.bootstrap-osd.keyring
+[ceph_deploy.gatherkeys][INFO  ] Storing ceph.bootstrap-rgw.keyring
+[ceph_deploy.gatherkeys][INFO  ] Destroy temp directory /tmp/tmpbimlel
+[root@app1 ceph]# 
+[root@app1 ceph]# ceph status
+  cluster:
+    id:     c23d9371-3e7b-4276-bd77-0f21b4c1ad9b
+    health: HEALTH_OK
+ 
+  services:
+    mon: 1 daemons, quorum app1
+    mgr: no daemons active
+    osd: 0 osds: 0 up, 0 in
+ 
+  data:
+    pools:   0 pools, 0 pgs
+    objects: 0 objects, 0B
+    usage:   0B used, 0B / 0B avail
+    pgs:     
+ 
+[root@app1 ceph]# 
+
 #############################################
+
+[root@app1 ceph]# ceph-deploy disk list app1
+[ceph_deploy.conf][DEBUG ] found configuration file at: /root/.cephdeploy.conf
+[ceph_deploy.cli][INFO  ] Invoked (2.0.1): /usr/bin/ceph-deploy disk list app1
+[ceph_deploy.cli][INFO  ] ceph-deploy options:
+[ceph_deploy.cli][INFO  ]  username                      : None
+[ceph_deploy.cli][INFO  ]  verbose                       : False
+[ceph_deploy.cli][INFO  ]  debug                         : False
+[ceph_deploy.cli][INFO  ]  overwrite_conf                : False
+[ceph_deploy.cli][INFO  ]  subcommand                    : list
+[ceph_deploy.cli][INFO  ]  quiet                         : False
+[ceph_deploy.cli][INFO  ]  cd_conf                       : <ceph_deploy.conf.cephdeploy.Conf instance at 0xf7bd88>
+[ceph_deploy.cli][INFO  ]  cluster                       : ceph
+[ceph_deploy.cli][INFO  ]  host                          : ['app1']
+[ceph_deploy.cli][INFO  ]  func                          : <function disk at 0xf1ac80>
+[ceph_deploy.cli][INFO  ]  ceph_conf                     : None
+[ceph_deploy.cli][INFO  ]  default_release               : False
+[app1][DEBUG ] connected to host: app1 
+[app1][DEBUG ] detect platform information from remote host
+[app1][DEBUG ] detect machine type
+[app1][DEBUG ] find the location of an executable
+[app1][INFO  ] Running command: fdisk -l
+[app1][INFO  ] Disk /dev/vda: 107.4 GB, 107374182400 bytes, 209715200 sectors
+[app1][INFO  ] Disk /dev/mapper/cl-root: 2142.8 GB, 2142760861696 bytes, 4185079808 sectors
+[app1][INFO  ] Disk /dev/mapper/cl-swap: 8455 MB, 8455716864 bytes, 16515072 sectors
+[app1][INFO  ] Disk /dev/mapper/cl-home: 44.1 GB, 44149243904 bytes, 86228992 sectors
+[app1][INFO  ] Disk /dev/vdb: 2199.0 GB, 2199023255552 bytes, 4294967296 sectors
+[root@app1 ceph]# 
+
+
 #############################################
 #############################################
 #############################################

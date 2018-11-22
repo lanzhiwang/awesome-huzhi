@@ -284,16 +284,13 @@ Author: `huzhi`
 ## go
 
 * [go-example](https://github.com/lanzhiwang/go-example) - go example
-
 * [go-design-patterns](https://github.com/lanzhiwang/go-design-patterns) - 常见设计模式UML类图说明-go实现
-
 * [web 自定义框架](https://github.com/lanzhiwang/web)
-
 * [go 模块介绍](https://roberto.selbach.ca/intro-to-go-modules/)
-
 * [Go 与 Python 的比较, 介绍 Go 语言对比 Python 的优点](https://thinkfaster.co/2018/07/goodbye-python-hello-go/)
-
 * [Go 语言的语法和各种细节的开源电子书，深入彻底地了解 Go](https://go101.org/article/101.html)
+* 内置库
+  * [net/url](https://juejin.im/post/5bf42ac0f265da61616e50b9)
 
 ## Android
 
