@@ -192,7 +192,7 @@ Author: `huzhi`
 
 ## Component
 
-* KVM
+* [KVM](https://github.com/lanzhiwang/awesome-huzhi/blob/master/KVM_QEMU.md)
 
 * [ZooKeeper](https://github.com/lanzhiwang/awesome-huzhi/wiki/ZooKeeper-base)
 
