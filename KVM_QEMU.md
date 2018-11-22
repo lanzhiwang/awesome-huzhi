@@ -563,6 +563,8 @@ qemu-img create -f qcow2 /img/os/rms-test.img 30G
 # 命令行界面安装KVM虚拟机
 virt-install --name=rms-test --ram=8192 --vcpus=4 --os-type=linux --location=/img/os/CentOS-7-x86_64-Minimal-1611.iso --disk path=/img/os/rms-test-05.img,format=qcow2 --network network=default --graphics none --extra-args='console=tty0 console=ttyS0,115200n8 serial'
 
+virt-install --name Ubuntu-16.04 --ram=512 --vcpus=1 --cpu host --hvm --disk path=/var/lib/libvirt/images/ubuntu-16.04-vm1,size=8 --cdrom /var/lib/libvirt/boot/ubuntu-16.04-server-amd64.iso --graphics vnc
+
 #连接虚拟机
 virsh console rms-test
 ```
