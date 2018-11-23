@@ -221,21 +221,37 @@ The `libvirt-client` spackage provides the client-side APIs and libraries for ac
 3. 定义虚拟机
    虚拟机的配置文件origin.xml编写完成后，可以使用以下命令来定义该虚拟机：
    virsh define origin.xml
+
 4. 启动虚拟机
    可以使用“start + 虚拟机名称”命令来启动已定义的虚拟机：
    virsh start origin
-5. 查看虚拟机的vnc端口
-   使用vncdisplay来查看虚拟机使用vnc端口
-   virsh vncdisplay origin
-   virt-manager
-   WebVirtCloud
-   arp -an 52:50:0c:7a:20:01 （这里只根据通信缓存记录的mac 、IP地址手段做排查。也有可能找不到。最好的办法是自己写一个脚本跟网段内的所有服务器都ping一次，记录下mac、ip地址以后再查找就没问题）
-   grep 52:50:0c:7a:20:01 -rn /var/lib/libvirt/dnsmasq
-   vncviewer port-id （ssh sk@192.168.225.22 -L 5900:127.0.0.1:5900）
 
-​       virt-viewer --connect=qemu+ssh://root@192.168.6.21/system origin
+5. 连接虚拟机
 
-​       TightVNC
+   连接虚拟机的方式：
+
+   * virsh console origin（对于没有安装操作系统的虚拟机无效，对图形界面的操作系统也无效）
+   * 使用 virt-manager 命令
+   * 使用 virt-viewer 命令（virt-viewer 命令安装在带图形界面的Linux系统中有效）
+     * virt-viewer --connect=qemu+ssh://root@192.168.6.21/system origin
+   * 使用 vnc 图形界面方式 （只有虚拟机配置了图形界面，则该方式全部有效，大部分用于Windows 系统）
+     * 原理 
+       * Win 7 client running putty --> SSH to Host --> X Forwarding --> VirtManager --> VNC connection from VM.
+     * 查看虚拟机的vnc端口
+       * virsh vncdisplay origin
+       * virsh dumpxml origin | grep vnc
+     * Windows 需要的软件
+       * putty 或者 xshell 或者 git bash
+         *  ssh root@192.168.6.21 -L 5955:127.0.0.1:5955
+       * TightVNC 或者 [VNC Viewer](https://www.realvnc.com/en/connect/download/viewer/) 或者 [virt-viewer](https://virt-manager.org/download/) （使用virt-viewer需要设置虚拟机的图形类型为 graphics type='spice'）
+         * 连接 127.0.0.1:5955
+
+   notes:
+
+   * WebVirtCloud 
+   * arp -an 52:50:0c:7a:20:01 （这里只根据通信缓存记录的mac 、IP地址手段做排查。也有可能找不到。最好的办法是自己写一个脚本跟网段内的所有服务器都ping一次，记录下mac、ip地址以后再查找就没问题）
+   * grep 52:50:0c:7a:20:01 -rn /var/lib/libvirt/dnsmasq
+
 
 3. 关闭虚拟机
    最正常的关闭虚拟机的方式就是在虚拟机系统中执行关机命令来关闭系统，如果虚拟机系统支持acpi，还可以使用以下的命令在外部优雅地关闭该虚拟机：
