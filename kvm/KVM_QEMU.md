@@ -221,11 +221,9 @@ The `libvirt-client` spackage provides the client-side APIs and libraries for ac
 3. 定义虚拟机
    虚拟机的配置文件origin.xml编写完成后，可以使用以下命令来定义该虚拟机：
    virsh define origin.xml
-
 4. 启动虚拟机
    可以使用“start + 虚拟机名称”命令来启动已定义的虚拟机：
    virsh start origin
-
 5. 查看虚拟机的vnc端口
    使用vncdisplay来查看虚拟机使用vnc端口
    virsh vncdisplay origin
@@ -235,13 +233,14 @@ The `libvirt-client` spackage provides the client-side APIs and libraries for ac
    grep 52:50:0c:7a:20:01 -rn /var/lib/libvirt/dnsmasq
    vncviewer port-id （ssh sk@192.168.225.22 -L 5900:127.0.0.1:5900）
 
-6. 关闭虚拟机
+​       virt-viewer --connect=qemu+ssh://root@127.0.0.1/system origin
+
+3. 关闭虚拟机
    最正常的关闭虚拟机的方式就是在虚拟机系统中执行关机命令来关闭系统，如果虚拟机系统支持acpi，还可以使用以下的命令在外部优雅地关闭该虚拟机：
    virsh shutdown origin
    如果虚拟机已死机，或是该虚拟机不再重要，需要删除，则可以使用以下的命令来直接对虚拟机造成“拔电源”的效果：
    virsh destroy origin
-
-7. 删除虚拟机
+4. 删除虚拟机
    如果需要删除虚拟机，则需要执行undefine命令来取消该虚拟机的定义：
    virsh undefine origin
 
