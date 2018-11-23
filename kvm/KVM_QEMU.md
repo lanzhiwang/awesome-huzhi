@@ -233,7 +233,9 @@ The `libvirt-client` spackage provides the client-side APIs and libraries for ac
    grep 52:50:0c:7a:20:01 -rn /var/lib/libvirt/dnsmasq
    vncviewer port-id （ssh sk@192.168.225.22 -L 5900:127.0.0.1:5900）
 
-​       virt-viewer --connect=qemu+ssh://root@127.0.0.1/system origin
+​       virt-viewer --connect=qemu+ssh://root@192.168.6.21/system origin
+
+​       TightVNC
 
 3. 关闭虚拟机
    最正常的关闭虚拟机的方式就是在虚拟机系统中执行关机命令来关闭系统，如果虚拟机系统支持acpi，还可以使用以下的命令在外部优雅地关闭该虚拟机：
