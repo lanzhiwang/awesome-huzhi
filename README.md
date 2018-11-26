@@ -113,7 +113,6 @@ Author: `huzhi`
   * 解决 python 版本问题: pyenv
 * [Python3 实例教程](https://github.com/jerry-git/learn-python3)
 * [爬虫采集和调度框架](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/Reptile_frame.png)
-* [httpie 使用说明](https://keelii.com/2018/09/03/HTTPie/)
 * [将 python 源码编译成 exe 文件](https://www.ctolib.com/topics-119121.html)
 * [flask 启动脚本](https://github.com/lanzhiwang/awesome-huzhi/blob/master/flask_manager.md)
 * [python 小技巧文章](https://github.com/piglei/one-python-craftsman)
@@ -146,6 +145,7 @@ Author: `huzhi`
 * [nginx uwsgi flask](https://github.com/lanzhiwang/awesome-huzhi/blob/master/nginx_uwsgi_flask.md)
 * [监控系统 prometheus 基本原理以及客户端的使用](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Prometheus.md)
 * [epel](https://fedoraproject.org/wiki/EPEL)
+* [http curl wget](https://github.com/lanzhiwang/awesome-huzhi/blob/master/HTTPie_and_Curl_Wget.md)
 
 
 ## MySQL
