@@ -116,6 +116,7 @@ Author: `huzhi`
 * [httpie 使用说明](https://keelii.com/2018/09/03/HTTPie/)
 * [将 python 源码编译成 exe 文件](https://www.ctolib.com/topics-119121.html)
 * [flask 启动脚本](https://github.com/lanzhiwang/awesome-huzhi/blob/master/flask_manager.md)
+* [python 小技巧文章](https://github.com/piglei/one-python-craftsman)
 
 
 ## Linux
