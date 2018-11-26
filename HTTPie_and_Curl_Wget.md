@@ -1,5 +1,11 @@
 ## HTTPie And Curl
 
+- [http 使用示例](#http-使用示例)
+- [curl 使用示例](#curl-使用示例)
+- [wget 使用示例](wget-使用示例)
+
+
+
 ### HTTPie Install
 
 ```bash
@@ -562,7 +568,7 @@ Options: (H) means HTTP/HTTPS only, (F) means FTP only
 
 
 
-### wget  使用示例
+### wget 使用示例
 
 ```bash
 # To download a single file
