@@ -195,25 +195,17 @@ Author: `huzhi`
 ## Component
 
 * [KVM](https://github.com/lanzhiwang/awesome-huzhi/blob/master/kvm/KVM_QEMU.md)
-
 * [ZooKeeper](https://github.com/lanzhiwang/awesome-huzhi/wiki/ZooKeeper-base)、[zkui](https://github.com/DeemOpen/zkui)
-
 * Etcd
-
-* [Redis](https://github.com/lanzhiwang/awesome-huzhi/wiki/redis)
-
+* Redis
+    * [Redis 目标分类](https://github.com/lanzhiwang/awesome-huzhi/wiki/redis)
+    * [Redis 客户端与服务端通信协议](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/Redis_Protocol.md)
 * MongoDB
-
 * Elasticsearch
-
 * [RabbitMQ](https://github.com/lanzhiwang/awesome-huzhi/wiki/RabbitMQ)
-
 * [Kafka](https://github.com/lanzhiwang/awesome-huzhi/wiki/kafka-base)
-
 * jenkins
-
 * IMAP/POP3/STMP
-
 * Hadoop生态
     * Hadoop
     * HDFS-文件系统
@@ -229,7 +221,6 @@ Author: `huzhi`
     * Kafka-队列
     * Hbase-数据库
     * Spark-流式计算框架
-
 * Storm
 
 
