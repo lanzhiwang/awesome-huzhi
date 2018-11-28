@@ -200,6 +200,9 @@ Author: `huzhi`
 * Redis
     * [Redis 目标分类](https://github.com/lanzhiwang/awesome-huzhi/wiki/redis)
     * [Redis 客户端与服务端通信协议](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/Redis_Protocol.md)
+    * [Redis 事件模型](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/Redis_Event_Model.md)
+    * [redis-cli 常用命令](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/redis-cli.md)
+    * [Redis 数据类型](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/Redis_Data_Type.md)
 * MongoDB
 * Elasticsearch
 * [RabbitMQ](https://github.com/lanzhiwang/awesome-huzhi/wiki/RabbitMQ)
