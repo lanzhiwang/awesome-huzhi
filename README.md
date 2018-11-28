@@ -146,6 +146,7 @@ Author: `huzhi`
 * [监控系统 prometheus 基本原理以及客户端的使用](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Prometheus.md)
 * [epel](https://fedoraproject.org/wiki/EPEL)
 * [http curl wget](https://github.com/lanzhiwang/awesome-huzhi/blob/master/HTTPie_and_Curl_Wget.md)
+* [Linux 异步事件模型--以redis事件模型为例](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/Redis_Event_Model.md)
 
 
 ## MySQL
