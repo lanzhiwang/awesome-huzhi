@@ -1,6 +1,6 @@
 ## Redis 通信协议
 
-Redis服务器与客户端通过RESP（REdis Serialization Protocol `Redis 序列化协议`）协议通信
+Redis `服务器`与`客户端`通过RESP（REdis Serialization Protocol `Redis 序列化协议`）协议通信
 
 ```bash
 ## 向服务器发送 PING 命令
