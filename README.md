@@ -196,7 +196,7 @@ Author: `huzhi`
 
 * [KVM](https://github.com/lanzhiwang/awesome-huzhi/blob/master/kvm/KVM_QEMU.md)
 
-* [ZooKeeper](https://github.com/lanzhiwang/awesome-huzhi/wiki/ZooKeeper-base)
+* [ZooKeeper](https://github.com/lanzhiwang/awesome-huzhi/wiki/ZooKeeper-base)、[zkui](https://github.com/DeemOpen/zkui)
 
 * Etcd
 
