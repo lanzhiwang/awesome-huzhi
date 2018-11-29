@@ -188,3 +188,5 @@ void acceptProc(struct aeEventLoop *eventLoop, int fd, void *clientdata, int mas
 1. Redis 包含一个简单但功能强大的异步事件库 `ae`，该库封装了不同的操作系统的 polling 机制（非阻塞I/O机制）。
 2. Linux 操作系统常见的 polling 机制有 select、poll、epoll、kqueue。
 3. 以 epoll 机制为例说明。调用 epoll_create() 通知操作系统内核我们要创建 epoll，然后调用 epoll_ctl() 将文件描述符 fd 和所关注的事件类型传递给内核，之后调用 epoll_wait() 等待文件描述符上的事件的发生。当文件描述符被更新时，内核会向应用程序发送通知。应用程序需要做的事情就是为事件创建回调函数。
+4. 在 polling 的过程中没有线程和子进程的创建和交互，因此，该模型的关键有点就在于它是一个轻量级的上下文切换的I/O模型，在上下文切换上花费不大。
+5. polling 模型最常见的问题就是`延时问题`。在 polling 模型的一个连接中，在一条命令被处理完成前，Redis 不能处理其他的命令。
