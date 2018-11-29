@@ -28,6 +28,80 @@ migrate_cached_sockets:0
 
 ## 优雅地停止服务器
 127.0.0.1:6379> SHUTDOWN [NOSAVE|SAVE]
+
+## 选择数据库
+127.0.0.1:6379> select 9
+OK
+
+## 判断 key 是否存在
+127.0.0.1:6379[9]> exists "rhino:serv:media:running"
+(integer) 1
+127.0.0.1:6379[9]> exists "rhino:serv:media:waiting"
+(integer) 0
+127.0.0.1:6379[9]> 
+
+## 查询 key 对应的类型
+127.0.0.1:6379[9]> type "rhino:serv:media:running"
+hash
+127.0.0.1:6379[9]> 
+
+## 查询 Redis 中 key 的个数
+127.0.0.1:6379> DBSIZE
+(integer) 1
+127.0.0.1:6379> 
+
+## 获取 Redis 中的所有的 key
+127.0.0.1:6379> KEYS *
+1) "mykey"
+127.0.0.1:6379> 
+
+127.0.0.1:6379> SCAN 0
+1) "0"
+2) 1) "mykey"
+127.0.0.1:6379> 
+
+## 删除 key
+127.0.0.1:6379> help DEL 
+
+  DEL key [key ...]
+  summary: Delete a key
+  since: 1.0.0
+  group: generic
+
+127.0.0.1:6379> 
+127.0.0.1:6379> help UNLINK  # 异步删除 key
+
+127.0.0.1:6379> 
+
+## 重命名 key
+127.0.0.1:6379> help RENAME
+
+  RENAME key newkey
+  summary: Rename a key
+  since: 1.0.0
+  group: generic
+
+127.0.0.1:6379> 
+
+## 序列化和反序列化
+127.0.0.1:6379> help DUMP
+
+  DUMP key
+  summary: Return a serialized version of the value stored at the specified key.
+  since: 2.6.0
+  group: generic
+
+127.0.0.1:6379> 
+127.0.0.1:6379> help RESTORE
+
+  RESTORE key ttl serialized-value [REPLACE]
+  summary: Create a key using the provided serialized value, previously obtained using DUMP.
+  since: 2.6.0
+  group: generic
+
+127.0.0.1:6379> 
+
+
 ```
 
 
