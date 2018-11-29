@@ -192,3 +192,25 @@ aof-rewrite-incremental-fsync yes
 
 ```
 
+
+
+```bash
+$ cat sentinel.conf 
+# bind 127.0.0.1 192.168.1.1
+# protected-mode no
+port 26379
+# sentinel announce-ip <ip>
+# sentinel announce-port <port>
+dir /tmp
+sentinel monitor mymaster 127.0.0.1 6379 2
+# sentinel auth-pass mymaster MySUPER--secret-0123passw0rd
+sentinel down-after-milliseconds mymaster 30000
+sentinel parallel-syncs mymaster 1
+sentinel failover-timeout mymaster 180000
+# sentinel notification-script mymaster /var/redis/notify.sh
+# sentinel client-reconfig-script mymaster /var/redis/reconfig.sh
+sentinel deny-scripts-reconfig yes
+
+
+```
+
