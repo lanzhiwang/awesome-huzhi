@@ -204,6 +204,7 @@ Author: `huzhi`
     * [Redis 事件模型](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/Redis_Event_Model.md)
     * [redis-cli 常用命令](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/redis-cli.md)
     * [Redis 数据类型](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/Redis_Data_Type.md)
+    * [bit 操作](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/redis_data_characteristic.md#bitmap)、[过期时间](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/redis_data_characteristic.md#%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4)、[sort](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/redis_data_characteristic.md#sort)、[管道操作](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/redis_data_characteristic.md#redis-%E7%AE%A1%E9%81%93)、[事务](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/redis_data_characteristic.md#redis-%E4%BA%8B%E5%8A%A1)、[发布订阅](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/redis_data_characteristic.md#redis-%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85)、[在redis中使用lua脚本](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/redis_data_characteristic.md#%E5%9C%A8-redis-%E4%B8%AD%E4%BD%BF%E7%94%A8-lua-%E8%84%9A%E6%9C%AC)
 * MongoDB
 * Elasticsearch
 * [RabbitMQ](https://github.com/lanzhiwang/awesome-huzhi/wiki/RabbitMQ)
