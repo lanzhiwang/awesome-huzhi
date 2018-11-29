@@ -33,5 +33,12 @@ $ redis-server sentinel.conf --sentinel
 
 ## 观察日志和sentinel.conf文件，sentinel.conf文件会写入新的信息
 
+## 管理 sentinel，无论连接那台机器的 26379 端口进程都可以
+$ redis-cli -h 192.168.0.33 -p 26379
+192.168.0.33:26379> sentinel 
 ```
+
+
+
+### 配置 Redis Cluster
 
