@@ -63,17 +63,14 @@ redis-master-6381.conf
 redis-slave-6380.conf
 
 ## step 2：修改配置文件内容，确保如下选项配置正确
-################################## NETWORK #####################################
 bind 0.0.0.0
 port
 
-################################# GENERAL #####################################
 daemonize yes
 pidfile
 loglevel notice
 logfile ""
 
-################################ SNAPSHOTTING  ################################
 save 900 1
 save 300 10
 save 60 10000
@@ -83,7 +80,6 @@ rdbchecksum yes
 dbfilename dump.rdb
 dir
 
-################################ REDIS CLUSTER  ###############################
 cluster-enabled yes
 cluster-config-file
 cluster-node-timeout 15000
