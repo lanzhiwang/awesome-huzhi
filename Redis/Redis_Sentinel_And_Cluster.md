@@ -49,6 +49,7 @@ $ redis-cli -h 192.168.0.33 -p 26379
 
 
 ```bash
+### 方法一：
 ## step 1：重命名所有机器上的redis服务的配置文件 redis.conf
 192.168.1.57
 redis-master-6379.conf
@@ -118,6 +119,10 @@ $ redis-cli -h 192.168.1.57 -p 6381 CLUSTER REPLICATE eee
 
 ## step 10：在任意一个redis服务中查看集群节点的主从信息
 $ redis-cli -h 192.168.1.57 -p 6381 CLUSTER NODES
+
+### 方法二：
+redis-trib.rb create --replicas 1 192.168.1.57:6379 192.168.1.57:6381 192.168.1.59:6380 192.168.1.59:6379 192.168.1.58:6381 192.168.1.59:6380
+
 
 
 127.0.0.1:6379> help @cluster
