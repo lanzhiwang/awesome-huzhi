@@ -44,6 +44,174 @@ $ redis-cli -h 192.168.0.33 -p 26379
 
 
 
+![](./redis_cluster.svg)
+
+
+
+```bash
+## step 1：重命名所有机器上的redis服务的配置文件 redis.conf
+192.168.1.57
+redis-master-6379.conf
+redis-slave-6381.conf
+
+192.168.1.59
+redis-master-6380.conf
+redis-slave-6379.conf
+
+192.168.1.58
+redis-master-6381.conf
+redis-slave-6380.conf
+
+## step 2：修改配置文件内容，确保如下选项配置正确
+################################## NETWORK #####################################
+bind 0.0.0.0
+port
+
+################################# GENERAL #####################################
+daemonize yes
+pidfile
+loglevel notice
+logfile ""
+
+################################ SNAPSHOTTING  ################################
+save 900 1
+save 300 10
+save 60 10000
+stop-writes-on-bgsave-error yes
+rdbcompression yes
+rdbchecksum yes
+dbfilename dump.rdb
+dir
+
+################################ REDIS CLUSTER  ###############################
+cluster-enabled yes
+cluster-config-file
+cluster-node-timeout 15000
+
+## step 3：在所有的机器上使用对应的配置文件启动相应的redis服务
+
+## step 4：确定生成的集群配置文件是否正常
+
+## step 5：在所有的机器上检查集群相关信息和日志信息
+192.168.1.57> INFO CLUSTER
+
+## step 6：在任意一台机器上上执行 CLUSTER MEET 操作，连接所有的 redis 服务以便集群发现其他节点
+$ redis-cli -h 192.168.1.57 -p 6381 CLUSTER MEET 192.168.1.57 6379
+$ redis-cli -h 192.168.1.57 -p 6381 CLUSTER MEET 192.168.1.57 6381
+$ redis-cli -h 192.168.1.57 -p 6381 CLUSTER MEET 192.168.1.59 6380
+$ redis-cli -h 192.168.1.57 -p 6381 CLUSTER MEET 192.168.1.59 6379
+$ redis-cli -h 192.168.1.57 -p 6381 CLUSTER MEET 192.168.1.58 6381
+$ redis-cli -h 192.168.1.57 -p 6381 CLUSTER MEET 192.168.1.59 6380
+
+## step 7：在三台机器上分别选择一个redis服务分配数据槽
+$ for i in {0..5400}; do redis-cli -h 192.168.1.57 -p 6379 CLUSTER ADDSLOTS ${i}; done
+
+$ for i in {5401..11000}; do redis-cli -h 192.168.1.59 -p 6380 CLUSTER ADDSLOTS ${i}; done
+
+$ for i in {11001..16383}; do redis-cli -h 192.168.1.58 -p 6381 CLUSTER ADDSLOTS ${i}; done
+
+## step 8：在任意一个redis服务中查看集群节点信息 node-id
+$ redis-cli -h 192.168.1.57 -p 6381 CLUSTER NODES
+
+## step 9：设置主从复制信息，将6个redis服务两两设置为主从关系
+$ redis-cli -h 192.168.1.59 -p 6379 CLUSTER REPLICATE 582
+
+$ redis-cli -h 192.168.1.58 -p 6380 CLUSTER REPLICATE 2ff
+
+$ redis-cli -h 192.168.1.57 -p 6381 CLUSTER REPLICATE eee
+
+## step 10：在任意一个redis服务中查看集群节点的主从信息
+$ redis-cli -h 192.168.1.57 -p 6381 CLUSTER NODES
+
+
+127.0.0.1:6379> help @cluster
+
+  CLUSTER ADDSLOTS slot [slot ...]
+  summary: Assign new hash slots to receiving node
+  since: 3.0.0
+
+  CLUSTER COUNT-FAILURE-REPORTS node-id
+  summary: Return the number of failure reports active for a given node
+  since: 3.0.0
+
+  CLUSTER COUNTKEYSINSLOT slot
+  summary: Return the number of local keys in the specified hash slot
+  since: 3.0.0
+
+  CLUSTER DELSLOTS slot [slot ...]
+  summary: Set hash slots as unbound in receiving node
+  since: 3.0.0
+
+  CLUSTER FAILOVER [FORCE|TAKEOVER]
+  summary: Forces a slave to perform a manual failover of its master.
+  since: 3.0.0
+
+  CLUSTER FORGET node-id
+  summary: Remove a node from the nodes table
+  since: 3.0.0
+
+  CLUSTER GETKEYSINSLOT slot count
+  summary: Return local key names in the specified hash slot
+  since: 3.0.0
+
+  CLUSTER INFO -
+  summary: Provides info about Redis Cluster node state
+  since: 3.0.0
+
+  CLUSTER KEYSLOT key
+  summary: Returns the hash slot of the specified key
+  since: 3.0.0
+
+  CLUSTER MEET ip port
+  summary: Force a node cluster to handshake with another node
+  since: 3.0.0
+
+  CLUSTER NODES -
+  summary: Get Cluster config for the node
+  since: 3.0.0
+
+  CLUSTER REPLICATE node-id
+  summary: Reconfigure a node as a slave of the specified master node
+  since: 3.0.0
+
+  CLUSTER RESET [HARD|SOFT]
+  summary: Reset a Redis Cluster node
+  since: 3.0.0
+
+  CLUSTER SAVECONFIG -
+  summary: Forces the node to save cluster state on disk
+  since: 3.0.0
+
+  CLUSTER SET-CONFIG-EPOCH config-epoch
+  summary: Set the configuration epoch in a new node
+  since: 3.0.0
+
+  CLUSTER SETSLOT slot IMPORTING|MIGRATING|STABLE|NODE [node-id]
+  summary: Bind an hash slot to a specific node
+  since: 3.0.0
+
+  CLUSTER SLAVES node-id
+  summary: List slave nodes of the specified master node
+  since: 3.0.0
+
+  CLUSTER SLOTS -
+  summary: Get array of Cluster slot to node mappings
+  since: 3.0.0
+
+  READONLY -
+  summary: Enables read queries for a connection to a cluster slave node
+  since: 3.0.0
+
+  READWRITE -
+  summary: Disables read queries for a connection to a cluster slave node
+  since: 3.0.0
+
+127.0.0.1:6379> 
+
+```
+
+
+
 
 
 ```bash
