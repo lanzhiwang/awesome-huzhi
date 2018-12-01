@@ -10,6 +10,11 @@ save 900 1
 save 300 10
 save 60 10000
 
+127.0.0.1:6379> SAVE
+127.0.0.1:6379> BGSAVE
+127.0.0.1:6379> info PERSISTENCE
+
+
 127.0.0.1:6379> help CONFIG SET
 
   CONFIG SET parameter value
@@ -37,5 +42,8 @@ save 60 10000
 
 # 配置文件
 appendonly yes
+
+127.0.0.1:6379> BGREWRITEAOF
+
 ```
 
