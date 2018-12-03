@@ -12,7 +12,7 @@
 ## step 1：修改所有机器的配置文件 redis.conf 选项 bind
 bind 0.0.0.0
 
-## step 2：修改 Slave-1 和 Slave-1 上的配置文件 redis.conf 选项 slaveof
+## step 2：修改 Slave-1 和 Slave-2 上的配置文件 redis.conf 选项 slaveof
 slaveof 192.168.0.31 6379
 
 ## step 3：在所有的机器上启动 redis 服务
