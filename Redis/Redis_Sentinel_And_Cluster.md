@@ -28,6 +28,12 @@ sentinel parallel-syncs mymaster 1
 sentinel failover-timeout mymaster 180000
 sentinel deny-scripts-reconfig yes
 
+## 如果有多个主实例，每个主实例都可以使用如下配置
+# sentinel monitor resque 192.168.1.3 6380 4
+# sentinel down-after-milliseconds resque 10000
+# sentinel failover-timeout resque 180000
+# sentinel parallel-syncs resque 5
+
 ## 在所有机器上启动 sentinel 进程
 $ redis-server sentinel.conf --sentinel
 
@@ -36,6 +42,7 @@ $ redis-server sentinel.conf --sentinel
 ## 管理 sentinel，无论连接那台机器的 26379 端口进程都可以
 $ redis-cli -h 192.168.0.33 -p 26379
 192.168.0.33:26379> sentinel 
+
 ```
 
 
