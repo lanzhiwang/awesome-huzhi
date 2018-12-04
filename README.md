@@ -208,6 +208,7 @@ Author: `huzhi`
     * [Redis 复制](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/Redis_Replication.md)
     * [Redis 持久化 RDB 和 AOF](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/Redis_Persistence.md)
     * [Redis 哨兵和集群](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/Redis_Sentinel_And_Cluster.md)
+    * [Redis 数据分片解决方案对比](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/Redis_data_sharding.md)
 * MongoDB
 * Elasticsearch
 * [RabbitMQ](https://github.com/lanzhiwang/awesome-huzhi/wiki/RabbitMQ)
