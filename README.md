@@ -138,7 +138,7 @@ Author: `huzhi`
 
   * [tldr](https://github.com/lanzhiwang/tldr)
 * [Linux-Explore](https://github.com/lanzhiwang/awesome-huzhi/wiki/Linux-Explore) - 了解Linux服务器
-* openssl、gpg
+* [OpenSSL](https://github.com/lanzhiwang/awesome-huzhi/blob/master/OpenSSL.md)、gpg
 * firewall、[iptables](https://github.com/lanzhiwang/awesome-huzhi/blob/master/iptables.md)
 * whiptail - 创建交互式shell脚本对话框
 * [代理服务、翻墙](https://github.com/lanzhiwang/awesome-huzhi/wiki/%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1)
