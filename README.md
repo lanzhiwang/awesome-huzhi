@@ -179,7 +179,7 @@ Author: `huzhi`
 * 数据库分库分表方案
 * [水平分表后页面分页处理办法](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-sub-table)
 * MySQL的压测工具 - mysqlslap
-* [MySQL 登陆协议](https://github.com/lanzhiwang/awesome-huzhi/blob/master/MySQL/mysql_login_agreement.pdf)
+* [MySQL 协议](https://github.com/lanzhiwang/awesome-huzhi/blob/master/MySQL/mysql_login_agreement.pdf)
 * [MySQL 博客](https://mysqlserverteam.com/)
 
 
