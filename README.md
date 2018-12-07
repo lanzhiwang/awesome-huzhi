@@ -171,7 +171,8 @@ Author: `huzhi`
     3. [可重复读(repeatable-read)](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-transaction-isolation#%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BBrepeatable-read)
 
     4. [串行化(serializable)](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-transaction-isolation#%E4%B8%B2%E8%A1%8C%E5%8C%96serializable)
-* 锁表、锁数据行、异步处理
+* [MySQL 锁](https://github.com/lanzhiwang/awesome-huzhi/blob/master/MySQL/mysql_lock.md)
+* 异步处理
 * 错误日志、通用查询日志、慢查询日志、二进制日志、中继日志、DDL 日志
 * [MySQL 表锁](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-lock)
 * [InnoDB记录存储结构、InnoDB数据页结构、MySQL的索引](https://github.com/lanzhiwang/awesome-huzhi/wiki/MySQL-index)
