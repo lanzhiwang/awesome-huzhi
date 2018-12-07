@@ -154,7 +154,7 @@ Author: `huzhi`
 
 * 事务特性
 
-  * [ACID](https://github.com/donnemartin/system-design-primer#relational-database-management-system-rdbms)
+  * [原子性、一致性、隔离性、持久性（ACID）](https://github.com/donnemartin/system-design-primer#relational-database-management-system-rdbms)
 * 事务并发时的问题
 
     1. 脏读
