@@ -147,6 +147,7 @@ Author: `huzhi`
 * [http curl wget](https://github.com/lanzhiwang/awesome-huzhi/blob/master/HTTPie_and_Curl_Wget.md)
 * [Linux 异步事件模型--以redis事件模型为例](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/Redis_Event_Model.md)
 * [使用 nginx 作为 yum 代理](https://github.com/lanzhiwang/awesome-huzhi/blob/master/nginx_yum_proxy.md)
+* [pcap 包示例](https://wiki.wireshark.org/SampleCaptures)
 
 
 ## MySQL
@@ -171,6 +172,7 @@ Author: `huzhi`
 
     4. [串行化(serializable)](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-transaction-isolation#%E4%B8%B2%E8%A1%8C%E5%8C%96serializable)
 * 锁表、锁数据行、异步处理
+* 错误日志、通用查询日志、慢查询日志、二进制日志、中继日志、DDL 日志
 * [MySQL 表锁](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-lock)
 * [InnoDB记录存储结构、InnoDB数据页结构、MySQL的索引](https://github.com/lanzhiwang/awesome-huzhi/wiki/MySQL-index)
 * 数据库分库分表方案
