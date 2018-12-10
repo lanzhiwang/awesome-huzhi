@@ -199,7 +199,7 @@ Author: `huzhi`
 ## Component
 
 * [KVM](https://github.com/lanzhiwang/awesome-huzhi/blob/master/kvm/KVM_QEMU.md)
-* [ZooKeeper](https://github.com/lanzhiwang/awesome-huzhi/wiki/ZooKeeper-base)、[zkui](https://github.com/DeemOpen/zkui)
+* [ZooKeeper](https://github.com/lanzhiwang/awesome-huzhi/wiki/ZooKeeper-base)、[zkpython_example](https://github.com/piglei/zkpython_example)、[zkui](https://github.com/DeemOpen/zkui)
 * Etcd
 * Redis
     * [Redis 目标分类](https://github.com/lanzhiwang/awesome-huzhi/wiki/redis)
