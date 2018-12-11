@@ -2,9 +2,7 @@
 
 ### 1×× Informational
 * 100 Continue
-
 * 101 Switching Protocols
-
 * 102 Processing
 
 ### 2×× Success
