@@ -368,6 +368,7 @@ h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
 * [system-design-primer](https://github.com/donnemartin/system-design-primer) - 设计可扩展系统
 * [代码整洁之道](https://github.com/lanzhiwang/awesome-huzhi/wiki/clean-code)
 * [HTTPS图解](https://tls.ulfheim.net/)
+* [HTTP Status Codes](https://github.com/lanzhiwang/awesome-huzhi/blob/master/HTTP_Status_Codes.md)
 
 
 ## JavaScript
