@@ -104,6 +104,7 @@ Author: `huzhi`
 * [Python 对象可散列](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python-object-hash)
 * [Python 动态导入](https://github.com/lanzhiwang/awesome-huzhi/wiki/python-dynamic-import)
 * [不太常见的包或者模块、函数](https://github.com/lanzhiwang/awesome-huzhi/wiki/Less-common-packages-or-modules-or-functions)
+* [\_\_slots\_\_魔术方法说明](https://github.com/lanzhiwang/awesome-huzhi/blob/master/__slots__%20.md)
 * 不太常见的Python语言特性
   * [exec-eval](https://anandology.com/python-practice-book/functional-programming.html#exec-eval)
   * [魔术方法](https://rszalski.github.io/magicmethods/)
