@@ -182,3 +182,9 @@ class ModelMetaclass(type):
 
 ```
 
+
+
+参考：
+
+* [new and init](https://www.python.org/download/releases/2.2/descrintro/#__new__)
+
