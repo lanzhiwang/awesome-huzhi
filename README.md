@@ -106,6 +106,7 @@ Author: `huzhi`
 * [不太常见的包或者模块、函数](https://github.com/lanzhiwang/awesome-huzhi/wiki/Less-common-packages-or-modules-or-functions)
 * [\_\_slots\_\_魔术方法说明](https://github.com/lanzhiwang/awesome-huzhi/blob/master/__slots__%20.md)
 * [\_\_new\_\_() and \_\_init\_\_()](https://github.com/lanzhiwang/awesome-huzhi/blob/master/new_and_init.md)
+* [getattr_and_getattribute](https://github.com/lanzhiwang/awesome-huzhi/blob/master/getattr_and_getattribute.md)
 * 不太常见的Python语言特性
   * [exec-eval](https://anandology.com/python-practice-book/functional-programming.html#exec-eval)
   * [魔术方法](https://rszalski.github.io/magicmethods/)
