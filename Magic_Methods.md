@@ -9,9 +9,9 @@
 - [Controlling Attribute Access]()
 - [Making Custom Sequences]()
 - [Reflection]()
-- [Abstract Base Classes]()
 - [Callable Objects]()
 - [Context Managers]()
+- [Abstract Base Classes]()
 - [Building Descriptor Objects]()
 - [Copying]()
 - [Pickling your Objects]()
@@ -439,37 +439,423 @@ class AccessCounter(object):
         
 ```
 
+### Making Custom Sequences
+
+There's a number of ways to get your Python classes to act like built in sequences (dict, tuple, list, str, etc.). These are by far my favorite magic methods in Python because of the absurd degree of control they give you and the way that they magically make a whole array of global functions work beautifully on instances of your class. But before we get down to the good stuff, a quick word on requirements.  有许多方法可以使Python类像内置序列（dict，tuple，list，str等）一样运行。 这些是迄今为止我最喜欢的Python中的魔术方法，因为它们给你的控制程度非常荒谬，以及它们神奇地使一系列全局函数在你的类的实例上工作得很漂亮的方式。 但在我们开始讨论好的东西之前，请快速了解需求。
+
+#### Requirements  要求 
+
+Now that we're talking about creating your own sequences in Python, it's time to talk about protocols. Protocols are somewhat similar to interfaces in other languages in that they give you a set of methods you must define. However, in Python protocols are totally informal and require no explicit declarations to implement. Rather, they're more like guidelines.  既然我们正在谈论在Python中创建自己的序列，那么现在是时候讨论协议了。 协议有点类似于其他语言中的接口，因为它们为您提供了一组必须定义的方法。 但是，在Python中，协议是完全非正式的，不需要显式声明来实现。 相反，它们更像是指导方针。
+
+Why are we talking about protocols now? Because implementing custom container types in Python involves using some of these protocols. First, there's the protocol for defining immutable containers: to make an immutable container, you need only define \_\_len\_\_ and \_\_getitem\_\_ (more on these later). The mutable container protocol requires everything that immutable containers require plus \_\_setitem\_\_ and \_\_delitem\_\_. Lastly, if you want your object to be iterable, you'll have to define \_\_iter\_\_, which returns an iterator. That iterator must conform to an iterator protocol, which requires iterators to have methods called \_\_iter\_\_(returning itself) and next.  我们为什么现在谈论协议？ 因为在Python中实现自定义容器类型涉及使用其中一些协议。 首先，有用于定义不可变容器的协议：要创建一个不可变容器，您只需要定义\_\_len\_\_和\_\_getitem\_\_（稍后会详细介绍）。 可变容器协议需要不可变容器所需的所有内容以及\_\_setitem\_\_和\_\_delitem\_\_。 最后，如果您希望对象可迭代，则必须定义\_\_iter\_\_，它返回一个迭代器。 该迭代器必须符合迭代器协议，该协议要求迭代器具有名为\_\_iter \_\_（返回自身）和next的方法。
+
+#### The magic behind containers
+
+Without any more wait, here are the magic methods that containers use:
+
+###### \_\_len\_\_(self)
+Returns the length of the container. Part of the protocol for both immutable and mutable containers.  返回容器的长度。不可变容器和可变容器的协议的一部分。
+
+###### \_\_getitem\_\_(self, key)
+Defines behavior for when an item is accessed, using the notation self[key]. This is also part of both the mutable and immutable container protocols. It should also raise appropriate exceptions: TypeError if the type of the key is wrong and KeyError if there is no corresponding value for the key.  使用符号self [key]定义访问项目时的行为。这也是可变和不可变容器协议的一部分。它还应该引发适当的异常：如果键的类型错误，则为TypeError;如果键没有对应的值，则为KeyError。
+
+###### \_\_setitem\_\_(self, key, value)
+Defines behavior for when an item is assigned to, using the notation self[nkey] = value. This is part of the mutable container protocol. Again, you should raise KeyError and TypeError where appropriate  使用符号self [nkey] = value定义项目分配时的行为。这是可变容器协议的一部分。同样，您应该在适当的时候引发KeyError和TypeError。
+
+###### \_\_delitem\_\_(self, key)
+Defines behavior for when an item is deleted (e.g. del self[key]). This is only part of the mutable container protocol. You must raise the appropriate exceptions when an invalid key is used. 定义项目被删除时的行为（例如del self [key]）。这只是可变容器协议的一部分。使用无效密钥时，必须引发相应的异常。
+
+###### \_\_iter\_\_(self)
+Should return an iterator for the container. Iterators are returned in a number of contexts, most notably by the iter() built in function and when a container is looped over using the form for x in container:. Iterators are their own objects, and they also must define an \_\_iter\_\_ method that returns self.  应该返回容器的迭代器。迭代器在许多上下文中返回，最明显的是内置函数的iter（）以及容器在容器中使用x的表单循环时：迭代器是它们自己的对象，它们还必须定义一个返回self的\_\_iter\_\_方法。
+
+###### \_\_reversed\_\_(self)
+Called to implement behavior for the reversed() built in function. Should return a reversed version of the sequence. Implement this only if the sequence class is ordered, like list or tuple.  被调用以实现reverse（）内置函数的行为。应返回序列的反转版本。只有在序列类被排序时才实现它，例如list或tuple。
+
+###### \_\_contains\_\_(self, item)
+\_\_contains\_\_ defines behavior for membership tests using in and not in. Why isn't this part of a sequence protocol, you ask? Because when \_\_contains\_\_ isn't defined, Python just iterates over the sequence and returns True if it comes across the item it's looking for.  \_\_contains\_\_定义使用in而不是in的成员资格测试的行为。为什么这不是序列协议的这一部分，你问？因为当没有定义\_\_contains\_\_时，Python只是迭代序列并返回True，如果遇到它正在寻找的项目。
+
+###### \_\_missing\_\_(self, key)
+\_\_missing\_\_ is used in subclasses of dict. It defines behavior for whenever a key is accessed that does not exist in a dictionary (so, for instance, if I had a dictionary d and said d["george"] when "george" is not a key in the dict, d.\_\_missing\_\_("george") would be called).  \_\_missing\_\_用于dict的子类。它定义了在字典中不存在访问密钥时的行为（例如，如果我有字典d并且当“george”不是字典中的密钥时说d [“george”]，d.\_\_missing \_\_（'george'）将被调用）。
+
+#### An example
+
+For our example, let's look at a list that implements some functional constructs that you might be used to from other languages (Haskell, for example).
+
+```python
+class FunctionalList:
+    '''A class wrapping a list with some extra functional magic, like head,
+    tail, init, last, drop, and take.'''
+
+    def __init__(self, values=None):
+        if values is None:
+            self.values = []
+        else:
+            self.values = values
+
+    def __len__(self):
+        return len(self.values)
+
+    def __getitem__(self, key):
+        # if key is of invalid type or value, the list values will raise the error
+        return self.values[key]
+
+    def __setitem__(self, key, value):
+        self.values[key] = value
+
+    def __delitem__(self, key):
+        del self.values[key]
+
+    def __iter__(self):
+        return iter(self.values)
+
+    def __reversed__(self):
+        return reversed(self.values)
+
+    def append(self, value):
+        self.values.append(value)
+        
+    def head(self):
+        # get the first element
+        return self.values[0]
+        
+    def tail(self):
+        # get all elements after the first
+        return self.values[1:]
+        
+    def init(self):
+        # get elements up to the last
+        return self.values[:-1]
+        
+    def last(self):
+        # get last element
+        return self.values[-1]
+        
+    def drop(self, n):
+        # get all elements except first n
+        return self.values[n:]
+        
+    def take(self, n):
+        # get first n elements
+        return self.values[:n]
+
+```
+
+There you have it, a (marginally) useful example of how to implement your own sequence. Of course, there are more useful applications of custom sequences, but quite a few of them are already implemented in the standard library (batteries included, right?), like `Counter`, `OrderedDict`, and `NamedTuple`.  你有它，一个（略微）有用的例子来说明如何实现你自己的序列。 当然，有更多有用的自定义序列应用程序，但其中相当一部分已经在标准库中实现（包括电池，对吗？），如Counter，OrderedDict和NamedTuple。
+
+### Reflection
+
+You can also control how reflection using the built in functions isinstance() and issubclass()behaves by defining magic methods. The magic methods are:  您还可以通过定义魔术方法来控制使用内置函数isinstance（）和issubclass（）的行为的反射。 神奇的方法是：
+
+###### \_\_instancecheck\_\_(self, instance)
+Checks if an instance is an instance of the class you defined (e.g. isinstance(instance, class).
+
+###### \_\_subclasscheck\_\_(self, subclass)
+Checks if a class subclasses the class you defined (e.g. issubclass(subclass, class)).
+
+The use case for these magic methods might seem small, and that may very well be true. I won't spend too much more time on reflection magic methods because they aren't very important, but they reflect something important about object-oriented programming in Python and Python in general: there is almost always an easy way to do something, even if it's rarely necessary. These magic methods might not seem useful, but if you ever need them you'll be glad that they're there (and that you read this guide!).  这些魔术方法的用例可能看起来很小，这很可能是真的。 我不会在反射魔术方法上花费太多时间，因为它们不是很重要，但它们反映了Python和Python中面向对象编程的一些重要内容：几乎总有一种简单的方法可以做某事，甚至 如果它很少需要。 这些神奇的方法可能看起来不太有用，但是如果你需要它们，你会很高兴他们在那里（并且你阅读了这本指南！）。
+
+### Callable Objects
+
+As you may already know, in Python, functions are first-class objects. This means that they can be passed to functions and methods just as if they were objects of any other kind. This is an incredibly powerful feature.  您可能已经知道，在Python中，函数是一流的对象。 这意味着它们可以传递给函数和方法，就像它们是任何其他类型的对象一样。 这是一个非常强大的功能。
+
+A special magic method in Python allows instances of your classes to behave as if they were functions, so that you can "call" them, pass them to functions that take functions as arguments, and so on. This is another powerful convenience feature that makes programming in Python that much sweeter.  Python中一种特殊的魔术方法允许类的实例表现得就像它们是函数一样，这样你就可以“调用”它们，将它们传递给以函数作为参数的函数，依此类推。 这是另一个强大的便利功能，使Python中的编程更加甜蜜。
+
+###### \_\_call\_\_(self, [args...])
+Allows an instance of a class to be called as a function. Essentially, this means that x() is the same as x.\_\_call\_\_(). Note that \_\_call\_\_ takes a variable number of arguments; this means that you define \_\_call\_\_ as you would any other function, taking however many arguments you'd like it to.
+
+\_\_call\_\_ can be particularly useful in classes with instances that need to often change state. "Calling" the instance can be an intuitive and elegant way to change the object's state. An example might be a class representing an entity's position on a plane:  \_\_call\_\_在具有需要经常更改状态的实例的类中特别有用。 “调用”实例可以是一种直观而优雅的方式来更改对象的状态。 一个示例可能是表示实体在平面上的位置的类：
+
+```python
+class Entity:
+    '''Class to represent an entity. Callable to update the entity's position.'''
+
+    def __init__(self, size, x, y):
+        self.x, self.y = x, y
+        self.size = size
+
+    def __call__(self, x, y):
+        '''Change the position of the entity.'''
+        self.x, self.y = x, y
+
+    # snip...
+
+```
+
+### Context Managers
+
+In Python 2.5, a new keyword was introduced in Python along with a new method for code reuse: the with statement. The concept of context managers was hardly new in Python (it was implemented before as a part of the library), but not until PEP 343 was accepted did it achieve status as a first-class language construct. You may have seen with statements before:  在Python 2.5中，Python中引入了一个新的关键字以及一种新的代码重用方法：with语句。 上下文管理器的概念在Python中并不是新的（它之前是作为库的一部分实现的），但直到PEP 343被接受才能实现作为一流语言构造的状态。 您之前可能已经看过声明：
+
+```python
+with open('foo.txt') as bar:
+    # perform some action with bar
+
+```
+
+Context managers allow setup and cleanup actions to be taken for objects when their creation is wrapped with a `with` statement. The behavior of the context manager is determined by two magic methods: 上下文管理器允许在对象的创建用with语句包装时对对象进行设置和清理操作。 上下文管理器的行为由两种魔术方法决定：
+
+###### \_\_enter\_\_(self)
+Defines what the context manager should do at the beginning of the block created by the with statement. Note that the return value of \_\_enter\_\_ is bound to the target of the with statement, or the name after the as.  定义上下文管理器在with语句创建的块的开头应该执行的操作。 请注意，\_\_ enter\_\_的返回值绑定到with语句的目标，或者as之后的名称。
+
+###### \_\_exit\_\_(self, exception_type, exception_value, traceback)
+Defines what the context manager should do after its block has been executed (or terminates). It can be used to handle exceptions, perform cleanup, or do something always done immediately after the action in the block. If the block executes successfully, exception_type, exception_value, and traceback will be None. Otherwise, you can choose to handle the exception or let the user handle it; if you want to handle it, make sure \_\_exit\_\_ returns True after all is said and done. If you don't want the exception to be handled by the context manager, just let it happen.  定义上下文管理器在块执行（或终止）后应该执行的操作。 它可以用于处理异常，执行清理，或者在块中的操作之后立即执行某些操作。 如果块成功执行，则exception_type，exception_value和traceback将为None。 否则，您可以选择处理异常或让用户处理它; 如果你想处理它，请确保\_\_exit\_\_在完成所有操作后返回True。 如果您不希望上下文管理器处理异常，那就让它发生。
+
+\_\_enter\_\_ and \_\_exit\_\_ can be useful for specific classes that have well-defined and common behavior for setup and cleanup. You can also use these methods to create generic context managers that wrap other objects. Here's an example:  \_\_enter\_\_和\_\_exit\_\_对于具有明确定义和常见的设置和清理行为的特定类非常有用。 您还可以使用这些方法创建包装其他对象的通用上下文管理器。 这是一个例子：
+
+```python
+class Closer:
+    '''A context manager to automatically close an object with a close method
+    in a with statement.'''
+
+    def __init__(self, obj):
+        self.obj = obj
+
+    def __enter__(self):
+        return self.obj # bound to target
+
+    def __exit__(self, exception_type, exception_val, trace):
+        try:
+           self.obj.close()
+        except AttributeError: # obj isn't closable
+           print 'Not closable.'
+           return True # exception handled successfully
+           
+```
+
+Here's an example of Closer in action, using an FTP connection to demonstrate it (a closable socket):
+
+```python
+>>> from magicmethods import Closer
+>>> from ftplib import FTP
+>>> with Closer(FTP('ftp.somesite.com')) as conn:
+...     conn.dir()
+...
+# output omitted for brevity
+>>> conn.dir()
+# long AttributeError message, can't use a connection that's closed
+>>> with Closer(int(5)) as i:
+...     i += 1
+...
+Not closable.
+>>> i
+6
+
+```
+
+See how our wrapper gracefully handled both proper and improper uses? That's the power of context managers and magic methods. Note that the Python standard library includes a module contextlib that contains a context manager, contextlib.closing(), that does approximately the same thing (without any handling of the case where an object does not have a close() method).  看看我们的包装器如何优雅地处理正确和不正确的用途？ 这就是情境管理者和魔术方法的力量。 请注意，Python标准库包含一个模块contextlib，它包含一个上下文管理器contextlib.closing（），它执行大致相同的操作（没有处理对象没有close（）方法的情况）。
+
+### Abstract Base Classes
+
+See http://docs.python.org/2/library/abc.html.
+
+### Building Descriptor Objects
+
+Descriptors are classes which, when accessed through either getting, setting, or deleting, can also alter other objects. Descriptors aren't meant to stand alone; rather, they're meant to be held by an owner class. Descriptors can be useful when building object-oriented databases or classes that have attributes whose values are dependent on each other. Descriptors are particularly useful when representing attributes in several different units of measurement or representing computed attributes (like distance from the origin in a class to represent a point on a grid).  描述符是一类，当通过获取，设置或删除访问时，也可以改变其他对象。 描述符并不意味着孤立无援; 相反，它们意味着由一个所有者类举行。 在构建面向对象的数据库或具有值相互依赖的属性的类时，描述符非常有用。 当在几个不同的测量单位中表示属性或表示计算的属性（例如，从类中的原点到表示网格上的点的距离）时，描述符特别有用。
+
+To be a descriptor, a class must have at least one of \_\_get\_\_, \_\_set\_\_, and \_\_delete\_\_ implemented. Let's take a look at those magic methods:
+
+###### \_\_get\_\_(self, instance, owner)
+Define behavior for when the descriptor's value is retrieved. instance is the instance of the owner object. owner is the owner class itself.
+
+###### \_\_set\_\_(self, instance, value)
+Define behavior for when the descriptor's value is changed. instance is the instance of the owner class and value is the value to set the descriptor to.
+
+###### \_\_delete\_\_(self, instance)
+Define behavior for when the descriptor's value is deleted. instance is the instance of the owner object.
+
+Now, an example of a useful application of descriptors: unit conversions.
+
+```python
+class Meter(object):
+    '''Descriptor for a meter.'''
+
+    def __init__(self, value=0.0):
+        self.value = float(value)
+    def __get__(self, instance, owner):
+        return self.value
+    def __set__(self, instance, value):
+        self.value = float(value)
+
+class Foot(object):
+    '''Descriptor for a foot.'''
+
+    def __get__(self, instance, owner):
+        return instance.meter * 3.2808
+    def __set__(self, instance, value):
+        instance.meter = float(value) / 3.2808
+
+class Distance(object):
+    '''Class to represent distance holding two descriptors for feet and
+    meters.'''
+    meter = Meter()
+    foot = Foot()
+
+```
+
+### Copying
+
+Sometimes, particularly when dealing with mutable objects, you want to be able to copy an object and make changes without affecting what you copied from. This is where Python's copy comes into play. However (fortunately), Python modules are not sentient, so we don't have to worry about a Linux-based robot uprising, but we do have to tell Python how to efficiently copy things.  有时，特别是在处理可变对象时，您希望能够复制对象并进行更改，而不会影响您从中复制的内容。 这是Python的副本发挥作用的地方。 然而（幸运的是），Python模块并不是有感知的，因此我们不必担心基于Linux的机器人起义，但我们必须告诉Python如何有效地复制内容。
+
+###### \_\_copy\_\_(self)
+Defines behavior for copy.copy() for instances of your class. copy.copy() returns a shallow copy of your object -- this means that, while the instance itself is a new instance, all of its data is referenced -- i.e., the object itself is copied, but its data is still referenced (and hence changes to data in a shallow copy may cause changes in the original).  为类的实例定义copy.copy（）的行为。 copy.copy（）返回对象的浅表副本 - 这意味着，虽然实例本身是一个新实例，但它的所有数据都被引用 - 即，对象本身被复制，但其数据仍被引用（ 因此，浅拷贝中的数据变化可能会导致原始变化。
+
+###### \_\_deepcopy\_\_(self, memodict={})
+Defines behavior for copy.deepcopy() for instances of your class. copy.deepcopy() returns a deep copy of your object -- the object and its data are both copied. memodict is a cache of previously copied objects -- this optimizes copying and prevents infinite recursion when copying recursive data structures. When you want to deep copy an individual attribute, call copy.deepcopy() on that attribute with memodict as the first argument.  为类的实例定义copy.deepcopy（）的行为。 copy.deepcopy（）返回对象的深层副本 - 对象及其数据都被复制。 memodict是以前复制的对象的缓存 - 这可以优化复制并在复制递归数据结构时防止无限递归。 如果要深度复制单个属性，请使用memodict作为第一个参数调用该属性上的copy.deepcopy（）。
+
+What are some use cases for these magic methods? As always, in any case where you need more fine-grained control than what the default behavior gives you. For instance, if you are attempting to copy an object that stores a cache as a dictionary (which might be large), it might not make sense to copy the cache as well -- if the cache can be shared in memory between instances, then it should be.  这些魔术方法有哪些用例？ 与往常一样，在任何情况下，您需要比默认行为提供的更细粒度的控制。 例如，如果您尝试复制将缓存存储为字典（可能很大）的对象，那么复制缓存也没有意义 - 如果缓存可以在实例之间的内存中共享，那么 它应该是。
+
+### Pickling your Objects
+
+If you spend time with other Pythonistas, chances are you've at least heard of pickling. Pickling is a serialization process for Python data structures, and can be incredibly useful when you need to store an object and retrieve it later (usually for caching). It's also a major source of worries and confusion.  如果你花时间与其他Pythonistas，你很可能至少听说过酸洗。 Pickling是Python数据结构的序列化过程，当您需要存储对象并稍后检索它时（通常用于缓存），它可以非常有用。 这也是担忧和困惑的主要原因。
+
+Pickling is so important that it doesn't just have its own module (pickle), but its own protocol and the magic methods to go with it. But first, a brief word on how to pickle existing types(feel free to skip it if you already know).  酸洗是如此重要，它不仅有自己的模块（泡菜），而是它自己的协议和配合它的神奇方法。 但首先，简要说明如何挑选现有类型（如果您已经知道，可以随意跳过它）。
+
+#### Pickling: A Quick Soak in the Brine
+
+Let's dive into pickling. Say you have a dictionary that you want to store and retrieve later. You couldwrite it's contents to a file, carefully making sure that you write correct syntax, then retrieve it using either exec() or processing the file input. But this is precarious at best: if you store important data in plain text, it could be corrupted or changed in any number of ways to make your program crash or worse run malicious code on your computer. Instead, we're going to pickle it:  让我们深入酸洗。 假设您有一个要稍后存储和检索的字典。 您可以将其内容写入文件，仔细确保编写正确的语法，然后使用exec（）或处理文件输入来检索它。 但这最多是不稳定的：如果您以明文形式存储重要数据，则可能会以任何方式损坏或更改您的程序崩溃或更糟糕地在您的计算机上运行恶意代码。 相反，我们要腌制它：
+
+```python
+import pickle
+
+data = {'foo': [1, 2, 3],
+        'bar': ('Hello', 'world!'),
+        'baz': True}
+jar = open('data.pkl', 'wb')
+pickle.dump(data, jar) # write the pickled data to the file jar
+jar.close()
+
+```
+
+Now, a few hours later, we want it back. All we have to do is unpickle it:
+
+```python
+import pickle
+
+pkl_file = open('data.pkl', 'rb') # connect to the pickled data
+data = pickle.load(pkl_file) # load it into a variable
+print data
+pkl_file.close()
+
+```
+
+What happens? Exactly what you expect. It's just like we had data all along.  怎么了？ 正是你所期望的。 就像我们一直有数据一样。
+
+Now, for a word of caution: pickling is not perfect. Pickle files are easily corrupted on accident and on purpose. Pickling may be more secure than using flat text files, but it still can be used to run malicious code. It's also incompatible across different versions of Python, so don't expect to distribute pickled objects and expect people to be able to open them. However, it can also be a powerful tool for caching and other common serialization tasks.  现在，谨慎一点：酸洗并不完美。 泡菜文件在事故和故意中很容易被破坏。 酸洗可能比使用平面文本文件更安全，但它仍可用于运行恶意代码。 它在不同版本的Python中也不兼容，因此不要期望分发pickle对象并期望人们能够打开它们。 但是，它也可以成为缓存和其他常见序列化任务的强大工具。
+
+#### Pickling your own Objects
+
+Pickling isn't just for built-in types. It's for any class that follows the pickle protocol. The pickle protocol has four optional methods for Python objects to customize how they act (it's a bit different for C extensions, but that's not in our scope):  酸洗不仅适用于内置类型。 它适用于遵循pickle协议的任何类。 pickle协议有四个可选方法供Python对象自定义它们的行为方式（对于C扩展，它有点不同，但这不在我们的范围内）：
+
+###### \_\_getinitargs\_\_(self)
+If you'd like for \_\_init\_\_ to be called when your class is unpickled, you can define \_\_getinitargs\_\_, which should return a tuple of the arguments that you'd like to be passed to \_\_init\_\_. Note that this method will only work for old-style classes.  如果你想在你的类被打开时调用\_\_init\_\_，你可以定义\_\_getinitargs\_\_，它应该返回你想要传递给\_\_init\_\_的参数的元组。 请注意，此方法仅适用于旧式类。
+
+###### \_\_getnewargs\_\_(self)
+For new-style classes, you can influence what arguments get passed to \_\_new\_\_ upon unpickling. This method should also return a tuple of arguments that will then be passed to \_\_new\_\_.  对于新式类，您可以影响在unpickling时传递给\_\_new\_\_的参数。 此方法还应返回一个参数元组，然后传递给\_\_new\_\_。
+
+###### \_\_getstate\_\_(self)
+Instead of the object's \_\_dict\_\_ attribute being stored, you can return a custom state to be stored when the object is pickled. That state will be used by \_\_setstate\_\_ when the object is unpickled.  而不是存储对象的\_\_dict\_\_属性，您可以返回在对象被pickle时存储的自定义状态。 当对象被打开时，\_\_ setstate\_\_将使用该状态。
+
+###### \_\_setstate\_\_(self, state)
+When the object is unpickled, if \_\_setstate\_\_ is defined the object's state will be passed to it instead of directly applied to the object's \_\_dict\_\_. This goes hand in hand with \_\_getstate\_\_: when both are defined, you can represent the object's pickled state however you want with whatever you want.  当对象被打开时，如果定义了\_\_setstate\_\_，则对象的状态将被传递给它，而不是直接应用于对象的\_\_dict\_\_。 这与\_\_getstate\_\_齐头并进：当两者都被定义时，你可以用你想要的任何东西来表示对象的酸洗状态。
+
+###### \_\_reduce\_\_(self)
+When defining extension types (i.e., types implemented using Python's C API), you have to tell Python how to pickle them if you want them to pickle them. \_\_reduce\_\_() is called when an object defining it is pickled. It can either return a string representing a global name that Python will look up and pickle, or a tuple. The tuple contains between 2 and 5 elements: a callable object that is called to recreate the object, a tuple of arguments for that callable object, state to be passed to \_\_setstate\_\_ (optional), an iterator yielding list items to be pickled (optional), and an iterator yielding dictionary items to be pickled (optional).  在定义扩展类型（即使用Python的C API实现的类型）时，你必须告诉Python如果你想让它们腌制它们如何腌制它们。 \_\_reduce \_\_（）在定义它的对象被pickle时被调用。 它可以返回一个表示Python将查找和pickle的全局名称的字符串，或者一个元组。 元组包含2到5个元素：一个可调用对象，用于重新创建对象，一个可调用对象的参数元组，一个要传递给\_\_setstate \_\_（可选）的状态，一个迭代器，产生要被pickle的列表项（可选） 和一个迭代器，产生要被pickle的字典项（可选）。
+
+###### \_\_reduce_ex\_\_(self)
+\_\_reduce_ex\_\_ exists for compatibility. If it is defined, \_\_reduce_ex\_\_ will be called over \_\_reduce\_\_ on pickling. \_\_reduce\_\_ can be defined as well for older versions of the pickling API that did not support \_\_reduce_ex\_\_.  \_\_reduce_ex\_\_存在兼容性。 如果已定义，则\_\_reduce_ex\_\_将在酸洗时调用\_\_reduce\_\_。 \_\_reduce\_\_也可以定义为不支持\_\_reduce_ex\_\_的旧版本的pickling API。
+
+#### An Example
+
+Our example is a Slate, which remembers what its values have been and when those values were written to it. However, this particular slate goes blank each time it is pickled: the current value will not be saved.
+
+```python
+import time
+
+class Slate:
+    '''Class to store a string and a changelog, and forget its value when
+    pickled.'''
+
+    def __init__(self, value):
+        self.value = value
+        self.last_change = time.asctime()
+        self.history = {}
+
+    def change(self, new_value):
+        # Change the value. Commit last value to history
+        self.history[self.last_change] = self.value
+        self.value = new_value
+        self.last_change = time.asctime()
+
+    def print_changes(self):
+        print 'Changelog for Slate object:'
+        for k, v in self.history.items():
+            print '%s\t %s' % (k, v)
+
+    def __getstate__(self):
+        # Deliberately do not return self.value or self.last_change.
+        # We want to have a "blank slate" when we unpickle.
+        return self.history
+
+    def __setstate__(self, state):
+        # Make self.history = state and last_change and value undefined
+        self.history = state
+        self.value, self.last_change = None, None
+        
+```
+
+### Conclusion
+
+The goal of this guide is to bring something to anyone that reads it, regardless of their experience with Python or object-oriented programming. If you're just getting started with Python, you've gained valuable knowledge of the basics of writing feature-rich, elegant, and easy-to-use classes. If you're an intermediate Python programmer, you've probably picked up some slick new concepts and strategies and some good ways to reduce the amount of code written by you and clients. If you're an expert Pythonista, you've been refreshed on some of the stuff you might have forgotten about and maybe picked up a few new tricks along the way. Whatever your experience level, I hope that this trip through Python's special methods has been truly magical. (I couldn't resist the final pun!)  本指南的目标是为任何阅读它的人带来一些东西，无论他们使用Python或面向对象编程的经验如何。 如果您刚刚开始使用Python，那么您已经获得了编写功能丰富，优雅且易于使用的类的基础知识。 如果您是一名中级Python程序员，您可能会选择一些灵活的新概念和策略以及一些减少您和客户编写的代码量的好方法。 如果你是一个专家Pythonista，你已经对你可能已经忘记的一些东西感到兴奋，并且可能会在此过程中获得一些新的技巧。 无论您的经验水平如何，我希望通过Python的特殊方法进行这次旅行真的很神奇。 （我无法抗拒最后的双关语！）
+
+### Appendix 1: How to Call Magic Methods
+
+Some of the magic methods in Python directly map to built-in functions; in this case, how to invoke them is fairly obvious. However, in other cases, the invocation is far less obvious. This appendix is devoted to exposing non-obvious syntax that leads to magic methods getting called.  Python中的一些神奇方法直接映射到内置函数; 在这种情况下，如何调用它们是相当明显的。 但是，在其他情况下，调用远没那么明显。 本附录致力于揭示导致魔术方法被调用的非显而易见的语法。
 
 
 
+| Magic Method | When it gets invoked (example) | Explanation |
+| ------------ | ------------------------------ | ----------- |
+| \_\_new\_\_(cls [,...]) | instance = MyClass(arg1, arg2) | \_\_new\_\_ is called on instance creation |
+| \_\_init\_\_(self [,...]) | instance = MyClass(arg1, arg2) | \_\_init\_\_ is called on instance creation |
+| \_\_cmp\_\_(self, other) | self == other, self > other, etc. | Called for any comparison |
+| \_\_pos\_\_(self) | +self | Unary plus sign |
+| \_\_neg\_\_(self) | -self | Unary minus sign |
+| \_\_invert\_\_(self) | ~self | Bitwise inversion |
+| \_\_index\_\_(self) | x[self] | Conversion when object is used as index |
+| \_\_nonzero\_\_(self) | bool(self) | Boolean value of the object |
+| \_\_getattr\_\_(self, name) | self.name # name doesn't exist | Accessing nonexistent attribute |
+| \_\_setattr\_\_(self, name, val) | self.name = val | Assigning to an attribute |
+| \_\_delattr\_\_(self, name) | del self.name | Deleting an attribute |
+| \_\_getattribute\_\_(self, name) | self.name | Accessing any attribute |
+| \_\_getitem\_\_(self, key) | self[key] | Accessing an item using an index |
+| \_\_setitem\_\_(self, key, val) | self[key] = val | Assigning to an item using an index |
+| \_\_delitem\_\_(self, key) | del self[key] | Deleting an item using an index |
+| \_\_iter\_\_(self) | for x in self | Iteration |
+| \_\_contains\_\_(self, value) | value in self, value not in self | Membership tests using in |
+| \_\_call\_\_(self [,...]) | self(args) | "Calling" an instance |
+| \_\_enter\_\_(self) | with self as x: | with statement context managers |
+| \_\_exit\_\_(self, exc, val, trace) | with self as x: | with statement context managers |
+| \_\_getstate\_\_(self) | pickle.dump(pkl_file, self) | Pickling |
+| \_\_setstate\_\_(self) | data = pickle.load(pkl_file) | Pickling |
 
 
 
+Hopefully, this table should have cleared up any questions you might have had about what syntax invokes which magic method.  希望这个表格应该清除你可能有什么关于什么语法调用哪种魔术方法的问题。
 
 
 
+### Appendix 2: Changes in Python 3
 
-Making Custom Sequences
-Reflection
-Abstract Base Classes
-Callable Objects
-Context Managers
-Building Descriptor Objects
-Copying
-Pickling your Objects
-Conclusion
-Appendix 1: How to Call Magic Methods
-Appendix 2: Changes in Python 3
+Here, we document a few major places where Python 3 differs from 2.x in terms of its object model:
+
+* Since the distinction between string and unicode has been done away with in Python 3, \_\_unicode\_\_ is gone and \_\_bytes\_\_ (which behaves similarly to \_\_str\_\_ and \_\_unicode\_\_ in 2.7) exists for a new built-in for constructing byte arrays.
+* Since division defaults to true division in Python 3, \_\_div\_\_ is gone in Python 3
+* \_\_coerce\_\_ is gone due to redundancy with other magic methods and confusing behavior
+* \_\_cmp\_\_ is gone due to redundancy with other magic methods
+* \_\_nonzero\_\_ has been renamed to \_\_bool\_\_
 
 
 
-note:
+### 参考
 
-\_\_hash\_\_()
-\_\_eq\_\_()
-
-\_\_getattr\_\_(self, name)
-\_\_getattribute\_\_(self, name)
-
-
+* [magicmethods](https://rszalski.github.io/magicmethods/)
 
