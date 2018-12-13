@@ -400,14 +400,15 @@ You can easily cause a problem in your definitions of any of the methods control
 
 ```python
 def __setattr__(self, name, value):
-    self.name = value
+    self.name = value  # 存在无限递归的问题
     # since every time an attribute is assigned, __setattr__() is called, this
-    # is recursion 递归.
+    # is recursion.
     # so this really means self.__setattr__('name', value). Since the method
     # keeps calling itself, the recursion goes on forever causing a crash 
 
 def __setattr__(self, name, value):
-    self.__dict__[name] = value # assigning to the dict of names in the class
+    self.__dict__[name] = value # 不存在无限递归的问题
+    # assigning to the dict of names in the class
     # define custom behavior here
 ```
 
