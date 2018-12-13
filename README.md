@@ -101,13 +101,13 @@ Author: `huzhi`
 * [Python 对象序列化](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python-object-serialization)
 * [Python 深复制和浅复制](https://github.com/fluentpython/example-code/blob/master/08-obj-ref/bus.py)
 * [Python 弱引用](https://github.com/fluentpython/example-code/blob/master/08-obj-ref/cheese.py)
-* [Python 对象可散列](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python-object-hash)
 * [Python 动态导入](https://github.com/lanzhiwang/awesome-huzhi/wiki/python-dynamic-import)
 * [不太常见的包或者模块、函数](https://github.com/lanzhiwang/awesome-huzhi/wiki/Less-common-packages-or-modules-or-functions)
 * [魔术方法](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Magic_Methods.md)
 * [\_\_slots\_\_魔术方法说明](https://github.com/lanzhiwang/awesome-huzhi/blob/master/__slots__%20.md)
 * [\_\_new\_\_() and \_\_init\_\_()](https://github.com/lanzhiwang/awesome-huzhi/blob/master/new_and_init.md)
 * [getattr_and_getattribute](https://github.com/lanzhiwang/awesome-huzhi/blob/master/getattr_and_getattribute.md)
+* [Python 对象 hash](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Python_Hashes_and_Equality.md)
 * 不太常见的Python语言特性
   * [exec-eval](https://anandology.com/python-practice-book/functional-programming.html#exec-eval)
 * Python 虚拟环境

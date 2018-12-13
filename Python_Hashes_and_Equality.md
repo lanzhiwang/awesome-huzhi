@@ -172,6 +172,21 @@ print hash(C4(1))  # TypeError: unhashable instance
 
 
 
+一个可散列的对象必须满足以下要求:
+1. 支持 hash() 函数，并且通过 \_\_hash\_\_() 方法所得到的散列值是不变的。
+2. 支持通过 \_\_eq\_\_() 方法来检测相等性。
+3. 若 a == b 为真， 则 hash(a) == hash(b) 也为真。
+
+Notes:
+1. 所有由用户自定义的对象默认都是可散列的， 因为它们的散列值由id() 来获取， 而且它们都是不相等的。
+2. 如果你实现了一个类的 \_\_eq\_\_ 方法， 并且希望它是可散列的， 那么它一定要有个恰当的 \_\_hash\_\_ 方法， 保证在 a == b 为真的情况下 hash(a) == hash(b) 也必定为真。
+
+
+
+
+
+
+
 An object is hashable if it has a hash value which never changes during its lifetime (it needs a \_\_hash\_\_() method), and can be compared to other objects (it needs an \_\_eq\_\_() or \_\_cmp\_\_() method). Hashable objects which compare equal must have the same hash value.
 
 Hashability makes an object usable as a dictionary key and a set member, because these data structures use the hash value internally.
