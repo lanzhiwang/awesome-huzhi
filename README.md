@@ -94,7 +94,7 @@ Author: `huzhi`
 * [SQLAlchemy example](https://github.com/lanzhiwang/awesome-huzhi/blob/master/SQLAlchemy.md) - `SQLAlchemy`示例说明 SQLAlchemy 的使用方法
 * [Python 技巧](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python_Tips)
   * [有趣实用的代码片段](https://github.com/satwikkansal/wtfPython)
-* [布隆过滤器](https://github.com/jaybaird/python-bloomfilter)
+* [布隆过滤器](https://github.com/lanzhiwang/awesome-huzhi/blob/master/BloomFilter.md)
 * [Python 脚本到打包项目的标准化指南](https://github.com/lanzhiwang/awesome-huzhi/blob/master/packaging_standardization.md)
 * [Python 项目标准结构](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Repository_Structure_and_Python.md)
 * [Python 线程安全](https://github.com/lanzhiwang/awesome-huzhi/wiki/python-thread-safe)
