@@ -1,5 +1,21 @@
 ## yield and yield from
 
+### yield
+
+```python
+next()
+send()
+throw()
+close()
+
+return
+
+StopIteration
+
+```
+
+### yield from
+
 ```python
 RESULT = yield from EXPR
 ```
