@@ -44,3 +44,8 @@ eval is like exec but it takes an expression and returns its value.
 >>> eval('x+1', env)
 >>> 43
 ```
+
+参考：
+
+- https://anandology.com/python-practice-book/functional-programming.html#exec-eval
+

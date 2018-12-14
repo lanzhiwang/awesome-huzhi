@@ -108,8 +108,7 @@ Author: `huzhi`
 * [\_\_new\_\_() and \_\_init\_\_()](https://github.com/lanzhiwang/awesome-huzhi/blob/master/new_and_init.md)
 * [getattr_and_getattribute](https://github.com/lanzhiwang/awesome-huzhi/blob/master/getattr_and_getattribute.md)
 * [Python 对象 hash](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Python_Hashes_and_Equality.md)
-* 不太常见的Python语言特性
-  * [exec-eval](https://anandology.com/python-practice-book/functional-programming.html#exec-eval)
+* [exec-eval](https://github.com/lanzhiwang/awesome-huzhi/blob/master/exec_eval.md)
 * Python 虚拟环境
   * 解决依赖包问题: virtualenv
   * 解决 python 版本问题: pyenv
