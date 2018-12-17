@@ -18,9 +18,7 @@
 
 | client A | client B |
 | -------- | -------- |
-| # 设置缓存数据
-127.0.0.1:6379> set foo bar
-OK | |
+| # 设置缓存数据<br/>127.0.0.1:6379> set foo bar<br/>OK | |
 | # 设置过期时间
 127.0.0.1:6379> EXPIRE foo 200
 (integer) 1 | |
