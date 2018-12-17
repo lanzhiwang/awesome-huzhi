@@ -118,6 +118,7 @@ Author: `huzhi`
 * [将 python 源码编译成 exe 文件](https://www.ctolib.com/topics-119121.html)
 * [flask 启动脚本](https://github.com/lanzhiwang/awesome-huzhi/blob/master/flask_manager.md)
 * [python 小技巧文章](https://github.com/piglei/one-python-craftsman)
+* [各种配置文件格式解析](https://github.com/ruanyf/weekly/issues/96)
 
 
 ## Linux
