@@ -102,6 +102,7 @@ Author: `huzhi`
 * [Python 深复制和浅复制](https://github.com/fluentpython/example-code/blob/master/08-obj-ref/bus.py)
 * [Python 弱引用](https://github.com/fluentpython/example-code/blob/master/08-obj-ref/cheese.py)
 * [Python 动态导入](https://github.com/lanzhiwang/awesome-huzhi/wiki/python-dynamic-import)
+* [Python 函数定义规则](https://github.com/lanzhiwang/awesome-huzhi/blob/master/fun_def.md)
 * [不太常见的包或者模块、函数](https://github.com/lanzhiwang/awesome-huzhi/wiki/Less-common-packages-or-modules-or-functions)
 * [yield_and_yield_from](https://github.com/lanzhiwang/awesome-huzhi/blob/master/yield_and_yield_from.md)
 * [魔术方法](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Magic_Methods.md)
