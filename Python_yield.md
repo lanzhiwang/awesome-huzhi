@@ -486,7 +486,72 @@ if __name__ == '__main__':
 
 
 ```python
+yield from EXPR 表达式对 EXPR 对象所做的第一件事是， 调用 iter(EXPR)， 从
+中获取迭代器。 因此， EXPR 可以是任何可迭代的对象
+
 RESULT = yield from EXPR
+
+_i = iter(EXPR)
+try:
+    _y = next(_i)
+except StopIteration as _e:
+    _r = _e.value
+else:
+    while 1:
+        _s = yield _y
+        try:
+            _y = _i.send(_s)
+        except StopIteration as _e:
+            _r = _e.value
+            break
+
+RESULT = _r
+
+
+_i = iter(EXPR)
+"""
+i（迭代器）子生成器
+EXPR 可以是任何可迭代的对象， 因为获取迭代器 _i（这是子生成
+器） 使用的是 iter() 函数
+"""
+try:
+    _y = next(_i)
+    """
+    _y（产出的值）子生成器产出的值
+    预激子生成器； 结果保存在 _y 中， 作为产出的第一个值
+    """
+except StopIteration as _e:
+    _r = _e.value
+    """
+    _r（结果）最终的结果（即子生成器运行结束后 yield from 表达式的值）
+    如果抛出 StopIteration 异常， 获取异常对象的 value 属性， 赋值
+    给 _r——这是最简单情况下的返回值（RESULT）
+    """
+else:
+    while 1:  # 运行这个循环时， 委派生成器会阻塞， 只作为调用方和子生成器之间的通道
+        _s = yield _y
+        """
+        预激子生成器的结果保存在 _y 中， 作为产出的第一个值
+        _s（发送的值）调用方发给委派生成器的值， 这个值会转发给子生成器
+        产出子生成器当前产出的元素； 等待调用方发送 _s 中保存的值。 注
+        意， 这个代码清单中只有这一个 yield 表达式。
+        """
+        try:
+            _y = _i.send(_s)  
+            """
+            _s（发送的值）调用方发给委派生成器的值， 这个值会转发给子生成器
+            _y（产出的值）子生成器产出的值
+            尝试让子生成器向前执行， 转发调用方发送的 _s
+            """
+        except StopIteration as _e:
+            """如果子生成器抛出 StopIteration 异常， 获取 value 属性的值， 赋
+            值给 _r， 然后退出循环， 让委派生成器恢复运行
+            """
+            _r = _e.value
+            break
+
+RESULT = _r  # 返回的结果（RESULT） 是 _r， 即整个 yield from 表达式的值
+
 ```
 
 
@@ -532,5 +597,76 @@ else:
                 break
 
 RESULT = _r
+
+
+_i = iter(EXPR)
+"""EXPR 可以是任何可迭代的对象， 因为获取迭代器 _i（这是子生成
+器） 使用的是 iter() 函数
+"""
+try:
+    _y = next(_i)
+    """预激子生成器； 结果保存在 _y 中， 作为产出的第一个值
+    """
+except StopIteration as _e:
+    """如果抛出 StopIteration 异常， 获取异常对象的 value 属性， 赋值
+    给 _r——这是最简单情况下的返回值（RESULT）
+    """
+    _r = _e.value
+else:
+    while 1:  # 运行这个循环时， 委派生成器会阻塞， 只作为调用方和子生成器之间的通道
+        try:
+            _s = yield _y
+            """产出子生成器当前产出的元素； 等待调用方发送 _s 中保存的值。 这
+            个代码清单中只有这一个 yield 表达式
+            """
+        except GeneratorExit as _e:
+            """这一部分用于关闭委派生成器和子生成器。 因为子生成器可以是任
+            何可迭代的对象， 所以可能没有 close 方法
+            """
+            try:
+                _m = _i.close
+            except AttributeError:
+                pass
+            else:
+                _m()
+            raise _e
+        except BaseException as _e:
+            """这一部分处理调用方通过 .throw(...) 方法传入的异常。 同样，
+            子生成器可以是迭代器， 从而没有 throw 方法可调用——这种情况会导致委派生成器抛出异常。
+            """
+            _x = sys.exc_info()
+            try:
+                _m = _i.throw
+            except AttributeError:
+                raise _e
+            else:
+                """如果子生成器有 throw 方法， 调用它并传入调用方发来的异常。 子
+                生成器可能会处理传入的异常（然后继续循环） ； 可能抛出
+                StopIteration 异常（从中获取结果， 赋值给 _r， 循环结束） ； 还可
+                能不处理， 而是抛出相同的或不同的异常， 向上冒泡， 传给委派生成器。
+                """
+                try:
+                    _y = _m(*_x)
+                except StopIteration as _e:
+                    _r = _e.value
+                    break
+        else:
+            try:
+                if _s is None:
+                    """如果调用方最后发送的值是 None， 在子生成器上调用 next 函数，
+                    否则调用 send 方法
+                    """
+                    _y = next(_i)
+                else:
+                    _y = _i.send(_s)
+            except StopIteration as _e:
+                """如果子生成器抛出 StopIteration 异常， 获取 value 属性的值， 赋
+                值给 _r， 然后退出循环， 让委派生成器恢复运行
+                """
+                _r = _e.value
+                break
+
+RESULT = _r
+
 ```
 
