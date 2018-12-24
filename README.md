@@ -80,7 +80,7 @@ Author: `huzhi`
     	* 协程
     * 元编程
     	* [动态属性和特性](https://github.com/fluentpython/example-code/tree/master/19-dyn-attr-prop)
-    	* [属性描述符](https://github.com/fluentpython/example-code/tree/master/20-descriptor)
+    	* [属性描述符](https://github.com/lanzhiwang/awesome-huzhi/blob/master/python/python_descriptor.md)
     	* [类元编程](https://github.com/fluentpython/example-code/tree/master/21-class-metaprog)
 * [python-patterns](https://github.com/lanzhiwang/python-patterns) - 常见设计模式UML类图说明-Python实现
 * [learn-wsgiref](https://github.com/lanzhiwang/learn-wsgiref) - `wsgi`规范UML说明和相关实现
