@@ -155,6 +155,7 @@ Author: `huzhi`
 * [Linux 异步事件模型--以redis事件模型为例](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/Redis_Event_Model.md)
 * [使用 nginx 作为 yum 代理](https://github.com/lanzhiwang/awesome-huzhi/blob/master/nginx_yum_proxy.md)
 * [pcap 包示例](https://wiki.wireshark.org/SampleCaptures)
+* [僵尸进程](https://coolshell.cn/articles/656.html)
 
 
 ## MySQL
@@ -199,7 +200,13 @@ Author: `huzhi`
 * [storage driver，写时复制](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/storage_driver.md)
 * [Docker 数据管理](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/data_manager.md)
 * [Docker/Kubernetes线路图](https://github.com/lanzhiwang/awesome-huzhi/wiki/docker-and-kubernetes)
-* [Linux 容器技术基础](http://pierrchen.blogspot.com/2018/08/understand-container-index.html)
+* Linux 容器技术基础
+  * [DOCKER基础技术：LINUX NAMESPACE（上）](https://coolshell.cn/articles/17010.html)
+  * [DOCKER基础技术：LINUX NAMESPACE（下）](https://coolshell.cn/articles/17029.html)
+  * [DOCKER基础技术：LINUX CGROUP](https://coolshell.cn/articles/17049.html)
+  * [DOCKER基础技术：AUFS](https://coolshell.cn/articles/17061.html)
+  * [DOCKER基础技术：DEVICEMAPPER](https://coolshell.cn/articles/17200.html)
+  * [understand-container-index](http://pierrchen.blogspot.com/2018/08/understand-container-index.html)
 * [kubernetes ](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/kubernetes.md)
 
 
