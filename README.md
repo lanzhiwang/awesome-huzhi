@@ -99,6 +99,7 @@ Author: `huzhi`
 * [Python 项目标准结构](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Repository_Structure_and_Python.md)
 * [Python 线程安全](https://github.com/lanzhiwang/awesome-huzhi/wiki/python-thread-safe)
 * [Python 对象序列化](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python-object-serialization)
+* [python logging 实践](https://github.com/lanzhiwang/awesome-huzhi/blob/master/python/python_logging.md)
 * [Python 深复制和浅复制](https://github.com/fluentpython/example-code/blob/master/08-obj-ref/bus.py)
 * [Python 弱引用](https://github.com/fluentpython/example-code/blob/master/08-obj-ref/cheese.py)
 * [Python 动态导入](https://github.com/lanzhiwang/awesome-huzhi/wiki/python-dynamic-import)
