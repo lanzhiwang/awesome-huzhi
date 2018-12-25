@@ -3,6 +3,15 @@
 ### logging base
 
 ```python
+# 日志级别
+Level 	  Numeric value
+CRITICAL 	50
+ERROR 	    40
+WARNING 	30
+INFO 	    20
+DEBUG 	    10
+NOTSET 	    0	
+
 # 根记录器
 basicConfig([**kwargs])
 
@@ -67,6 +76,7 @@ StreamHandler(stream=None)
 SysLogHandler(address=('localhost', SYSLOG_UDP_PORT), facility=LOG_USER, socktype=socket.SOCK_DGRAM)
 TimedRotatingFileHandler(filename, when='h', interval=1, backupCount=0, encoding=None, delay=False, utc=False)
 WatchedFileHandler(filename[, mode[, encoding[, delay]]])
+NullHandler()
 
 处理器的级别和筛选
 setLever(level)

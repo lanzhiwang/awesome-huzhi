@@ -123,6 +123,7 @@ Author: `huzhi`
 * [python 小技巧文章](https://github.com/piglei/one-python-craftsman)
 * [各种配置文件格式解析](https://github.com/ruanyf/weekly/issues/96)
 * 性能测试
+* [python-guide](https://docs.python-guide.org/)
 
 
 ## Linux
