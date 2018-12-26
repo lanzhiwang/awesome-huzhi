@@ -29,7 +29,7 @@ HZ2 ID ("name" "com.tencent.foxmail" "version" "1.2" "vendor" "Tencent Limited" 
 * ID ("name" "Coremail Imap" "vendor" "Mailtech" "TransID" "3PmVJQB3bjS5RERX")
 HZ2 OK ID completed
 
-HZ3 LOGIN "hzhilamp@163.com" "password"
+HZ3 LOGIN "hzhilamp@163.com" "password"  # 此处的密码是设置 imap 时的密码，有可能和普通登录密码不同
 HZ3 OK LOGIN completed
 
 HZ4 LIST "" *
@@ -51,6 +51,7 @@ HZ5 SELECT "INBOX"  # HZ5 SELECT "&g0l6P3ux-"  # HZ5 SELECT "&XfJT0ZAB-"
 * OK [PERMANENTFLAGS (\Answered \Seen \Deleted \Draft \Flagged)] Limited
 HZ5 OK [READ-WRITE] SELECT completed
 
+# UID 越小，说明邮件越早收到
 HZ6 FETCH 1:* (UID)  # HZ6 FETCH 3:* (UID)  # HZ6 FETCH 31:* (UID)
 * 1 FETCH (UID 1392611444)
 * 2 FETCH (UID 1392611445)
@@ -85,6 +86,7 @@ HZ6 FETCH 1:* (UID)  # HZ6 FETCH 3:* (UID)  # HZ6 FETCH 31:* (UID)
 * 31 FETCH (UID 1392611535)
 HZ6 OK Fetch completed
 
+# 在这里获取邮件内容不会到导致邮件客户端显示邮件已读
 HZ7 UID FETCH 1392611807 (UID BODY.PEEK[])
 * 1 FETCH (UID 1392611444 BODY[] {7269}
 Received: from so254-47.mailgun.net (unknown [198.61.254.47])
@@ -134,6 +136,120 @@ HZ8 LOGOUT
 HZ8 OK LOGOUT completed
 Connection closed by foreign host.
 $ 
+
+
+# 列出所有的邮箱文件夹
+HZ4 LIST "" *
+* LIST () "/" "INBOX"
+* LIST (\Drafts) "/" "&g0l6P3ux-"
+* LIST (\Sent) "/" "&XfJT0ZAB-"
+* LIST (\Trash) "/" "&XfJSIJZk-"
+* LIST (\Junk) "/" "&V4NXPpCuTvY-"
+* LIST () "/" "&dcVr0mWHTvZZOQ-"
+* LIST () "/" "&Xn9USpCuTvY-"
+* LIST () "/" "&i6KWBZCuTvY-"
+* LIST () "/" "Dan at Real Python"
+HZ4 OK LIST Completed
+
+# 选择一个自定义的文件夹
+HZ5 SELECT "Dan at Real Python"
+* 17 EXISTS
+* 17 RECENT
+* OK [UIDVALIDITY 3060268] UIDs valid
+* FLAGS (\Answered \Seen \Deleted \Draft \Flagged)
+* OK [PERMANENTFLAGS (\Answered \Seen \Deleted \Draft \Flagged)] Limited
+HZ5 OK [READ-WRITE] SELECT completed
+
+# 获取所有的邮件
+HZ6 SEARCH ALL
+* SEARCH 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+HZ6 OK SEARCH completed
+
+# 获取最新的邮件，数字越小，邮件越早收到
+HZ6 SEARCH NEW
+* SEARCH 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+HZ6 OK SEARCH completed
+
+# 获取第二封邮件的邮件头
+HZ7 FETCH 2 FULL
+* 2 FETCH (INTERNALDATE "30-Nov-2018 13:30:12 +0800" FLAGS () ENVELOPE ("Fri, 30 Nov 2018 05:30:08 +0000 (UTC)" "=?UTF-8?B?aSBhbSBleHBsb2l0aW5nIHlvdQ==?=" (("=?UTF-8?B?IkRhbiBhdCBSZWFsIFB5dGhvbiI=?=" NIL "info" "realpython.com")) ((NIL NIL "bounces+6633630-54f4-hzhilamp=163.com" "drip.realpython.com")) (("=?UTF-8?B?IkRhbiBhdCBSZWFsIFB5dGhvbiI=?=" NIL "info" "realpython.com")) ((NIL NIL "hzhilamp" "163.com")) NIL NIL NIL "<dPeHNeDDQduveMRHA-W9Nw@ismtpd0037p1iad2.sendgrid.net>") BODY (("text" "plain" ("charset" "UTF-8") NIL NIL "quoted-printable" 2848 82)("text" "html" ("charset" "UTF-8") NIL NIL "quoted-printable" 10484 230) "alternative") RFC822.SIZE 16100)
+HZ7 OK Fetch completed
+
+# 获取第17封邮件的所有内容
+HZ7 FETCH 17 RFC822
+* 17 FETCH (RFC822 {23503}
+Received: from o4.m.dripemail2.com (unknown [167.89.79.110])
+	by mx29 (Coremail) with SMTP id T8CowABHAxQVgSFcN9pnHQ--.36922S3;
+	Tue, 25 Dec 2018 09:00:17 +0800 (CST)
+</body>
+</html>
+
+
+--dfc6e410aa49b96ad57760d8f4790fe1adbb28312c1047413ead02503631--
+)
+HZ7 OK Fetch completed
+
+# 获取第17封邮件后该邮件被标识为已读
+HZ7 FETCH 17 FLAGS
+* 17 FETCH (FLAGS (\Seen))
+HZ7 OK Fetch completed
+
+# 在图形界面客户端读取邮件，邮件也被标识为可读
+HZ7 FETCH 16 FLAGS
+* 16 FETCH (FLAGS (\Seen))
+HZ7 OK Fetch completed
+
+# 第15封邮件未读
+HZ7 FETCH 15 FLAGS
+* 15 FETCH (FLAGS ())
+HZ7 OK Fetch completed
+
+HZ7 FETCH 15 RFC822
+
+# 第15封邮件已读
+HZ7 FETCH 15 FLAGS
+* 15 FETCH (FLAGS (\Seen))
+HZ7 OK Fetch completed
+
+HZ5 SELECT "Dan at Real Python"
+* 17 EXISTS
+* 14 RECENT
+* OK [UIDVALIDITY 3060268] UIDs valid
+* FLAGS (\Answered \Seen \Deleted \Draft \Flagged)
+* OK [PERMANENTFLAGS (\Answered \Seen \Deleted \Draft \Flagged)] Limited
+HZ5 OK [READ-WRITE] SELECT completed
+
+# 使用 UID FETCH 方式可以确保获取邮件后邮件不会被标识为已读
+HZ6 FETCH 1:* (UID)
+* 1 FETCH (UID 1396969765)
+* 2 FETCH (UID 1396969767)
+* 3 FETCH (UID 1396969771)
+* 4 FETCH (UID 1396969772)
+* 5 FETCH (UID 1396969774)
+* 6 FETCH (UID 1396969775)
+* 7 FETCH (UID 1396969778)
+* 8 FETCH (UID 1396969779)
+* 9 FETCH (UID 1396969783)
+* 10 FETCH (UID 1396969784)
+* 11 FETCH (UID 1396969785)
+* 12 FETCH (UID 1396969794)
+* 13 FETCH (UID 1396969795)
+* 14 FETCH (UID 1396969804)
+* 15 FETCH (UID 1396969808)
+* 16 FETCH (UID 1396969809)
+* 17 FETCH (UID 1396969811)
+HZ6 OK Fetch completed
+
+HZ7 FETCH 10 FLAGS
+* 10 FETCH (FLAGS ())
+HZ7 OK Fetch completed
+
+HZ7 UID FETCH 1396969784 (UID BODY.PEEK[])
+
+HZ7 FETCH 10 FLAGS
+* 10 FETCH (FLAGS ())
+HZ7 OK Fetch completed
+
 ```
 
 ### POP3
