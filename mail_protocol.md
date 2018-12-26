@@ -500,3 +500,12 @@ POP3 Command Summary
 Simple Mail Transfer Protocol
 
 https://www.ietf.org/rfc/rfc2821.txt
+
+
+
+参考：
+
+https://blog.csdn.net/pathfinder163/article/details/6397199
+
+
+
