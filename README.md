@@ -124,6 +124,7 @@ Author: `huzhi`
 * [各种配置文件格式解析](https://github.com/ruanyf/weekly/issues/96)
 * 性能测试
 * [python-guide](https://docs.python-guide.org/)
+* [python 常见面试问题](https://github.com/taizilongxu/interview_python)
 
 
 ## Linux
