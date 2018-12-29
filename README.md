@@ -159,6 +159,7 @@ Author: `huzhi`
 * [使用 nginx 作为 yum 代理](https://github.com/lanzhiwang/awesome-huzhi/blob/master/nginx_yum_proxy.md)
 * [pcap 包示例](https://wiki.wireshark.org/SampleCaptures)
 * [僵尸进程](https://coolshell.cn/articles/656.html)
+* [page cache && buffer cache](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/page_cache_and_buffer_cache.jpg)
 
 
 ## MySQL
@@ -191,6 +192,8 @@ Author: `huzhi`
 * MySQL的压测工具 - mysqlslap
 * [MySQL 协议](https://github.com/lanzhiwang/awesome-huzhi/blob/master/MySQL/mysql_login_agreement.pdf)
 * [MySQL 博客](https://mysqlserverteam.com/)
+* [MySQL主从同步过程](https://github.com/lanzhiwang/awesome-huzhi/blob/master/MySQL/MySQL_master_slave.pdf)
+* [MySQL IO 过程](https://github.com/lanzhiwang/awesome-huzhi/blob/master/MySQL/MySQL_IO.pdf)
 
 
 ## Docker/Kubernetes
@@ -210,6 +213,7 @@ Author: `huzhi`
   * [DOCKER基础技术：LINUX CGROUP](https://coolshell.cn/articles/17049.html)
   * [DOCKER基础技术：AUFS](https://coolshell.cn/articles/17061.html)
   * [DOCKER基础技术：DEVICEMAPPER](https://coolshell.cn/articles/17200.html)
+  * [DOCKER基础技术：overlayfs](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/overlayfs.pdf)
   * [understand-container-index](http://pierrchen.blogspot.com/2018/08/understand-container-index.html)
 * [kubernetes ](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/kubernetes.md)
 
