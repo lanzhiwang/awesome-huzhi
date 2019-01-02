@@ -216,6 +216,8 @@ Author: `huzhi`
   * [DOCKER基础技术：overlayfs](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/overlayfs.pdf)
   * [understand-container-index](http://pierrchen.blogspot.com/2018/08/understand-container-index.html)
 * [kubernetes ](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/kubernetes.md)
+* [Docker 的 Image 文件是分层的，本文简单介绍怎么查看每一层的内容，它们又是怎么组合成一个可以运行的 Image 文件](https://cameronlonsdale.com/2018/11/26/whats-in-a-docker-image/)
+* [通过控制分层来缩小 Image 文件尺寸](https://www.datawire.io/not-engineer-running-3-5gb-docker-images/)
 
 
 ## Component
@@ -263,22 +265,18 @@ Author: `huzhi`
 
 * 分布式理论
 
-  * [CAP theorem](https://github.com/donnemartin/system-design-primer#cap-theorem)
-
+  * [一致性、可用性、分区容差 CAP theorem](https://github.com/donnemartin/system-design-primer#cap-theorem)
   * [分布式系统中的幂等性](https://www.cnblogs.com/vveiliang/p/6643874.html)
-
 * [分布式系统介绍](https://hackernoon.com/a-thorough-introduction-to-distributed-systems-3b91562c9b3c)
-
 * 分布式系统存在的问题
 
   * [拜占庭将军问题](https://github.com/lanzhiwang/awesome-huzhi/wiki/The_Byzantine_General_Problem)
-
-* 分布式协议
-
+* 分布式协议（一致性协议，用于保证一致性）
+  * [二阶提交协议(Two Phase Commitment Protocol)]()
+  * [三阶提交协议(Three Phase Commitment Protocol)]()
   * Paxos
-
   * [Raft](https://github.com/lanzhiwang/awesome-huzhi/wiki/raft)
-
+  * [raft-zh_cn](https://github.com/maemual/raft-zh_cn)
 * 分布式实现
 
   * 分布式文件系统
