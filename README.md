@@ -272,8 +272,8 @@ Author: `huzhi`
 
   * [拜占庭将军问题](https://github.com/lanzhiwang/awesome-huzhi/wiki/The_Byzantine_General_Problem)
 * 分布式协议（一致性协议，用于保证一致性）
-  * [二阶提交协议(Two Phase Commitment Protocol)]()
-  * [三阶提交协议(Three Phase Commitment Protocol)]()
+  * [二阶提交协议(Two Phase Commitment Protocol)](https://github.com/lanzhiwang/awesome-huzhi/blob/master/distributed_system/Two_Phase_Commitment_Protocol.md)
+  * 三阶提交协议(Three Phase Commitment Protocol)
   * Paxos
   * [Raft](https://github.com/lanzhiwang/awesome-huzhi/wiki/raft)
   * [raft-zh_cn](https://github.com/maemual/raft-zh_cn)
