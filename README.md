@@ -231,18 +231,8 @@ Author: `huzhi`
 
 * [通过控制分层来缩小 Image 文件尺寸](https://www.datawire.io/not-engineer-running-3-5gb-docker-images/)
 
-* [docker 的优点和缺点](https://blog.philipphauer.de/discussing-docker-pros-and-cons/)
+* [docker 的优点和缺点](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/Docker_Pros_and_Cons.md)
 
-  * Docker is a "packaging format" and a "process specification format".
-
-
-
-  * 容器化后经过多个虚拟网卡带来的性能损失
-  * 由于附加层而增加了复杂性。 这不仅影响部署，还影响开发和构建。
-  * 管理大量容器具有挑战性 - 特别是在集群容器方面。 像Google Kubernetes和Apache Mesos这样的工具可以在这里提供帮助。
-  * 容器共享相同的内核，因此与真实VM相比不那么孤立。 内核中的错误会影响每个容器。
-  * Docker基于Linux Containers（LXC），这是一种Linux技术。这对其他系统是不小的挑战
-  * 
 
 
 ## Component
