@@ -112,6 +112,7 @@ Author: `huzhi`
 * [getattr_and_getattribute](https://github.com/lanzhiwang/awesome-huzhi/blob/master/getattr_and_getattribute.md)
 * [Python 对象 hash](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Python_Hashes_and_Equality.md)
 * [exec-eval](https://github.com/lanzhiwang/awesome-huzhi/blob/master/exec_eval.md)
+* [Python 函数重载](https://github.com/lanzhiwang/awesome-huzhi/blob/master/python/python_Overload.md)
 * Python 虚拟环境
   * 解决依赖包问题: virtualenv
   * 解决 python 版本问题: pyenv
