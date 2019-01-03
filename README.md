@@ -199,14 +199,23 @@ Author: `huzhi`
 ## Docker/Kubernetes
 
 * [Docker 基础命令](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/docker_base_operate.md)
+
 * [docker compose](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/docker_compose.md)
+
 * [Docker 在单一主机上的网络原理](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/docker_network.md)
+
 * [Docker 跨主机访问原理](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/multi-network.md)
+
 * [docker swarm](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/docker_swarm.md)
+
 * [Swarm mode 与 Docker Swarm 的差异及改进之处](https://www.ibm.com/developerworks/cn/opensource/os-cn-docker-selenium-grid-test/index.html)
+
 * [storage driver，写时复制](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/storage_driver.md)
+
 * [Docker 数据管理](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/data_manager.md)
+
 * [Docker/Kubernetes线路图](https://github.com/lanzhiwang/awesome-huzhi/wiki/docker-and-kubernetes)
+
 * Linux 容器技术基础
   * [DOCKER基础技术：LINUX NAMESPACE（上）](https://coolshell.cn/articles/17010.html)
   * [DOCKER基础技术：LINUX NAMESPACE（下）](https://coolshell.cn/articles/17029.html)
@@ -215,9 +224,25 @@ Author: `huzhi`
   * [DOCKER基础技术：DEVICEMAPPER](https://coolshell.cn/articles/17200.html)
   * [DOCKER基础技术：overlayfs](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/overlayfs.pdf)
   * [understand-container-index](http://pierrchen.blogspot.com/2018/08/understand-container-index.html)
+
 * [kubernetes ](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/kubernetes.md)
+
 * [Docker 的 Image 文件是分层的，本文简单介绍怎么查看每一层的内容，它们又是怎么组合成一个可以运行的 Image 文件](https://cameronlonsdale.com/2018/11/26/whats-in-a-docker-image/)
+
 * [通过控制分层来缩小 Image 文件尺寸](https://www.datawire.io/not-engineer-running-3-5gb-docker-images/)
+
+* [docker 的优点和缺点](https://blog.philipphauer.de/discussing-docker-pros-and-cons/)
+
+  * Docker is a "packaging format" and a "process specification format".
+
+
+
+  * 容器化后经过多个虚拟网卡带来的性能损失
+  * 由于附加层而增加了复杂性。 这不仅影响部署，还影响开发和构建。
+  * 管理大量容器具有挑战性 - 特别是在集群容器方面。 像Google Kubernetes和Apache Mesos这样的工具可以在这里提供帮助。
+  * 容器共享相同的内核，因此与真实VM相比不那么孤立。 内核中的错误会影响每个容器。
+  * Docker基于Linux Containers（LXC），这是一种Linux技术。这对其他系统是不小的挑战
+  * 
 
 
 ## Component
