@@ -117,6 +117,7 @@ Author: `huzhi`
   * 解决依赖包问题: virtualenv
   * 解决 python 版本问题: pyenv
 * [Python3 实例教程](https://github.com/jerry-git/learn-python3)
+* [python 实现单例模式](https://github.com/lanzhiwang/awesome-huzhi/blob/master/python/Python_Singleton.md)
 * [爬虫采集和调度框架](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/Reptile_frame.png)
 * [将 python 源码编译成 exe 文件](https://www.ctolib.com/topics-119121.html)
 * [flask 启动脚本](https://github.com/lanzhiwang/awesome-huzhi/blob/master/flask_manager.md)
@@ -405,6 +406,7 @@ h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
 * [代码整洁之道](https://github.com/lanzhiwang/awesome-huzhi/wiki/clean-code)
 * [HTTPS图解](https://tls.ulfheim.net/)
 * [HTTP Status Codes](https://github.com/lanzhiwang/awesome-huzhi/blob/master/HTTP_Status_Codes.md)
+* [什么时候使用单例模式，为什么要使用单例模式](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Singleton.md)
 
 
 ## JavaScript
