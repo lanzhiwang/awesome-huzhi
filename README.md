@@ -78,7 +78,7 @@ Author: `huzhi`
       * [可迭代对象、迭代器和生成器](https://github.com/fluentpython/example-code/tree/master/14-it-generator)
       * 上下文管理器和else块
       * 协程
-    * 元类编程
+    * [元类编程](https://github.com/lanzhiwang/awesome-huzhi/blob/master/python/Python_metaclass.md)
     * [动态属性和特性](https://github.com/fluentpython/example-code/tree/master/19-dyn-attr-prop)
     * [属性描述符](https://github.com/lanzhiwang/awesome-huzhi/blob/master/python/python_descriptor.md)
 * [python-patterns](https://github.com/lanzhiwang/python-patterns) - 常见设计模式UML类图说明-Python实现

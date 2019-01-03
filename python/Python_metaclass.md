@@ -132,6 +132,8 @@ print ExampleSibling.__mro__
 
 #### 参考：
 
+* https://github.com/lanzhiwang/awesome-huzhi/blob/master/new_and_init.md
+
 * https://stackoverflow.com/questions/100003/what-are-metaclasses-in-python
 
 * https://github.com/fluentpython/example-code/tree/master/21-class-metaprog
