@@ -118,6 +118,7 @@ Author: `huzhi`
   * 解决 python 版本问题: pyenv
 * [Python3 实例教程](https://github.com/jerry-git/learn-python3)
 * [python 实现单例模式](https://github.com/lanzhiwang/awesome-huzhi/blob/master/python/Python_Singleton.md)
+* [python GIL](https://zhuanlan.zhihu.com/p/20953544)
 * [爬虫采集和调度框架](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/Reptile_frame.png)
 * [将 python 源码编译成 exe 文件](https://www.ctolib.com/topics-119121.html)
 * [flask 启动脚本](https://github.com/lanzhiwang/awesome-huzhi/blob/master/flask_manager.md)
