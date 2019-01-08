@@ -14,7 +14,7 @@ Author: `huzhi`
 
     - [Docker/Kubernetes](#dockerkubernetes)
 
-    - [algorithm常见算法](#algorithm)
+    - [常见算法](#algorithm)
 
     - [Component](#component)
 
