@@ -14,6 +14,8 @@ Author: `huzhi`
 
     - [Docker/Kubernetes](#dockerkubernetes)
 
+    - [algorithm常见算法](#algorithm)
+
     - [Component](#component)
 
     - [分布式](#分布式)
@@ -236,6 +238,14 @@ Author: `huzhi`
 * [通过控制分层来缩小 Image 文件尺寸](https://www.datawire.io/not-engineer-running-3-5gb-docker-images/)
 
 * [docker 的优点和缺点](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/Docker_Pros_and_Cons.md)
+
+
+
+## algorithm
+
+* [算法分类](https://github.com/lanzhiwang/awesome-huzhi/blob/master/algorithm/README.md)
+* [sort](https://github.com/lanzhiwang/awesome-huzhi/blob/master/algorithm/Sort.md)
+* [tree](https://github.com/lanzhiwang/awesome-huzhi/blob/master/algorithm/Tree.md)
 
 
 
