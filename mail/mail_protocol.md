@@ -4,6 +4,14 @@
 - [POP3](#pop3)
 - [STMP](#stmp)
 
+### 电子邮件传送过程示意图
+
+![](./smtp.gif)
+
+### 客户端收回信件的流程示意图
+
+![](./pop3_imap.gif)
+
 ### IMAP
 
 INTERNET MESSAGE ACCESS PROTOCOL - VERSION 4rev1
