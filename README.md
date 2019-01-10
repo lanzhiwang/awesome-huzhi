@@ -95,7 +95,7 @@ Author: `huzhi`
 * [SQLAlchemy example](https://github.com/lanzhiwang/awesome-huzhi/blob/master/SQLAlchemy.md) - `SQLAlchemy`示例说明 SQLAlchemy 的使用方法
 * [Python 技巧](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python_Tips)
   * [有趣实用的代码片段](https://github.com/satwikkansal/wtfPython)
-* [布隆过滤器](https://github.com/lanzhiwang/awesome-huzhi/blob/master/BloomFilter.md)
+* [布隆过滤器](./python/BloomFilter.md)
 * [Python 脚本到打包项目的标准化指南](https://github.com/lanzhiwang/awesome-huzhi/blob/master/packaging_standardization.md)
 * [Python 项目标准结构](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Repository_Structure_and_Python.md)
 * [Python 线程安全](https://github.com/lanzhiwang/awesome-huzhi/blob/master/python/python_thread_safe.md)
@@ -165,7 +165,7 @@ Author: `huzhi`
 * [僵尸进程](https://coolshell.cn/articles/656.html)
 * [page cache && buffer cache](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/page_cache_and_buffer_cache.jpg)
 * [select、poll、epoll 异同](https://github.com/lanzhiwang/IO)
-* [C10K 问题](https://github.com/lanzhiwang/awesome-huzhi/blob/master/C10K.md)
+* [C10K 问题](./linux/C10K.md)
 
 
 ## MySQL
@@ -349,9 +349,9 @@ Author: `huzhi`
 
 ## Android
 
-* [安卓基础](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Android.md)
+* [安卓基础](./android/Android.md)
 
-* [安卓应用攻击面](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Android_application_attack_surface.md)
+* [安卓应用攻击面](./android/Android_application_attack_surface.md)
 
 * [AndroidViewClient](https://github.com/lanzhiwang/AndroidViewClient) - 获取安卓界面上的控件坐标用于沙箱运行
 
