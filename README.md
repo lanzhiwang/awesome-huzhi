@@ -245,9 +245,10 @@ Author: `huzhi`
 
 ## algorithm
 
-* [算法分类](https://github.com/lanzhiwang/awesome-huzhi/blob/master/algorithm/README.md)
-* [sort](https://github.com/lanzhiwang/awesome-huzhi/blob/master/algorithm/Sort.md)
-* [tree](https://github.com/lanzhiwang/awesome-huzhi/blob/master/algorithm/Tree.md)
+* [算法分类](./algorithm/README.md)
+* [sort](./algorithm/Sort.md)
+* [tree](./algorithm/Tree.md)
+* [算法题](./algorithm/isStraight.md)
 
 
 
