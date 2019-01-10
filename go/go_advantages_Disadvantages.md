@@ -22,5 +22,5 @@ Go 语言优缺点
 
 参考：
 
-* https://github.com/lanzhiwang/awesome-huzhi/blob/master/Python_Go.md
+* [](./Python_Go.md)
 
