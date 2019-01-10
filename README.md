@@ -420,6 +420,7 @@ h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
 * [HTTPS图解](https://tls.ulfheim.net/)
 * [HTTP Status Codes](https://github.com/lanzhiwang/awesome-huzhi/blob/master/HTTP_Status_Codes.md)
 * [什么时候使用单例模式，为什么要使用单例模式](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Singleton.md)
+* [DNS 记录](https://github.com/lanzhiwang/awesome-huzhi/blob/master/computer/DNS.md)
 
 
 ## JavaScript
