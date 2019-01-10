@@ -111,7 +111,7 @@ Author: `huzhi`
 * [魔术方法](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Magic_Methods.md)
 * [\_\_slots\_\_魔术方法说明](./python/__slots__%20.md)
 * [\_\_new\_\_() and \_\_init\_\_()](https://github.com/lanzhiwang/awesome-huzhi/blob/master/new_and_init.md)
-* [getattr_and_getattribute](https://github.com/lanzhiwang/awesome-huzhi/blob/master/getattr_and_getattribute.md)
+* [getattr_and_getattribute](./python/getattr_and_getattribute.md)
 * [Python 对象 hash](./python/Python_Hashes_and_Equality.md)
 * [exec-eval](./python/exec_eval.md)
 * [Python 函数重载](https://github.com/lanzhiwang/awesome-huzhi/blob/master/python/python_Overload.md)
@@ -158,7 +158,7 @@ Author: `huzhi`
 * [nginx uwsgi flask](https://github.com/lanzhiwang/awesome-huzhi/blob/master/nginx_uwsgi_flask.md)
 * [监控系统 prometheus 基本原理以及客户端的使用](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Prometheus.md)
 * [epel](https://fedoraproject.org/wiki/EPEL)
-* [http curl wget](https://github.com/lanzhiwang/awesome-huzhi/blob/master/HTTPie_and_Curl_Wget.md)
+* [http curl wget](./linux/HTTPie_and_Curl_Wget.md)
 * [Linux 异步事件模型--以redis事件模型为例](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/Redis_Event_Model.md)
 * [使用 nginx 作为 yum 代理](https://github.com/lanzhiwang/awesome-huzhi/blob/master/nginx_yum_proxy.md)
 * [pcap 包示例](https://wiki.wireshark.org/SampleCaptures)
@@ -342,7 +342,7 @@ Author: `huzhi`
 * [go-design-patterns](https://github.com/lanzhiwang/go-design-patterns) - 常见设计模式UML类图说明-go实现
 * [web 自定义框架](https://github.com/lanzhiwang/web)
 * [go 模块介绍](https://roberto.selbach.ca/intro-to-go-modules/)
-* [Go 语言的优缺点](https://github.com/lanzhiwang/awesome-huzhi/blob/master/go_advantages_Disadvantages.md)
+* [Go 语言的优缺点](./go/go_advantages_Disadvantages.md)
 * [Go 语言的语法和各种细节的开源电子书，深入彻底地了解 Go](https://go101.org/article/101.html)
 * 内置库
   * [net/url](https://juejin.im/post/5bf42ac0f265da61616e50b9)
@@ -396,7 +396,7 @@ Author: `huzhi`
 * `线性回归模型`、`逻辑回归模型`、`卷积神经网络(CNN)`等模型的数学公式 : ![](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/linear_function.gif)
 * `循环神经网络(RNN)`的数学公式常见算法 : ![](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/tanh.gif)
 * [代码学习](https://github.com/lanzhiwang/awesome-huzhi/wiki/machine-learning-example)
-* [fastText 使用示例](https://github.com/lanzhiwang/awesome-huzhi/blob/master/fastText.md)
+* [fastText 使用示例](./machine_learning_example/fastText.md)
 * 《Python神经网络编程》
 * [《TensorFlow学习指南:深度学习系统构建详解》](https://github.com/Hezi-Resheff/Oreilly-Learning-TensorFlow)
 * [tensorflow_cookbook](https://github.com/nfmcclure/tensorflow_cookbook)
@@ -418,7 +418,7 @@ h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
 * [system-design-primer](https://github.com/donnemartin/system-design-primer) - 设计可扩展系统
 * [代码整洁之道](https://github.com/lanzhiwang/awesome-huzhi/wiki/clean-code)
 * [HTTPS图解](https://tls.ulfheim.net/)
-* [HTTP Status Codes](https://github.com/lanzhiwang/awesome-huzhi/blob/master/HTTP_Status_Codes.md)
+* [HTTP Status Codes](./computer/HTTP_Status_Codes.md)
 * [什么时候使用单例模式，为什么要使用单例模式](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Singleton.md)
 * [DNS 记录](https://github.com/lanzhiwang/awesome-huzhi/blob/master/computer/DNS.md)
 
@@ -455,7 +455,7 @@ h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
 
 * [Hack](https://github.com/source-foundry/Hack) - 编程专用字体
 
-* [ffmpeg](https://github.com/lanzhiwang/awesome-huzhi/blob/master/ffmpeg.md) - ffmpeg 是一个非常快速的视频和音频转换器，也可以从现场音频/视频源获取。 它还可以在任意采样率之间进行转换，并使用高质量的多相滤波器动态调整视频大小。
+* [ffmpeg](./other/ffmpeg.md) - ffmpeg 是一个非常快速的视频和音频转换器，也可以从现场音频/视频源获取。 它还可以在任意采样率之间进行转换，并使用高质量的多相滤波器动态调整视频大小。
 
 * [thumbor](https://github.com/thumbor/thumbor) - Thumbor是一种智能成像服务。 它支持按需裁剪，调整大小和翻转图像。
 
