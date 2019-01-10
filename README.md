@@ -92,12 +92,12 @@ Author: `huzhi`
 * [thread_signal](https://github.com/lanzhiwang/Python/blob/master/thread_signal.py) - 线程响应`ctrl+c`信号退出
 * [data_analysis](https://github.com/lanzhiwang/data_analysis) -`Numpy`、`Pandas`、`Scipy`、`Matplotlib`的使用方法([参考文档](https://github.com/donnemartin/data-science-ipython-notebooks))
 * [records](https://github.com/lanzhiwang/records) - 使用 UML 类图说明`records`设计架构
-* [SQLAlchemy example](https://github.com/lanzhiwang/awesome-huzhi/blob/master/SQLAlchemy.md) - `SQLAlchemy`示例说明 SQLAlchemy 的使用方法
+* [SQLAlchemy example](./python/SQLAlchemy.md) - `SQLAlchemy`示例说明 SQLAlchemy 的使用方法
 * [Python 技巧](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python_Tips)
   * [有趣实用的代码片段](https://github.com/satwikkansal/wtfPython)
 * [布隆过滤器](./python/BloomFilter.md)
-* [Python 脚本到打包项目的标准化指南](https://github.com/lanzhiwang/awesome-huzhi/blob/master/packaging_standardization.md)
-* [Python 项目标准结构](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Repository_Structure_and_Python.md)
+* [Python 脚本到打包项目的标准化指南](./python/packaging_standardization.md)
+* [Python 项目标准结构](./python/Repository_Structure_and_Python.md)
 * [Python 线程安全](https://github.com/lanzhiwang/awesome-huzhi/blob/master/python/python_thread_safe.md)
 * [Python 对象序列化](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python-object-serialization)
 * [python logging 实践](https://github.com/lanzhiwang/awesome-huzhi/blob/master/python/python_logging.md)
@@ -108,9 +108,9 @@ Author: `huzhi`
 * [自定义类、闭包、生成器的性能比较](./python/python_performance.md)
 * [不太常见的包或者模块、函数](https://github.com/lanzhiwang/awesome-huzhi/wiki/Less-common-packages-or-modules-or-functions)
 * [yield_and_yield_from](./python/Python_yield.md)
-* [魔术方法](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Magic_Methods.md)
+* [魔术方法](./python/Magic_Methods.md)
 * [\_\_slots\_\_魔术方法说明](./python/__slots__%20.md)
-* [\_\_new\_\_() and \_\_init\_\_()](https://github.com/lanzhiwang/awesome-huzhi/blob/master/new_and_init.md)
+* [\_\_new\_\_() and \_\_init\_\_()](./python/new_and_init.md)
 * [getattr_and_getattribute](./python/getattr_and_getattribute.md)
 * [Python 对象 hash](./python/Python_Hashes_and_Equality.md)
 * [exec-eval](./python/exec_eval.md)
@@ -151,18 +151,18 @@ Author: `huzhi`
 
   * [tldr](https://github.com/lanzhiwang/tldr)
 * [Linux-Explore](https://github.com/lanzhiwang/awesome-huzhi/wiki/Linux-Explore) - 了解Linux服务器
-* [OpenSSL](https://github.com/lanzhiwang/awesome-huzhi/blob/master/OpenSSL.md)、gpg
+* [OpenSSL](./linux/OpenSSL.md)、gpg
 * firewall、[iptables](./linux/iptables.md)
 * [ulogd](./linux/ulogd.md)
 * [iptables debugging](./linux/iptables_debugging.pdf)
 * whiptail - 创建交互式shell脚本对话框
 * [代理服务、翻墙](https://github.com/lanzhiwang/awesome-huzhi/wiki/%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1)
-* [nginx uwsgi flask](https://github.com/lanzhiwang/awesome-huzhi/blob/master/nginx_uwsgi_flask.md)
-* [监控系统 prometheus 基本原理以及客户端的使用](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Prometheus.md)
+* [nginx uwsgi flask](./linux/nginx_uwsgi_flask.md)
+* [监控系统 prometheus 基本原理以及客户端的使用](./linux/Prometheus.md)
 * [epel](https://fedoraproject.org/wiki/EPEL)
 * [http curl wget](./linux/HTTPie_and_Curl_Wget.md)
 * [Linux 异步事件模型--以redis事件模型为例](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/Redis_Event_Model.md)
-* [使用 nginx 作为 yum 代理](https://github.com/lanzhiwang/awesome-huzhi/blob/master/nginx_yum_proxy.md)
+* [使用 nginx 作为 yum 代理](./linux/nginx_yum_proxy.md)
 * [pcap 包示例](https://wiki.wireshark.org/SampleCaptures)
 * [僵尸进程](https://coolshell.cn/articles/656.html)
 * [page cache && buffer cache](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/page_cache_and_buffer_cache.jpg)
@@ -311,7 +311,7 @@ Author: `huzhi`
 * 分布式实现
 
   * 分布式文件系统
-    * [minio](https://github.com/lanzhiwang/awesome-huzhi/blob/master/minio.md)
+    * [minio](./distributed_system/minio.md)
     * [fastdfs](https://github.com/happyfish100/fastdfs)
     * [Ceph](https://github.com/lanzhiwang/awesome-huzhi/blob/master/ceph/Ceph.md) 
     * [分布式文件系统选型要考虑的问题](https://github.com/lanzhiwang/awesome-huzhi/wiki/distributed-file-system)
@@ -416,12 +416,12 @@ h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
 
 * [tcp/ip](https://github.com/lanzhiwang/awesome-huzhi/wiki/tcp-ip-status) - tcp 连接和断开过程以及过程中进程的状态
 * [长连接和短连接](./computer/long_connection_and_short_connection.md)
-* [nginx 支持长连接](https://github.com/lanzhiwang/awesome-huzhi/blob/master/nginx_keep_alive.md)
+* [nginx 支持长连接](./computer/nginx_keep_alive.md)
 * [system-design-primer](https://github.com/donnemartin/system-design-primer) - 设计可扩展系统
 * [代码整洁之道](https://github.com/lanzhiwang/awesome-huzhi/wiki/clean-code)
 * [HTTPS图解](https://tls.ulfheim.net/)
 * [HTTP Status Codes](./computer/HTTP_Status_Codes.md)
-* [什么时候使用单例模式，为什么要使用单例模式](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Singleton.md)
+* [什么时候使用单例模式，为什么要使用单例模式](./computer/Singleton.md)
 * [DNS 记录](./computer/DNS.md)
 
 
