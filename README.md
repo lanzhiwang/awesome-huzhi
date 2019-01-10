@@ -152,7 +152,9 @@ Author: `huzhi`
   * [tldr](https://github.com/lanzhiwang/tldr)
 * [Linux-Explore](https://github.com/lanzhiwang/awesome-huzhi/wiki/Linux-Explore) - 了解Linux服务器
 * [OpenSSL](https://github.com/lanzhiwang/awesome-huzhi/blob/master/OpenSSL.md)、gpg
-* firewall、[iptables](https://github.com/lanzhiwang/awesome-huzhi/blob/master/iptables.md)
+* firewall、[iptables](./linux/iptables.md)
+* [ulogd](./linux/ulogd.md)
+* [iptables debugging](./linux/iptables_debugging.pdf)
 * whiptail - 创建交互式shell脚本对话框
 * [代理服务、翻墙](https://github.com/lanzhiwang/awesome-huzhi/wiki/%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1)
 * [nginx uwsgi flask](https://github.com/lanzhiwang/awesome-huzhi/blob/master/nginx_uwsgi_flask.md)
@@ -413,14 +415,14 @@ h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
 ## 计算机基础
 
 * [tcp/ip](https://github.com/lanzhiwang/awesome-huzhi/wiki/tcp-ip-status) - tcp 连接和断开过程以及过程中进程的状态
-* [长连接和短连接](https://github.com/lanzhiwang/awesome-huzhi/blob/master/long_connection_and_short_connection.md)
+* [长连接和短连接](./computer/long_connection_and_short_connection.md)
 * [nginx 支持长连接](https://github.com/lanzhiwang/awesome-huzhi/blob/master/nginx_keep_alive.md)
 * [system-design-primer](https://github.com/donnemartin/system-design-primer) - 设计可扩展系统
 * [代码整洁之道](https://github.com/lanzhiwang/awesome-huzhi/wiki/clean-code)
 * [HTTPS图解](https://tls.ulfheim.net/)
 * [HTTP Status Codes](./computer/HTTP_Status_Codes.md)
 * [什么时候使用单例模式，为什么要使用单例模式](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Singleton.md)
-* [DNS 记录](https://github.com/lanzhiwang/awesome-huzhi/blob/master/computer/DNS.md)
+* [DNS 记录](./computer/DNS.md)
 
 
 ## JavaScript
