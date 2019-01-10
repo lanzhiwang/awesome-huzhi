@@ -22,5 +22,5 @@ Go 语言优缺点
 
 参考：
 
-* [](./Python_Go.md)
+* [博客](./Python_Go.md)
 
