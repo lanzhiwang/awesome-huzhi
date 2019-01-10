@@ -107,7 +107,7 @@ Author: `huzhi`
 * [Python 函数定义规则](https://github.com/lanzhiwang/awesome-huzhi/blob/master/fun_def.md)
 * [自定义类、闭包、生成器的性能比较](https://github.com/lanzhiwang/awesome-huzhi/blob/master/python_performance.md)
 * [不太常见的包或者模块、函数](https://github.com/lanzhiwang/awesome-huzhi/wiki/Less-common-packages-or-modules-or-functions)
-* [yield_and_yield_from](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Python_yield.md)
+* [yield_and_yield_from](./python/Python_yield.md)
 * [魔术方法](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Magic_Methods.md)
 * [\_\_slots\_\_魔术方法说明](https://github.com/lanzhiwang/awesome-huzhi/blob/master/__slots__%20.md)
 * [\_\_new\_\_() and \_\_init\_\_()](https://github.com/lanzhiwang/awesome-huzhi/blob/master/new_and_init.md)
