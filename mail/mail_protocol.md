@@ -511,9 +511,75 @@ https://www.ietf.org/rfc/rfc2821.txt
 
 
 
+SMTP协议分为标准SMTP协议和扩展SMTP协议，标准SMTP协议是1982年在RFC821 文档中定义的，而扩展SMTP协议是1995年在RFC1869 文档中定义的。扩展SMTP协议在标准 SMTP协议基础上的改动非常小，主要增加了邮件安全方面的认证功能，现在我们说的SMTP协议基本上都是扩展SMTP协议。
+
+
+
+```bash
+$ telnet smtp.163.com 25
+Trying 220.181.12.16...
+Connected to smtp.163.com.
+Escape character is '^]'.
+220 163.com Anti-spam GT for Coremail System (163com[20141201])
+## 
+ehlo huzhi
+250-mail
+250-PIPELINING
+250-AUTH LOGIN PLAIN
+250-AUTH=LOGIN PLAIN
+250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2Ur1VxEZUCa0xDrUUUUj
+250-STARTTLS
+250 8BITMIME
+##
+auth login
+334 dXNlcm5hbWU6
+## hzhilamp@163.com
+aHpoaWxhbXBAMTYzLmNvbQ==
+334 UGFzc3dvcmQ6
+## password
+aHV6aGk1NjcyMzM=
+235 Authentication successful
+##
+mail from:<hzhilamp@163.com>
+250 Mail OK
+##
+rcpt to:<hzhilamp@163.com>
+250 Mail OK
+##
+rcpt to:<774126846@qq.com>
+250 Mail OK
+##
+data
+354 End data with <CR><LF>.<CR><LF>
+subject: Hello smtp
+
+From:""< sender@mydomain.com>
+
+first smtp
+.
+
+##
+quit
+221 Bye
+Connection closed by foreign host.
+$ 
+
+```
+
+
+
+
+
+
+
+
+
+
+
 参考：
 
-https://blog.csdn.net/pathfinder163/article/details/6397199
+* https://blog.csdn.net/pathfinder163/article/details/6397199
+* https://www.cnblogs.com/ysocean/p/7652934.html
 
 
 
