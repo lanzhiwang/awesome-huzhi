@@ -172,6 +172,7 @@ Author: `huzhi`
 * [C10K 问题](./linux/C10K.md)
 * [不下载文件但获取下载文件的大小](./linux/download_file_size.md)
 * [nginx 直接在配置文件中切割日志](./linux/nginx_log.md)
+* [nginx 内置变量](./linux/nginx_built-in_variable.md)
 
 
 ## MySQL
