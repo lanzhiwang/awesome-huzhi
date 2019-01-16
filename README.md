@@ -171,6 +171,7 @@ Author: `huzhi`
 * [select、poll、epoll 异同](https://github.com/lanzhiwang/IO)
 * [C10K 问题](./linux/C10K.md)
 * [不下载文件但获取下载文件的大小](./linux/download_file_size.md)
+* [nginx 直接在配置文件中切割日志](./linux/nginx_log.md)
 
 
 ## MySQL
