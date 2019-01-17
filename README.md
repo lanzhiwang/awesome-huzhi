@@ -188,7 +188,7 @@ Author: `huzhi`
     2. 不可重复读
 
     3. 幻读
-* 事务隔离级别([事务隔离级别测试准备工作](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-transaction-isolation#%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E6%B5%8B%E8%AF%95%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C))
+* 事务隔离级别([事务隔离级别测试准备工作](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-transaction-isolation#%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E6%B5%8B%E8%AF%95%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C)) （**为什么要有四种事务隔离级别？**）
 
     1. [读未提交(read-uncommitted)](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-transaction-isolation#%E8%AF%BB%E6%9C%AA%E6%8F%90%E4%BA%A4read-uncommitted)
 
