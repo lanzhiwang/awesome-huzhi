@@ -42,7 +42,7 @@ Author: `huzhi`
 ## python
 
 * [pool](https://github.com/lanzhiwang/pool) - Python 进程池，线程池，连接池等的实现方法
-* [Python并行编程](https://github.com/lanzhiwang/Python_Parallel_Programming)
+* [Python并行编程](https://github.com/lanzhiwang/Python_Parallel_Programming)（**如何选择并行编程的模型？？**）
 
     1. 基于线程的并行 - `threading`
     2. 基于进程的并行 - `multiprocessing`
@@ -144,7 +144,7 @@ Author: `huzhi`
 * [unix/linux 命令列表及说明](https://github.com/lanzhiwang/awesome-huzhi/wiki/unix-linux-command-list)
 * [free 命令输出详解](https://github.com/lanzhiwang/awesome-huzhi/wiki/free-output-explanation)
 * [ uptime 命令输出 linux 负载说明](https://github.com/lanzhiwang/awesome-huzhi/wiki/linux-load-explanation)
-* vim 常见操作
+* [vim 常见操作](https://github.com/vim-china/vimdoc-cn)
 * Linux常见命令使用示例
 
   * [https://cheat.sh/](https://cheat.sh/)
@@ -153,7 +153,7 @@ Author: `huzhi`
 
   * [tldr](https://github.com/lanzhiwang/tldr)
 * [Linux-Explore](https://github.com/lanzhiwang/awesome-huzhi/wiki/Linux-Explore) - 了解Linux服务器
-* [OpenSSL](./linux/OpenSSL.md)、gpg
+* [OpenSSL](./linux/OpenSSL.md)、gpg（**gpg私钥免密码如何实现？？**）
 * firewall、[iptables](./linux/iptables.md)
 * [ulogd](./linux/ulogd.md)
 * [iptables debugging](./linux/iptables_debugging.pdf)
@@ -173,7 +173,8 @@ Author: `huzhi`
 * [不下载文件但获取下载文件的大小](./linux/download_file_size.md)
 * [nginx 直接在配置文件中切割日志](./linux/nginx_log.md)
 * [nginx 内置变量](./linux/nginx_built-in_variable.md)
-* [进程间通信（IPC）：管道（包括无名管道和命名管道）、消息队列、信号量、共享存储、Socket、Streams](./linux/ipc.md)
+* nginx 增量部署添加新的模块（nginx -V）
+* [进程间通信（IPC）：管道（包括无名管道和命名管道）、消息队列、信号量、共享存储、信号、Socket、Streams](./linux/ipc.md)
 
 
 ## MySQL
@@ -275,6 +276,7 @@ Author: `huzhi`
     * [Redis 哨兵和集群](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/Redis_Sentinel_And_Cluster.md)
     * [Redis 数据分片解决方案对比](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/Redis_data_sharding.md)
     * [Redis在实践过程中需要考虑的问题以及解决方案](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/redis_practice.md)
+    * redis 的缺点（主要是内存浪费和集群问题）
 * MongoDB
 * Elasticsearch
 * [RabbitMQ](https://github.com/lanzhiwang/awesome-huzhi/wiki/RabbitMQ)
@@ -402,8 +404,8 @@ Author: `huzhi`
 
 * [人工智能、机器学习、深度学习的关系](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/artificial_intelligence_Machine_learning_Deep_learning.png)
 * [机器学习常见算法](https://github.com/lanzhiwang/awesome-huzhi/wiki/Machine-learning-common-algorithm)
-* `线性回归模型`、`逻辑回归模型`、`卷积神经网络(CNN)`等模型的数学公式 : ![](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/linear_function.gif)
-* `循环神经网络(RNN)`的数学公式常见算法 : ![](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/tanh.gif)
+* `线性回归模型`、`逻辑回归模型`、`卷积神经网络(CNN)`等模型的数学公式 : ![](./images/linear_function.gif)
+* `循环神经网络(RNN)`的数学公式常见算法 : ![](./images/tanh.gif)
 * [代码学习](https://github.com/lanzhiwang/awesome-huzhi/wiki/machine-learning-example)
 * [fastText 使用示例](./machine_learning_example/fastText.md)
 * 《Python神经网络编程》
