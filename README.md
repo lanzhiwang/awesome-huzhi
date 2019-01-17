@@ -84,7 +84,7 @@ Author: `huzhi`
     * [动态属性和特性](https://github.com/fluentpython/example-code/tree/master/19-dyn-attr-prop)
     * [属性描述符](https://github.com/lanzhiwang/awesome-huzhi/blob/master/python/python_descriptor.md)
 * [python-patterns](https://github.com/lanzhiwang/python-patterns) - 常见设计模式UML类图说明-Python实现
-* [gevent](https://github.com/lanzhiwang/gevent_example/tree/master/examples)
+* [gevent 用法示例](https://github.com/lanzhiwang/gevent_example/tree/master/examples)
 * [learn-wsgiref](https://github.com/lanzhiwang/learn-wsgiref) - `wsgi`规范UML说明和相关实现
 * [first-diy-framework](https://github.com/lanzhiwang/first-diy-framework) - 自定义 Python 框架和`asyncio`实现
 * [lsbaws](https://github.com/rspivak/lsbaws) - 使用`socket`构建简单的`web`服务器
