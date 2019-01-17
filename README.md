@@ -46,9 +46,9 @@ Author: `huzhi`
 
     1. 基于线程的并行 - `threading`
     2. 基于进程的并行 - `multiprocessing`
-    3. 异步编程 - `async` `concurrent` `gevent`
+    3. 异步编程 - `async` `concurrent` `[gevent](https://github.com/lanzhiwang/gevent_example/tree/master/examples)`
     4. 分布式Python - `celery` `RPC`
-    5. GPU 编程 - `Numba ` `PyCUDA` `PyOpenCL`
+    5. GPU 编程 - `Numba` `PyCUDA` `PyOpenCL`
 * Python 源码阅读
 
     * [Python 源码阅读最佳实践](https://github.com/lanzhiwang/awesome-huzhi/wiki/Source-reading)
@@ -173,7 +173,7 @@ Author: `huzhi`
 * [不下载文件但获取下载文件的大小](./linux/download_file_size.md)
 * [nginx 直接在配置文件中切割日志](./linux/nginx_log.md)
 * [nginx 内置变量](./linux/nginx_built-in_variable.md)
-* nginx 增量部署添加新的模块（nginx -V）
+* nginx **增量部署**添加新的模块（nginx -V）
 * [进程间通信（IPC）：管道（包括无名管道和命名管道）、消息队列、信号量、共享存储、信号、Socket、Streams](./linux/ipc.md)
 
 
@@ -323,7 +323,7 @@ Author: `huzhi`
     * [minio](./distributed_system/minio.md)
     * [fastdfs](https://github.com/happyfish100/fastdfs)
     * [Ceph](https://github.com/lanzhiwang/awesome-huzhi/blob/master/ceph/Ceph.md) 
-    * [分布式文件系统选型要考虑的问题](https://github.com/lanzhiwang/awesome-huzhi/wiki/distributed-file-system)
+    * [**分布式文件系统选型要考虑的问题**](https://github.com/lanzhiwang/awesome-huzhi/wiki/distributed-file-system)
   * [一致性hash](https://github.com/lanzhiwang/awesome-huzhi/wiki/Consistency-Hash)
   * [分布式 id 生成器](https://chai2010.cn/advanced-go-programming-book/ch6-cloud/ch6-01-dist-id.html)
   * [分布式锁](https://chai2010.cn/advanced-go-programming-book/ch6-cloud/ch6-02-lock.html)
