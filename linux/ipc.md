@@ -1,6 +1,6 @@
 ## 进程间通信（IPC）
 
-进程间通信（IPC，InterProcess Communication）是指在不同进程之间传播或交换信息。IPC的方式通常有`管道（包括无名管道和命名管道）`、`消息队列`、`信号量`、`共享内存`、`Socket`、`Streams`等。其中 Socket 和 Streams 支持不同主机上的两个进程IPC。
+进程间通信（IPC，InterProcess Communication）是指在不同进程之间传播或交换信息。IPC的方式通常有**管道（包括无名管道和命名管道）**、**消息队列**、**信号量**、**共享内存**、**Socket**、**Streams**等。其中 Socket 和 Streams 支持不同主机上的两个进程IPC。
 
 ### 管道
 
@@ -442,7 +442,7 @@ union semun
 {
   int val; // for SETVAL
   struct semid_ds *buf;
-  unsigned short  *array;
+  unsigned short *array;
 };
 
 // 初始化信号量
@@ -612,31 +612,31 @@ shmctl 函数可以对共享内存执行多种操作，根据参数 cmd 执行�
 ```c
 #include<stdio.h>
 #include<stdlib.h>
-#include<sys/shm.h>  //shared memory
-#include<sys/sem.h>  //semaphore
-#include<sys/msg.h>  //message queue
-#include<string.h>  //memcpy
+#include<sys/shm.h>  // shared memory
+#include<sys/sem.h>  // semaphore
+#include<sys/msg.h>  // message queue
+#include<string.h>  // memcpy
 
-//消息队列结构
+// 消息队列结构
 struct msg_form {
   long mtype;
   char mtext[256];
 };
 
-//联合体，用于semctl初始化
+// 联合体，用于semctl初始化
 union semun
 {
-  int val;  //for SETVAL
+  int val;  // for SETVAL
   struct semid_ds *buf;
-  unsigned short  *array;
+  unsigned short *array;
 };
 
-//初始化信号量
+// 初始化信号量
 int init_sem(int sem_id, int value)
 {
   union semun tmp;
   tmp.val = value;
-  //int semctl(int semid, int sem_num, int cmd, ...);
+  // int semctl(int semid, int sem_num, int cmd, ...);
   if(semctl(sem_id, 0, SETVAL, tmp) == -1)
   {
     perror("Init Semaphore Error");
@@ -653,11 +653,11 @@ int init_sem(int sem_id, int value)
 int sem_p(int sem_id)
 {
   struct sembuf sbuf;
-  sbuf.sem_num = 0;  //序号
-  sbuf.sem_op = -1;  //P操作
+  sbuf.sem_num = 0;  // 序号
+  sbuf.sem_op = -1;  // P操作
   sbuf.sem_flg = SEM_UNDO;
   
-  //int semop(int semid, struct sembuf semoparray[], size_t numops);
+  // int semop(int semid, struct sembuf semoparray[], size_t numops);
   if(semop(sem_id, &sbuf, 1) == -1)
   {
     perror("P operation Error");
@@ -674,11 +674,11 @@ int sem_p(int sem_id)
 int sem_v(int sem_id)
 {
   struct sembuf sbuf;
-  sbuf.sem_num = 0;  //序号
-  sbuf.sem_op = 1;  //V操作
+  sbuf.sem_num = 0;  // 序号
+  sbuf.sem_op = 1;  // V操作
   sbuf.sem_flg = SEM_UNDO;
   
-  //int semop(int semid, struct sembuf semoparray[], size_t numops);
+  // int semop(int semid, struct sembuf semoparray[], size_t numops);
   if(semop(sem_id, &sbuf, 1) == -1)
   {
     perror("V operation Error");
@@ -687,7 +687,7 @@ int sem_v(int sem_id)
   return 0;
 }
 
-//删除信号量集
+// 删除信号量集
 int del_sem(int sem_id)
 {
   union semun tmp;
@@ -699,7 +699,7 @@ int del_sem(int sem_id)
   return 0;
 }
 
-//创建一个信号量集
+// 创建一个信号量集
 int creat_sem(key_t key)
 {
   int sem_id;
@@ -708,30 +708,30 @@ int creat_sem(key_t key)
     perror("semget error");
     exit(-1);
   }
-  init_sem(sem_id, 1);  //初值设为1资源未占用
+  init_sem(sem_id, 1);  // 初值设为1资源未占用
   return sem_id;
 }
 
 int main()
 {
   key_t key;
-  int shmid;  //共享内存ID
-  int semid;  //信号量ID
-  int msqid;  //消息队列ID
-  char *shm;  //共享内存地址
+  int shmid;  // 共享内存ID
+  int semid;  // 信号量ID
+  int msqid;  // 消息队列ID
+  char *shm;  // 共享内存地址
   char data[] = "this is server";
-  struct shmid_ds buf1;  //用于删除共享内存
-  struct msqid_ds buf2;  //用于删除消息队列
-  struct msg_form msg;  //消息队列用于通知对方更新了共享内存
+  struct shmid_ds buf1;  // 用于删除共享内存
+  struct msqid_ds buf2;  // 用于删除消息队列
+  struct msg_form msg;  // 消息队列用于通知对方更新了共享内存
   
-  //获取key值
+  // 获取key值
   if((key = ftok(".", 'z')) < 0)
   {
     perror("ftok error");
     exit(1);
   }
   
-  //int shmget(key_t key, size_t size, int flag);
+  // int shmget(key_t key, size_t size, int flag);
   // 创建共享内存
   if((shmid = shmget(key, 1024, IPC_CREAT|0666)) == -1)
   {
@@ -739,7 +739,7 @@ int main()
     exit(1);
   }
   
-  //void *shmat(int shm_id, const void *addr, int flag);
+  // void *shmat(int shm_id, const void *addr, int flag);
   // 连接共享内存
   shm = (char*)shmat(shmid, 0, 0);
   if((int)shm == -1)
@@ -761,25 +761,30 @@ int main()
   // 读数据
   while(1)
   {
-    msgrcv(msqid, &msg, 1, 888, 0);  //读取类型为888的消息
-    if(msg.mtext == 'q')  //quit - 跳出循环
+    // int msgrcv(int msqid, void *ptr, size_t size, long type, int flag);
+    msgrcv(msqid, &msg, 1, 888, 0);  // 读取类型为888的消息
+    if(msg.mtext == 'q')  // quit - 跳出循环
     {
       break;
     }
     
-    if(msg.mtext == 'r') //共享内存已更新，可以读取共享内存
+    if(msg.mtext == 'r') // 共享内存已更新，可以读取共享内存
     {
-      sem_p(semid);  //减一
-      printf("%s\n",shm);  //读取共享内存
-      sem_v(semid);  //加一
+      sem_p(semid);  // 减一
+      printf("%s\n",shm);  // 读取共享内存
+      sem_v(semid);  // 加一
     }
   }
   
   // 断开连接
   shmdt(shm);
   
-  // 删除共享内存、消息队列
+  // int shmctl(int shm_id, int cmd, struct shmid_ds *buf);
+  // 删除共享内存
   shmctl(shmid, IPC_RMID, &buf1);
+  
+  // int msgctl(int msqid, int cmd, struct msqid_ds *buf);
+  // 删除消息队列
   msgctl(msqid, IPC_RMID, &buf2);
   
   // 删除信号量
@@ -795,10 +800,10 @@ int main()
 ```c
 #include<stdio.h>
 #include<stdlib.h>
-#include<sys/shm.h>  //shared memory
-#include<sys/sem.h>  //semaphore
-#include<sys/msg.h>  //message queue
-#include<string.h>   //memcpy
+#include<sys/shm.h>  // shared memory
+#include<sys/sem.h>  // semaphore
+#include<sys/msg.h>  // message queue
+#include<string.h>   // memcpy
 
 // 消息队列结构
 struct msg_form {
@@ -809,7 +814,7 @@ struct msg_form {
 // 联合体，用于semctl初始化
 union semun
 {
-  int val;  //for SETVAL
+  int val;  // for SETVAL
   struct semid_ds *buf;
   unsigned short *array;
 };
@@ -822,11 +827,11 @@ union semun
 int sem_p(int sem_id)
 {
   struct sembuf sbuf;
-  sbuf.sem_num = 0;  //序号
-  sbuf.sem_op = -1;  //P操作
+  sbuf.sem_num = 0;  // 序号
+  sbuf.sem_op = -1;  // P操作
   sbuf.sem_flg = SEM_UNDO;
   
-  //int semop(int semid, struct sembuf semoparray[], size_t numops);
+  // int semop(int semid, struct sembuf semoparray[], size_t numops);
   if(semop(sem_id, &sbuf, 1) == -1)
   {
     perror("P operation Error");
@@ -843,11 +848,11 @@ int sem_p(int sem_id)
 int sem_v(int sem_id)
 {
   struct sembuf sbuf;
-  sbuf.sem_num = 0;  //序号
-  sbuf.sem_op = 1;  //V操作
+  sbuf.sem_num = 0;  // 序号
+  sbuf.sem_op = 1;  // V操作
   sbuf.sem_flg = SEM_UNDO;
   
-  //int semop(int semid, struct sembuf semoparray[], size_t numops);
+  // int semop(int semid, struct sembuf semoparray[], size_t numops);
   if(semop(sem_id, &sbuf, 1) == -1)
   {
     perror("V operation Error");
@@ -859,28 +864,28 @@ int sem_v(int sem_id)
 int main()
 {
   key_t key;
-  int shmid;  //共享内存ID
-  int semid;  //信号量ID
-  int msqid;  //消息队列ID
-  char *shm;  //共享内存地址
-  struct msg_form msg;  //消息队列用于通知对方更新了共享内存
-  int flag = 1; //while循环条件
+  int shmid;  // 共享内存ID
+  int semid;  // 信号量ID
+  int msqid;  // 消息队列ID
+  char *shm;  // 共享内存地址
+  struct msg_form msg;  // 消息队列用于通知对方更新了共享内存
+  int flag = 1; // while循环条件
   
-  //获取key值
+  // 获取key值
   if((key = ftok(".", 'z')) < 0)
   {
     perror("ftok error");
     exit(1);
   }
   
-  //获取共享内存
+  // 获取共享内存
   if((shmid = shmget(key, 1024, 0)) == -1)
   {
     perror("shmget error");
     exit(1);
   }
   
-  //连接共享内存
+  // 连接共享内存
   shm = (char*)shmat(shmid, 0, 0);
   if((int)shm == -1)
   {
@@ -888,14 +893,14 @@ int main()
     exit(1);
   }
   
-  //创建消息队列
+  // 创建消息队列
   if((msqid = msgget(key, 0)) == -1)
   {
     perror("msgget error");
     exit(1);
   }
   
-  //获取信号量
+  // 获取信号量
   if((semid = semget(key, 0, 0)) == -1)
   {
     perror("semget error");
@@ -917,14 +922,14 @@ int main()
     {
       case 'r':
         printf("Data to send: ");
-        sem_p(semid);  //访问资源
+        sem_p(semid);  // 访问资源
         scanf("%s", shm);
-        sem_v(semid);  //释放资源
+        sem_v(semid);  // 释放资源
         
-        //清空标准输入缓冲区
+        // 清空标准输入缓冲区
         while((c=getchar())!='\n' && c!=EOF);
         msg.mtype = 888;
-        msg.mtext = 'r';  //发送消息通知服务器读数据
+        msg.mtext = 'r';  // 发送消息通知服务器读数据
         msgsnd(msqid, &msg, sizeof(msg.mtext), 0);
         break;
       case 'q':
@@ -935,12 +940,12 @@ int main()
         break;
       default:
         printf("Wrong input!\n");
-        //清空标准输入缓冲区
+        // 清空标准输入缓冲区
         while((c=getchar())!='\n' && c!=EOF);
     }
   }
   
-  //断开连接
+  // 断开连接
   shmdt(shm);
   return 0;
 }
