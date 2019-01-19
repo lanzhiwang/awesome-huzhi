@@ -16,6 +16,8 @@ Author: `huzhi`
 
     - [常见算法](#algorithm)
 
+    - [邮件系统](#email)
+
     - [Component](#component)
 
     - [分布式](#分布式)
@@ -260,6 +262,12 @@ Author: `huzhi`
 * [算法题](./algorithm/isStraight.md)
 
 
+## email
+
+* [IMAP/POP3/STMP 协议](./mail/mail_protocol.md)
+* [IMAP/POP3/STMP pacp 包](./mail/pcap/)
+
+
 
 ## Component
 
@@ -284,7 +292,6 @@ Author: `huzhi`
 * [RabbitMQ](https://github.com/lanzhiwang/awesome-huzhi/wiki/RabbitMQ)
 * [Kafka](https://github.com/lanzhiwang/awesome-huzhi/wiki/kafka-base)
 * jenkins
-* [IMAP/POP3/STMP](https://github.com/lanzhiwang/awesome-huzhi/blob/master/mail/mail_protocol.md)
 * Hadoop生态
     * Hadoop
     * HDFS-文件系统
