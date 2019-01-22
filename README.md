@@ -449,7 +449,7 @@ h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
 
 * w3c school
 
-* 前端浏览器
+* 前端浏览器（**各种浏览器的性能测量以及性能损耗问题？**）
 
 	* [phantomjs](https://github.com/ariya/phantomjs)
 
