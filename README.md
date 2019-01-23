@@ -135,6 +135,7 @@ Author: `huzhi`
 * [Django url 结尾是否需要加 / 的问题](./python/django_url.md)
 * [常见正则表达式](https://github.com/lanzhiwang/common-regex)
 * [RPC 框架示例](https://github.com/zhu327/doge)
+* [python 函数式编程](https://github.com/sfermigier/awesome-functional-python)
 
 
 ## Linux
