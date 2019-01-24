@@ -533,7 +533,7 @@ ehlo huzhi
 ##
 auth login
 334 dXNlcm5hbWU6
-## hzhilamp@163.com
+## hzhilamp@163.com base64编码
 aHpoaWxhbXBAMTYzLmNvbQ==
 334 UGFzc3dvcmQ6
 ## password
@@ -543,26 +543,30 @@ aHV6aGk1NjcyMzM=
 mail from:<hzhilamp@163.com>
 250 Mail OK
 ##
-rcpt to:<hzhilamp@163.com>
-250 Mail OK
-##
-rcpt to:<774126846@qq.com>
+rcpt to:<774126846@qq.com>  # 可以配置多个
 250 Mail OK
 ##
 data
 354 End data with <CR><LF>.<CR><LF>
-subject: Hello smtp
-
-From:""< sender@mydomain.com>
-
+subject:Hello smtp
+from:hzhilamp@163.com
+to:774126846@qq.com
 first smtp
 .
-
-##
+250 Mail OK queued as smtp13,EcCowABXS7g6e0lcQjIvDA--.60931S2 1548319673
 quit
 221 Bye
 Connection closed by foreign host.
-$ 
+$
+
+
+# HELO and EHLO: Commands that initiate a new protocol session between client and server. The EHLO command requests them to respond with any optional SMTP extensions it supports
+
+# RSET: While in the process of sending an email (after issuing the MAIL command), either end of the SMTP connection can reset the connection if it encounters an error
+
+# NOOP: An empty ("no operation") message designed as a kind of ping to check for responsiveness of the other end of the session
+
+https://www.ionos.com/digitalguide/e-mail/technical-matters/smtp/
 
 ```
 
