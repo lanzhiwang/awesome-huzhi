@@ -322,11 +322,19 @@ Suggestions and bug reports are greatly appreciated:
 ### Curl 使用示例
 
 ```bash
+$ curl --version
+curl 7.47.0 (x86_64-pc-linux-gnu) libcurl/7.47.0 GnuTLS/3.4.10 zlib/1.2.8 libidn/1.32 librtmp/2.3
+Protocols: dict file ftp ftps gopher http https imap imaps ldap ldaps pop3 pop3s rtmp rtsp smb smbs smtp smtps telnet tftp 
+Features: AsynchDNS IDN IPv6 Largefile GSS-API Kerberos SPNEGO NTLM NTLM_WB SSL libz TLS-SRP UnixSockets 
+$ 
+
 curl localhost
 
 # Download a single file
 curl http://path.to.the/file
 
+# -O 使用与远程位置相同的名称将文件保存在当前工作目录中
+# -o 指定不同的文件名和/或位置
 # Download a file and specify a new filename
 curl http://example.com/file.zip -o new_file.zip
 
@@ -351,8 +359,11 @@ curl -u username:password -O ftp://example.com/pub/file.zip
 # Get an FTP directory listing
 curl ftp://username:password@example.com
 
-# Resume a previously failed download
+# Resume a previously failed download 断点续传
 curl -C - -o partial_file.zip http://example.com/file.zip
+
+# 从文件下载URL
+$ xargs -n 1 curl -O < wenjianlisturls.txt
 
 # Fetch only the HTTP headers from a response
 curl -I http://example.com
@@ -360,7 +371,7 @@ curl -I http://example.com
 # Fetch your external IP and network info as JSON
 curl http://ifconfig.me/all/json
 
-# Limit the rate of a download
+# Limit the rate of a download 限制下载率
 curl --limit-rate 1000B -O http://path.to.the/file
 
 # POST to a form
@@ -372,6 +383,11 @@ curl -H "Content-Type: application/json" -X POST -d '{"user":"bob","pass":"123"}
 # POST data from the standard in / share data on sprunge.us
 curl -F 'sprunge=<-' sprunge.us
 
+# 存储网站 Cookie
+$ curl --cookie-jar linuxidcookies.txt https://www.linuxidc.com/index.htm -O
+
+# 发送网站 Cookie
+$ curl --cookie linuxidcookies.txt https://www.linuxidc.com
 
 ```
 
