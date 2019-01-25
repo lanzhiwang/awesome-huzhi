@@ -137,6 +137,7 @@ Author: `huzhi`
 * [RPC 框架示例](https://github.com/zhu327/doge)
 * [python 函数式编程](https://github.com/sfermigier/awesome-functional-python)
 * [什么样的代码是号代码](http://www.yinwang.org/blog-cn/2015/11/21/programming-philosophy)
+* web请求参数验证
 
 
 ## Linux

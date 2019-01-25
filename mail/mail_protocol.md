@@ -551,14 +551,21 @@ data
 subject:Hello smtp
 from:hzhilamp@163.com
 to:774126846@qq.com
+qwe:asd  # 自定义头信息
+# header 和 body 之间必须有空行
+         
 first smtp
+
 .
-250 Mail OK queued as smtp13,EcCowABXS7g6e0lcQjIvDA--.60931S2 1548319673
+250 Mail OK queued as smtp11,D8CowABXRAHFeUpcvx3dAg--.43886S2 1548385572
+
+# D8CowABXRAHFeUpcvx3dAg--.43886S2  SMTP id
+# 1548385572  时间戳 2019-01-25 11:06:12
+
 quit
 221 Bye
 Connection closed by foreign host.
-$
-
+$ 
 
 # HELO and EHLO: Commands that initiate a new protocol session between client and server. The EHLO command requests them to respond with any optional SMTP extensions it supports
 
