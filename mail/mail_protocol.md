@@ -569,6 +569,37 @@ quit
 Connection closed by foreign host.
 $ 
 
+# 发送附件
+data
+354 End data with <CR><LF>.<CR><LF>
+subject:Hello smtp
+from:hzhilamp@163.com
+to:774126846@qq.com
+Content-Type: multipart/mixed; boundary="----=_Part_389485_457354150.1548324608241"
+
+------=_Part_389485_457354150.1548324608241
+Content-Type: text/html;  charset=utf-8
+Content-Transfer-Encoding: base64
+
+PHN0eWxlPnRhYmxlLmN1c3RvbVRhYmxlQ2xhc3NOYW1lIHttYXJnaW4tYm90dG9tOiAxMHB4O2Jv
+dXJlIj4mbmJzcDs8YnI+PC9kaXY+PHAgc3R5bGU9Im1hcmdpbjowcHg7Ij48YnI+PC9wPg==
+------=_Part_389485_457354150.1548324608241
+Content-Type: image/png; name="=?UTF-8?B?aG9saWRheS5wbmc=?="
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="=?UTF-8?B?aG9saWRheS5wbmc=?="
+
+EcnU4SxHEQJCQAgIASEgBITAM0dARPKZu6VyQUJACAgBISAEhIAQSB0CIpKpw1mOIgSEgBAQAkJA
+ISAEhIAQEAJCIHUIiEimDmc5ihAQAkJACAgBISAEnjkCIpLP3C2VCxICQkAICAEhIASEQOoQEJFM
+Hc5yFCEgBISAEBACQkAIPHME/h9snQWhBKaVtgAAAABJRU5ErkJggg==
+------=_Part_389485_457354150.1548324608241--
+
+.
+250 Mail OK queued as smtp8,DMCowAAn5srCqkpcCgAZDA--.30508S2 1548397519
+quit
+221 Bye
+Connection closed by foreign host.
+$ 
+
 # HELO and EHLO: Commands that initiate a new protocol session between client and server. The EHLO command requests them to respond with any optional SMTP extensions it supports
 
 # RSET: While in the process of sending an email (after issuing the MAIL command), either end of the SMTP connection can reset the connection if it encounters an error
