@@ -65,7 +65,9 @@ MongoDB Cluster Architecture：
 ![](./MongoDb_Cluster.svg)
 
 ```
-# 在每台机器上执行下列命令启动相应进程
+mongos-01：10.12.109.175
+mongos-01：10.12.109.176
+mongos-01：10.12.109.178
 
 mkdir -p /var/lib/mongodb/set01
 mkdir -p /var/lib/mongodb/set02
@@ -80,43 +82,6 @@ touch /var/log/mongodb/set02-24005.log
 mkdir -p /var/lib/mongodb/config
 touch /var/log/mongodb/config.log
 touch /var/log/mongodb/mongos.log
-
-# 启动数据进程（不同版本支持的命令选项有可能不一样）
-nohup mongod --shardsvr --replSet set01 --port 24001 --dbpath /var/lib/mongodb/set01 --logpath /var/log/mongodb/set01-24001.log --logappend --oplogSize 1024 &
-
-nohup mongod --shardsvr --replSet set02 --port 24002 --dbpath /var/lib/mongodb/set02 --logpath /var/log/mongodb/set02-24002.log --logappend --oplogSize 1024 &
-
-nohup mongod --shardsvr --replSet set03 --port 24003 --dbpath /var/lib/mongodb/set03 --logpath /var/log/mongodb/set02-24003.log --logappend --oplogSize 1024 &
-
-nohup mongod --shardsvr --replSet set04 --port 24004 --dbpath /var/lib/mongodb/set04 --logpath /var/log/mongodb/set02-24004.log --logappend --oplogSize 1024 &
-
-nohup mongod --shardsvr --replSet set05 --port 24005 --dbpath /var/lib/mongodb/set05 --logpath /var/log/mongodb/set02-24005.log --logappend --oplogSize 1024 &
-
-# 启动配置进程
-nohup mongod --configsvr --port 28017 --dbpath /var/lib/mongodb/config --logpath /var/log/mongodb/config.log &
-
-# 启动路由进程（直接添加配置进程）
-nohup mongos --port 27017 --configdb "conf/mongos-01:28017,mongos-02:28017,mongos-03:28017" --logpath /var/log/mongodb/mongos.log & 
-
-# 配置分片
-mongo --port 28017
-> sh.addShard("set01/127.0.0.1:24001")
-> sh.addShard("set02/127.0.0.1:24002")
-> sh.addShard("set03/127.0.0.1:24003")
-> sh.addShard("set04/127.0.0.1:24004")
-> sh.addShard("set05/127.0.0.1:24005")
-
-# 配置数据库启用分片和设置分片键
-mongo --port 28017
-> db.runCommand({enableSharding: "database_name"})
-> db.runCommand({shardCollection: "database_name.table_name", key: {"field_name": 1}})
-
-
-
-
-mongos-01：10.12.109.175
-mongos-01：10.12.109.176
-mongos-01：10.12.109.178
 
 # 在每台机器上执行下列命令 Create the Config Server Replica Set
 nohup mongod --configsvr --bind_ip_all --port 28017 --replSet configSet --dbpath /var/lib/mongodb/config --logpath /var/log/mongodb/config.log &
