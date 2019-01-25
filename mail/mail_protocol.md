@@ -18,6 +18,8 @@ INTERNET MESSAGE ACCESS PROTOCOL - VERSION 4rev1
 
 https://tools.ietf.org/html/rfc3501
 
+https://github.com/python/cpython/blob/2.7/Lib/imaplib.py
+
 ```bash
 
 ## IMAP命令示例
@@ -265,6 +267,8 @@ Post Office Protocol - Version 3
 
 https://www.ietf.org/rfc/rfc1939.txt
 
+https://github.com/python/cpython/blob/2.7/Lib/poplib.py
+
 ```bash
 ## POP3命令示例
 $ telnet pop.163.com 110
@@ -509,11 +513,9 @@ Simple Mail Transfer Protocol
 
 https://www.ietf.org/rfc/rfc2821.txt
 
-
+https://github.com/python/cpython/blob/2.7/Lib/smtplib.py
 
 SMTP协议分为标准SMTP协议和扩展SMTP协议，标准SMTP协议是1982年在RFC821 文档中定义的，而扩展SMTP协议是1995年在RFC1869 文档中定义的。扩展SMTP协议在标准 SMTP协议基础上的改动非常小，主要增加了邮件安全方面的认证功能，现在我们说的SMTP协议基本上都是扩展SMTP协议。
-
-
 
 ```bash
 $ telnet smtp.163.com 25

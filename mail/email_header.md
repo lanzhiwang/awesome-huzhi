@@ -118,11 +118,98 @@ Received: from [10.1.87.249] ([10.1.87.249:45085] helo=abmas01.marketo.org)
 
 In the example shown above, there are three Received: stamps. **Reading from the bottom upwards**, you can see who sent the message first, next and last, and you can see when it was done. This is because every MTA that processed the email message added a Received: line to the email's header. These Received: lines provide information on where the message originated and what stops it made (what computers) before reaching its final destination. As the example shows, these Received: lines provide the email and IP address of each sender and recipient. They also provide the date and time of each transfer. The lines also indicate if the email address was part of an email list. It is all this information that is valued by computer programmers and IT department associates when making efforts to track and stop SPAM email message. And it is this information that arguable makes headers the most important part of an email. 在上面显示的示例中，有三个Received：戳记。 从下往上阅读，您可以看到谁先发送消息，下一次和最后发送消息，您可以看到它何时完成。 这是因为处理电子邮件的每个MTA都在电子邮件的标题中添加了Received：行。 这些Received：行提供了有关消息源自何处以及在到达其最终目的地之前停止了什么（哪些计算机）的信息。 如示例所示，这些Received：行提供每个发件人和收件人的电子邮件和IP地址。 它们还提供每次转移的日期和时间。 这些行还指示电子邮件地址是否是电子邮件列表的一部分。 在努力跟踪和停止垃圾邮件时，计算机程序员和IT部门员工都会重视这些信息。 正是这些信息可以说标题是电子邮件中最重要的部分。 
 
+### Headers Fields
+
+It is important to know that when reading an email header every line can be forged, so only the **Received**: lines that are created by your service or computer should be completely trusted.  重要的是要知道，在阅读电子邮件标题时，每行都可以伪造，因此只有您的服务或计算机创建的Received：行才应该完全受信任。
+
+* From
+
+This displays who the message is from, however, this can be easily forged and can be the least reliable.  这显示了消息的来源，但是，这可以很容易伪造，并且可能是最不可靠的。
+
+* Subject
+
+This is what the sender placed as a topic of the email content.
+
+* Date
+
+This shows the date and time the email message was composed.
+
+* To
+
+This shows to whom the message was addressed, but may not contain the recipient's address.  这表明邮件已向谁发送，但可能不包含收件人的地址。
+
+* CC
+
+A cc means that other recipients of the email can see the cc recipient listed
+
+* BCC
+
+A bcc means that other recipients of the email do not see the bcc recipient listed
+
+* Sender
+
+```
+Sender: 107-fms-070.0.16516.0.0.5375.9.10954819@em.oreilly.com
+```
+
+* Return-Path
+
+The email address for return mail. This is the same as "Reply-To:".  返回邮件的电子邮件地址。 这与“回复：”相同。
+```
+Return-Path: <reply@oreilly.com>
+Reply-To: reply@oreilly.com
+```
+
+* Envelope-To（？？）
+
+This header shows that this email was delivered to the mailbox of a subscriber whose email address is user@example.com.
+
+* Delivery Date
+
+This shows the date and time at which the email was received by your (mt) service or email client.
+
+* Received
+
+The received is the most important part of the email header and is usually the most reliable. They form a list of all the servers/computers through which the message traveled in order to reach you.  received是电子邮件标题中最重要的部分，通常是最可靠的部分。 它们形成了所有服务器/计算机的列表，消息通过这些服务器/计算机与您联系。
+
+The received lines are best read from bottom to top. That is, the first "Received:" line is your own system or mail server. The last "Received:" line is where the mail originated. Each mail system has their own style of "Received:" line. A "Received:" line typically identifies the machine that received the mail and the machine from which the mail was received.  收到的行最好从下到上阅读。 也就是说，第一个“已接收：”行是您自己的系统或邮件服务器。 最后一个“已接收：”行是邮件发送的位置。 每个邮件系统都有自己的“Received：”行样式。 “已接收：”行通常标识接收邮件的计算机和从中接收邮件的计算机。
+
+* X-Originating-IP
+
+The easiest way for finding the original sender is by looking for the X-Originating-IP header. This header is important since it tells you the IP address of the computer that had sent the email.
+
+* Dkim-Signature & Domainkey-Signature（？？）
+
+These are related to domain keys which are currently not supported by (mt) Media Temple services. You can learn more about these by visiting: http://en.wikipedia.org/wiki/DomainKeys.
+
+* Message-id
+
+A unique string assigned by the mail system when the message is first created. These can easily be forged.
+
+* Mime-Version
+
+Multipurpose Internet Mail Extensions (MIME) is an Internet standard that extends the format of email. Please see http://en.wikipedia.org/wiki/MIME for more details.
+
+* Content-Type
+
+Generally, this will tell you the format of the message, such as html or plaintext.
+
+* X-Spam-Status
+
+Displays a spam score created by your service or mail client.  显示由服务或邮件客户端创建的垃圾邮件分数。
+
+* X-Spam-Level
+
+Displays a spam score usually created by your service or mail client.
 
 
-参考：
+### 参考
 
 * https://whatismyipaddress.com/email-header
+* https://mediatemple.net/community/products/dv/204643950/understanding-an-email-header
+* https://www.iana.org/assignments/message-headers/message-headers.xhtml
+
+
 
 
 
