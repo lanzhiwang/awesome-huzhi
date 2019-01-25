@@ -290,7 +290,7 @@ Author: `huzhi`
     * [Redis 数据分片解决方案对比](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/Redis_data_sharding.md)
     * [Redis在实践过程中需要考虑的问题以及解决方案](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/redis_practice.md)
     * redis 的缺点（主要是内存浪费和集群问题）
-* MongoDB
+* [MongoDB](./MongoDB/MongoDB.md)
 * Elasticsearch
 * [RabbitMQ](https://github.com/lanzhiwang/awesome-huzhi/wiki/RabbitMQ)
 * [Kafka](https://github.com/lanzhiwang/awesome-huzhi/wiki/kafka-base)
