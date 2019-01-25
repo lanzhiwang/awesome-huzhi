@@ -607,7 +607,7 @@ $
 # NOOP: An empty ("no operation") message designed as a kind of ping to check for responsiveness of the other end of the session
 
 https://www.ionos.com/digitalguide/e-mail/technical-matters/smtp/
-
+https://www.greenend.org.uk/rjk/tech/smtpreplies.html
 ```
 
 
