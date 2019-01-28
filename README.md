@@ -138,6 +138,9 @@ Author: `huzhi`
 * [python 函数式编程](https://github.com/sfermigier/awesome-functional-python)
 * [什么样的代码是号代码](http://www.yinwang.org/blog-cn/2015/11/21/programming-philosophy)
 * web请求参数验证
+* 解析大的 XML 文件
+    * 分段读取文件内容
+    * 在文件内容中做数据冗余
 
 
 ## Linux
@@ -280,6 +283,12 @@ Author: `huzhi`
     * [Redis在实践过程中需要考虑的问题以及解决方案](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/redis_practice.md)
     * redis 的缺点（主要是内存浪费和集群问题）
 * [MongoDB](./MongoDB/MongoDB.md)
+    * MongoDB 复制集的主从选举机制和主从同步机制？？
+    * MongoDB 的分片机制？？
+    * primary shard 是怎样选举的？？
+    * MongoDB 的 balancer 机制？？
+    * 分片的 chunks 功能是怎样实现的？？
+    * mongos 元数据是怎样生成的？？
 * Elasticsearch
 * [RabbitMQ](https://github.com/lanzhiwang/awesome-huzhi/wiki/RabbitMQ)
 * [Kafka](https://github.com/lanzhiwang/awesome-huzhi/wiki/kafka-base)

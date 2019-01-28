@@ -224,265 +224,11 @@ sh.shardCollection("<database>.<collection>", { <key> : <direction> } )
 
 ```
 
-### MongoDB 数据库的一般查询语句
-
-```
-{ name : "myName" }
-{ size : { $gt : 5 } }
-{ size : { $gte : 5 } }
-{ name : { $in : [ 'item1', 'item2' ] } }
-{ size : { $lt : 5 } }
-{ size : { $lte : 5 } }
-{ name : { $ne : "badName" } }
-{ name : { $nin : [ 'item1', 'iem2' ] } }
-{ $or : [ { size : { $lt : 5 } }, { size : { $gt : 10 } } ] }
-{ $or : [ {}, {} ] }
-{ $and : [ { size : { $lt : 5 }  }, { size : { $gt : 2 } } ] }
-{ $not : { size : { $lt : 5 } } }
-{ $nor : { size : { $gt : 5 } }, { name : "myName" } }
-{ speciaField : { $exists : true|false } }
-{ speciaField : { $type : <BSONtype> } }
-{ number : { $mod : [ 2, 0 ] } }
-{ myString : { $regex : 'some.*exp' } }
-{ myArr : { $all : [ 'one', 'two', 'three' ] } }
-{ myArr : { $elemMatch : { value : { $gt : 5 }, size : { $lt : 6 } } } }
-{ myArr : { $size : 5 } }
-
-
-
-[root@dc01 ~]# df -h
-文件系统             容量  已用  可用 已用% 挂载点
-/dev/mapper/cl-root  6.0T   57G  6.0T    1% /
-devtmpfs              16G     0   16G    0% /dev
-tmpfs                 16G     0   16G    0% /dev/shm
-tmpfs                 16G  8.6M   16G    1% /run
-tmpfs                 16G     0   16G    0% /sys/fs/cgroup
-/dev/sda2           1014M  139M  876M   14% /boot
-tmpfs                3.2G     0  3.2G    0% /run/user/0
-[root@dc01 ~]# 
-
-
-[root@dc01 ~]# df -h
-文件系统             容量  已用  可用 已用% 挂载点
-/dev/mapper/cl-root  6.0T   58G  6.0T    1% /
-devtmpfs              16G     0   16G    0% /dev
-tmpfs                 16G     0   16G    0% /dev/shm
-tmpfs                 16G  8.6M   16G    1% /run
-tmpfs                 16G     0   16G    0% /sys/fs/cgroup
-/dev/sda2           1014M  139M  876M   14% /boot
-tmpfs                3.2G     0  3.2G    0% /run/user/0
-[root@dc01 ~]# 
-
-
-mongos> show dbs
-admin       0.000GB
-config      0.001GB
-myDatabase  1.180GB
-mongos> use myDatabase
-switched to db myDatabase
-mongos> show collections
-inventory
-mongos> db.inventory.find().count()
-42412020
-mongos> 
-mongos> db.inventory.deleteMany({ item: "mat" })
-{ "acknowledged" : true, "deletedCount" : 14137200 }
-mongos> db.inventory.find().count()
-28274820
-mongos> 
-mongos> show dbs
-admin       0.000GB
-config      0.001GB
-myDatabase  1.327GB
-mongos> 
-
-[root@dc01 ~]# df -h
-文件系统             容量  已用  可用 已用% 挂载点
-/dev/mapper/cl-root  6.0T   59G  6.0T    1% /
-devtmpfs              16G     0   16G    0% /dev
-tmpfs                 16G     0   16G    0% /dev/shm
-tmpfs                 16G  8.6M   16G    1% /run
-tmpfs                 16G     0   16G    0% /sys/fs/cgroup
-/dev/sda2           1014M  139M  876M   14% /boot
-tmpfs                3.2G     0  3.2G    0% /run/user/0
-[root@dc01 ~]# 
-
-use myDatabase
-db.runCommand ( { compact: 'inventory', force: true } )
-
-
-sh.addShard( "set01/10.12.109.175:24001")  # SECONDARY
-sh.addShard( "set01/10.12.109.176:24001")  # PRIMARY
-sh.addShard( "set01/10.12.109.178:24001")  # SECONDARY
-
-sh.addShard( "set02/10.12.109.175:24002")  # SECONDARY
-sh.addShard( "set02/10.12.109.176:24002")  # PRIMARY
-sh.addShard( "set02/10.12.109.178:24002")  # SECONDARY
-
-sh.addShard( "set03/10.12.109.175:24003")
-sh.addShard( "set03/10.12.109.176:24003")
-sh.addShard( "set03/10.12.109.178:24003")
-
-sh.addShard( "set04/10.12.109.175:24004")
-sh.addShard( "set04/10.12.109.176:24004")
-sh.addShard( "set04/10.12.109.178:24004")
-
-sh.addShard( "set05/10.12.109.175:24005")
-sh.addShard( "set05/10.12.109.176:24005")
-sh.addShard( "set05/10.12.109.178:24005")
-
-
-[root@dc01 ~]# df -h
-文件系统             容量  已用  可用 已用% 挂载点
-/dev/mapper/cl-root  6.0T   58G  6.0T    1% /
-devtmpfs              16G     0   16G    0% /dev
-tmpfs                 16G     0   16G    0% /dev/shm
-tmpfs                 16G  8.6M   16G    1% /run
-tmpfs                 16G     0   16G    0% /sys/fs/cgroup
-/dev/sda2           1014M  139M  876M   14% /boot
-tmpfs                3.2G     0  3.2G    0% /run/user/0
-[root@dc01 ~]# 
-
-mongos> show dbs
-admin       0.000GB
-config      0.001GB
-myDatabase  1.028GB
-mongos> 
-mongos> 
-mongos> db.inventory.deleteMany({})
-{ "acknowledged" : true, "deletedCount" : 28274820 }
-mongos> db.inventory.find().count()
-0
-mongos> show dbs
-admin       0.000GB
-config      0.001GB
-myDatabase  0.964GB
-mongos> 
-
-[root@dc01 ~]# df -h
-文件系统             容量  已用  可用 已用% 挂载点
-/dev/mapper/cl-root  6.0T   58G  6.0T    1% /
-devtmpfs              16G     0   16G    0% /dev
-tmpfs                 16G     0   16G    0% /dev/shm
-tmpfs                 16G  8.6M   16G    1% /run
-tmpfs                 16G     0   16G    0% /sys/fs/cgroup
-/dev/sda2           1014M  139M  876M   14% /boot
-tmpfs                3.2G     0  3.2G    0% /run/user/0
-[root@dc01 ~]# 
-
-
-
-
-[root@dc01 ~]# df -h
-文件系统             容量  已用  可用 已用% 挂载点
-/dev/mapper/cl-root  6.0T   57G  6.0T    1% /
-devtmpfs              16G     0   16G    0% /dev
-tmpfs                 16G     0   16G    0% /dev/shm
-tmpfs                 16G  8.6M   16G    1% /run
-tmpfs                 16G     0   16G    0% /sys/fs/cgroup
-/dev/sda2           1014M  139M  876M   14% /boot
-tmpfs                3.2G     0  3.2G    0% /run/user/0
-[root@dc01 ~]# 
-
-mongos> show dbs
-admin       0.000GB
-config      0.001GB
-myDatabase  0.000GB
-mongos> 
-
-
-
-
-
-
-
-
-
-
-
-[root@dc01 ~]# df -h
-文件系统             容量  已用  可用 已用% 挂载点
-/dev/mapper/cl-root  6.0T   60G  6.0T    1% /
-devtmpfs              16G     0   16G    0% /dev
-tmpfs                 16G     0   16G    0% /dev/shm
-tmpfs                 16G   33M   16G    1% /run
-tmpfs                 16G     0   16G    0% /sys/fs/cgroup
-/dev/sda2           1014M  139M  876M   14% /boot
-tmpfs                3.2G   12K  3.2G    1% /run/user/0
-[root@dc01 ~]# 
-
-mongos> 
-mongos> show dbs
-admin       0.000GB
-config      0.001GB
-myDatabase  2.949GB
-mongos> 
-mongos> use myDatabase
-switched to db myDatabase
-mongos> 
-mongos> show collections
-inventory
-mongos> 
-mongos> db.inventory.find().count()
-104919227
-mongos> 
-mongos> db.serverStatus().mem
-{ "bits" : 64, "resident" : 26, "virtual" : 256, "supported" : true }
-mongos> 
-mongos> 
-mongos> db.inventory.deleteMany({ item: "mat" })
-{ "acknowledged" : true, "deletedCount" : 34972742 }
-mongos> 
-mongos> db.inventory.find().count()
-69946485
-mongos> 
-mongos> show dbs
-admin       0.000GB
-config      0.001GB
-myDatabase  3.125GB
-mongos> 
-mongos> db.serverStatus().mem
-{ "bits" : 64, "resident" : 25, "virtual" : 256, "supported" : true }
-mongos> 
-
-[root@dc01 ~]# df -h
-文件系统             容量  已用  可用 已用% 挂载点
-/dev/mapper/cl-root  6.0T   60G  6.0T    1% /
-devtmpfs              16G     0   16G    0% /dev
-tmpfs                 16G     0   16G    0% /dev/shm
-tmpfs                 16G   33M   16G    1% /run
-tmpfs                 16G     0   16G    0% /sys/fs/cgroup
-/dev/sda2           1014M  139M  876M   14% /boot
-tmpfs                3.2G   12K  3.2G    1% /run/user/0
-[root@dc01 ~]# 
-
-db.repairDatabase()
-db.repairDatabase()
-
-[root@dc01 ~]# df -h
-文件系统             容量  已用  可用 已用% 挂载点
-/dev/mapper/cl-root  6.0T   61G  6.0T    1% /
-devtmpfs              16G     0   16G    0% /dev
-tmpfs                 16G     0   16G    0% /dev/shm
-tmpfs                 16G   33M   16G    1% /run
-tmpfs                 16G     0   16G    0% /sys/fs/cgroup
-/dev/sda2           1014M  139M  876M   14% /boot
-tmpfs                3.2G   12K  3.2G    1% /run/user/0
-[root@dc01 ~]# 
-
-
-
-
-
-
-
-
-```
-
-
 ### 修复 MongoDB 数据目录
 
 ```
+# 方法一：
+
 # 停止 mongo 服务后进行修复操作
 mongod --repair --dbpath /var/lib/mongodb/set01
 mongod --repair --dbpath /var/lib/mongodb/set02
@@ -490,15 +236,332 @@ mongod --repair --dbpath /var/lib/mongodb/set03
 mongod --repair --dbpath /var/lib/mongodb/set04
 mongod --repair --dbpath /var/lib/mongodb/set05
 
+# 方法二：
+
+# 导入大批量数据之前的磁盘使用情况
+[root@dc01 ~]# df -h
+文件系统             容量  已用  可用 已用% 挂载点
+/dev/mapper/cl-root  6.0T   57G  6.0T    1% /
+devtmpfs              16G     0   16G    0% /dev
+tmpfs                 16G     0   16G    0% /dev/shm
+tmpfs                 16G  8.6M   16G    1% /run
+tmpfs                 16G     0   16G    0% /sys/fs/cgroup
+/dev/sda2           1014M  139M  876M   14% /boot
+tmpfs                3.2G     0  3.2G    0% /run/user/0
+[root@dc01 ~]# 
+
+# 导入大批量数据
+
+# 导入大批量数据之后的磁盘使用情况
+[root@dc01 ~]# df -h
+文件系统             容量  已用  可用 已用% 挂载点
+/dev/mapper/cl-root  6.0T   88G  5.9T    2% /
+devtmpfs              16G     0   16G    0% /dev
+tmpfs                 16G     0   16G    0% /dev/shm
+tmpfs                 16G  8.6M   16G    1% /run
+tmpfs                 16G     0   16G    0% /sys/fs/cgroup
+/dev/sda2           1014M  139M  876M   14% /boot
+tmpfs                3.2G  100K  3.2G    1% /run/user/0
+[root@dc01 ~]# 
+
+# 导入大批量数据之后 mongo 统计情况
+mongos> show dbs
+admin       0.000GB
+config      0.001GB
+myDatabase  6.074GB
+mongos> 
+mongos> use myDatabase
+switched to db myDatabase
+mongos> 
+mongos> show collections
+inventory
+mongos> db.inventory.find().count()
+212060100
+mongos> 
+mongos> 
+
+# 删除部分数据
+mongos> db.inventory.deleteMany({ item: "mat" })
+{ "acknowledged" : true, "deletedCount" : 70686000 }
+mongos> db.inventory.find().count()
+141374100
+mongos> show dbs
+admin       0.000GB
+config      0.001GB
+myDatabase  6.273GB
+mongos> 
+
+# 使用 compact 修复磁盘
+use myDatabase
+db.runCommand ( { compact: 'inventory', force: true } )
+
+# 使用 compact 修复磁盘后的 mongo 统计情况
+mongos> show dbs
+admin       0.000GB
+config      0.001GB
+myDatabase  5.837GB
+mongos> use myDatabase
+switched to db myDatabase
+mongos> show collections
+inventory
+mongos> db.inventory.find().count()
+141374100
+mongos> 
+
+# 使用 compact 修复磁盘后的磁盘统计情况
+[root@dc01 ~]# df -h
+文件系统             容量  已用  可用 已用% 挂载点
+/dev/mapper/cl-root  6.0T   88G  5.9T    2% /
+devtmpfs              16G     0   16G    0% /dev
+tmpfs                 16G     0   16G    0% /dev/shm
+tmpfs                 16G  8.6M   16G    1% /run
+tmpfs                 16G     0   16G    0% /sys/fs/cgroup
+/dev/sda2           1014M  139M  876M   14% /boot
+tmpfs                3.2G  100K  3.2G    1% /run/user/0
+[root@dc01 ~]# 
+
+# 再次删除部分数据
+mongos> 
+mongos> db.inventory.deleteMany({ item: "journal" })
+{ "acknowledged" : true, "deletedCount" : 70688100 }
+mongos> 
+mongos> db.inventory.find().count()
+70686000
+mongos> 
+mongos> show dbs
+admin       0.000GB
+config      0.001GB
+myDatabase  5.837GB
+mongos> 
+
+# 删除数据后的磁盘统计情况
+[root@dc01 ~]# df -h
+文件系统             容量  已用  可用 已用% 挂载点
+/dev/mapper/cl-root  6.0T   90G  5.9T    2% /
+devtmpfs              16G     0   16G    0% /dev
+tmpfs                 16G     0   16G    0% /dev/shm
+tmpfs                 16G  8.6M   16G    1% /run
+tmpfs                 16G     0   16G    0% /sys/fs/cgroup
+/dev/sda2           1014M  139M  876M   14% /boot
+tmpfs                3.2G  100K  3.2G    1% /run/user/0
+[root@dc01 ~]# 
+
+# 使用 compact 修复磁盘
+use myDatabase
+db.runCommand ( { compact: 'inventory', force: true } )
+
+# 使用 compact 修复磁盘后的磁盘统计情况
+[root@dc01 ~]# df -h
+文件系统             容量  已用  可用 已用% 挂载点
+/dev/mapper/cl-root  6.0T   89G  5.9T    2% /
+devtmpfs              16G     0   16G    0% /dev
+tmpfs                 16G     0   16G    0% /dev/shm
+tmpfs                 16G  8.6M   16G    1% /run
+tmpfs                 16G     0   16G    0% /sys/fs/cgroup
+/dev/sda2           1014M  139M  876M   14% /boot
+tmpfs                3.2G  100K  3.2G    1% /run/user/0
+[root@dc01 ~]# 
+
+mongos> show dbs
+admin       0.000GB
+config      0.001GB
+myDatabase  5.301GB
+mongos> 
+
+# 删除所有数据
+mongos> db.inventory.deleteMany({})
+{ "acknowledged" : true, "deletedCount" : 70686000 }
+mongos> show dbs
+admin       0.000GB
+config      0.001GB
+myDatabase  5.137GB
+mongos> db.inventory.find().count()
+0
+mongos> 
+
+[root@dc01 ~]# df -h
+文件系统             容量  已用  可用 已用% 挂载点
+/dev/mapper/cl-root  6.0T   92G  5.9T    2% /
+devtmpfs              16G     0   16G    0% /dev
+tmpfs                 16G     0   16G    0% /dev/shm
+tmpfs                 16G  8.6M   16G    1% /run
+tmpfs                 16G     0   16G    0% /sys/fs/cgroup
+/dev/sda2           1014M  139M  876M   14% /boot
+tmpfs                3.2G  136K  3.2G    1% /run/user/0
+[root@dc01 ~]# 
+
 ```
+
+### Storage Engines
+
+* WiredTiger Storage Engine (Default)
+
+  * Journaling
+
+* In-Memory Storage Engine
+
+* MMAPv1 Storage Engine (Deprecated as of MongoDB 4.0)
+
+* GridFS
 
 ### Replication Commands
 
+* applyOps
 
+Internal command that applies oplog entries to the current data set.
 
+* isMaster
 
+Displays information about this member’s role in the replica set, including whether it is the master.
 
+* replSetAbortPrimaryCatchUp
 
+Forces the elected primary to abort sync (catch up) then complete the transition to primary.
+
+* replSetFreeze
+
+Prevents the current member from seeking election as primary for a period of time.
+
+* replSetGetConfig
+
+Returns the replica set’s configuration object.
+
+* replSetGetStatus
+
+Returns a document that reports on the status of the replica set.
+
+* replSetInitiate
+
+Initializes a new replica set.
+
+* replSetMaintenance
+
+Enables or disables a maintenance mode, which puts a secondary node in a RECOVERING state.  启用或禁用维护模式，该模式将辅助节点置于RECOVERING状态。
+
+* replSetReconfig
+
+Applies a new configuration to an existing replica set.
+
+* replSetResizeOplog
+
+Dynamically resizes the oplog for a replica set member. Available for WiredTiger storage engine only.
+
+* replSetStepDown
+
+Forces the current primary to step down and become a secondary, forcing an election.
+
+* replSetSyncFrom
+
+Explicitly override the default logic for selecting a member to replicate from.
+
+### Sharding Commands
+
+* addShard
+
+Adds a shard to a sharded cluster.
+
+* addShardToZone
+
+Associates a shard with a zone. Supports configuring zones in sharded clusters.  将分片与区域关联。 支持在分片群集中配置区域
+
+* balancerStart
+
+Starts a balancer thread.
+
+* balancerStatus
+
+Returns information on the balancer status.
+
+* balancerStop
+
+Stops the balancer thread.
+
+* checkShardingIndex
+
+Internal command that validates index on shard key.
+
+* cleanupOrphaned
+
+Removes orphaned data with shard key values outside of the ranges of the chunks owned by a shard.  使用分片所拥有的块范围之外的分片键值删除孤立数据。
+
+* enableSharding
+
+Enables sharding on a specific database.
+
+* flushRouterConfig
+
+Forces an update to the cluster metadata cached by a mongos.
+
+* getShardMap
+
+Internal command that reports on the state of a sharded cluster.
+
+* getShardVersion
+
+Internal command that returns the config server version.
+
+* isdbgrid
+
+Verifies that a process is a mongos.
+
+* listShards
+
+Returns a list of configured shards.
+
+* medianKey
+
+Deprecated internal command. See splitVector.
+
+* moveChunk
+
+Internal command that migrates chunks between shards.
+
+* movePrimary
+
+Reassigns the primary shard when removing a shard from a sharded cluster.  从分片群集中删除分片时重新分配主分片。
+
+* mergeChunks
+
+Provides the ability to combine chunks on a single shard.  提供在单个分片上组合块的功能。
+
+* removeShard
+
+Starts the process of removing a shard from a sharded cluster.
+
+* removeShardFromZone
+
+Removes the association between a shard and a zone. Supports configuring zones in sharded clusters.
+
+* setShardVersion
+
+Internal command to sets the config server version.
+
+* shardCollection
+
+Enables the sharding functionality for a collection, allowing the collection to be sharded.
+
+* shardingState
+
+Reports whether the mongod is a member of a sharded cluster.
+
+* split
+
+Creates a new chunk.
+
+* splitChunk
+Internal command to split chunk. Instead use the methods sh.splitFind() and sh.splitAt().
+
+* splitVector
+
+Internal command that determines split points.
+
+* unsetSharding
+
+Internal command that affects connections between instances in a MongoDB deployment.
+
+* updateZoneKeyRange
+
+Adds or removes the association between a range of sharded data and a zone. Supports configuring zones in sharded clusters.
 
 ### Administration Commands
 
