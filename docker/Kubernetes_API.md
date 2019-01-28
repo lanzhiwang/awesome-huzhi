@@ -133,15 +133,15 @@ On-disk files in a Container are ephemeral, which presents some problems for non
 
 ### Metadata APIs
 
-* ControllerRevision
+* ControllerRevision 控制调整
 
 * CustomResourceDefinition
 
 * Event 
 
-* LimitRange 
+* LimitRange 限制
 
-* HorizontalPodAutoscaler 
+* HorizontalPodAutoscaler pod 水平扩展
 
 * InitializerConfiguration 
 
@@ -198,4 +198,8 @@ On-disk files in a Container are ephemeral, which presents some problems for non
 * TokenReview 
 
 * NetworkPolicy 
+
+A network policy is a specification of how groups of pods are allowed to communicate with each other and other network endpoints.  网络策略是允许pod组与彼此和其他网络端点通信的规范。
+
+NetworkPolicy resources use labels to select pods and define rules which specify what traffic is allowed to the selected pods.  NetworkPolicy资源使用标签来选择窗格并定义规则，这些规则指定允许所选窗格流量的流量。
 
