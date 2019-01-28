@@ -1,5 +1,7 @@
 ## Kubernetes API
 
+![](./Kubernetes_API.png)
+
 ### Workloads APIs
 
 * Container 构建镜像
