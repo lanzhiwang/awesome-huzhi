@@ -241,6 +241,7 @@ Author: `huzhi`
   * [DOCKER基础技术：overlayfs](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/overlayfs.pdf)
   * [understand-container-index](http://pierrchen.blogspot.com/2018/08/understand-container-index.html)
 * [kubernetes ](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/kubernetes.md)
+* [Kubernetes API](./docker/Kubernetes_API.md)
 * [Docker 的 Image 文件是分层的，本文简单介绍怎么查看每一层的内容，它们又是怎么组合成一个可以运行的 Image 文件](https://cameronlonsdale.com/2018/11/26/whats-in-a-docker-image/)
 * [通过控制分层来缩小 Image 文件尺寸](https://www.datawire.io/not-engineer-running-3-5gb-docker-images/)
 * docker 的优点和缺点
