@@ -113,6 +113,8 @@ ConfigMaps allow you to decouple configuration artifacts from image content to k
 
 Objects of type secret are intended to hold sensitive information, such as passwords, OAuth tokens, and ssh keys. Putting this information in a secret is safer and more flexible than putting it verbatim in a pod definition or in a docker image.
 
+![](./Storage.png)
+
 * PersistentVolumeClaim
 
 Managing storage is a distinct problem from managing compute. The PersistentVolume subsystem provides an API for users and administrators that abstracts details of how storage is provided from how it is consumed. To do this we introduce two new API resources: PersistentVolume and PersistentVolumeClaim.  管理存储是管理计算的一个明显问题。 PersistentVolume子系统为用户和管理员提供了一个API，它提供了如何根据消费方式提供存储的详细信息。 为此，我们引入了两个新的API资源：PersistentVolume和PersistentVolumeClaim。
@@ -131,6 +133,8 @@ A StorageClass provides a way for administrators to describe the “classes” o
 
 On-disk files in a Container are ephemeral, which presents some problems for non-trivial applications when running in Containers. First, when a Container crashes, kubelet will restart it, but the files will be lost - the Container starts with a clean state. Second, when running Containers together in a Pod it is often necessary to share files between those Containers. The Kubernetes Volume abstraction solves both of these problems.  Container中的磁盘文件是短暂的，这在容器中运行时会给非平凡的应用程序带来一些问题。 首先，当容器崩溃时，kubelet将重新启动它，但文件将丢失 -  Container以干净状态启动。 其次，在Pod中一起运行Container时，通常需要在这些容器之间共享文件。 Kubernetes Volume抽象解决了这两个问题。
 
+awsElasticBlockStore、azureDisk、azureFile、cephfs、**configMap**、csi、downwardAPI、emptyDir、fc (fibre channel)、flexVolume、flocker、gcePersistentDisk、gitRepo (deprecated)、glusterfs、hostPath、iscsi、local、nfs、**persistentVolumeClaim**、projected、portworxVolume、quobyte、rbd、scaleIO、**secret**、storageos、vsphereVolume
+
 * VolumeAttachment 
 
 ### Metadata APIs
@@ -143,7 +147,9 @@ On-disk files in a Container are ephemeral, which presents some problems for non
 
 * LimitRange 限制
 
-* HorizontalPodAutoscaler pod 水平扩展
+* HorizontalPodAutoscaler pod 水平扩展  -> Federated Horizontal Pod Autoscalers (HPA)
+
+![](./horizontal-pod-autoscaler.svg)
 
 * InitializerConfiguration 
 
@@ -179,6 +185,8 @@ On-disk files in a Container are ephemeral, which presents some problems for non
 
 * Namespace 
 
+Kubernetes supports multiple virtual clusters backed by the same physical cluster. These virtual clusters are called namespaces.
+
 * Node 
 
 * PersistentVolume 
@@ -204,4 +212,13 @@ On-disk files in a Container are ephemeral, which presents some problems for non
 A network policy is a specification of how groups of pods are allowed to communicate with each other and other network endpoints.  网络策略是允许pod组与彼此和其他网络端点通信的规范。
 
 NetworkPolicy resources use labels to select pods and define rules which specify what traffic is allowed to the selected pods.  NetworkPolicy资源使用标签来选择窗格并定义规则，这些规则指定允许所选窗格流量的流量。
+
+### Other APIs
+
+* Label / Label Selector
+
+
+
+
+
 

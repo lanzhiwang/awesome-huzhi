@@ -40,10 +40,10 @@ users = db.relationship('User', backref='role', cascade='all')
 
 * cascade 取值范围
     * save-update
-    * merge
-    * expunge
+    * merge ??
+    * expunge ??
     * delete
     * delete-orphan
-    * refresh-expire
-    * all
+    * refresh-expire ??
+    * all（save-update、merge、refresh-expire、expunge、delete）
 
