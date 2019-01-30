@@ -655,3 +655,8 @@ webserver$ sudo nano /etc/nginx/nginx.conf
 # add to /etc/nginx/nginx.conf
 log_format haproxy_log 'ProxyIP: $remote_addr - ClientIP: $http_x_forwarded_for - $remote_user [$time_local] ' '"$request" $status $body_bytes_sent "$http_referer" ' '"$http_user_agent"';
 ```
+
+参考：
+
+https://www.digitalocean.com/community/tutorials/how-to-set-up-highly-available-haproxy-servers-with-keepalived-and-floating-ips-on-ubuntu-14-04
+
