@@ -1,5 +1,18 @@
 ## SSL
 
+```
+ca-key.pem  CA 私钥
+ca-cert.pem  CA 数字证书
+
+server-key.pem  服务器端私钥
+server-req.pem  服务器端证书请求文件
+server-req.pem、ca-cert.pem、ca-key.pem > server-cert.pem  服务器端数字证书
+
+client-key.pem  客户端私钥
+client-req.pem  客户端证书请求文件
+client-req.pem、ca-cert.pem、ca-key.pem > client-cert.pem  客户端数字证书
+```
+
 ### MySQL 服务端
 ```
 [mysqld]
@@ -10,7 +23,7 @@ ssl-key=server-key.pem
 
 * --ssl-ca: The path name of the Certificate Authority (CA) certificate file.
 
-* --ssl-cert: The path name of the server public key certificate file. This can be sent to the client and authenticated against the CA certificate that it has.
+* --ssl-cert: The path name of the server public key certificate file. This can be sent to the client and authenticated against the CA certificate that it has.  服务器公钥证书文件的路径名。 这可以发送到客户端，并根据它拥有的CA证书进行身份验证。
 
 * --ssl-key: The path name of the server private key file.
 
