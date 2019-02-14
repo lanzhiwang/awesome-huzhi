@@ -100,7 +100,9 @@ https://zhuanlan.zhihu.com/p/27700617
 后序：7 8 6 4 2 5 3 1
 
 ```
+先序、中序、后序执行过程如下：
 
+![](./first_middle_back.jpg)
 
 参考：
 
