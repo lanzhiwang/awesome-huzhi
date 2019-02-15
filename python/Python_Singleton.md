@@ -115,3 +115,35 @@ my_singleton.foo()
 
 ```
 
+方法五：
+
+```python
+try:
+    from synchronize import make_synchronized
+except ImportError:
+    def make_synchronized(func):
+        import threading
+        func.__lock__ = threading.Lock()
+
+        def synced_func(*args, **kws):
+            with func.__lock__:
+                return func(*args, **kws)
+
+        return synced_func
+
+def singleton(cls, *args, **kw):
+    instances = {}
+
+    @make_synchronized
+    def _singleton():
+        if cls not in instances:
+            instances[cls] = cls(*args, **kw)
+        return instances[cls]
+    return _singleton
+
+@singleton
+class ImgPredict(object):
+    def __init__(self):
+        pass
+```
+
