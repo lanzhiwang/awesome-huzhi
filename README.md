@@ -293,6 +293,8 @@ Author: `huzhi`
     * 分片的 chunks 功能是怎样实现的？？
     * mongos 元数据是怎样生成的？？
 * Elasticsearch
+* Ansible
+	* [Playbook Keywords](./ansible/Playbook_Keywords.md)
 * [RabbitMQ](https://github.com/lanzhiwang/awesome-huzhi/wiki/RabbitMQ)
 * [Kafka](https://github.com/lanzhiwang/awesome-huzhi/wiki/kafka-base)
 * jenkins
