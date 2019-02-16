@@ -541,7 +541,13 @@ The same as loop but magically adds the output of any lookup plugin to generate 
 5. debugger
 6. action
 7. delay
-8. local_action
+8. local_action  本地操作功能
 9. retries
 10. until
+
+[Ansible 性能优化、统计任务执行时间、SSH PIPElinING、Delegate_to( 任务委派功能 )、本地操作功能 --local_action](./Ansible_01.pdf)
+
+[异步和轮询、Play执行时的并发限制、最大失败百分比、委托、委托者的facts、RUN ONCE](./Ansible_02.pdf)
+
+
 
