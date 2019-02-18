@@ -295,7 +295,8 @@ Author: `huzhi`
     * mongos 元数据是怎样生成的？？
 * Elasticsearch
 * Ansible
-	* [Playbook Keywords](./ansible/Playbook_Keywords.md)
+  * [Playbook Keywords](./ansible/Playbook_Keywords.md)
+  * [Ansible 常用模块](ansible/Ansible_module.md)
 * [RabbitMQ](https://github.com/lanzhiwang/awesome-huzhi/wiki/RabbitMQ)
 * [Kafka](https://github.com/lanzhiwang/awesome-huzhi/wiki/kafka-base)
 * jenkins
