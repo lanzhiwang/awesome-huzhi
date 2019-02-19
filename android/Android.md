@@ -54,6 +54,9 @@ Installed packages:=====================] 100% Computing updates...
 Available Packages:
   Path                                                                                     | Version      | Description                                                         
   -------                                                                                  | -------      | -------                                                             
+# sdkmanager 安装相应工具时要加上引号，如下所示
+# ./tools/bin/sdkmanager "build-tools;26.0.1"
+
 ```
 
 #### 获得 ROOT 权限
