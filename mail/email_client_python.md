@@ -2,6 +2,10 @@
 
 ### imap
 
+参考：
+
+https://github.com/python/cpython/blob/2.7/Lib/imaplib.py
+
 ```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
@@ -69,6 +73,10 @@ s.close()
 ```
 
 ### pop3
+
+参考：
+
+https://github.com/python/cpython/blob/2.7/Lib/poplib.py
 
 ```python
 #!/usr/bin/env python
