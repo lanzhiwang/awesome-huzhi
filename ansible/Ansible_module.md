@@ -142,6 +142,11 @@ ini 文件管理模块
 
 Web请求模块，uri模块主要用于发送HTTP协议，通过使用uri模块，可以让目标主机向指定的网站发送如Get、Post这样的HTTP请求，并且能得到返回的状态码
 
+* lineinfile
+
+类似于 sed 命令
+
+
 
 ```
 a10_server                         管理A10 Networks AX / SoftAX / Thunder / vThunder设备
