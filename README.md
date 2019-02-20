@@ -325,6 +325,7 @@ Author: `huzhi`
   * [一致性、可用性、分区容差 CAP theorem](https://github.com/donnemartin/system-design-primer#cap-theorem)
   * [分布式系统中的幂等性，以及HTTP主要方法的语义和幂等性特征](https://github.com/lanzhiwang/awesome-huzhi/blob/master/distributed_system/idempotence.md)
 * [分布式系统介绍](https://hackernoon.com/a-thorough-introduction-to-distributed-systems-3b91562c9b3c)
+* [分布式教程](https://github.com/feixiao/Distributed-Systems)
 * 分布式系统存在的问题
 
   * [拜占庭将军问题](https://github.com/lanzhiwang/awesome-huzhi/wiki/The_Byzantine_General_Problem)
