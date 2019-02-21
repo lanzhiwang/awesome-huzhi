@@ -265,9 +265,10 @@ Author: `huzhi`
 
 * [IMAP/POP3/STMP 协议](./mail/mail_protocol.md)
 * [邮件头信息解析规则和常见头字段](./mail/email_header.md)
-	* 如何区分并不同的MUA和MTA添加的头信息？？
+  * 如何区分并不同的MUA和MTA添加的头信息？？
 * [Python实现的简单邮件客户端实现获取邮件](./mail/email_client_python.md)
 * [IMAP/POP3/STMP pacp 包](./mail/pcap/)
+* [smtp 响应状态码](./mail/List_of_most_common_SMTP_responses.md)
 
 
 ## Component
