@@ -202,6 +202,14 @@ Displays a spam score created by your service or mail client.  显示由服务�
 
 Displays a spam score usually created by your service or mail client.
 
+* spf
+
+SPF：Sender Policy Framework，发件人保证框架。出现的主要原因是SMTP协议的缺陷。SMTP协议中，发件人的邮箱地址是可以伪造的，因而SPF的出现就是防止伪造发件人。SPF的记录实际上就是DNS服务器上面的一个记录。
+
+* dkim-signature
+
+Domain Keys Identified Mail。功能与SPF相似，主要是让收件人可以通过加密解密的方式来得知发件人是否是真实的。原理就是在电子邮件的开头插入一段签名，然后接收方通过从DNS查询得到公钥以后，以进行验证，与SSH的公钥和密钥类似。
+
 
 ### 参考
 
