@@ -271,6 +271,7 @@ Author: `huzhi`
 * [smtp 响应状态码](./mail/List_of_most_common_SMTP_responses.md)
 * 实现高性能、安全邮件服务器？？
 * 反爬虫？？
+* [邮件服务器添加 SPF、DKIM、DMARC、PTR 提高送达率](http://lomu.me/post/SPF-DKIM-DMARC-PTR)
 
 
 ## Component

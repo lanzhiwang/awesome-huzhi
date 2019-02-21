@@ -14,6 +14,8 @@
 
 ![](./pop3_imap.gif)
 
+![](./smtp_imap_pop.png)
+
 ### IMAP
 
 INTERNET MESSAGE ACCESS PROTOCOL - VERSION 4rev1
