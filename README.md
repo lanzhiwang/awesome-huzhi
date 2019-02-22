@@ -272,6 +272,7 @@ Author: `huzhi`
 * 实现高性能、安全邮件服务器？？
 * 反爬虫？？
 * [邮件服务器添加 SPF、DKIM、DMARC、PTR 提高送达率](http://lomu.me/post/SPF-DKIM-DMARC-PTR)
+* [通过头信息识别垃圾邮件的方法](./mail/headers_Spam.md)
 
 
 ## Component
