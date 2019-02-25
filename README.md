@@ -193,8 +193,9 @@ Author: `huzhi`
 ## MySQL
 
 * 事务特性
-
-  * [原子性、一致性、隔离性、持久性（ACID）](https://github.com/donnemartin/system-design-primer#relational-database-management-system-rdbms)
+  * 原子性、一致性、隔离性、持久性（ACID）
+  	* [参考1](https://github.com/donnemartin/system-design-primer#relational-database-management-system-rdbms)
+  	* [参考2](https://mp.weixin.qq.com/s?__biz=MzIxNTQ3NDMzMw==&mid=2247484093&idx=1&sn=b6c607e7d7845ad963fe2b0e1fa771e6&chksm=97968b4fa0e102595cfee0ed4bd9ba83a938e49914163c94ed2d22659b083daea58040c62113&mpshare=1&scene=23&srcid=#rd)
 * 事务并发时的问题
 
     1. 脏读
