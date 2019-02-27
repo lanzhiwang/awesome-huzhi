@@ -139,7 +139,7 @@ Author: `huzhi`
 * [什么样的代码是好代码](http://www.yinwang.org/blog-cn/2015/11/21/programming-philosophy)
 * web请求参数验证
 * 解析大的 XML 文件
-    * 分段读取文件内容
+    * [分段读取文件内容](https://python3-cookbook.readthedocs.io/zh_CN/latest/c06/p04_parse_huge_xml_files_incrementally.html)
     * 在文件内容中做数据冗余
 
 
