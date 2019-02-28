@@ -1,4 +1,4 @@
-## SQLAlchemy — Python Tutorial
+## SQLAlchemy — Reflection
 
 We often encounter data as Relational Databases. To work with them we generally would need to write raw SQL queries, pass them to the database engine and parse the returned results as a normal array of records.  我们经常将数据视为关系数据库。 要使用它们，我们通常需要编写原始SQL查询，将它们传递给数据库引擎并将返回的结果解析为正常的记录数组。
 
@@ -22,3 +22,41 @@ engine = db.create_engine('dialect+driver://user:pass@host:port/db')
 ### Viewing Table Details
 
 SQLAlchemy can be used to automatically load tables from a database using something called reflection. Reflection is the process of reading the database and building the metadata based on that information.  SQLAlchemy可用于使用称为反射的东西从数据库自动加载表。 反射是读取数据库并基于该信息构建元数据的过程。
+
+```
+import sqlalchemy as db
+engine = db.create_engine('sqlite:////home/lanzhiwang/work/testDB.db')
+
+'''
+sqlite> .schema COMPANY
+CREATE TABLE COMPANY(
+   ID INT PRIMARY KEY     NOT NULL,
+   NAME           TEXT    NOT NULL,
+   AGE            INT     NOT NULL,
+   ADDRESS        CHAR(50),
+   SALARY         REAL
+);
+'''
+connection = engine.connect()
+metadata = db.MetaData()
+company = db.Table('COMPANY', metadata, autoload=True, autoload_with=engine)
+
+print(company.columns.keys())
+# ['ID', 'NAME', 'AGE', 'ADDRESS', 'SALARY']
+
+print(repr(metadata.tables['COMPANY']))
+'''
+Table('COMPANY', MetaData(bind=None),
+Column('ID', INTEGER(), table=<COMPANY>, primary_key=True, nullable=False),
+Column('NAME', TEXT(), table=<COMPANY>, nullable=False),
+Column('AGE', INTEGER(), table=<COMPANY>, nullable=False),
+Column('ADDRESS', CHAR(length=50), table=<COMPANY>),
+Column('SALARY', REAL(), table=<COMPANY>),
+schema=None)
+
+'''
+
+```
+
+[参考](https://towardsdatascience.com/sqlalchemy-python-tutorial-79a577141a91)
+

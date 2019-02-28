@@ -95,7 +95,7 @@ Author: `huzhi`
 * [thread_signal](https://github.com/lanzhiwang/Python/blob/master/thread_signal.py) - 线程响应`ctrl+c`信号退出
 * [data_analysis](https://github.com/lanzhiwang/data_analysis) -`Numpy`、`Pandas`、`Scipy`、`Matplotlib`的使用方法([参考文档](https://github.com/donnemartin/data-science-ipython-notebooks))
 * [records](https://github.com/lanzhiwang/records) - 使用 UML 类图说明`records`设计架构
-* [SQLAlchemy example](./python/SQLAlchemy.md) - `SQLAlchemy`示例说明 SQLAlchemy 的使用方法
+* [SQLAlchemy example](./python/SQLAlchemy/SQLAlchemy.md) - `SQLAlchemy`示例说明 SQLAlchemy 的使用方法
 * [Python 技巧](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python_Tips)
   * [有趣实用的代码片段](https://github.com/satwikkansal/wtfPython)
 * [布隆过滤器](./python/BloomFilter.md)
