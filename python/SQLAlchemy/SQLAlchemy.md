@@ -3,12 +3,10 @@
 * [SQLAlchemy 使用反射从数据库自动加载表](./SQLAlchemy _reflection.md)
 * relationship 方法的 backref 参数
 * relationship 方法的 cascade 参数
-* relationship 方法的 lazy 参数
+* relationship 方法的 back_populates 参数
+* [relationship 方法的 lazy 参数](./SQLAlchemy_Lazy.md)
 * SQLAlchemy 数据迁移和更新
 * 将 SQLAlchemy 查询语句转为 SQL 语句本身
-
-### SQLAlchemy 入门
-
 * 定义表
 * 定义数据库连接
 * 定义 CURD 操作
