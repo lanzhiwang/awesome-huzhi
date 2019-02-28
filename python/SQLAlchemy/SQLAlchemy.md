@@ -4,9 +4,10 @@
 * [relationship 方法的 backref 和 back_populates 参数](./SQLAlchemy_backref_back_populates.md) 
 * [relationship 方法的 cascade 和 cascade_backrefs 参数](./SQLAlchemy_Cascades.md) （？？）
 * [relationship 方法的 lazy 参数](./SQLAlchemy_Lazy.md)
-* [relationship 方法的 secondary 参数](./SQLAlchemy_secondary.md)
+* [relationship 方法的 secondary 参数](./SQLAlchemy_secondary.md)（？？）
 * SQLAlchemy 数据迁移和更新
-* 将 SQLAlchemy 查询语句转为 SQL 语句本身
+* [将 SQLAlchemy 查询语句转为 SQL 语句本身](./SQLAlchemy_Raw_SQL.md)
+* [在 SQLAlchemy 中直接执行 SQL 语句](./SQLAlchemy_Raw_SQL.md)
 * 定义表
 * 定义数据库连接
 * 定义 CURD 操作
