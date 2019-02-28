@@ -37,6 +37,35 @@ The list of available values which can be specified for the cascade parameter ar
 * expunge
 * all（save-update、merge、refresh-expire、expunge、delete）
 
+### 各种级联关系的简单解释
+
+* save-update 
+
+将一个对象添加到 session 中，与该对象关联的所有对象自动都被添加到 session 中
+
+* delete
+
+将父对象删除，与之关联的所有子对象也**自动被删除**
+
+* delete-orphan
+
+将父对象删除，与之关联的所有子对象**不会**被删除
+
+* merge
+
+Session.merge()
+
+* refresh-expire
+
+Session.expire()
+
+* expunge
+
+Session.expunge()
+
+* all（save-update、merge、refresh-expire、expunge、delete）
+
+
 
 ### save-update
 
