@@ -49,7 +49,8 @@ The list of available values which can be specified for the cascade parameter ar
 
 * delete-orphan
 
-将父对象删除，与之关联的所有子对象**不会**被删除
+标记删除 delete-orphan 级联关系起作用，在 user 实例中标记删除 addresses
+> del user.addresses[1]
 
 * merge
 
