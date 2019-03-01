@@ -31,3 +31,7 @@ sqlalchemy_engine.setLevel(logging.DEBUG)
 
 engine = sqlalchemy.create_engine('postgres://foo/bar', echo=True)
 ```
+
+[参考](https://stackoverflow.com/questions/29114627/how-to-output-sqlalchemy-logger-only-to-a-file)
+
+
