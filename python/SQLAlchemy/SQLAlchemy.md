@@ -6,7 +6,7 @@
 	* [delete 和 delete-orphan 的区别](./SQLAlchemy_difference_delete_and_delete_orphan.md)（？？）
 * [relationship 方法的 lazy 参数](./SQLAlchemy_Lazy.md)
 * [relationship 方法的 secondary 参数](./SQLAlchemy_secondary.md)（？？）
-* SQLAlchemy 数据迁移和更新
+* [SQLAlchemy 数据迁移和更新工具 Alembic 和 SQLAlchemy-Migrate](https://blog.csdn.net/u012827940/article/details/79278919)
 * [将 SQLAlchemy 查询语句转为 SQL 语句本身](./SQLAlchemy_Raw_SQL.md)
 * [在 SQLAlchemy 中直接执行 SQL 语句](./SQLAlchemy_Raw_SQL.md)
 * [在 SQLAlchemy 输出日志](./SQLAlchemy_log.md)
