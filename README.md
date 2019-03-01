@@ -381,6 +381,7 @@ Author: `huzhi`
 * [go 模块介绍](https://roberto.selbach.ca/intro-to-go-modules/)
 * [Go 语言的优缺点](./go/go_advantages_Disadvantages.md)
 * [Go 语言的语法和各种细节的开源电子书，深入彻底地了解 Go](https://go101.org/article/101.html)
+* [百万 Go TCP 连接的思考](https://colobu.com/)
 * 内置库
   * [net/url](https://juejin.im/post/5bf42ac0f265da61616e50b9)
 
