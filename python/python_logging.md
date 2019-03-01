@@ -29,7 +29,7 @@ log(level, fmt [, *args [, exec_info [, extra]]])
 findCaller()
 
 # 消息筛选器
-setLever(level)
+setLevel(level)
 isEnabledFor(level)
 
 addFilter(filter)
@@ -79,7 +79,7 @@ WatchedFileHandler(filename[, mode[, encoding[, delay]]])
 NullHandler()
 
 处理器的级别和筛选
-setLever(level)
+setLevel(level)
 
 addFilter(filter)
 removeFilter(filter)
@@ -143,7 +143,7 @@ handler = logging.StreamHandler()
 formatter = logging.Formatter(%(asctime)s %(name)-12s %(levelname)-8s %(message)s)
 handler.setFormatter(formatter)
 logger.addHandler(handler)
-logger.setLever(logging.DEBUG)
+logger.setLevel(logging.DEBUG)
 
 logger.debug('debug log')
 ```
@@ -163,7 +163,7 @@ formatter = logging.Formatter(%(asctime)s %(name)-12s %(levelname)-8s %(message)
 
 # 创建处理器，将 CRITICAL 级别的数据打印到 stderr
 crit_hand = logging.StreamHandler(sys.stderr)
-crit_hand.setLever(logging.CRITICAL)
+crit_hand.setLevel(logging.CRITICAL)
 crit_hand.setFormatter(formatter)
 
 # 创建处理器，将消息打印到文件
@@ -172,12 +172,12 @@ applog_hand.setFormatter(formatter)
 
 # 创建名为 app 的顶级记录器
 app_log = logging.getLogger("app")
-app_log.setLever(logging.INFO)
+app_log.setLevel(logging.INFO)
 app_log.addHandler(crit_hand)
 app_log.addHandler(applog_hand)
 
 # 修改 app.net 记录器的级别
-logging.getLogger("app.net").setLever(logging.ERROR)
+logging.getLogger("app.net").setLevel(logging.ERROR)
 
 
 ##########################################################################
