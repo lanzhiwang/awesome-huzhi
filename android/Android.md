@@ -61,17 +61,27 @@ Available Packages:
 
 ```
 export PATH=/home/lanzhiwang/work/android/tools:${PATH}
+
 export PATH=/home/lanzhiwang/work/android/tools/bin:${PATH}
+
 export PATH=/home/lanzhiwang/work/android/jdk1.8.0_201/bin:${PATH}
+
 export PATH=/home/lanzhiwang/work/android/apktool:${PATH}
+
 export PATH=/home/lanzhiwang/work/android/build-tools/26.0.3:${PATH}
+
 export PATH=/home/lanzhiwang/work/android/cmake/3.10.2.4988404/bin:${PATH}
+
 export PATH=/home/lanzhiwang/work/android/emulator/qemu/linux-x86_64:${PATH}
+
 export PATH=/home/lanzhiwang/work/android/emulator:${PATH}
+
 export PATH=/home/lanzhiwang/work/android/platform-tools:${PATH}
 
 export ANDROID_HOME=/home/lanzhiwang/work/android
+
 export ANDROID_SDK_ROOT=/home/lanzhiwang/work/android
+
 export ANDROID_SDK_HOME=/home/lanzhiwang/work/android
 
 ```
