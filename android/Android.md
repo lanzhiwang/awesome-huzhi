@@ -77,7 +77,6 @@ export ANDROID_SDK_HOME=/home/lanzhiwang/work/android
 
 ```
 
-```
 
 #### 获得 ROOT 权限
 
