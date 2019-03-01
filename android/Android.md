@@ -995,15 +995,21 @@ $ adb
 
 #### AVD 构建和运行方法
 
-step1：构建 AVD 基本文件
-step2：运行 AVD 后产生完整的模拟器
+* step1：构建 AVD 基本文件
+
+* step2：运行 AVD 后产生完整的模拟器
 
 step1：构建 AVD 基本文件的方法
-1、使用 android-studio 自带的工具
-2、使用命令行工具（不同版本的 SDK 工具不一样）
-notes：
+
+1. 使用 android-studio 自带的工具
+2. 使用命令行工具（不同版本的 SDK 工具不一样）
+
+notes: 
+
 * 构建 AVD 的过程中需要配置 device 和 target 信息，所以需要确定有哪些可用的 device 和 target
 * device 和 target 是随着 SDK 一起安装的
+* target 是通过 sdkmanager "platforms;android-28" 命令安装的
+* device 是通过？？
 * device，target，API 等与版本密切相关，所以要使用统一的版本
 * 在不同版本的 SDK 中具体的命令行工具不一样
 * 命令行工具的选项也有差异
@@ -1011,18 +1017,52 @@ notes：
 * 具体的相关命令如下：
 
 ```bash
-$ avdmanager -h create avd
+$ android -h
+*************************************************************************
+The "android" command is deprecated.
+For manual SDK, AVD, and project management, please use Android Studio.
+For command-line tools, use tools/bin/sdkmanager and tools/bin/avdmanager
+*************************************************************************
+Invalid or unsupported command "-h"
 
-$ android -h create avd
+Supported commands are:
+android list target
+android list avd
+android list device
+android create avd
+android move avd
+android delete avd
+android list sdk
+android update sdk
+$ 
+
+$ avdmanager -h
+
+Usage:
+      avdmanager [global options] [action] [action options]
+      Global options:
+  -s --silent     : Silent mode, shows errors only.
+  -v --verbose    : Verbose mode, shows errors, warnings and all messages.
+     --clear-cache: Clear the SDK Manager repository manifest cache.
+  -h --help       : Help on a specific command.
+
+Valid actions are composed of a verb and an optional direct object:
+-   list              : Lists existing targets or virtual devices.
+-   list avd          : Lists existing Android Virtual Devices.
+-   list target       : Lists existing targets.
+-   list device       : Lists existing devices.
+- create avd          : Creates a new Android Virtual Device.
+-   move avd          : Moves or renames an Android Virtual Device.
+- delete avd          : Deletes an Android Virtual Device.
+$ 
+
 ```
 
 ###### android create avd 命令示例如下：
 
 ```bash
 $ android list device  # Lists existing devices.
-
 $ android list target  # Lists existing targets.
-
 $ android -h create avd  # 查看相关选项
 
 $ android create avd -c 52M -n GPhone -s QVGA  -d 22  --target 1 --abi default/armeabi-v7a
@@ -1099,9 +1139,54 @@ $
 ######avdmanager create avd 命令示例如下：
 
 ```bash
+$ avdmanager list target
+$ avdmanager list device
 $ avdmanager list avd
 Available Android Virtual Devices:
 $
+
+$ avdmanager -h create avd 
+
+Usage:
+      avdmanager [global options] create avd [action options]
+      Global options:
+  -s --silent     : Silent mode, shows errors only.
+  -v --verbose    : Verbose mode, shows errors, warnings and all messages.
+     --clear-cache: Clear the SDK Manager repository manifest cache.
+  -h --help       : Help on a specific command.
+
+Action "create avd":
+  Creates a new Android Virtual Device.
+Options:
+  -a --snapshot: Place a snapshots file in the AVD, to enable persistence.
+  -c --sdcard  : Path to a shared SD card image, or size of a new sdcard for
+                 the new AVD.
+  -g --tag     : The sys-img tag to use for the AVD. The default is to
+                 auto-select if the platform has only one tag for its system
+                 images.
+  -p --path    : Directory where the new AVD will be created.
+  -k --package : Package path of the system image for this AVD (e.g.
+                 'system-images;android-19;google_apis;x86').
+  -n --name    : Name of the new AVD. [required]
+  -f --force   : Forces creation (overwrites an existing AVD)
+  -b --abi     : The ABI to use for the AVD. The default is to auto-select the
+                 ABI if the platform has only one ABI for its system images.
+  -d --device  : The optional device definition to use. Can be a device index
+                 or id.
+$ 
+
+# 不同的镜像结果有可能不一样
+$ avdmanager create avd -c 100M -n GPhone -d 7 -k "system-images;android-25;google_apis;armeabi-v7a"
+$ avdmanager list avd
+Available Android Virtual Devices:
+    Name: GPhone
+  Device: Nexus 4 (Google)
+    Path: /home/lanzhiwang/.android/avd/GPhone.avd
+  Target: Default Android System Image
+          Based on: Android API 28 Tag/ABI: default/x86_64
+  Sdcard: 100M
+lanzhiwang@lanzhiwang-desktop:~/work/android$ 
+
 $ avdmanager create avd -c 52M -n GPhone -d 15 -k "system-images;android-16;default;armeabi-v7a"
 $ avdmanager list avd
 Available Android Virtual Devices:
@@ -1210,6 +1295,9 @@ notes：
 $ emulator -avd GPhone
 
 $ emulator -avd GPhone -qemu -nand -system,size=0x1f400000,file=/home/cuckoo/Tools/android-sdk-linux/system-images/android-16/default/armeabi-v7a/system.img &
+
+emulator -avd GPhone -qemu -nand -system,size=0x1f400000,file=/home/lanzhiwang/work/android/system-images/android-25/google_apis/armeabi-v7a/system.img &
+
 ```
 
 ###### emulator -avd GPhone 示例：
