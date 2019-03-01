@@ -73,6 +73,7 @@ export PATH=/home/lanzhiwang/work/android/platform-tools:${PATH}
 export ANDROID_HOME=/home/lanzhiwang/work/android
 export ANDROID_SDK_ROOT=/home/lanzhiwang/work/android
 export ANDROID_SDK_HOME=/home/lanzhiwang/work/android
+
 ```
 
 ```
