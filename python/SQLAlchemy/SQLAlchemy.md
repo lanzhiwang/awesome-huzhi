@@ -10,6 +10,7 @@
 * [将 SQLAlchemy 查询语句转为 SQL 语句本身](./SQLAlchemy_Raw_SQL.md)
 * [在 SQLAlchemy 中直接执行 SQL 语句](./SQLAlchemy_Raw_SQL.md)
 * [在 SQLAlchemy 输出日志](./SQLAlchemy_log.md)
+* [SQLAlchemy commit(), flush(), expire(), refresh(), merge() - what's the difference?](./SQLAlchemy_session.md)
 * 定义表
 * 定义数据库连接
 * 定义 CURD 操作
