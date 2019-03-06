@@ -177,7 +177,7 @@ Author: `huzhi`
 * [Linux 异步事件模型--以redis事件模型为例](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/Redis_Event_Model.md)
 * [使用 nginx 作为 yum 代理](./linux/nginx_yum_proxy.md)
 * [pcap 包示例](https://wiki.wireshark.org/SampleCaptures)
-* [僵尸进程](https://coolshell.cn/articles/656.html)
+* [僵尸进程、清理僵尸进程的父进程](https://coolshell.cn/articles/656.html)
 * [page cache && buffer cache](https://github.com/lanzhiwang/awesome-huzhi/blob/master/images/page_cache_and_buffer_cache.jpg)
 * [select、poll、epoll 异同](https://github.com/lanzhiwang/IO)
 * [C10K 问题](./linux/C10K.md)
