@@ -28,8 +28,8 @@ Intent是Android应用内不同组件之间通信的载体，其可用于启动�
 
 #### Linux 下开发测试环境部署方法
 1. install Java SDK
-2. download the SDK Tools（最好使用 android-sdk_r24.0.2-linux.tgz ，24版本支持命令行进行所有操作，也支持界面操作）
-3. sdkmanager --list
+2. download the SDK Tools（最好使用 [android-sdk_r24.0.2-linux.tgz](http://dl.google.com/android/android-sdk_r24.0.2-linux.tgz) ，24版本支持命令行进行所有操作，也支持界面操作）
+3. sdkmanager --list，或者在桌面环境中执行 android 命令，在图形环境中管理 SDK
 4. install other tools
 5. PATH
 
@@ -1018,7 +1018,7 @@ $ adb
 
 * step2：运行 AVD 后产生完整的模拟器
 
-step1：构建 AVD 基本文件的方法
+##### 构建 AVD 基本文件的方法
 
 1. 使用 android-studio 自带的工具
 2. 使用命令行工具（不同版本的 SDK 工具不一样）
@@ -1027,7 +1027,7 @@ notes:
 
 * 构建 AVD 的过程中需要配置 device 和 target 信息，所以需要确定有哪些可用的 device 和 target
 * device 和 target 是随着 SDK 一起安装的
-* target 是通过 sdkmanager "platforms;android-28" 命令安装的
+* The android tool scans the <sdk>/platforms/ and <sdk>/add-ons/ directories looking for valid system images and then generates the list of targets
 * device 是通过？？
 * device，target，API 等与版本密切相关，所以要使用统一的版本
 * 在不同版本的 SDK 中具体的命令行工具不一样
@@ -1194,6 +1194,14 @@ Options:
                  or id.
 $ 
 
+
+avdmanager create avd -c 100M -n GPhone -d 7 -k "system-images;android-19;google_apis;x86"
+
+emulator -avd GPhone -qemu -nand -system,size=0x1f400000,file=/home/lanzhiwang/work/android/system-images/android-19/google_apis/x86/system.img &
+
+
+
+
 # 不同的镜像结果有可能不一样
 $ avdmanager create avd -c 100M -n GPhone -d 7 -k "system-images;android-25;google_apis;armeabi-v7a"
 $ avdmanager list avd
@@ -1303,9 +1311,9 @@ id: 7 or "Google Inc.:Google APIs:16"
 Tag/ABIs : default/armeabi-v7a  # 该target下只要一个 Tag/ABIs 选项
 ```
 
-
-step2：运行 AVD 后产生完整的模拟器
+##### 运行 AVD 后产生完整的模拟器
 notes：
+
 * 需要在图形界面运行
 * 不同的AVD基础文件有可能需要使用不同的 emulator 命令选项
 * 具体命令如下

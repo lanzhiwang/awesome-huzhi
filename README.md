@@ -171,7 +171,7 @@ Author: `huzhi`
 * [代理服务、翻墙](https://github.com/lanzhiwang/awesome-huzhi/wiki/%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1)
 * [nginx uwsgi flask](./linux/nginx_uwsgi_flask.md)
 * [监控系统 prometheus 基本原理以及客户端的使用](./linux/Prometheus.md)
-	* [Prometheus操作指南](https://github.com/yunlzheng/prometheus-book)
+  * [Prometheus操作指南](https://github.com/yunlzheng/prometheus-book)
 * [epel](https://fedoraproject.org/wiki/EPEL)
 * [http curl wget](./linux/HTTPie_and_Curl_Wget.md)
 * [Linux 异步事件模型--以redis事件模型为例](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/Redis_Event_Model.md)
@@ -188,6 +188,7 @@ Author: `huzhi`
 * [进程间通信（IPC）：管道（包括无名管道和命名管道）、消息队列、信号量、共享存储、信号、Socket、Streams](./linux/ipc.md)
 * [服务端和客户端 SSL 链路](./linux/SSL.md)
 * [haproxy 和 keepalived](./linux/haproxy_keepalived/haproxy_keepalived.md)
+* ansible
 
 
 ## MySQL
