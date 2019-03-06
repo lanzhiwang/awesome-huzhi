@@ -14,7 +14,7 @@ Author: `huzhi`
 
     - [Docker/Kubernetes](#dockerkubernetes)
 
-    - [常见算法](#algorithm)
+    - [常见数据结构和算法](#algorithm)
 
     - [邮件系统](#email)
 
