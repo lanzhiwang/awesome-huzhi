@@ -312,6 +312,7 @@ Author: `huzhi`
 	* [RabbitMQ 基础](https://www.jianshu.com/p/79ca08116d57)
 	* [RabbitMQ之消息确认机制（事务+Confirm）](https://blog.csdn.net/u013256816/article/details/55515234)
 * [Kafka](https://github.com/lanzhiwang/awesome-huzhi/wiki/kafka-base)
+* [消息中间件 RocketMQ 高性能原因分析](http://jm.taobao.org/2016/11/03/metaq-high-performance-analysis/)
 * jenkins
 * Hadoop生态
     * Hadoop
