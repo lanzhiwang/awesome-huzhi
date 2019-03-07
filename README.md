@@ -308,12 +308,20 @@ Author: `huzhi`
   * [Playbook Keywords](./ansible/Playbook_Keywords.md)
   * [Ansible 常用模块](ansible/Ansible_module.md)
 * [RabbitMQ](https://github.com/lanzhiwang/awesome-huzhi/wiki/RabbitMQ)
-	* [RabbitMQ 的应用场景以及基本原理介绍](https://blog.csdn.net/whoamiyang/article/details/54954780)
-	* [RabbitMQ 基础](https://www.jianshu.com/p/79ca08116d57)
-	* [RabbitMQ之消息确认机制（事务+Confirm）](https://blog.csdn.net/u013256816/article/details/55515234)
+  * [RabbitMQ 的应用场景以及基本原理介绍](https://blog.csdn.net/whoamiyang/article/details/54954780)
+  * [RabbitMQ 基础](https://www.jianshu.com/p/79ca08116d57)
+  * [RabbitMQ之消息确认机制（事务+Confirm）](https://blog.csdn.net/u013256816/article/details/55515234)
 * [Kafka](https://github.com/lanzhiwang/awesome-huzhi/wiki/kafka-base)
-	* [Kafka 深度解析](https://blog.csdn.net/allthesametome/article/details/47362451)
-	* [Kafka分区机制介绍与示例](http://lxw1234.com/archives/2015/10/538.htm)
+  * [kafka 消息发布订阅基本过程]((http://jm.taobao.org/2016/11/03/metaq-high-performance-analysis/))
+  * [Kafka 深度解析](https://blog.csdn.net/allthesametome/article/details/47362451)
+  * kafka 高性能的基本原因
+    * 顺序读写磁盘，顺序读写磁盘效率比随机写内存还要高，这是Kafka高吞吐率的一个很重要的保证
+    * partition 水平扩展
+    * 仅仅元数据序列化和反序列号
+    * 用户态和内核态交互少
+    * Kafka提供两种策略去删除旧数据。一是基于时间，二是基于partition文件大小，减少磁盘IO
+    * Kafka broker是无状态的，它不需要标记哪些消息被哪些consumer过，不需要通过broker去保证同一个consumer group只有一个consumer能消费某一条消息，因此也就不需要锁机制，这也为Kafka的高吞吐率提供了有力保障
+  * [Kafka分区机制介绍与示例](http://lxw1234.com/archives/2015/10/538.htm)
 * [消息中间件 RocketMQ 高性能原因分析](http://jm.taobao.org/2016/11/03/metaq-high-performance-analysis/)
 * jenkins
 * Hadoop生态
