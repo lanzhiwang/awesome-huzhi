@@ -308,6 +308,9 @@ Author: `huzhi`
   * [Playbook Keywords](./ansible/Playbook_Keywords.md)
   * [Ansible 常用模块](ansible/Ansible_module.md)
 * [RabbitMQ](https://github.com/lanzhiwang/awesome-huzhi/wiki/RabbitMQ)
+	* [RabbitMQ 的应用场景以及基本原理介绍](https://blog.csdn.net/whoamiyang/article/details/54954780)
+	* [RabbitMQ 基础](https://www.jianshu.com/p/79ca08116d57)
+	* [RabbitMQ之消息确认机制（事务+Confirm）](https://blog.csdn.net/u013256816/article/details/55515234)
 * [Kafka](https://github.com/lanzhiwang/awesome-huzhi/wiki/kafka-base)
 * jenkins
 * Hadoop生态
