@@ -189,7 +189,8 @@ Author: `huzhi`
 * [进程间通信（IPC）：管道（包括无名管道和命名管道）、消息队列、信号量、共享存储、信号、Socket、Streams](./linux/ipc.md)
 * [服务端和客户端 SSL 链路](./linux/SSL.md)
 * [haproxy 和 keepalived](./linux/haproxy_keepalived/haproxy_keepalived.md)
-* ansible
+
+
 
 
 ## MySQL
