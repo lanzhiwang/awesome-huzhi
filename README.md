@@ -251,10 +251,13 @@ Author: `huzhi`
 * [Kubernetes API](./docker/Kubernetes_API.md)
 * [Docker 的 Image 文件是分层的，本文简单介绍怎么查看每一层的内容，它们又是怎么组合成一个可以运行的 Image 文件](https://cameronlonsdale.com/2018/11/26/whats-in-a-docker-image/)
 * [通过控制分层来缩小 Image 文件尺寸](https://www.datawire.io/not-engineer-running-3-5gb-docker-images/)
-* docker 的优点和缺点
+* docker 的优点和缺点，反对声音
   * https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/Docker_Pros_and_Cons.md
   * http://apachebooster.com/kb/what-are-the-advantages-and-disadvantages-of-docker/
-
+  * http://www.smashcompany.com/technology/why-would-anyone-choose-docker-over-fat-binaries
+  * http://dockone.io/article/5520
+  * http://www.smashcompany.com/technology/docker-is-a-dangerous-gamble-which-we-will-regret
+  * https://thehftguy.com/2016/11/01/docker-in-production-an-history-of-failure/
 
 
 ## algorithm
@@ -298,6 +301,7 @@ Author: `huzhi`
     * [Redis在实践过程中需要考虑的问题以及解决方案](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/redis_practice.md)
     * redis 的缺点（主要是内存浪费和集群问题）
 * [MongoDB](./MongoDB/MongoDB.md)
+	* [优化 MongoDB 索引](https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/)
     * MongoDB 复制集的主从选举机制和主从同步机制？？
     * MongoDB 的分片机制？？
     * primary shard 是怎样选举的？？
@@ -322,6 +326,7 @@ Author: `huzhi`
     * 用户态和内核态交互少
     * Kafka提供两种策略去删除旧数据。一是基于时间，二是基于partition文件大小，减少磁盘IO
     * Kafka broker是无状态的，它不需要标记哪些消息被哪些consumer过，不需要通过broker去保证同一个consumer group只有一个consumer能消费某一条消息，因此也就不需要锁机制，这也为Kafka的高吞吐率提供了有力保障
+    * 复制机制采用 "in sync" 机制，复制机制即不是同步复制，也不是单纯的异步复制
   * [Kafka分区机制介绍与示例](http://lxw1234.com/archives/2015/10/538.htm)
 * [消息中间件 RocketMQ 高性能原因分析](http://jm.taobao.org/2016/11/03/metaq-high-performance-analysis/)
 * jenkins
