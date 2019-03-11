@@ -299,7 +299,9 @@ Author: `huzhi`
     * [Redis 哨兵和集群](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/Redis_Sentinel_And_Cluster.md)
     * [Redis 数据分片解决方案对比](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/Redis_data_sharding.md)
     * [Redis在实践过程中需要考虑的问题以及解决方案](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/redis_practice.md)
-    * redis 的缺点（主要是内存浪费和集群问题）
+    * redis 的缺点（主要是内存浪费、集群问题、Redis单线程对 CPU 的利用率不高）
+    * [Redis 实现分布式锁](./Redis/Redis_lock.md)
+    * [Redis 中的乐观锁和悲观锁](./Redis/Redis_optimistic_Pessimistic_lock.md)
 * [MongoDB](./MongoDB/MongoDB.md)
 	* [优化 MongoDB 索引](https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/)
     * MongoDB 复制集的主从选举机制和主从同步机制？？
