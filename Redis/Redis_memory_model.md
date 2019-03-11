@@ -137,3 +137,5 @@ When Redis frees memory, the memory is given back to the allocator, and the allo
 Additional introspective information about the server's memory can be obtained by referring to the MEMORY STATS command and the MEMORY DOCTOR.  可以通过参考MEMORY STATS命令和MEMORY DOCTOR获得有关服务器内存的其他内省信息。
 
 
+
+[参考](http://www.cnblogs.com/kismetv/p/8654978.html)
