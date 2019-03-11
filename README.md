@@ -302,6 +302,8 @@ Author: `huzhi`
     * redis 的缺点（主要是内存浪费、集群问题、Redis单线程对 CPU 的利用率不高）
     * [Redis 实现分布式锁](./Redis/Redis_lock.md)
     * [Redis 中的乐观锁和悲观锁](./Redis/Redis_optimistic_Pessimistic_lock.md)
+    * [Redis 内存模型](./Redis/Redis_memory_model.md)
+
 * [MongoDB](./MongoDB/MongoDB.md)
 	* [优化 MongoDB 索引](https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/)
     * MongoDB 复制集的主从选举机制和主从同步机制？？
