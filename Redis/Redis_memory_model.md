@@ -126,8 +126,9 @@ Here is the meaning of all fields in the memory section:
 
 * lazyfree_pending_objects: The number of objects waiting to be freed (as a result of calling UNLINK, or FLUSHDB and FLUSHALL with the ASYNC option)
 
-Ideally, the used_memory_rss value should be only slightly higher than used_memory. When rss >> used, a large difference means there is memory fragmentation (internal or external), which can be evaluated by checking mem_fragmentation_ratio. When used >> rss, it means part of Redis memory has been swapped off by the operating system: expect some significant latencies.
+Ideally, the used_memory_rss value should be only slightly higher than used_memory. When rss >> used, a large difference means there is memory fragmentation (internal or external), which can be evaluated by checking mem_fragmentation_ratio. When used >> rss, it means part of Redis memory has been swapped off by the operating system: expect some significant latencies.  理想情况下，used_memory_rss 值应仅略高于 used_memory。 当 rss >>used 时，差异很大意味着存在内存碎片（内部或外部），可以通过检查 mem_fragmentation_ratio 来评估。 当使用 used >> rss 时，它意味着Redis内存的一部分已被操作系统交换：期望一些重要的延迟。
 
+mem_fragmentation_ratio = used_memory_rss  / used_memory
 mem_fragmentation_ratio 一般大于1，且该值越大，内存碎片比例越大。mem_fragmentation_ratio < 1，说明Redis使用了虚拟内存，由于虚拟内存的媒介是磁盘，比内存速度要慢很多，当这种情况出现时，应该及时排查，如果内存不足应该及时处理，如增加Redis节点、增加Redis服务器的内存、优化应用等。
 
 Because Redis does not have control over how its allocations are mapped to memory pages, high used_memory_rss is often the result of a spike in memory usage.  由于Redis无法控制其分配如何映射到内存页面，因此高used_memory_rss通常是内存使用量激增的结果。
