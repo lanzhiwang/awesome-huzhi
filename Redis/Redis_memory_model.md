@@ -140,6 +140,7 @@ Additional introspective information about the server's memory can be obtained b
 ### Redis 数据存储的细节
 
 #### 概述
+
 关于 Redis 数据存储的细节，涉及到内存分配器（如jemalloc）、简单动态字符串（SDS）、5种对象类型及内部编码、redisObject。在讲述具体内容之前，先说明一下这几个概念之间的关系。
 
 下图是执行 **set hello world** 时，所涉及到的数据模型。
@@ -150,9 +151,7 @@ Additional introspective information about the server's memory can be obtained b
 
 2. Key：图中右上角可见，Key（”hello”）并不是直接以字符串存储，而是存储在 SDS 结构中。
 
-3. redisObject：Value(“world”) 既不是直接以字符串存储，也不是像 Key 一样直接存储在 SDS中，而是存储在 redisObject 中。实际上，不论 Value 是5种类型的哪一种，都是通过 redisObject 来存储的；而 redisObject 中的 type 字段指明了 Value 对象的类型，ptr 字段则指向对象所在的地址。不过，字符串对象虽然经过了 redisObject 的包装，但仍然需要通过 SDS 存储。
-
-实际上，redisObject 除了 type 和 ptr 字段以外，还有其他字段图中没有给出，如用于指定对象内部编码的字段；后面会详细介绍。
+3. redisObject：Value(“world”) 既不是直接以字符串存储，也不是像 Key 一样直接存储在 SDS中，而是存储在 redisObject 中。实际上，不论 Value 是5种类型的哪一种，都是通过 redisObject 来存储的；而 redisObject 中的 type 字段指明了 Value 对象的类型，ptr 字段则指向对象所在的地址。不过，字符串对象虽然经过了 redisObject 的包装，但仍然需要通过 SDS 存储。实际上，redisObject 除了 type 和 ptr 字段以外，还有其他字段图中没有给出，如用于指定对象内部编码的字段；后面会详细介绍。
 
 4. jemalloc：无论是 DictEntry 对象，还是 redisObject、SDS 对象，都需要内存分配器（如jemalloc）分配内存进行存储。以 DictEntry 对象为例，有3个指针组成，在64位机器下占24个字节，jemalloc会为它分配32字节大小的内存单元。
 
@@ -168,6 +167,143 @@ jemalloc 划分的内存单元如下图所示：
 
 例如，如果需要存储大小为130字节的对象，jemalloc会将其放入160字节的内存单元中。
 
+#### redisObject
+
+前面说到，Redis 对象有5种类型；无论是哪种类型，Redis 都不会直接存储，而是通过 redisObject对象进行存储。
+
+redisObject 对象非常重要，Redis 对象的类型、内部编码、内存回收、共享对象等功能，都需要redisObject 支持，下面将通过 redisObject 的结构来说明它是如何起作用的。
+
+redisObject 的定义如下（不同版本的Redis可能稍稍有所不同）：
+
+```c
+typedef struct redisObject {
+　　unsigned type:4;
+　　unsigned encoding:4;
+　　unsigned lru:REDIS_LRU_BITS; /* lru time (relative to server.lruclock) */
+　　int refcount;
+　　void *ptr;
+} robj;
+
+struct RedisObject {
+  int4 type;
+  int4 encoding;
+  int24 lru;
+  int32 refcount;
+  void *ptr;
+} robj;
+
+```
+
+1. type
+
+type 字段表示对象的类型，占4个比特；目前包括 REDIS_STRING(字符串)、REDIS_LIST (列表)、REDIS_HASH(哈希)、REDIS_SET(集合)、REDIS_ZSET(有序集合)。
+
+当我们执行 type 命令时，便是通过读取 RedisObject 的 type 字段获得对象的类型；如下图所示：
+
+![](./redis_03.png)
+
+2. encoding
+
+encoding 表示对象的内部编码，占4个比特。
+
+对于 Redis 支持的每种类型，都有至少两种内部编码，例如对于字符串，有 int、embstr、raw 三种编码。通过 encoding 属性，Redis 可以根据不同的使用场景来为对象设置不同的编码，大大提高了Redis 的灵活性和效率。以列表对象为例，有压缩列表和双端链表两种编码方式；如果列表中的元素较少，Redis倾向于使用压缩列表进行存储，因为压缩列表占用内存更少，而且比双端链表可以更快载入；当列表对象元素较多时，压缩列表就会转化为更适合存储大量元素的双端链表。
+
+通过 object encoding 命令，可以查看对象采用的编码方式，如下图所示：
+
+![](./redis_04.png)
+
+3. lru
+
+lru 记录的是对象最后一次被命令程序访问的时间，占据的比特数不同的版本有所不同（如4.0版本占24比特，2.6版本占22比特）。
+
+通过对比 lru 时间与当前时间，可以计算某个对象的空转时间；object idletime 命令可以显示该空转时间（单位是秒）。object idletime 命令的一个特殊之处在于它不改变对象的 lru 值。
+
+![](./redis_05.png)
+
+lru 值除了通过 object idletime 命令打印之外，还与 Redis 的内存回收有关系：如果 Redis 打开了maxmemory 选项，且内存回收算法选择的是 volatile-lru 或 allkeys-lru，那么当 Redis 内存占用超过 maxmemory 指定的值时，Redis 会优先选择空转时间最长的对象进行释放。
+
+4. refcount
+
+###### refcount 与共享对象
+
+refcount 记录的是该对象被引用的次数，类型为整型。
+
+refcount 的作用，主要在于对象的引用计数和内存回收。当创建新对象时，refcount 初始化为1；当有新程序使用该对象时，refcount 加1；当对象不再被一个新程序使用时，refcount 减1；当 refcount 变为0时，对象占用的内存会被释放。
+
+Redis中被多次使用的对象(refcount>1)，称为共享对象。Redis 为了节省内存，当有一些对象重复出现时，新的程序不会创建新的对象，而是仍然使用原来的对象。这个被重复使用的对象，就是共享对象。**目前共享对象仅支持整数值的字符串对象**。
+
+###### 共享对象的具体实现
+
+Redis 的共享对象目前只支持整数值的字符串对象。之所以如此，实际上是对内存和CPU（时间）的平衡：共享对象虽然会降低内存消耗，但是判断两个对象是否相等却需要消耗额外的时间。对于整数值，判断操作复杂度为O(1)；对于普通字符串，判断复杂度为O(n)；而对于哈希、列表、集合和有序集合，判断的复杂度为O(n^2)。
+
+虽然共享对象只能是整数值的字符串对象，但是5种类型都可能使用共享对象（如哈希、列表等的元素可以使用）。
+
+就目前的实现来说，Redis 服务器在初始化时，会创建 10000 个字符串对象，值分别是 0~9999 的整数值；当 Redis 需要使用值为 0~9999 的字符串对象时，可以直接使用这些共享对象。10000 这个数字可以通过调整参数 REDIS_SHARED_INTEGERS（4.0中是OBJ_SHARED_INTEGERS）的值进行改变。
+
+共享对象的引用次数可以通过 object refcount 命令查看，如下图所示。命令执行的结果页佐证了只有 0~9999 之间的整数会作为共享对象。
+
+![](./redis_06.png)
+
+5. ptr
+
+ptr指针指向具体的数据，如前面的例子中，set hello world，ptr 指向包含字符串 world 的 SDS。
+
+6. 总结
+
+综上所述，redisObject 的结构与对象类型、编码、内存回收、共享对象都有关系；一个redisObject 对象的大小为16字节：
+
+4bit + 4bit + 24bit + 4Byte + 8Byte=16Byte。
+
+#### 简单动态字符串（SDS）
+
+Redis 中的字符串是可以修改的字符串，在内存中它是以字节数组的形式存在的。
+
+```c
+struct SDS<T> {
+  T capacity;      // 数组容量
+  T len;           // 数组长度
+  byte flags;      // 特殊标志位，暂时没有作用
+  byte[] content;  // 数组内容
+}
+
+struct SDS {
+  int8 capacity;
+  int8 len;
+  int8 flags;
+  byte[] content;
+}
+
+```
+
+capacity 表示所分配的数组长度，len 表示字符串的实际长度。Redis 中的字符串是可以修改的字符串，支持 append 操作，如果数组没有冗余空间，那么追加操作必然涉及分配新数组，然后将旧内容复制过来，在 append 新内容，如果字符串的长度非常长，内存的分配和复制的开销就会非常大。
+
+Redis 规定字符串的长度不得超过 512M。
+
+Redis 的字符串有两种存储方式，在长度特别短时，使用 **embstr** 形式存储，当长度超过 44 字节时，使用 **raw** 形式存储。
+
+### Redis的对象类型与内部编码
+
+| 类型 | 编码 | 对象 |
+| ---- | ---- | ---- |
+| REDIS_STRING | REDIS_ENCODING_INT | 使用整数值实现的字符串对象 |
+| REDIS_STRING | REDIS_ENCODING_EMBSTR | 使用 embstr 编码实现 SDS |
+| REDIS_STRING | REDIS_ENCODING_RAW | 使用 raw 编码实现 SDS |
+|      |      |      |
+| REDIS_LIST | REDIS_ENCODING_ZIPLIST | 压缩列表 |
+| REDIS_LIST | REDIS_ENCODING_LINKEDLIST | 双端链表 |
+| REDIS_LIST | REDIS_ENCODING_QUICKLIST | 快速列表 |
+|      |      |      |
+| REDIS_HASH | REDIS_ENCODING_ZIPLIST | 压缩列表 |
+| REDIS_HASH | REDIS_ENCODING_HASHTABLE | hashtable |
+|      |      |      |
+| REDIS_SET | REDIS_ENCODING_INTSET | 小整数集合 |
+| REDIS_SET | REDIS_ENCODING_ZIPLIST | 压缩列表 |
+| REDIS_SET | REDIS_ENCODING_HASHTABLE | hashtable |
+|      |      |      |
+| REDIS_ZSET | REDIS_ENCODING_ZIPLIST | 压缩列表 |
+| REDIS_ZSET | REDIS_ENCODING_HASHTABLE | 跳跃列表、hashtable |
+
+notes: 不同 Redis 版本支持的编码方式不一样
 
 
 
