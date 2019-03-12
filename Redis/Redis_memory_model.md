@@ -131,11 +131,11 @@ Ideally, the used_memory_rss value should be only slightly higher than used_memo
 mem_fragmentation_ratio = used_memory_rss  / used_memory
 mem_fragmentation_ratio 一般大于1，且该值越大，内存碎片比例越大。mem_fragmentation_ratio < 1，说明Redis使用了虚拟内存，由于虚拟内存的媒介是磁盘，比内存速度要慢很多，当这种情况出现时，应该及时排查，如果内存不足应该及时处理，如增加Redis节点、增加Redis服务器的内存、优化应用等。
 
-Because Redis does not have control over how its allocations are mapped to memory pages, high used_memory_rss is often the result of a spike in memory usage.  由于Redis无法控制其分配如何映射到内存页面，因此高used_memory_rss通常是内存使用量激增的结果。
+Because Redis does not have control over how its allocations are mapped to memory pages, high used_memory_rss is often the result of a spike in memory usage.  由于 Redis 无法控制其分配如何映射到内存页面，因此高 used_memory_rss 通常是内存使用量激增的结果。
 
-When Redis frees memory, the memory is given back to the allocator, and the allocator may or may not give the memory back to the system. There may be a discrepancy between the used_memory value and memory consumption as reported by the operating system. It may be due to the fact memory has been used and released by Redis, but not given back to the system. The used_memory_peak value is generally useful to check this point.  当Redis释放内存时，内存将返回给分配器，分配器可能会也可能不会将内存返回给系统。 use_memory值与操作系统报告的内存消耗之间可能存在差异。 这可能是由于Redis已经使用和释放了内存，但没有返回给系统。 used_memory_peak值通常用于检查此点。
+When Redis frees memory, the memory is given back to the allocator, and the allocator may or may not give the memory back to the system. There may be a discrepancy between the used_memory value and memory consumption as reported by the operating system. It may be due to the fact memory has been used and released by Redis, but not given back to the system. The used_memory_peak value is generally useful to check this point.  当 Redis 释放内存时，内存将返回给分配器，分配器可能会也可能不会将内存返回给系统。 use_memory 值与操作系统报告的内存消耗之间可能存在差异。 这可能是由于 Redis 已经使用和释放了内存，但没有返回给系统。 used_memory_peak 值通常用于检查此点。
 
-Additional introspective information about the server's memory can be obtained by referring to the MEMORY STATS command and the MEMORY DOCTOR.  可以通过参考MEMORY STATS命令和MEMORY DOCTOR获得有关服务器内存的其他内省信息。
+Additional introspective information about the server's memory can be obtained by referring to the MEMORY STATS command and the MEMORY DOCTOR.  可以通过参考 MEMORY STATS 命令和 MEMORY DOCTOR 获得有关服务器内存的其他内省信息。
 
 
 
