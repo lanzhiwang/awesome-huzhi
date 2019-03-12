@@ -12,6 +12,7 @@
 	- [redisobject](#redisobject)
 	- [简单动态字符串 sds](#简单动态字符串sds)
 - [redis 的对象类型与内部编码](#redis的对象类型与内部编码)
+- [应用举例](#应用举例)
 
 ### Redis 内存划分
 
