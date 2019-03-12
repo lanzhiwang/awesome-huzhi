@@ -137,6 +137,39 @@ When Redis frees memory, the memory is given back to the allocator, and the allo
 
 Additional introspective information about the server's memory can be obtained by referring to the MEMORY STATS command and the MEMORY DOCTOR.  可以通过参考 MEMORY STATS 命令和 MEMORY DOCTOR 获得有关服务器内存的其他内省信息。
 
+### Redis 数据存储的细节
+
+#### 概述
+关于 Redis 数据存储的细节，涉及到内存分配器（如jemalloc）、简单动态字符串（SDS）、5种对象类型及内部编码、redisObject。在讲述具体内容之前，先说明一下这几个概念之间的关系。
+
+下图是执行 **set hello world** 时，所涉及到的数据模型。
+
+![](./redis_01.png)
+
+1. dictEntry：Redis 是 Key-Value 数据库，因此对每个键值对都会有一个 dictEntry，里面存储了指向 Key 和 Value 的指针；next 指向下一个 dictEntry，与本 Key-Value 无关。
+
+2. Key：图中右上角可见，Key（”hello”）并不是直接以字符串存储，而是存储在 SDS 结构中。
+
+3. redisObject：Value(“world”) 既不是直接以字符串存储，也不是像 Key 一样直接存储在 SDS中，而是存储在 redisObject 中。实际上，不论 Value 是5种类型的哪一种，都是通过 redisObject 来存储的；而 redisObject 中的 type 字段指明了 Value 对象的类型，ptr 字段则指向对象所在的地址。不过，字符串对象虽然经过了 redisObject 的包装，但仍然需要通过 SDS 存储。
+
+实际上，redisObject 除了 type 和 ptr 字段以外，还有其他字段图中没有给出，如用于指定对象内部编码的字段；后面会详细介绍。
+
+4. jemalloc：无论是 DictEntry 对象，还是 redisObject、SDS 对象，都需要内存分配器（如jemalloc）分配内存进行存储。以 DictEntry 对象为例，有3个指针组成，在64位机器下占24个字节，jemalloc会为它分配32字节大小的内存单元。
+
+#### jemalloc
+
+Redis 在编译时便会指定内存分配器；内存分配器可以是 libc 、jemalloc 或者 tcmalloc，默认是jemalloc。
+
+jemalloc 作为 Redis 的默认内存分配器，在减小内存碎片方面做的相对比较好。jemalloc在64位系统中，将内存空间划分为小、大、巨大三个范围；每个范围内又划分了许多小的内存块单位；当Redis 存储数据时，会选择大小最合适的内存块进行存储。
+
+jemalloc 划分的内存单元如下图所示：
+
+![](./redis_02.png)
+
+例如，如果需要存储大小为130字节的对象，jemalloc会将其放入160字节的内存单元中。
+
+
+
 
 
 [参考](http://www.cnblogs.com/kismetv/p/8654978.html)
