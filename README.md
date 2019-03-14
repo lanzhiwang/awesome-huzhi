@@ -303,9 +303,10 @@ Author: `huzhi`
     * [Redis 实现分布式锁](./Redis/Redis_lock.md)
     * [Redis 中的乐观锁和悲观锁](./Redis/Redis_optimistic_Pessimistic_lock.md)
     * [Redis 内存模型](./Redis/Redis_memory_model.md)
+    * [Redis 中的写时复制机制](./Redis/Redis_cow.md)
 
 * [MongoDB](./MongoDB/MongoDB.md)
-	* [优化 MongoDB 索引](https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/)
+  * [优化 MongoDB 索引](https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/)
     * MongoDB 复制集的主从选举机制和主从同步机制？？
     * MongoDB 的分片机制？？
     * primary shard 是怎样选举的？？
