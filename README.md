@@ -333,6 +333,7 @@ Author: `huzhi`
     * Kafka broker是无状态的，它不需要标记哪些消息被哪些consumer过，不需要通过broker去保证同一个consumer group只有一个consumer能消费某一条消息，因此也就不需要锁机制，这也为Kafka的高吞吐率提供了有力保障
     * 复制机制采用 "in sync" 机制，复制机制即不是同步复制，也不是单纯的异步复制
   * [Kafka分区机制介绍与示例](http://lxw1234.com/archives/2015/10/538.htm)
+  * [kafak 相关问题](./kafka/kafka_problem.md)
 * [消息中间件 RocketMQ 高性能原因分析](http://jm.taobao.org/2016/11/03/metaq-high-performance-analysis/)
 * jenkins
 * Hadoop生态
