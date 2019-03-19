@@ -91,6 +91,7 @@ Author: `huzhi`
 * [first-diy-framework](https://github.com/lanzhiwang/first-diy-framework) - 自定义 Python 框架和`asyncio`实现
 * [lsbaws](https://github.com/rspivak/lsbaws) - 使用`socket`构建简单的`web`服务器
 * [learn_bottle](https://github.com/lanzhiwang/awesome-huzhi/wiki/learn_bottle) - `bottle`框架中常见类的UML图
+* [为什么 Flask 相对 Django 是一个轻量级框架](./python/Flask_microframework.md)
 * [pyguide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md) - python代码规范
 * [thread_signal](https://github.com/lanzhiwang/Python/blob/master/thread_signal.py) - 线程响应`ctrl+c`信号退出
 * [data_analysis](https://github.com/lanzhiwang/data_analysis) -`Numpy`、`Pandas`、`Scipy`、`Matplotlib`的使用方法([参考文档](https://github.com/donnemartin/data-science-ipython-notebooks))
