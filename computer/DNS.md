@@ -125,3 +125,5 @@ $ dig -t a chs.www.ksu.edu.tw.
 ksu.edu.tw.		1799	IN	SOA	dns1.ksu.edu.tw. abuse.mail.ksu.edu.tw. 2014123133 1800 900 604800 86400
 
 ```
+
+[DNS 其他记录查询网站，例如 txt ](https://mxtoolbox.com/)
