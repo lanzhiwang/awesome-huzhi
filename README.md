@@ -227,6 +227,7 @@ Author: `huzhi`
 * [MySQL 博客](https://mysqlserverteam.com/)
 * [MySQL主从同步过程](https://github.com/lanzhiwang/awesome-huzhi/blob/master/MySQL/MySQL_master_slave.pdf)
 * [MySQL IO 过程](https://github.com/lanzhiwang/awesome-huzhi/blob/master/MySQL/MySQL_IO.pdf)
+* [MyISAM 和 InnoDB 的区别](./MySQL/MyISAM_InnoDB_diff.md)
 
 
 ## Docker/Kubernetes
