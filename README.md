@@ -143,7 +143,7 @@ Author: `huzhi`
     * [分段读取文件内容](https://python3-cookbook.readthedocs.io/zh_CN/latest/c06/p04_parse_huge_xml_files_incrementally.html)
     * 在文件内容中做数据冗余
 * [爬虫相关问题](https://github.com/lanzhiwang/Anti-Anti-Spider)
-
+* [Selenium](./python/Selenium.md)
 
 ## Linux
 
