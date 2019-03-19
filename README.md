@@ -585,6 +585,8 @@ h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
 
     * Linux Performance and Tuning Guidelines
 
+    * 奔跑吧 Ansible
+
 * Docker
 
     * 第一本Docker书
@@ -631,6 +633,8 @@ h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
     * Kafka权威指南
 
     * Redis 4.x Cookbook中文版
+
+    * Redis 深度历险 核心原理和应用实践
 
     * 写给大忙人的Hadoop 2
 
