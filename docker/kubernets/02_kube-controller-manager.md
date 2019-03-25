@@ -342,10 +342,10 @@ File containing the default x509 private key matching --tls-cert-file.
 A pair of x509 certificate and private key file paths, optionally suffixed with a list of domain patterns which are fully qualified domain names, possibly with prefixed wildcard segments. If no domain patterns are provided, the names of the certificate are extracted. Non-wildcard matches trump over wildcard matches, explicit domain patterns trump over extracted names. For multiple key/certificate pairs, use the --tls-sni-cert-key multiple times. Examples: "example.crt,example.key" or "foo.crt,foo.key:*.foo.com,foo.com". (default [])
 
 --unhealthy-zone-threshold float32
-Fraction of Nodes in a zone which needs to be not Ready (minimum 3) for zone to be treated as unhealthy.  (default 0.55)
+Fraction of Nodes in a zone which needs to be not Ready (minimum 3) for zone to be treated as unhealthy.  (default 0.55)  区域中的节点的分数，对于要被视为不健康的区域，需要不准备（最小3）。 （默认0.55）
 
 --use-service-account-credentials
-If true, use individual service account credentials for each controller.
+If true, use individual service account credentials for each controller.  如果为true，请为每个控制器使用单独的服务帐户凭据。
 
 -v, --v Level
 log level for V logs
@@ -354,7 +354,7 @@ log level for V logs
 Print version information and quit
 
 --vmodule moduleSpec
-comma-separated list of pattern=N settings for file-filtered logging
+comma-separated list of pattern=N settings for file-filtered logging  逗号分隔的模式列表=文件筛选日志记录的N设置
 
 $ 
 

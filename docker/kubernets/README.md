@@ -58,7 +58,7 @@ $
 * [kube-aggregator]()
 * [kube-apiserver](./01_kube-apiserver.md)
 * [kube-controller-manager](./02_kube-controller-manager.md)
-* [kubectl]()
+* [kubectl](./03_kubectl.md)
 * [kubelet]()
 * [kube-proxy]()
 * [kube-scheduler]()
