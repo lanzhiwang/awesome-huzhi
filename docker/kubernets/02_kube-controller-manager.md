@@ -59,40 +59,40 @@ Filename containing a PEM-encoded X509 CA certificate used to issue cluster-scop
 Filename containing a PEM-encoded RSA or ECDSA private key used to sign cluster-scoped certificates (default "/etc/kubernetes/ca/ca.key")
 
 --concurrent-deployment-syncs int32
-The number of deployment objects that are allowed to sync concurrently. Larger number = more responsive deployments, but more CPU (and network) load (default 5)
+The number of deployment objects that are allowed to sync concurrently. Larger number = more responsive deployments, but more CPU (and network) load (default 5)  允许同时同步的部署对象的数量。 更大的数字=响应更快的部署，但更多的CPU（和网络）负载（默认5）
 
 --concurrent-endpoint-syncs int32
-The number of endpoint syncing operations that will be done concurrently. Larger number = faster endpoint updating, but more CPU (and network) load (default 5)
+The number of endpoint syncing operations that will be done concurrently. Larger number = faster endpoint updating, but more CPU (and network) load (default 5)  将同时执行的端点同步操作的数量。 更大的数字=更快的端点更新，但更多的CPU（和网络）负载（默认5）
 
 --concurrent-gc-syncs int32
-The number of garbage collector workers that are allowed to sync concurrently. (default 20)
+The number of garbage collector workers that are allowed to sync concurrently. (default 20)  允许同时同步的垃圾收集器工作器的数量。 （默认20）
 
 --concurrent-namespace-syncs int32
-The number of namespace objects that are allowed to sync concurrently. Larger number = more responsive namespace termination, but more CPU (and network) load (default 10)
+The number of namespace objects that are allowed to sync concurrently. Larger number = more responsive namespace termination, but more CPU (and network) load (default 10)  允许并发同步的命名空间对象的数量。 更大的数字=响应更快的命名空间终止，但更多的CPU（和网络）负载（默认10）
 
 --concurrent-replicaset-syncs int32
-The number of replica sets that are allowed to sync concurrently. Larger number = more responsive replica management, but more CPU (and network) load (default 5)
+The number of replica sets that are allowed to sync concurrently. Larger number = more responsive replica management, but more CPU (and network) load (default 5)  允许同时同步的副本集数。 更大的数字=响应更快的副本管理，但更多的CPU（和网络）负载（默认5）
 
 --concurrent-resource-quota-syncs int32
-The number of resource quotas that are allowed to sync concurrently. Larger number = more responsive quota management, but more CPU (and network) load (default 5)
+The number of resource quotas that are allowed to sync concurrently. Larger number = more responsive quota management, but more CPU (and network) load (default 5)  允许同时同步的资源配额数。 更大的数字=响应更快的配额管理，但更多的CPU（和网络）负载（默认5）
 
 --concurrent-service-syncs int32
-The number of services that are allowed to sync concurrently. Larger number = more responsive service management, but more CPU (and network) load (default 1)
+The number of services that are allowed to sync concurrently. Larger number = more responsive service management, but more CPU (and network) load (default 1)  允许同时同步的服务数。 更大的数字=响应更快的服务管理，但更多的CPU（和网络）负载（默认1）
 
 --concurrent-serviceaccount-token-syncs int32
-The number of service account token objects that are allowed to sync concurrently. Larger number = more responsive token generation, but more CPU (and network) load (default 5)
+The number of service account token objects that are allowed to sync concurrently. Larger number = more responsive token generation, but more CPU (and network) load (default 5)  允许同时同步的服务帐户令牌对象的数量。 数字越大=响应式令牌生成越多，但CPU（和网络）负载越多（默认值为5）
 
 --concurrent_rc_syncs int32
-The number of replication controllers that are allowed to sync concurrently. Larger number = more responsive replica management, but more CPU (and network) load (default 5)
+The number of replication controllers that are allowed to sync concurrently. Larger number = more responsive replica management, but more CPU (and network) load (default 5)  允许同时同步的复制控制器的数量。 更大的数字=响应更快的副本管理，但更多的CPU（和网络）负载（默认5）
 
 --configure-cloud-routes
-Should CIDRs allocated by allocate-node-cidrs be configured on the cloud provider. (default true)
+Should CIDRs allocated by allocate-node-cidrs be configured on the cloud provider. (default true)  是否应在云提供程序上配置allocate-node-cidrs分配的CIDR。 （默认为true）
 
 --contention-profiling
-Enable lock contention profiling, if profiling is enabled.
+Enable lock contention profiling, if profiling is enabled.  如果启用了性能分析，则启用锁争用性分析。
 
 --controller-start-interval duration
-Interval between starting controller managers.
+Interval between starting controller managers.  启动控制器管理器之间的间隔。
 
 --controllers strings
 A list of controllers to enable.  '*' enables all on-by-default controllers, 'foo' enables the controller named 'foo', '-foo' disables the controller named 'foo'.
@@ -100,28 +100,28 @@ A list of controllers to enable.  '*' enables all on-by-default controllers, 'fo
 All controllers: attachdetach, bootstrapsigner, clusterrole-aggregation, cronjob, csrapproving, csrcleaner, csrsigning, daemonset, deployment, disruption, endpoint, garbagecollector, horizontalpodautoscaling, job, namespace, nodeipam, nodelifecycle, persistentvolume-binder, persistentvolume-expander, podgc, pv-protection, pvc-protection, replicaset, replicationcontroller, resourcequota, route, service, serviceaccount, serviceaccount-token, statefulset, tokencleaner, ttl Disabled-by-default controllers: bootstrapsigner, tokencleaner (default [*])
 
 --deployment-controller-sync-period duration
-Period for syncing the deployments. (default 30s)
+Period for syncing the deployments. (default 30s)  同步部署的时间段。 （默认30秒）
 
 --disable-attach-detach-reconcile-sync
-Disable volume attach detach reconciler sync. Disabling this may cause volumes to be mismatched with pods. Use wisely.
+Disable volume attach detach reconciler sync. Disabling this may cause volumes to be mismatched with pods. Use wisely.  禁用卷附加分离协调器同步。 禁用此功能可能会导致卷与pod不匹配。 明智地使用。
 
 --enable-dynamic-provisioning
-Enable dynamic provisioning for environments that support it. (default true)
+Enable dynamic provisioning for environments that support it. (default true)  为支持它的环境启用动态配置。 （默认为true）
 
 --enable-garbage-collector
-Enables the generic garbage collector. MUST be synced with the corresponding flag of the kube-apiserver. (default true)
+Enables the generic garbage collector. MUST be synced with the corresponding flag of the kube-apiserver. (default true)  启用通用垃圾收集器。 必须与kube-apiserver的相应标志同步。 （默认为true）
 
 --enable-hostpath-provisioner
-Enable HostPath PV provisioning when running without a cloud provider. This allows testing and development of provisioning features.  HostPath provisioning is not supported in any way, won't work in a multi-node cluster, and should not be used for anything other than testing or development.
+Enable HostPath PV provisioning when running without a cloud provider. This allows testing and development of provisioning features.  HostPath provisioning is not supported in any way, won't work in a multi-node cluster, and should not be used for anything other than testing or development.  在没有云提供商的情况下运行时启用HostPath PV配置。 这允许测试和开发配置功能。 不支持HostPath配置，不能在多节点群集中工作，也不应用于测试或开发以外的任何其他设置。
 
 --enable-taint-manager
-WARNING: Beta feature. If set to true enables NoExecute Taints and will evict all not-tolerating Pod running on Nodes tainted with this kind of Taints. (default true)
+WARNING: Beta feature. If set to true enables NoExecute Taints and will evict all not-tolerating Pod running on Nodes tainted with this kind of Taints. (default true)  警告：测试版功能。 如果设置为true，则启用NoExecute Taints，并将驱逐在受此类污染污染的节点上运行的所有不容忍的Pod。 （默认为true）
 
 --experimental-cluster-signing-duration duration
-The length of duration signed certificates will be given. (default 8760h0m0s)
+The length of duration signed certificates will be given. (default 8760h0m0s)  签名证书的持续时间长短。 （默认为8760h0m0s）
 
 --external-cloud-volume-plugin string
-The plugin to use when cloud provider is set to external. Can be empty, should only be set when cloud-provider is external. Currently used to allow node and volume controllers to work for in tree cloud providers.
+The plugin to use when cloud provider is set to external. Can be empty, should only be set when cloud-provider is external. Currently used to allow node and volume controllers to work for in tree cloud providers.  云提供程序设置为外部时使用的插件。 可以为空，只应在云提供商为外部时设置。 目前用于允许节点和卷控制器在树云提供程序中工作。
 
 --feature-gates mapStringBool
 A set of key=value pairs that describe feature gates for alpha/experimental features. Options are:
@@ -174,34 +174,34 @@ VolumeScheduling=true|false (BETA - default=true)
 VolumeSubpath=true|false (default=true)
 
 --flex-volume-plugin-dir string
-Full path of the directory in which the flex volume plugin should search for additional third party volume plugins. (default "/usr/libexec/kubernetes/kubelet-plugins/volume/exec/")
+Full path of the directory in which the flex volume plugin should search for additional third party volume plugins. (default "/usr/libexec/kubernetes/kubelet-plugins/volume/exec/")  flex卷插件应搜索其他第三方卷插件的目录的完整路径。 （默认为“/ usr / libexec / kubernetes / kubelet-plugins / volume / exec /”）
 
 -h, --help
 help for kube-controller-manager
 
 --horizontal-pod-autoscaler-downscale-delay duration
-The period since last downscale, before another downscale can be performed in horizontal pod autoscaler. (default 5m0s)
+The period since last downscale, before another downscale can be performed in horizontal pod autoscaler. (default 5m0s)  自上次缩减之后的时段，在另一个缩减之前可以在水平pod自动缩放器中执行。 （默认5m0s）
 
 --horizontal-pod-autoscaler-sync-period duration
-The period for syncing the number of pods in horizontal pod autoscaler. (default 30s)
+The period for syncing the number of pods in horizontal pod autoscaler. (default 30s)  同步水平pod autoscaler中pod数量的时间段。 （默认30秒）
 
 --horizontal-pod-autoscaler-tolerance float
-The minimum change (from 1.0) in the desired-to-actual metrics ratio for the horizontal pod autoscaler to consider scaling. (default 0.1)
+The minimum change (from 1.0) in the desired-to-actual metrics ratio for the horizontal pod autoscaler to consider scaling. (default 0.1)  水平pod自动调节器考虑缩放的所需实际指标比率的最小变化（从1.0开始）。 （默认0.1）
 
 --horizontal-pod-autoscaler-upscale-delay duration
-The period since last upscale, before another upscale can be performed in horizontal pod autoscaler. (default 3m0s)
+The period since last upscale, before another upscale can be performed in horizontal pod autoscaler. (default 3m0s)  自上次高档之后的时段，在另一个高级之前可以在水平pod自动缩放器中执行。 （默认3m0s）
 
 --horizontal-pod-autoscaler-use-rest-clients
-WARNING: alpha feature.  If set to true, causes the horizontal pod autoscaler controller to use REST clients through the kube-aggregator, instead of using the legacy metrics client through the API server proxy.  This is required for custom metrics support in the horizontal pod autoscaler. (default true)
+WARNING: alpha feature.  If set to true, causes the horizontal pod autoscaler controller to use REST clients through the kube-aggregator, instead of using the legacy metrics client through the API server proxy.  This is required for custom metrics support in the horizontal pod autoscaler. (default true)  警告：alpha功能。 如果设置为true，则使水平pod自动调节器控制器通过kube-aggregator使用REST客户端，而不是通过API服务器代理使用旧的度量标准客户端。 这是水平pod autoscaler中自定义指标支持所必需的。 （默认为true）
 
 --http2-max-streams-per-connection int
-The limit that the server gives to clients for the maximum number of streams in an HTTP/2 connection. Zero means to use golang's default.
+The limit that the server gives to clients for the maximum number of streams in an HTTP/2 connection. Zero means to use golang's default.  服务器为HTTP / 2连接中的最大流数量提供给客户端的限制。 零表示使用golang的默认值。
 
 --insecure-experimental-approve-all-kubelet-csrs-for-group string
 This flag does nothing.
 
 --kube-api-burst int32
-Burst to use while talking with kubernetes apiserver. (default 30)
+Burst to use while talking with kubernetes apiserver. (default 30)  在与kubernetes apiserver交谈时使用。 （默认30）
 
 --kube-api-content-type string
 Content type of requests sent to apiserver. (default "application/vnd.kubernetes.protobuf")
@@ -210,16 +210,16 @@ Content type of requests sent to apiserver. (default "application/vnd.kubernetes
 QPS to use while talking with kubernetes apiserver. (default 20)
 
 --kubeconfig string
-Path to kubeconfig file with authorization and master location information.
+Path to kubeconfig file with authorization and master location information.  具有授权和主位置信息的kubeconfig文件的路径。
 
 --large-cluster-size-threshold int32
-Number of nodes from which NodeController treats the cluster as large for the eviction logic purposes. --secondary-node-eviction-rate is implicitly overridden to 0 for clusters this size or smaller. (default 50)
+Number of nodes from which NodeController treats the cluster as large for the eviction logic purposes. --secondary-node-eviction-rate is implicitly overridden to 0 for clusters this size or smaller. (default 50)  NodeController将群集视为驱逐逻辑目的的节点数。  - 对于此大小或更小的群集， -  secondary-node-eviction-rate被隐式覆盖为0。 （默认50）
 
 --leader-elect
-Start a leader election client and gain leadership before executing the main loop. Enable this when running replicated components for high availability. (default true)
+Start a leader election client and gain leadership before executing the main loop. Enable this when running replicated components for high availability. (default true)  在执行主循环之前，启动领导者选举客户并获得领导。 在运行复制组件以实现高可用性时启用此功能。 （默认为true）
 
 --leader-elect-lease-duration duration
-The duration that non-leader candidates will wait after observing a leadership renewal until attempting to acquire leadership of a led but unrenewed leader slot. This is effectively the maximum duration that a leader can be stopped before it is replaced by another candidate. This is only applicable if leader election is enabled. (default 15s)
+The duration that non-leader candidates will wait after observing a leadership renewal until attempting to acquire leadership of a led but unrenewed leader slot. This is effectively the maximum duration that a leader can be stopped before it is replaced by another candidate. This is only applicable if leader election is enabled. (default 15s)  非领导者候选人在观察领导层续约之后将等待的时间，直到试图获得领导但尚未更新的领导者位置的领导。 这实际上是领导者在被另一个候选人替换之前可以停止的最长持续时间。 这仅适用于启用领导者选举的情况。 （默认15秒）
 
 --leader-elect-renew-deadline duration
 The interval between attempts by the acting master to renew a leadership slot before it stops leading. This must be less than or equal to the lease duration. This is only applicable if leader election is enabled. (default 10s)
