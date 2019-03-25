@@ -1,9 +1,12 @@
 ### kube-controller-manager
 
+* cidrs
+
+
 ```
 $ ./kube-controller-manager -h
 The Kubernetes controller manager is a daemon that embeds the core control loops shipped with Kubernetes. In applications of robotics and
-automation, a control loop is a non-terminating loop that regulates the state of the system. In Kubernetes, a controller is a control loop that watches the shared state of the cluster through the apiserver and makes changes attempting to move the current state towards the desired state. Examples of controllers that ship with Kubernetes today are the replication controller, endpoints controller, namespace controller, and serviceaccounts controller.
+automation, a control loop is a non-terminating loop that regulates the state of the system. In Kubernetes, a controller is a control loop that watches the shared state of the cluster through the apiserver and makes changes attempting to move the current state towards the desired state. Examples of controllers that ship with Kubernetes today are the replication controller, endpoints controller, namespace controller, and serviceaccounts controller.  Kubernetes控制器管理器是一个守护进程，嵌入了Kubernetes附带的核心控制循环。 在机器人和机器人的应用自动化，控制回路是一个非终止循环，用于调节系统状态。 在Kubernetes中，控制器是一个控制循环，它通过apiserver监视集群的共享状态，并进行更改以尝试将当前状态移向所需状态。 今天与Kubernetes一起提供的控制器示例包括复制控制器，端点控制器，命名空间控制器和serviceaccounts控制器。
 
 Usage:
   kube-controller-manager [flags]
@@ -14,15 +17,16 @@ Flags:
 DEPRECATED: the IP address on which to listen for the --port port. See --bind-address instead. (default 0.0.0.0)
 
 --allocate-node-cidrs                                               
-Should CIDRs for Pods be allocated and set on the cloud provider.
+Should CIDRs for Pods be allocated and set on the cloud provider.  是否应在云提供商上分配和设置Pod的CIDR。
 
---allow-verification-with-non-compliant-keys                        Allow a SignatureVerifier to use keys which are technically non-compliant with RFC6962.
+--allow-verification-with-non-compliant-keys
+Allow a SignatureVerifier to use keys which are technically non-compliant with RFC6962.  允许SignatureVerifier使用技术上不符合RFC6962的密钥。
 
 --alsologtostderr
-log to standard error as well as files
+log to standard error as well as files  记录标准错误以及文件
 
 --attach-detach-reconcile-sync-period duration
-The reconciler sync wait time between volume attach detach. This duration must be larger than one second, and increasing this value from the default may allow for volumes to be mismatched with pods. (default 1m0s)
+The reconciler sync wait time between volume attach detach. This duration must be larger than one second, and increasing this value from the default may allow for volumes to be mismatched with pods. (default 1m0s)  协调程序在卷附加分离之间同步等待时间。 此持续时间必须大于一秒，并且从默认值增加此值可能允许卷与pod不匹配。 （默认1m0s）
 
 --bind-address ip
 The IP address on which to listen for the --secure-port port. The associated interface(s) must be reachable by the rest of the cluster, and by CLI/web clients. If blank, all interfaces will be used (0.0.0.0 for all IPv4 interfaces and :: for all IPv6 interfaces). (default 0.0.0.0)
@@ -31,7 +35,7 @@ The IP address on which to listen for the --secure-port port. The associated int
 The directory where the TLS certs are located. If --tls-cert-file and --tls-private-key-file are provided, this flag will be ignored. (default "/var/run/kubernetes")
 
 --cidr-allocator-type string
-Type of CIDR allocator to use (default "RangeAllocator")
+Type of CIDR allocator to use (default "RangeAllocator")  要使用的CIDR分配器的类型（默认为“RangeAllocator”）
 
 --cloud-config string
 The path to the cloud provider configuration file. Empty string for no configuration file.
