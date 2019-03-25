@@ -1088,6 +1088,11 @@ $
 
 ### kube-apiserver
 
+* admission 是什么？
+* batch mode 是什么？
+* ThrottleQPS 是什么？
+* webhook ?
+
 ```
 $ ./kube-apiserver -h
 The Kubernetes API server validates and configures data for the api objects which include pods, services, replicationcontrollers, and
@@ -1099,58 +1104,59 @@ Usage:
 Flags:
 
 --admission-control strings
-Admission is divided into two phases. In the first phase, only mutating admission plugins run. In the second phase, only validating admission plugins run. The names in the below list may represent a validating plugin, a mutating plugin, or both. The order of plugins in which they are passed to this flag does not matter. Comma-delimited list of: AlwaysAdmit, AlwaysDeny, AlwaysPullImages, DefaultStorageClass, DefaultTolerationSeconds, DenyEscalatingExec, DenyExecOnPrivileged, EventRateLimit, ExtendedResourceToleration, ImagePolicyWebhook, InitialResources, Initializers, LimitPodHardAntiAffinityTopology, LimitRanger, MutatingAdmissionWebhook, NamespaceAutoProvision, NamespaceExists, NamespaceLifecycle, NodeRestriction, OwnerReferencesPermissionEnforcement, PersistentVolumeClaimResize, PersistentVolumeLabel, PodNodeSelector, PodPreset, PodSecurityPolicy, PodTolerationRestriction, Priority, ResourceQuota, SecurityContextDeny, ServiceAccount, StorageObjectInUseProtection, ValidatingAdmissionWebhook. (DEPRECATED: Use --enable-admission-plugins or --disable-admission-plugins instead. Will be removed in a future version.)
+Admission is divided into two phases. In the first phase, only mutating admission plugins run. In the second phase, only validating admission plugins run. The names in the below list may represent a validating plugin, a mutating plugin, or both. The order of plugins in which they are passed to this flag does not matter. Comma-delimited list of: AlwaysAdmit, AlwaysDeny, AlwaysPullImages, DefaultStorageClass, DefaultTolerationSeconds, DenyEscalatingExec, DenyExecOnPrivileged, EventRateLimit, ExtendedResourceToleration, ImagePolicyWebhook, InitialResources, Initializers, LimitPodHardAntiAffinityTopology, LimitRanger, MutatingAdmissionWebhook, NamespaceAutoProvision, NamespaceExists, NamespaceLifecycle, NodeRestriction, OwnerReferencesPermissionEnforcement, PersistentVolumeClaimResize, PersistentVolumeLabel, PodNodeSelector, PodPreset, PodSecurityPolicy, PodTolerationRestriction, Priority, ResourceQuota, SecurityContextDeny, ServiceAccount, StorageObjectInUseProtection, ValidatingAdmissionWebhook. (DEPRECATED: Use --enable-admission-plugins or --disable-admission-plugins instead. Will be removed in a future version.)  入学分为两个阶段。在第一阶段，只运行变异插入插件。在第二阶段，仅运行验证许可插件。以下列表中的名称可能代表验证插件，变异插件或两者。它们传递给此标志的插件顺序无关紧要。逗号分隔的列表：
+（已弃用：请改用--enable-admission-plugins或--disable-admission-plugins。将来的版本将删除。）
 
 --admission-control-config-file string
 File with admission control configuration.
 
 --advertise-address ip
-The IP address on which to advertise the apiserver to members of the cluster. This address must be reachable by the rest of the cluster. If blank, the --bind-address will be used. If --bind-address is unspecified, the host's default interface will be used.
+The IP address on which to advertise the apiserver to members of the cluster. This address must be reachable by the rest of the cluster. If blank, the --bind-address will be used. If --bind-address is unspecified, the host's default interface will be used.  用于向群集成员通告apiserver的IP地址。 该地址必须可由群集的其余部分访问。 如果为空，则使用--bind-address。 如果未指定--bind-address，将使用主机的默认接口。
 
 --allow-privileged
-If true, allow privileged containers. [default=false]
+If true, allow privileged containers. [default=false]  如果为true，则允许特权容器。[默认= FALSE]
 
 --alsologtostderr
-log to standard error as well as files
+log to standard error as well as files  记录标准错误以及文件
 
 --anonymous-auth
-Enables anonymous requests to the secure port of the API server. Requests that are not rejected by another authentication method are treated as anonymous requests. Anonymous requests have a username of system:anonymous, and a group name of system:unauthenticated. (default true)
+Enables anonymous requests to the secure port of the API server. Requests that are not rejected by another authentication method are treated as anonymous requests. Anonymous requests have a username of system:anonymous, and a group name of system:unauthenticated. (default true)  启用对API服务器的安全端口的匿名请求。 未被其他身份验证方法拒绝的请求将被视为匿名请求。 匿名请求的用户名为system：anonymous，组名为system：unauthenticated。 （默认为true）
 
 --apiserver-count int
-The number of apiservers running in the cluster, must be a positive number. (default 1)
+The number of apiservers running in the cluster, must be a positive number. (default 1)  群集中运行的备用数量必须为正数。 （默认1）
 
 --audit-log-batch-buffer-size int
-The size of the buffer to store events before batching and writing. Only used in batch mode. (default 10000)
+The size of the buffer to store events before batching and writing. Only used in batch mode. (default 10000)  在批处理和写入之前存储事件的缓冲区的大小。 仅用于批处理模式。 （默认10000）
 
 --audit-log-batch-max-size int
-The maximum size of a batch. Only used in batch mode. (default 400)
+The maximum size of a batch. Only used in batch mode. (default 400)  批次的最大大小。 仅用于批处理模式。 （默认400）
 
 --audit-log-batch-max-wait duration
-The amount of time to wait before force writing the batch that hadn't reached the max size. Only used in batch mode. (default 30s)
+The amount of time to wait before force writing the batch that hadn't reached the max size. Only used in batch mode. (default 30s)  强制写入未达到最大大小的批处理之前等待的时间。 仅用于批处理模式。 （默认30秒）
 
 --audit-log-batch-throttle-burst int
-Maximum number of requests sent at the same moment if ThrottleQPS was not utilized before. Only used in batch mode. (default 15)
+Maximum number of requests sent at the same moment if ThrottleQPS was not utilized before. Only used in batch mode. (default 15)  如果之前未使用ThrottleQPS，则在同一时刻发送的最大请求数。 仅用于批处理模式。 （默认15）
 
 --audit-log-batch-throttle-enable
-Whether batching throttling is enabled. Only used in batch mode.
+Whether batching throttling is enabled. Only used in batch mode.  是否启用批量限制。 仅用于批处理模式。
 
 --audit-log-batch-throttle-qps float32
-Maximum average number of batches per second. Only used in batch mode. (default 10)
+Maximum average number of batches per second. Only used in batch mode. (default 10)  每秒最大平均批次数。 仅用于批处理模式。 （默认10）
 
 --audit-log-format string
-Format of saved audits. "legacy" indicates 1-line text format for each event. "json" indicates structured json format. Requires the 'AdvancedAuditing' feature gate. Known formats are legacy,json. (default "json")
+Format of saved audits. "legacy" indicates 1-line text format for each event. "json" indicates structured json format. Requires the 'AdvancedAuditing' feature gate. Known formats are legacy,json. (default "json")  已保存审核的格式。 “legacy”表示每个事件的1行文本格式。 “json”表示结构化的json格式。 需要“AdvancedAuditing”功能门。 已知的格式是legacy，json。 （默认“json”）
 
 --audit-log-maxage int
-The maximum number of days to retain old audit log files based on the timestamp encoded in their filename.
+The maximum number of days to retain old audit log files based on the timestamp encoded in their filename.  根据文件名中编码的时间戳保留旧审核日志文件的最大天数。
 
 --audit-log-maxbackup int
-The maximum number of old audit log files to retain.
+The maximum number of old audit log files to retain.  要保留的最大旧审核日志文件数。
 
 --audit-log-maxsize int
-The maximum size in megabytes of the audit log file before it gets rotated.
+The maximum size in megabytes of the audit log file before it gets rotated.  审计日志文件旋转之前的最大大小（兆字节）。
 
 --audit-log-mode string
-Strategy for sending audit events. Blocking indicates sending events should block server responses. Batch causes the backend to buffer and write events asynchronously. Known modes are batch,blocking. (default "blocking")
+Strategy for sending audit events. Blocking indicates sending events should block server responses. Batch causes the backend to buffer and write events asynchronously. Known modes are batch,blocking. (default "blocking")  发送审计事件的策略。 阻止表示发送事件应阻止服务器响应。 批处理导致后端缓冲并异步写入事件。 已知模式是批量，阻止。 （默认“阻止”）
 
 --audit-log-path string
 If set, all requests coming to the apiserver will be logged to this file.  '-' means standard out.
@@ -1159,13 +1165,13 @@ If set, all requests coming to the apiserver will be logged to this file.  '-' m
 Whether event and batch truncating is enabled.
 
 --audit-log-truncate-max-batch-size int
-Maximum size of the batch sent to the underlying backend. Actual serialized size can be several hundreds of bytes greater. If a batch exceeds this limit, it is split into several batches of smaller size. (default 10485760)
+Maximum size of the batch sent to the underlying backend. Actual serialized size can be several hundreds of bytes greater. If a batch exceeds this limit, it is split into several batches of smaller size. (default 10485760)  发送到底层后端的批处理的最大大小。 实际的序列化大小可以大几百个字节。 如果批次超过此限制，则将其拆分为几个较小的批次。 （默认10485760）
 
 --audit-log-truncate-max-event-size int
-Maximum size of the audit event sent to the underlying backend. If the size of an event is greater than this number, first request and response are removed, andif this doesn't reduce the size enough, event is discarded. (default 102400)
+Maximum size of the audit event sent to the underlying backend. If the size of an event is greater than this number, first request and response are removed, andif this doesn't reduce the size enough, event is discarded. (default 102400) 发送到底层后端的审计事件的最大大小。 如果事件的大小大于此数字，则会删除第一个请求和响应，如果这不会减小足够的大小，则会丢弃事件。 （默认102400）
 
 --audit-policy-file string
-Path to the file that defines the audit policy configuration. Requires the 'AdvancedAuditing' feature gate. With AdvancedAuditing, a profile is required to enable auditing.
+Path to the file that defines the audit policy configuration. Requires the 'AdvancedAuditing' feature gate. With AdvancedAuditing, a profile is required to enable auditing.  定义审核策略配置的文件的路径。 需要“AdvancedAuditing”功能门。 使用AdvancedAuditing时，需要配置文件才能启用审核。
 
 --audit-webhook-batch-buffer-size int
 The size of the buffer to store events before batching and writing. Only used in batch mode. (default 10000)
@@ -1204,37 +1210,37 @@ Maximum size of the batch sent to the underlying backend. Actual serialized size
 Maximum size of the audit event sent to the underlying backend. If the size of an event is greater than this number, first request and response are removed, andif this doesn't reduce the size enough, event is discarded. (default 102400)
 
 --authentication-token-webhook-cache-ttl duration
-The duration to cache responses from the webhook token authenticator. (default 2m0s)
+The duration to cache responses from the webhook token authenticator. (default 2m0s)  缓存来自webhook令牌身份验证器的响应的持续时间。 （默认2m0s）
 
 --authentication-token-webhook-config-file string
-File with webhook configuration for token authentication in kubeconfig format. The API server will query the remote service to determine authentication for bearer tokens.
+File with webhook configuration for token authentication in kubeconfig format. The API server will query the remote service to determine authentication for bearer tokens.  具有webhook配置的文件，用于以kubeconfig格式进行令牌认证。 API服务器将查询远程服务以确定对承载令牌的认证。
 
 --authorization-mode string
-Ordered list of plug-ins to do authorization on secure port. Comma-delimited list of: AlwaysAllow,AlwaysDeny,ABAC,Webhook,RBAC,Node. (default "AlwaysAllow")
+Ordered list of plug-ins to do authorization on secure port. Comma-delimited list of: AlwaysAllow,AlwaysDeny,ABAC,Webhook,RBAC,Node. (default "AlwaysAllow")  在安全端口上执行授权的有序插件列表。 以逗号分隔的列表：AlwaysAllow，AlwaysDeny，ABAC，Webhook，RBAC，Node。 （默认为“AlwaysAllow”）
 
 --authorization-policy-file string
-File with authorization policy in csv format, used with --authorization-mode=ABAC, on the secure port.
+File with authorization policy in csv format, used with --authorization-mode=ABAC, on the secure port.  文件带有csv格式的授权策略，与安全端口上的--authorization-mode = ABAC一起使用。
 
 --authorization-webhook-cache-authorized-ttl duration
-The duration to cache 'authorized' responses from the webhook authorizer. (default 5m0s)
+The duration to cache 'authorized' responses from the webhook authorizer. (default 5m0s)  从webhook授权程序缓存“已授权”响应的持续时间。 （默认5m0s）
 
 --authorization-webhook-cache-unauthorized-ttl duration
-The duration to cache 'unauthorized' responses from the webhook authorizer. (default 30s)
+The duration to cache 'unauthorized' responses from the webhook authorizer. (default 30s)  从webhook授权程序缓存“未授权”响应的持续时间。 （默认30秒）
 
 --authorization-webhook-config-file string
 File with webhook configuration in kubeconfig format, used with --authorization-mode=Webhook. The API server will query the remote service to determine access on the API server's secure port.
 
 --basic-auth-file string
-If set, the file that will be used to admit requests to the secure port of the API server via http basic authentication.
+If set, the file that will be used to admit requests to the secure port of the API server via http basic authentication.  如果设置，将用于通过http基本身份验证向API服务器的安全端口发出请求的文件。
 
 --bind-address ip
-The IP address on which to listen for the --secure-port port. The associated interface(s) must be reachable by the rest of the cluster, and by CLI/web clients. If blank, all interfaces will be used (0.0.0.0 for all IPv4 interfaces and :: for all IPv6 interfaces). (default 0.0.0.0)
+The IP address on which to listen for the --secure-port port. The associated interface(s) must be reachable by the rest of the cluster, and by CLI/web clients. If blank, all interfaces will be used (0.0.0.0 for all IPv4 interfaces and :: for all IPv6 interfaces). (default 0.0.0.0)  要监听--secure-port端口的IP地址。 关联的接口必须可由群集的其余部分以及CLI / Web客户端访问。 如果为空，将使用所有接口（所有IPv4接口均为0.0.0.0，所有IPv6接口为::）。 （默认0.0.0.0）
 
 --cert-dir string
 The directory where the TLS certs are located. If --tls-cert-file and --tls-private-key-file are provided, this flag will be ignored. (default "/var/run/kubernetes")
 
 --client-ca-file string
-If set, any request presenting a client certificate signed by one of the authorities in the client-ca-file is authenticated with an identity corresponding to the CommonName of the client certificate.
+If set, any request presenting a client certificate signed by one of the authorities in the client-ca-file is authenticated with an identity corresponding to the CommonName of the client certificate.  如果设置，则表示由client-ca文件中的某个权限签名的客户端证书的任何请求都将使用与客户端证书的CommonName对应的标识进行身份验证。
 
 --cloud-config string
 The path to the cloud provider configuration file. Empty string for no configuration file.
@@ -1246,7 +1252,7 @@ The provider for cloud services. Empty string for no provider.
 CIDRs opened in GCE firewall for LB traffic proxy & health checks (default 130.211.0.0/22,209.85.152.0/22,209.85.204.0/22,35.191.0.0/16)
 
 --contention-profiling
-Enable lock contention profiling, if profiling is enabled
+Enable lock contention profiling, if profiling is enabled  如果启用了性能分析，则启用锁争用性分析
 
 --cors-allowed-origins strings
 List of allowed origins for CORS, comma separated.  An allowed origin can be a regular expression to support subdomain matching. If this list is empty CORS will not be enabled.
