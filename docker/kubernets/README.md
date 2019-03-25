@@ -59,7 +59,7 @@ $
 * [kube-apiserver](./01_kube-apiserver.md)
 * [kube-controller-manager](./02_kube-controller-manager.md)
 * [kubectl](./03_kubectl.md)
-* [kubelet]()
+* [kubelet](./04_kubelet.md)
 * [kube-proxy]()
 * [kube-scheduler]()
 * [mounter]()
@@ -1090,8 +1090,6 @@ $
 
 
 
-### kubectl
-### kubelet
 ### kube-proxy
 ### kube-scheduler
 ### mounter
