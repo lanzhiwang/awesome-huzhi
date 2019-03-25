@@ -212,9 +212,11 @@ QPS to use while talking with kubernetes apiserver. (default 20)
 --kubeconfig string
 Path to kubeconfig file with authorization and master location information.
 
---large-cluster-size-threshold int32                                Number of nodes from which NodeController treats the cluster as large for the eviction logic purposes. --secondary-node-eviction-rate is implicitly overridden to 0 for clusters this size or smaller. (default 50)
+--large-cluster-size-threshold int32
+Number of nodes from which NodeController treats the cluster as large for the eviction logic purposes. --secondary-node-eviction-rate is implicitly overridden to 0 for clusters this size or smaller. (default 50)
 
---leader-elect                                                      Start a leader election client and gain leadership before executing the main loop. Enable this when running replicated components for high availability. (default true)
+--leader-elect
+Start a leader election client and gain leadership before executing the main loop. Enable this when running replicated components for high availability. (default true)
 
 --leader-elect-lease-duration duration
 The duration that non-leader candidates will wait after observing a leadership renewal until attempting to acquire leadership of a led but unrenewed leader slot. This is effectively the maximum duration that a leader can be stopped before it is replaced by another candidate. This is only applicable if leader election is enabled. (default 15s)
@@ -234,7 +236,8 @@ when logging hits line file:N, emit a stack trace (default :0)
 --log-dir string
 If non-empty, write log files in this directory
 
---log-flush-frequency duration                                      Maximum number of seconds between log flushes (default 5s)
+--log-flush-frequency duration
+Maximum number of seconds between log flushes (default 5s)
 
 --loglevel int
 Log level (0 = DEBUG, 5 = FATAL) (default 1)
@@ -254,21 +257,26 @@ The period for syncing namespace life-cycle updates (default 5m0s)
 --node-cidr-mask-size int32
 Mask size for node cidr in cluster. (default 24)
 
---node-eviction-rate float32                                        Number of nodes per second on which pods are deleted in case of node failure when a zone is healthy (see --unhealthy-zone-threshold for definition of healthy/unhealthy). Zone refers to entire cluster in non-multizone clusters. (default 0.1)
+--node-eviction-rate float32
+Number of nodes per second on which pods are deleted in case of node failure when a zone is healthy (see --unhealthy-zone-threshold for definition of healthy/unhealthy). Zone refers to entire cluster in non-multizone clusters. (default 0.1)
 
---node-monitor-grace-period duration                                Amount of time which we allow running Node to be unresponsive before marking it unhealthy. Must be N times more than kubelet's nodeStatusUpdateFrequency, where N means number of retries allowed for kubelet to post node status. (default 40s)
+--node-monitor-grace-period duration
+Amount of time which we allow running Node to be unresponsive before marking it unhealthy. Must be N times more than kubelet's nodeStatusUpdateFrequency, where N means number of retries allowed for kubelet to post node status. (default 40s)
 
 --node-monitor-period duration
 The period for syncing NodeStatus in NodeController. (default 5s)
 
---node-startup-grace-period duration                                Amount of time which we allow starting Node to be unresponsive before marking it unhealthy. (default 1m0s)
+--node-startup-grace-period duration
+Amount of time which we allow starting Node to be unresponsive before marking it unhealthy. (default 1m0s)
 
 --pod-eviction-timeout duration
 The grace period for deleting pods on failed nodes. (default 5m0s)
 
---port int                                                          DEPRECATED: the port on which to serve HTTP insecurely without authentication and authorization. If 0, don't serve HTTPS at all. See --secure-port instead. (default 10252)
+--port int
+DEPRECATED: the port on which to serve HTTP insecurely without authentication and authorization. If 0, don't serve HTTPS at all. See --secure-port instead. (default 10252)
 
---profiling                                                         Enable profiling via web interface host:port/debug/pprof/ (default true)
+--profiling
+Enable profiling via web interface host:port/debug/pprof/ (default true)
 
 --pv-recycler-increment-timeout-nfs int32
 the increment of time added per Gi to ActiveDeadlineSeconds for an NFS scrubber pod (default 30)
@@ -300,12 +308,14 @@ If set, this root certificate authority will be included in service account's to
 --route-reconciliation-period duration
 The period for reconciling routes created for Nodes by cloud provider. (default 10s)
 
---secondary-node-eviction-rate float32                              Number of nodes per second on which pods are deleted in case of node failure when a zone is unhealthy (see --unhealthy-zone-threshold for definition of healthy/unhealthy). Zone refers to entire cluster in non-multizone clusters. This value is implicitly overridden to 0 if the cluster size is smaller than --large-cluster-size-threshold. (default 0.01)
+--secondary-node-eviction-rate float32
+Number of nodes per second on which pods are deleted in case of node failure when a zone is unhealthy (see --unhealthy-zone-threshold for definition of healthy/unhealthy). Zone refers to entire cluster in non-multizone clusters. This value is implicitly overridden to 0 if the cluster size is smaller than --large-cluster-size-threshold. (default 0.01)
 
 --secure-port int
 The port on which to serve HTTPS with authentication and authorization. If 0, don't serve HTTPS at all.
 
---service-account-private-key-file string                           Filename containing a PEM-encoded private RSA or ECDSA key used to sign service account tokens.
+--service-account-private-key-file string
+Filename containing a PEM-encoded private RSA or ECDSA key used to sign service account tokens.
 
 --service-cluster-ip-range string
 CIDR Range for Services in cluster. Requires --allocate-node-cidrs to be true
@@ -313,14 +323,17 @@ CIDR Range for Services in cluster. Requires --allocate-node-cidrs to be true
 --stderrthreshold severity
 logs at or above this threshold go to stderr (default 2)
 
---terminated-pod-gc-threshold int32                                 Number of terminated pods that can exist before the terminated pod garbage collector starts deleting terminated pods. If <= 0, the terminated pod garbage collector is disabled. (default 12500)
+--terminated-pod-gc-threshold int32
+Number of terminated pods that can exist before the terminated pod garbage collector starts deleting terminated pods. If <= 0, the terminated pod garbage collector is disabled. (default 12500)
 
 --tls-cert-file string
 File containing the default x509 Certificate for HTTPS. (CA cert, if any, concatenated after server cert). If HTTPS serving is enabled, and --tls-cert-file and --tls-private-key-file are not provided, a self-signed certificate and key are generated for the public address and saved to the directory specified by --cert-dir.
 
---tls-cipher-suites strings                                         Comma-separated list of cipher suites for the server. Values are from tls package constants (https://golang.org/pkg/crypto/tls/#pkg-constants). If omitted, the default Go cipher suites will be used
+--tls-cipher-suites strings
+Comma-separated list of cipher suites for the server. Values are from tls package constants (https://golang.org/pkg/crypto/tls/#pkg-constants). If omitted, the default Go cipher suites will be used
 
---tls-min-version string                                            Minimum TLS version supported. Value must match version names from https://golang.org/pkg/crypto/tls/#pkg-constants.
+--tls-min-version string
+Minimum TLS version supported. Value must match version names from https://golang.org/pkg/crypto/tls/#pkg-constants.
 
 --tls-private-key-file string
 File containing the default x509 private key matching --tls-cert-file.
@@ -328,16 +341,20 @@ File containing the default x509 private key matching --tls-cert-file.
 --tls-sni-cert-key namedCertKey
 A pair of x509 certificate and private key file paths, optionally suffixed with a list of domain patterns which are fully qualified domain names, possibly with prefixed wildcard segments. If no domain patterns are provided, the names of the certificate are extracted. Non-wildcard matches trump over wildcard matches, explicit domain patterns trump over extracted names. For multiple key/certificate pairs, use the --tls-sni-cert-key multiple times. Examples: "example.crt,example.key" or "foo.crt,foo.key:*.foo.com,foo.com". (default [])
 
---unhealthy-zone-threshold float32                                  Fraction of Nodes in a zone which needs to be not Ready (minimum 3) for zone to be treated as unhealthy.  (default 0.55)
+--unhealthy-zone-threshold float32
+Fraction of Nodes in a zone which needs to be not Ready (minimum 3) for zone to be treated as unhealthy.  (default 0.55)
 
 --use-service-account-credentials
 If true, use individual service account credentials for each controller.
 
--v, --v Level                                                           log level for V logs
+-v, --v Level
+log level for V logs
 
---version version[=true]                                            Print version information and quit
+--version version[=true]
+Print version information and quit
 
---vmodule moduleSpec                                                comma-separated list of pattern=N settings for file-filtered logging
+--vmodule moduleSpec
+comma-separated list of pattern=N settings for file-filtered logging
 
 $ 
 
