@@ -43,7 +43,8 @@ The path to the cloud provider configuration file. Empty string for no configura
 --cloud-provider string
 The provider for cloud services.  Empty string for no provider.
 
---cloud-provider-gce-lb-src-cidrs cidrs                             CIDRs opened in GCE firewall for LB traffic proxy & health checks (default 130.211.0.0/22,209.85.152.0/22,209.85.204.0/22,35.191.0.0/16)
+--cloud-provider-gce-lb-src-cidrs cidrs
+CIDRs opened in GCE firewall for LB traffic proxy & health checks (default 130.211.0.0/22,209.85.152.0/22,209.85.204.0/22,35.191.0.0/16)
 
 --cluster-cidr string
 CIDR Range for Pods in cluster. Requires --allocate-node-cidrs to be true
@@ -51,9 +52,11 @@ CIDR Range for Pods in cluster. Requires --allocate-node-cidrs to be true
 --cluster-name string
 The instance prefix for the cluster. (default "kubernetes")
 
---cluster-signing-cert-file string                                  Filename containing a PEM-encoded X509 CA certificate used to issue cluster-scoped certificates (default "/etc/kubernetes/ca/ca.pem")
+--cluster-signing-cert-file string
+Filename containing a PEM-encoded X509 CA certificate used to issue cluster-scoped certificates (default "/etc/kubernetes/ca/ca.pem")
 
---cluster-signing-key-file string                                   Filename containing a PEM-encoded RSA or ECDSA private key used to sign cluster-scoped certificates (default "/etc/kubernetes/ca/ca.key")
+--cluster-signing-key-file string
+Filename containing a PEM-encoded RSA or ECDSA private key used to sign cluster-scoped certificates (default "/etc/kubernetes/ca/ca.key")
 
 --concurrent-deployment-syncs int32
 The number of deployment objects that are allowed to sync concurrently. Larger number = more responsive deployments, but more CPU (and network) load (default 5)
@@ -82,27 +85,37 @@ The number of service account token objects that are allowed to sync concurrentl
 --concurrent_rc_syncs int32
 The number of replication controllers that are allowed to sync concurrently. Larger number = more responsive replica management, but more CPU (and network) load (default 5)
 
---configure-cloud-routes                                            Should CIDRs allocated by allocate-node-cidrs be configured on the cloud provider. (default true)
+--configure-cloud-routes
+Should CIDRs allocated by allocate-node-cidrs be configured on the cloud provider. (default true)
 
---contention-profiling                                              Enable lock contention profiling, if profiling is enabled.
+--contention-profiling
+Enable lock contention profiling, if profiling is enabled.
 
---controller-start-interval duration                                Interval between starting controller managers.
+--controller-start-interval duration
+Interval between starting controller managers.
 
---controllers strings                                               A list of controllers to enable.  '*' enables all on-by-default controllers, 'foo' enables the controller named 'foo', '-foo' disables the controller named 'foo'.
+--controllers strings
+A list of controllers to enable.  '*' enables all on-by-default controllers, 'foo' enables the controller named 'foo', '-foo' disables the controller named 'foo'.
 
 All controllers: attachdetach, bootstrapsigner, clusterrole-aggregation, cronjob, csrapproving, csrcleaner, csrsigning, daemonset, deployment, disruption, endpoint, garbagecollector, horizontalpodautoscaling, job, namespace, nodeipam, nodelifecycle, persistentvolume-binder, persistentvolume-expander, podgc, pv-protection, pvc-protection, replicaset, replicationcontroller, resourcequota, route, service, serviceaccount, serviceaccount-token, statefulset, tokencleaner, ttl Disabled-by-default controllers: bootstrapsigner, tokencleaner (default [*])
 
---deployment-controller-sync-period duration                        Period for syncing the deployments. (default 30s)
+--deployment-controller-sync-period duration
+Period for syncing the deployments. (default 30s)
 
---disable-attach-detach-reconcile-sync                              Disable volume attach detach reconciler sync. Disabling this may cause volumes to be mismatched with pods. Use wisely.
+--disable-attach-detach-reconcile-sync
+Disable volume attach detach reconciler sync. Disabling this may cause volumes to be mismatched with pods. Use wisely.
 
---enable-dynamic-provisioning                                       Enable dynamic provisioning for environments that support it. (default true)
+--enable-dynamic-provisioning
+Enable dynamic provisioning for environments that support it. (default true)
 
---enable-garbage-collector                                          Enables the generic garbage collector. MUST be synced with the corresponding flag of the kube-apiserver. (default true)
+--enable-garbage-collector
+Enables the generic garbage collector. MUST be synced with the corresponding flag of the kube-apiserver. (default true)
 
---enable-hostpath-provisioner                                       Enable HostPath PV provisioning when running without a cloud provider. This allows testing and development of provisioning features.  HostPath provisioning is not supported in any way, won't work in a multi-node cluster, and should not be used for anything other than testing or development.
+--enable-hostpath-provisioner
+Enable HostPath PV provisioning when running without a cloud provider. This allows testing and development of provisioning features.  HostPath provisioning is not supported in any way, won't work in a multi-node cluster, and should not be used for anything other than testing or development.
 
---enable-taint-manager                                              WARNING: Beta feature. If set to true enables NoExecute Taints and will evict all not-tolerating Pod running on Nodes tainted with this kind of Taints. (default true)
+--enable-taint-manager
+WARNING: Beta feature. If set to true enables NoExecute Taints and will evict all not-tolerating Pod running on Nodes tainted with this kind of Taints. (default true)
 
 --experimental-cluster-signing-duration duration
 The length of duration signed certificates will be given. (default 8760h0m0s)
@@ -163,7 +176,8 @@ VolumeSubpath=true|false (default=true)
 --flex-volume-plugin-dir string
 Full path of the directory in which the flex volume plugin should search for additional third party volume plugins. (default "/usr/libexec/kubernetes/kubelet-plugins/volume/exec/")
 
--h, --help                                                              help for kube-controller-manager
+-h, --help
+help for kube-controller-manager
 
 --horizontal-pod-autoscaler-downscale-delay duration
 The period since last downscale, before another downscale can be performed in horizontal pod autoscaler. (default 5m0s)
@@ -177,7 +191,8 @@ The minimum change (from 1.0) in the desired-to-actual metrics ratio for the hor
 --horizontal-pod-autoscaler-upscale-delay duration
 The period since last upscale, before another upscale can be performed in horizontal pod autoscaler. (default 3m0s)
 
---horizontal-pod-autoscaler-use-rest-clients                        WARNING: alpha feature.  If set to true, causes the horizontal pod autoscaler controller to use REST clients through the kube-aggregator, instead of using the legacy metrics client through the API server proxy.  This is required for custom metrics support in the horizontal pod autoscaler. (default true)
+--horizontal-pod-autoscaler-use-rest-clients
+WARNING: alpha feature.  If set to true, causes the horizontal pod autoscaler controller to use REST clients through the kube-aggregator, instead of using the legacy metrics client through the API server proxy.  This is required for custom metrics support in the horizontal pod autoscaler. (default true)
 
 --http2-max-streams-per-connection int
 The limit that the server gives to clients for the maximum number of streams in an HTTP/2 connection. Zero means to use golang's default.
@@ -185,9 +200,11 @@ The limit that the server gives to clients for the maximum number of streams in 
 --insecure-experimental-approve-all-kubelet-csrs-for-group string
 This flag does nothing.
 
---kube-api-burst int32                                              Burst to use while talking with kubernetes apiserver. (default 30)
+--kube-api-burst int32
+Burst to use while talking with kubernetes apiserver. (default 30)
 
---kube-api-content-type string                                      Content type of requests sent to apiserver. (default "application/vnd.kubernetes.protobuf")
+--kube-api-content-type string
+Content type of requests sent to apiserver. (default "application/vnd.kubernetes.protobuf")
 
 --kube-api-qps float32
 QPS to use while talking with kubernetes apiserver. (default 20)
