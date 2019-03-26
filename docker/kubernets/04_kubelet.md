@@ -1,13 +1,8 @@
 ### kubelet
 
 ```
-lanzhiwang@lanzhiwang-desktop:~/work/py_web/kubeasz/down/kubernetes/server/bin$ ./kubelet -h
-The kubelet is the primary "node agent" that runs on each
-node. The kubelet works in terms of a PodSpec. A PodSpec is a YAML or JSON object
-that describes a pod. The kubelet takes a set of PodSpecs that are provided through
-various mechanisms (primarily through the apiserver) and ensures that the containers
-described in those PodSpecs are running and healthy. The kubelet doesn't manage
-containers which were not created by Kubernetes.
+$ ./kubelet -h
+The kubelet is the primary "node agent" that runs on each node. The kubelet works in terms of a PodSpec. A PodSpec is a YAML or JSON object that describes a pod. The kubelet takes a set of PodSpecs that are provided through various mechanisms (primarily through the apiserver) and ensures that the containers described in those PodSpecs are running and healthy. The kubelet doesn't manage containers which were not created by Kubernetes.
 
 Other than from an PodSpec from the apiserver, there are three ways that a container
 manifest can be provided to the Kubelet.
@@ -248,7 +243,8 @@ Flags:
       --vmodule moduleSpec                                                                                        comma-separated list of pattern=N settings for file-filtered logging
       --volume-plugin-dir string                                                                                  The full path of the directory in which to search for additional third party volume plugins (default "/usr/libexec/kubernetes/kubelet-plugins/volume/exec/")
       --volume-stats-agg-period duration                                                                          Specifies interval for kubelet to calculate and cache the volume disk usage for all pods and volumes.  To disable volume calculations, set to 0. (default 1m0s) (DEPRECATED: This parameter should be set via the config file specified by the Kubelet's --config flag. See https://kubernetes.io/docs/tasks/administer-cluster/kubelet-config-file/ for more information.)
-lanzhiwang@lanzhiwang-desktop:~/work/py_web/kubeasz/down/kubernetes/server/bin$ 
+
+$ 
 
 ```
 
