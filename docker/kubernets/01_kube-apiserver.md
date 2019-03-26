@@ -1,11 +1,13 @@
 ### kube-apiserver
 
 * [admission 是什么？](https://segmentfault.com/a/1190000002920092)
+* [A Guide to Kubernetes Admission Controllers](https://kubernetes.io/blog/page/3/)
 * batch mode 是什么？
 * ThrottleQPS 是什么？
 * webhook ?
 * CORS ？
 * inflight ？
+* https://kubernetes.io/blog/page/123
 
 ```
 $ ./kube-apiserver -h
