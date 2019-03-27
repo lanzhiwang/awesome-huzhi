@@ -197,6 +197,8 @@ Author: `huzhi`
 * [服务端和客户端 SSL 链路](./linux/SSL.md)
 * [haproxy 和 keepalived](./linux/haproxy_keepalived/haproxy_keepalived.md)
 * [获取 HTTP 响应时间](./linux/http_response_time.md)
+* [OpenSSH Config File](./linux/OpenSSH_Config_File_Examples.md)
+* [SSH_ProxyCommand](./linux/SSH_ProxyCommand_example.md)
 
 
 
@@ -421,6 +423,7 @@ Author: `huzhi`
 * [百万 Go TCP 连接的思考](https://colobu.com/)
 * 内置库
   * [net/url](https://juejin.im/post/5bf42ac0f265da61616e50b9)
+* [go get 自动代理](https://mp.weixin.qq.com/s/N1tixHZuG6MLiWTd4vIQrQ)
 
 ## Android
 
