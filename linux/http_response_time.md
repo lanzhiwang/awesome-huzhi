@@ -13,15 +13,27 @@ time_pretransfer:   %{time_pretransfer}\n
 time_redirect:      %{time_redirect}\n
 time_starttransfer: %{time_starttransfer}\n
 time_total:         %{time_total}\n
-
+speed_download:     %{speed_download}\n
+speed_upload:       %{speed_upload}\n
+remote_ip:          %{remote_ip}\n
+remote_port:        %{remote_port}\n
+local_ip:           %{local_ip}\n
+local_port:         %{local_port}\n
+$ 
 $ curl -so /dev/null -w @curl.format https://reorx.com
-time_namelookup:    0.126
-time_connect:       0.254
-time_appconnect:    1.176
-time_pretransfer:   1.177
+time_namelookup:    0.004
+time_connect:       0.121
+time_appconnect:    0.850
+time_pretransfer:   0.850
 time_redirect:      0.000
-time_starttransfer: 1.313
-time_total:         1.313
+time_starttransfer: 0.970
+time_total:         0.970
+speed_download:     4245.000
+speed_upload:       0.000
+remote_ip:          172.104.82.25
+remote_port:        443
+local_ip:           10.0.3.15
+local_port:         53948
 $ 
 ```
 
