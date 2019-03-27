@@ -198,7 +198,7 @@ Author: `huzhi`
 * [haproxy 和 keepalived](./linux/haproxy_keepalived/haproxy_keepalived.md)
 * [获取 HTTP 响应时间](./linux/http_response_time.md)
 * [OpenSSH Config File](./linux/OpenSSH_Config_File_Examples.md)
-* [SSH_ProxyCommand](./linux/SSH_ProxyCommand_example.md)
+* [SSH ProxyCommand](./linux/SSH_ProxyCommand_example.md)
 
 
 
