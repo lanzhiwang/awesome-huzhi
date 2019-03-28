@@ -74,7 +74,6 @@ $ ssh -tt -p 3222 yunwei@202.104.32.179  ssh -tt root@192.168.62.40
 # 使用 ProxyCommand 选项一步登陆
 # 使用 nc 命令要求跳板机 202.104.32.179 上安装有 nc 命令，如果没有可以使用 -W 选项
 $ ssh -t -o ProxyCommand='ssh -p 3222 yunwei@202.104.32.179 nc 192.168.62.40 22' root@192.168.62.40
-
 $ ssh -t -o ProxyCommand='ssh -p 3222 yunwei@202.104.32.179 -W 192.168.62.40:22' root@192.168.62.40
 
 # 使用 ~/.ssh/config 配置文件
@@ -106,7 +105,6 @@ $ ssh -tt -p 5606 root@120.31.136.120  ssh -tt root@192.168.49.244
 # 使用 ProxyCommand 选项一步登陆
 # 使用 nc 命令要求跳板机 202.104.32.179 上安装有 nc 命令，如果没有可以使用 -W 选项
 $ ssh -t -o ProxyCommand='ssh -p 5606 root@120.31.136.120 nc 192.168.49.244 22' root@192.168.49.244
-
 $ ssh -t -o ProxyCommand='ssh -p 5606 root@120.31.136.120 -W 192.168.49.244:22' root@192.168.49.244
 
 # 使用 ~/.ssh/config 配置文件
