@@ -3,6 +3,7 @@
 ```
 https://dl.k8s.io/${K8S_VER}/kubernetes-server-linux-amd64.tar.gz
 https://dl.k8s.io/v1.10.4/kubernetes-server-linux-amd64.tar.gz
+https://dl.k8s.io/v1.14.0/kubernetes-server-linux-amd64.tar.gz
 https://storage.googleapis.com/kubernetes-release/release/v1.10.4/kubernetes-server-linux-amd64.tar.gz
 
 $ ls
