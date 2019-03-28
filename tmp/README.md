@@ -6,7 +6,7 @@
 4、[支持ES集群部署、更新、回滚](https://blog.csdn.net/chenleiking/article/details/79453460)
 5、部署高可用sqlserver集群
 6、部署gitlab高可用集群
-7、编写服务python服务，可通过ingress方式访问此服务，并且此服务可以与es/sqlserver/gitlab交互
+7、编写服务python服务，可通过ingress方式访问此服务，并且此服务可以与es/sqlserver/gitlab交互，通过 gitlab 接口访问
 将以上要求具体步骤与结构汇聚成文档，如果条件允许最好有实际演示环境
 
 
