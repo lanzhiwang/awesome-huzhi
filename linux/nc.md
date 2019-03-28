@@ -11,6 +11,7 @@ nc -u host.example.com 53
 nc -s 10.1.2.3 host.example.com 42
 
 # To create and listen on a UNIX-domain stream socket:
+# -l 选项用于指定 nc 处于侦听模式。指定该参数，则意味着 nc 被当作 server，侦听并接受连接，而非向其它地址发起连接
 nc -lU /var/tmp/dsocket
 
 # To connect to port 42 of host.example.com via an HTTP proxy at 10.2.3.4, port 8080. This example could also be used by ssh(1); see the ProxyCommand directive in ssh_config(5) for more information.
@@ -20,6 +21,8 @@ nc -x10.2.3.4:8080 -Xconnect host.example.com 42
 nc -x10.2.3.4:8080 -Xconnect -Pruser host.example.com 42
 
 # To choose the source IP for the testing using the -s option
+# -v 选项输出交互或出错信息，新手调试时尤为有用
+# -z 选项表示 zero，表示扫描时不发送任何数据
 nc -zv -s source_IP target_IP Port
 
 $
