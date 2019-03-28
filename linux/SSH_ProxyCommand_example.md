@@ -59,4 +59,62 @@ $ ssh -t -o ProxyCommand='ssh vivek@Jumphost nc FooServer 22' vivek@FooServer ht
 
 The netcat (nc) command is needed to set and establish a TCP pipe between Jumphost (or firewall) and FooServer. Now, my laptop (local system) is connected to Jumphost it now connected FooServer. In this example, the utility netcat (nc) is for reading and writing network connections directly. It can be used to pass connections to a 2nd server such as FooServer.  需要 netcat(nc) 命令来设置和建立 Jumphost（或防火墙）和 FooServer之间的TCP管道。 现在，我的笔记本电脑（本地系统）连接到 Jumphost 它现在连接到 FooServer。 在此示例中，实用程序netcat（nc）用于直接读写网络连接。 它可用于将连接传递给第二台服务器，例如FooServer。
 
+### 示例1
+
+```bahs
+# 先登陆跳板机
+$ ssh -p 3222 yunwei@202.104.32.179
+
+# 登陆跳板机后再登陆目标服务器
+$ ssh root@192.168.62.40
+
+# 使用 ProxyCommand 选项一步登陆
+# 使用 nc 命令要求跳板机 202.104.32.179 上安装有 nc 命令，如果没有可以使用 -W 选项
+$ ssh -t -o ProxyCommand='ssh -p 3222 yunwei@202.104.32.179 nc 192.168.62.40 22' root@192.168.62.40
+
+$ ssh -t -o ProxyCommand='ssh -p 3222 yunwei@202.104.32.179 -W 192.168.62.40:22' root@192.168.62.40
+
+# 使用 ~/.ssh/config 配置文件
+$ cat ~/.ssh/config
+Host 192.168.62.40
+     HostName 192.168.62.40
+     User root
+     Port 22
+     ProxyCommand ssh -p 3222 yunwei@202.104.32.179 -W %h:%p
+#    ProxyCommand ssh -p 3222 yunwei@202.104.32.179 -W 192.168.62.40:22
+
+
+# 登陆
+$ ssh 192.168.62.40
+```
+
+### 示例2
+
+```bahs
+# 先登陆跳板机
+$ ssh -p 5606 root@120.31.136.120
+
+# 登陆跳板机后再登陆目标服务器
+$ ssh root@192.168.49.244
+
+# 使用 ProxyCommand 选项一步登陆
+# 使用 nc 命令要求跳板机 202.104.32.179 上安装有 nc 命令，如果没有可以使用 -W 选项
+$ ssh -t -o ProxyCommand='ssh -p 5606 root@120.31.136.120 nc 192.168.49.244 22' root@192.168.49.244
+
+$ ssh -t -o ProxyCommand='ssh -p 5606 root@120.31.136.120 -W 192.168.49.244:22' root@192.168.49.244
+
+# 使用 ~/.ssh/config 配置文件
+$ cat ~/.ssh/config
+Host 192.168.49.244
+     HostName 192.168.49.244
+     User root
+     Port 22
+     ProxyCommand ssh -p 5606 root@120.31.136.120 nc %h %p
+#    ProxyCommand ssh -p 5606 root@120.31.136.120 nc 192.168.49.244 22
+
+
+# 登陆
+$ ssh 192.168.49.244
+```
+
 [参考](https://www.cyberciti.biz/faq/linux-unix-ssh-proxycommand-passing-through-one-host-gateway-server/)
