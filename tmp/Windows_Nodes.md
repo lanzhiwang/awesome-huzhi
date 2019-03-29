@@ -1,7 +1,6 @@
-
 ## Kubernetes on Windows
 
-[参考](https://docs.microsoft.com/en-us/virtualization/windowscontainers/kubernetes/getting-started-kubernetes-windows)
+### 为什么要将 Windows 作为 Kubernetes 的 node 节点
 
 将 Windows 作为 Kubernetes 的 node 节点的好处如下：
 
@@ -125,7 +124,7 @@ mkdir c:\k
 # 确认 kubectl 可以正常使用
 kubectl config view
 
-# 下载  Flannel start.ps1，使用改脚本将 windows 加入集群
+# 下载  Flannel start.ps1，使用该脚本将 windows 加入集群
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 wget https://raw.githubusercontent.com/Microsoft/SDN/master/Kubernetes/flannel/start.ps1 -o c:\k\start.ps1
 
@@ -133,3 +132,5 @@ cd c:\k
 .\start.ps1 -ManagementIP <Windows Node IP> -NetworkMode <network mode>  -ClusterCIDR <Cluster CIDR> -ServiceCIDR <Service CIDR> -KubeDnsServiceIP <Kube-dns Service IP> -LogDir <Log directory>
 
 ```
+
+[参考](https://docs.microsoft.com/en-us/virtualization/windowscontainers/kubernetes/getting-started-kubernetes-windows)
