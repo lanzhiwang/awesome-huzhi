@@ -1,5 +1,20 @@
 ## Kubernetes on Windows
 
+- [将 windows 作为 kubernetes 的 node 节点](#为什么要将-windows-作为-kubernetes-的-node-节点)
+- [准备工作](#准备工作)
+	- [规划相关 ip使用默认值](#规划相关-ip使用默认值)
+- [在 Linux 创建 kubernetes master 节点](#创建-kubernetes-master-节点)
+- [修改节点标签使资源可以在 linux 或者 windows 上调度](#修改节点标签使资源可以在-linux-或者-windows-上调度)
+- [确定网络模型](#确定网络模型)
+- [将 windows server 加入集群](#将-windows-server-加入集群)
+	- 安装 docker
+	- 安装成功后重启系统
+	- 启动 docker 服务
+	- Create the "pause" (infrastructure) image（作用是什么？）
+	- 拷贝相关证书和私钥
+	- 下载 kubectl, kubelet, kube-proxy
+	- 根据网络模型使用特定的脚本将 windows 加入集群
+
 ### 为什么要将 Windows 作为 Kubernetes 的 node 节点
 
 将 Windows 作为 Kubernetes 的 node 节点的好处如下：
