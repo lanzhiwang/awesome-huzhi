@@ -32,7 +32,7 @@ In the scatter phase, the coordinating node forwards the request to the data nod
 
 Every node is implicitly a coordinating node. This means that a node that has all three node.master, node.data and node.ingest set to false will only act as a coordinating node, which cannot be disabled. As a result, such a node needs to have enough memory and CPU in order to deal with the gather phase.  每个节点都隐式地是一个协调节点。 这意味着将所有三个node.master，node.data和node.ingest设置为false的节点仅用作协调节点，无法禁用该节点。 结果，这样的节点需要具有足够的存储器和CPU以便处理收集阶段。
 
-### Master Eligible Nodeedit
+### Master Eligible Node
 
 The master node is responsible for lightweight cluster-wide actions such as creating or deleting an index, tracking which nodes are part of the cluster, and deciding which shards to allocate to which nodes. It is important for cluster health to have a stable master node.  主节点负责轻量级群集范围的操作，例如创建或删除索引，跟踪哪些节点是群集的一部分，以及决定将哪些分片分配给哪些节点。 集群运行状况对于拥有稳定的主节点非常重要。
 
@@ -53,7 +53,7 @@ node.ingest: false
 search.remote.connect: false ## Disable cross-cluster search (enabled by default).
 ```
 
-### Avoiding split brain with minimum_master_nodesedit
+### Avoiding split brain with minimum_master_nodes
 
 To prevent data loss, it is vital to configure the `discovery.zen.minimum_master_nodes` setting (which defaults to 1) so that each master-eligible node knows the minimum number of master-eligible nodes that must be visible in order to form a cluster.  为了防止数据丢失，配置discovery.zen.minimum_master_nodes设置（默认为1）至关重要，这样每个符合主节点的节点都知道为了形成集群必须可见的最大主节点数。
 
@@ -136,7 +136,7 @@ search.remote.connect: false
 
 ### Node data path settings
 
-##### path.dataedit
+##### path.data
 
 Every data and master-eligible node requires access to a data directory where shards and index and cluster metadata will be stored. The `path.data` defaults to `$ES_HOME/data` but can be configured in the `elasticsearch.yml` config file an absolute path or a path relative to `$ES_HOME` as follows:
 
@@ -169,3 +169,5 @@ Never run different node types (i.e. master, data) from the same data directory.
 * node.name
 * network settings
 * X-Pack node settings
+* [Curator](https://www.elastic.co/guide/en/elasticsearch/client/curator/current/index.html)
+
