@@ -18,10 +18,4 @@
 * [sqlserver 构建说明](./sqlserver.md)
 * [gitlab 构建说明](./gitlab.md)
 * [通过 ingress 暴露 es、sqlserver、gitlab 服务](./Ingress.md)
-
-
-
-
-
-
-5、[部署高可用sqlserver集群](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-kubernetes-deploy?view=sqlallproducts-allversions)
+* [python 客户端访问 kubernetes 服务](./python_client.md)
