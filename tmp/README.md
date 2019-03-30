@@ -178,7 +178,7 @@ DEPLOY_MODE=multi-master
 
 # 集群 MASTER IP即 LB节点VIP地址，为区别与默认apiserver端口，设置VIP监听的服务端口8443
 # 公有云上请使用云负载均衡内网地址和监听端口
-MASTER_IP="192.168.1.10"
+MASTER_IP="192.168.1.12"
 KUBE_APISERVER="https://{{ MASTER_IP }}:8443"
 
 # 集群网络插件，目前支持calico, flannel, kube-router, cilium
@@ -832,6 +832,12 @@ systemctl restart kube-scheduler
 
 kubectl get node
 
+# Making master nodes SchedulingDisabled，以 192.168.1.1 为例
+/opt/kube/bin/kubectl cordon 192.168.1.1
+
+# Setting master role name，以 192.168.1.1 为例
+/opt/kube/bin/kubectl label node 192.168.1.1 kubernetes.io/role=master --overwrite
+
 ```
 
 ### kube node
@@ -902,13 +908,738 @@ cd /etc/kubernetes/ssl && /opt/kube/bin/cfssl gencert \
         --embed-certs=true \
         --server=https://192.168.1.12:8443 \
 	--kubeconfig=kubelet.kubeconfig
+
+# 设置客户端认证参数
+/opt/kube/bin/kubectl config set-credentials system:node:192.168.1.3 \
+        --client-certificate=/etc/kubernetes/ssl/kubelet.pem \
+        --embed-certs=true \
+        --client-key=/etc/kubernetes/ssl/kubelet-key.pem \
+	--kubeconfig=kubelet.kubeconfig
+
+# 设置上下文参数
+/opt/kube/bin/kubectl config set-context default \
+        --cluster=kubernetes \
+	--user=system:node:192.168.1.3 \
+	--kubeconfig=kubelet.kubeconfig"
+
+# 选择默认上下文
+/opt/kube/bin/kubectl config use-context default \
+	--kubeconfig=kubelet.kubeconfig
+
+# 移动 kubelet.kubeconfig
+mv /root/kubelet.kubeconfig /etc/kubernetes/
+
+# 准备 cni配置文件
+cat /etc/cni/net.d/10-default.conf
+{
+	"name": "mynet",
+	"type": "bridge",
+	"bridge": "mynet0",
+	"isDefaultGateway": true,
+	"ipMasq": true,
+	"hairpinMode": true,
+	"ipam": {
+		"type": "host-local",
+		"subnet": "172.20.0.0/16"
+	}
+}
+
+# 创建kubelet的systemd unit文件，以 192.168.1.3 为例
+cat /etc/systemd/system/kubelet.service
+[Unit]
+Description=Kubernetes Kubelet
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+After=docker.service
+Requires=docker.service
+
+[Service]
+WorkingDirectory=/var/lib/kubelet
+ExecStart=/opt/kube/bin/kubelet \
+  --address=192.168.1.3 \
+  --allow-privileged=true \
+  --anonymous-auth=false \
+  --authentication-token-webhook \
+  --authorization-mode=Webhook \
+  --client-ca-file=/etc/kubernetes/ssl/ca.pem \
+  --cluster-dns=10.68.0.2 \
+  --cluster-domain=cluster.local. \
+  --cni-bin-dir=/opt/kube/bin \
+  --cni-conf-dir=/etc/cni/net.d \
+  --fail-swap-on=false \
+  --hairpin-mode hairpin-veth \
+  --hostname-override=192.168.1.3 \
+  --kubeconfig=/etc/kubernetes/kubelet.kubeconfig \
+  --max-pods=110 \
+  --network-plugin=cni \
+  --pod-infra-container-image=mirrorgooglecontainers/pause-amd64:3.1 \
+  --register-node=true \
+  --root-dir=/var/lib/kubelet \
+  --tls-cert-file=/etc/kubernetes/ssl/kubelet.pem \
+  --tls-private-key-file=/etc/kubernetes/ssl/kubelet-key.pem \
+  --v=2
+#kubelet cAdvisor 默认在所有接口监听 4194 端口的请求, 以下iptables限制内网访问
+ExecStartPost=/sbin/iptables -A INPUT -s 10.0.0.0/8 -p tcp --dport 4194 -j ACCEPT
+ExecStartPost=/sbin/iptables -A INPUT -s 172.16.0.0/12 -p tcp --dport 4194 -j ACCEPT
+ExecStartPost=/sbin/iptables -A INPUT -s 192.168.0.0/16 -p tcp --dport 4194 -j ACCEPT
+ExecStartPost=/sbin/iptables -A INPUT -p tcp --dport 4194 -j DROP
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+
+systemctl enable kubelet
+systemctl daemon-reload && systemctl restart kubelet
+
+# 安装 kube-proxy.kubeconfig 配置文件
+cp /etc/kubernetes/kube-proxy.kubeconfig /etc/kubernetes/kube-proxy.kubeconfig
+
+# 创建 kube-proxy 服务文件，以 192.168.1.3 为例
+cat /etc/systemd/system/kube-proxy.service
+[Unit]
+Description=Kubernetes Kube-Proxy Server
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+After=network.target
+
+[Service]
+# kube-proxy 根据 --cluster-cidr 判断集群内部和外部流量，指定 --cluster-cidr 或 --masquerade-all 选项后
+# kube-proxy 会对访问 Service IP 的请求做 SNAT，这个特性与calico 实现 network policy冲突，因此禁用
+WorkingDirectory=/var/lib/kube-proxy
+ExecStart=/opt/kube/bin/kube-proxy \
+  --bind-address=192.168.1.3 \
+  --hostname-override=192.168.1.3 \
+  --kubeconfig=/etc/kubernetes/kube-proxy.kubeconfig \
+  --logtostderr=true \
+  --proxy-mode=iptables
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
+
+systemctl enable kube-proxy
+systemctl daemon-reload && systemctl restart kube-proxy
+
+# 设置node节点role，以 192.168.1.3 为例
+/opt/kube/bin/kubectl label node 192.168.1.3 kubernetes.io/role=node --overwrite
+
+
+
+
 ```
 
+### flannel（master 和 node 节点）
+
+```bash
+mkdir /opt/kube/kube-system/flannel
+
+cat /opt/kube/kube-system/flannel/kube-flannel.yaml
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: flannel
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - pods
+    verbs:
+      - get
+  - apiGroups:
+      - ""
+    resources:
+      - nodes
+    verbs:
+      - list
+      - watch
+  - apiGroups:
+      - ""
+    resources:
+      - nodes/status
+    verbs:
+      - patch
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: flannel
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: flannel
+subjects:
+- kind: ServiceAccount
+  name: flannel
+  namespace: kube-system
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: flannel
+  namespace: kube-system
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: kube-flannel-cfg
+  namespace: kube-system
+  labels:
+    tier: node
+    app: flannel
+data:
+  cni-conf.json: |
+    {
+      "name": "cbr0",
+      "plugins": [
+        {
+          "type": "flannel",
+          "delegate": {
+            "hairpinMode": true,
+            "isDefaultGateway": true
+          }
+        },
+        {
+          "type": "portmap",
+          "capabilities": {
+            "portMappings": true
+          }
+        }
+      ]
+    }
+  net-conf.json: |
+    {
+      "Network": "172.20.0.0/16",
+      "Backend": {
+        "Type": "vxlan"
+      }
+    }
+---
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: kube-flannel-ds
+  namespace: kube-system
+  labels:
+    tier: node
+    app: flannel
+spec:
+  template:
+    metadata:
+      labels:
+        tier: node
+        app: flannel
+    spec:
+      hostNetwork: true
+      nodeSelector:
+        beta.kubernetes.io/arch: amd64
+      tolerations:
+      - key: node-role.kubernetes.io/master
+        operator: Exists
+        effect: NoSchedule
+      serviceAccountName: flannel
+      initContainers:
+      - name: install-cni
+        image: jmgao1983/flannel:v0.10.0-amd64 
+        command:
+        - cp
+        args:
+        - -f
+        - /etc/kube-flannel/cni-conf.json
+        - /etc/cni/net.d/10-flannel.conflist
+        volumeMounts:
+        - name: cni
+          mountPath: /etc/cni/net.d
+        - name: flannel-cfg
+          mountPath: /etc/kube-flannel/
+      containers:
+      - name: kube-flannel
+        image: jmgao1983/flannel:v0.10.0-amd64 
+        command:
+        - /opt/bin/flanneld
+        args:
+        - --ip-masq
+        - --kube-subnet-mgr
+        #- --iface=eth1
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "50Mi"
+          limits:
+            cpu: "100m"
+            memory: "50Mi"
+        securityContext:
+          privileged: true
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        # if hosts have multiple net interfaces, set following two ENVs
+        - name: KUBERNETES_SERVICE_HOST
+          value: "192.168.1.12"
+          #value: "{{ KUBE_APISERVER.split(':')[1].lstrip('/') }}"
+        - name: KUBERNETES_SERVICE_PORT
+          value: "8443"
+        volumeMounts:
+        - name: run
+          mountPath: /run
+        - name: flannel-cfg
+          mountPath: /etc/kube-flannel/
+      volumes:
+        - name: run
+          hostPath:
+            path: /run
+        - name: cni
+          hostPath:
+            path: /etc/cni/net.d
+        - name: flannel-cfg
+          configMap:
+            name: kube-flannel-cfg
+
+# 检查是否已下载离线flannel镜像
+ls /etc/ansible/down
+
+# 创建flannel cni 相关目录
+mkdir /etc/cni/net.d
+mkdir /opt/kube/images
+
+# 下载flannel cni plugins
+cp /etc/ansible/bin/bridge /opt/kube/bin/bridge
+cp /etc/ansible/bin/flannel /opt/kube/bin/flannel
+cp /etc/ansible/bin/host-local /opt/kube/bin/host-local
+cp /etc/ansible/bin/loopback /opt/kube/bin/loopback
+cp /etc/ansible/bin/portmap /opt/kube/bin/portmap
+
+# 尝试推送离线docker 镜像
+cp /etc/ansible/down/pause_3.1.tar /opt/kube/images/pause_3.1.tar
+cp /etc/ansible/down/flannel_v0.10.0-amd64.tar /opt/kube/images/flannel_v0.10.0-amd64.tar
+
+# 导入 flannel的离线镜像
+/opt/kube/bin/docker load -i /opt/kube/images/pause_3.1.tar
+/opt/kube/bin/docker load -i /opt/kube/images/flannel_v0.10.0-amd64.tar
+
+# 运行 flannel网络
+/opt/kube/bin/kubectl apply -f /opt/kube/kube-system/flannel/
+
+# 删除默认cni配置
+em -rf /etc/cni/net.d/10-default.conf
 
 
+```
 
+### 相关插件（node节点）
 
+```bash
+mkdir /opt/kube/kube-system/kubedns
+mkdir /opt/kube/kube-system/coredns
 
+# 准备 DNS的部署文件
+cat /opt/kube/kube-system/kubedns/kubedns.yaml
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kube-dns
+  namespace: kube-system
+  labels:
+    addonmanager.kubernetes.io/mode: EnsureExists
 
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: kube-dns
+  namespace: kube-system
+  labels:
+    #kubernetes.io/cluster-service: "true"
+    addonmanager.kubernetes.io/mode: Reconcile
 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-dns
+  namespace: kube-system
+  labels:
+    k8s-app: kube-dns
+    #kubernetes.io/cluster-service: "true"
+    addonmanager.kubernetes.io/mode: Reconcile
+    kubernetes.io/name: "KubeDNS"
+spec:
+  selector:
+    k8s-app: kube-dns
+  clusterIP: 10.68.0.2
+  ports:
+  - name: dns
+    port: 53
+    protocol: UDP
+  - name: dns-tcp
+    port: 53
+    protocol: TCP
 
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: kube-dns
+  namespace: kube-system
+  labels:
+    k8s-app: kube-dns
+    #kubernetes.io/cluster-service: "true"
+    addonmanager.kubernetes.io/mode: Reconcile
+spec:
+  # replicas: not specified here:
+  # 1. In order to make Addon Manager do not reconcile this replicas parameter.
+  # 2. Default is 1.
+  # 3. Will be tuned in real time if DNS horizontal auto-scaling is turned on.
+  strategy:
+    rollingUpdate:
+      maxSurge: 10%
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      k8s-app: kube-dns
+  template:
+    metadata:
+      labels:
+        k8s-app: kube-dns
+      annotations:
+        scheduler.alpha.kubernetes.io/critical-pod: ''
+    spec:
+      tolerations:
+      - key: "CriticalAddonsOnly"
+        operator: "Exists"
+      volumes:
+      - name: kube-dns-config
+        configMap:
+          name: kube-dns
+          optional: true
+      containers:
+      - name: kubedns
+        #image: gcr.io/google_containers/k8s-dns-kube-dns-amd64:1.14.13
+        image: mirrorgooglecontainers/k8s-dns-kube-dns-amd64:1.14.13
+        resources:
+          # TODO: Set memory limits when we've profiled the container for large
+          # clusters, then set request = limit to keep this container in
+          # guaranteed class. Currently, this container falls into the
+          # "burstable" category so the kubelet doesn't backoff from restarting it.
+          limits:
+            memory: 170Mi
+          requests:
+            cpu: 100m
+            memory: 70Mi
+        livenessProbe:
+          httpGet:
+            path: /healthcheck/kubedns
+            port: 10054
+            scheme: HTTP
+          initialDelaySeconds: 60
+          timeoutSeconds: 5
+          successThreshold: 1
+          failureThreshold: 5
+        readinessProbe:
+          httpGet:
+            path: /readiness
+            port: 8081
+            scheme: HTTP
+          # we poll on pod startup for the Kubernetes master service and
+          # only setup the /readiness HTTP server once that's available.
+          initialDelaySeconds: 3
+          timeoutSeconds: 5
+        args:
+        - --domain=cluster.local.
+        - --dns-port=10053
+        - --config-dir=/kube-dns-config
+        - --v=2
+        env:
+        - name: PROMETHEUS_PORT
+          value: "10055"
+        ports:
+        - containerPort: 10053
+          name: dns-local
+          protocol: UDP
+        - containerPort: 10053
+          name: dns-tcp-local
+          protocol: TCP
+        - containerPort: 10055
+          name: metrics
+          protocol: TCP
+        volumeMounts:
+        - name: kube-dns-config
+          mountPath: /kube-dns-config
+      - name: dnsmasq
+        #image: gcr.io/google_containers/k8s-dns-dnsmasq-nanny-amd64:1.14.13
+        image: mirrorgooglecontainers/k8s-dns-dnsmasq-nanny-amd64:1.14.13
+        livenessProbe:
+          httpGet:
+            path: /healthcheck/dnsmasq
+            port: 10054
+            scheme: HTTP
+          initialDelaySeconds: 60
+          timeoutSeconds: 5
+          successThreshold: 1
+          failureThreshold: 5
+        args:
+        - -v=2
+        - -logtostderr
+        - -configDir=/etc/k8s/dns/dnsmasq-nanny
+        - -restartDnsmasq=true
+        - --
+        - -k
+        - --cache-size=1000
+        - --log-facility=-
+        - --server=/cluster.local./127.0.0.1#10053
+        - --server=/in-addr.arpa/127.0.0.1#10053
+        - --server=/ip6.arpa/127.0.0.1#10053
+        ports:
+        - containerPort: 53
+          name: dns
+          protocol: UDP
+        - containerPort: 53
+          name: dns-tcp
+          protocol: TCP
+        # see: https://github.com/kubernetes/kubernetes/issues/29055 for details
+        resources:
+          requests:
+            cpu: 150m
+            memory: 20Mi
+        volumeMounts:
+        - name: kube-dns-config
+          mountPath: /etc/k8s/dns/dnsmasq-nanny
+      - name: sidecar
+        #image: gcr.io/google_containers/k8s-dns-sidecar-amd64:1.14.13
+        image: mirrorgooglecontainers/k8s-dns-sidecar-amd64:1.14.13
+        livenessProbe:
+          httpGet:
+            path: /metrics
+            port: 10054
+            scheme: HTTP
+          initialDelaySeconds: 60
+          timeoutSeconds: 5
+          successThreshold: 1
+          failureThreshold: 5
+        args:
+        - --v=2
+        - --logtostderr
+        - --probe=kubedns,127.0.0.1:10053,kubernetes.default.svc.cluster.local.,5,A
+        - --probe=dnsmasq,127.0.0.1:53,kubernetes.default.svc.cluster.local.,5,A
+        ports:
+        - containerPort: 10054
+          name: metrics
+          protocol: TCP
+        resources:
+          requests:
+            memory: 20Mi
+            cpu: 10m
+      dnsPolicy: Default  # Don't use cluster DNS.
+      serviceAccountName: kube-dns
+
+cat /opt/kube/kube-system/coredns/coredns.yaml
+# __MACHINE_GENERATED_WARNING__
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: coredns
+  namespace: kube-system
+  labels:
+      kubernetes.io/cluster-service: "true"
+      addonmanager.kubernetes.io/mode: Reconcile
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    kubernetes.io/bootstrapping: rbac-defaults
+    addonmanager.kubernetes.io/mode: Reconcile
+  name: system:coredns
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - endpoints
+  - services
+  - pods
+  - namespaces
+  verbs:
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - nodes
+  verbs:
+  - get
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  annotations:
+    rbac.authorization.kubernetes.io/autoupdate: "true"
+  labels:
+    kubernetes.io/bootstrapping: rbac-defaults
+    addonmanager.kubernetes.io/mode: EnsureExists
+  name: system:coredns
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:coredns
+subjects:
+- kind: ServiceAccount
+  name: coredns
+  namespace: kube-system
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coredns
+  namespace: kube-system
+  labels:
+      addonmanager.kubernetes.io/mode: EnsureExists
+data:
+  Corefile: |
+    .:53 {
+        errors
+        health
+        kubernetes cluster.local. in-addr.arpa ip6.arpa {
+            pods insecure
+            upstream
+            fallthrough in-addr.arpa ip6.arpa
+        }
+        prometheus :9153
+        proxy . /etc/resolv.conf
+        cache 30
+        loop
+        reload
+        loadbalance
+    }
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: coredns
+  namespace: kube-system
+  labels:
+    k8s-app: kube-dns
+    kubernetes.io/cluster-service: "true"
+    addonmanager.kubernetes.io/mode: Reconcile
+    kubernetes.io/name: "CoreDNS"
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      k8s-app: kube-dns
+  template:
+    metadata:
+      labels:
+        k8s-app: kube-dns
+      annotations:
+        seccomp.security.alpha.kubernetes.io/pod: 'docker/default'
+    spec:
+      serviceAccountName: coredns
+      tolerations:
+        - key: "CriticalAddonsOnly"
+          operator: "Exists"
+      containers:
+      - name: coredns
+        image: coredns/coredns:1.2.6
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            memory: 170Mi
+          requests:
+            cpu: 100m
+            memory: 70Mi
+        args: [ "-conf", "/etc/coredns/Corefile" ]
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/coredns
+          readOnly: true
+        ports:
+        - containerPort: 53
+          name: dns
+          protocol: UDP
+        - containerPort: 53
+          name: dns-tcp
+          protocol: TCP
+        - containerPort: 9153
+          name: metrics
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 60
+          timeoutSeconds: 5
+          successThreshold: 1
+          failureThreshold: 5
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            add:
+            - NET_BIND_SERVICE
+            drop:
+            - all
+          readOnlyRootFilesystem: true
+      dnsPolicy: Default
+      volumes:
+        - name: config-volume
+          configMap:
+            name: coredns
+            items:
+            - key: Corefile
+              path: Corefile
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-dns
+  namespace: kube-system
+  annotations:
+    prometheus.io/port: "9153"
+    prometheus.io/scrape: "true"
+  labels:
+    k8s-app: kube-dns
+    kubernetes.io/cluster-service: "true"
+    addonmanager.kubernetes.io/mode: Reconcile
+    kubernetes.io/name: "CoreDNS"
+spec:
+  selector:
+    k8s-app: kube-dns
+  clusterIP: 10.68.0.2
+  ports:
+  - name: dns
+    port: 53
+    protocol: UDP
+  - name: dns-tcp
+    port: 53
+    protocol: TCP
+  - name: metrics
+    port: 9153
+    protocol: TCP
+    targetPort: 9153
+
+# 获取已下载离线镜像信息
+ls /etc/ansible/down
+
+# 尝试推送离线 coredns 镜像
+cp /etc/ansible/down/coredns_1.2.6.tar /opt/kube/images/coredns_1.2.6.tar
+
+# 导入 coredns 的离线镜像
+/opt/kube/bin/docker load -i /opt/kube/images/coredns_1.2.6.tar
+
+# 创建 coredns 部署
+/opt/kube/bin/kubectl apply -f /opt/kube/kube-system/coredns
+
+```
