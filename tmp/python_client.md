@@ -8,6 +8,22 @@
 4. 使用 token 和 apiserver_url 连接集群
 5. 调用相关 api 进行操作
 
+### 获取
+
+获取服务的相关信息
+* GET /api/v1/namespaces/{namespace}/services/{name}
+
+获取 ingress 的相关信息
+* GET /apis/extensions/v1beta1/namespaces/{namespace}/ingresses/{name}
+
+
+
+```python
+ret = v1.list_service_for_all_namespaces(watch=False)
+for i in ret.items:
+    print("%s \t%s \t%s \t%s \t%s \n" % (i.kind, i.metadata.namespace, i.metadata.name, i.spec.cluster_ip, i.spec.ports ))
+```
+
 ```python
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
