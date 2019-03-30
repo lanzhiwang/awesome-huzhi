@@ -28,7 +28,7 @@ gitlab 基本执行流程：
 
 架构说明：
 
-* gitlab 服务的类型为 NodePort，运行集群外部的客户端访问。该服务提供两个两组端口，分别用于访问 web 界面和 ssh 。
+* gitlab 服务的类型为 NodePort，运行集群外部的客户端访问。该服务提供两个两组端口，分别用于访问 web 和 ssh 。
 * gitlab 服务后端对应的 Deployment 控制的 pod 运行  Ruby on Rails 应用，对这些容器提供持久化支持
 * redis 服务对应与 redis pod，这些 redis pod 也由 Deployment 控制。对 redis 容器也提供持久化处理
 * postgresql 服务对应与 postgresql pod，这些 postgresql pod 也由 Deployment 控制。对 postgresql 容器也提供持久化处理
