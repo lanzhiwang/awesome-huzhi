@@ -35,11 +35,11 @@
 
 #### 规划相关 IP（使用默认值）
 
-| Subnet / Address range    | Default Value |
-| ------------------------- | ------------- |
-| Service Subnet            | 10.96.0.0/12  |
-| Cluster Subnet            | 10.244.0.0/16 |
-| Kubernetes DNS Service IP | 10.96.0.10    |
+| Subnet / Address range    | Value                          |
+| ------------------------- | ------------------------------ |
+| Service Subnet            | SERVICE_CIDR="10.68.0.0/16"    |
+| Cluster Subnet            | CLUSTER_CIDR="172.20.0.0/16"   |
+| Kubernetes DNS Service IP | CLUSTER_DNS_SVC_IP="10.68.0.2" |
 
 ### 创建 Kubernetes Master 节点
 

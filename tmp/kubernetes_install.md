@@ -14,28 +14,27 @@
 * haproxy 对应的 80 和 443 端口用于向集群外部的客户端公开相关服务，用于 ingress ，此时该如何对应多个服务 ?
 * kubernetes 主节点也可以安装 kube-proxy 和 kebuctl 等用于调度
 * 工作节点和 k8s node 节点安装 kubectl 用于操作集群
+* 相关插件采用离线 docker 镜像安装
 
+### 集群每部分构建说明
 
+* [工作节点的准备工作](./01_deploy.md)
 
-[工作节点的准备工作](./01_deploy.md)
-[所有节点的预配置](./02_prepare.md)
-[haproxy + keepalived 安装配置](./03_lb.md)
-[在 master 和 node 节点上安装 docker](./04_docker.md)
-[etcd](./05_etcd.md)
-[kubernetes 主节点安装配置](./06_kube_master.md)
-[kubernetes node 节点安装配置](./07_kube_node.md)
-[在主节点和 node 节点安装网络插件](./08_kube_network.md)
-[安装 dns、metrics-server、dashboard、heapster、metallb、traefik、nginx-ingress](./09_kube_addon.md)
+* [所有节点的预配置](./02_prepare.md)
 
+* [haproxy + keepalived 安装配置](./03_lb.md)
 
+* [在 master 和 node 节点上安装 docker](./04_docker.md)
 
+* [etcd](./05_etcd.md)
 
+* [kubernetes 主节点安装配置](./06_kube_master.md)
 
+* [kubernetes node 节点安装配置](./07_kube_node.md)
 
+* [在主节点和 node 节点安装网络插件 flannel ](./08_kube_network.md)
 
-
-
-
+* [安装 dns、metrics-server、dashboard、heapster、metallb、traefik、nginx-ingress](./09_kube_addon.md)
 
 ### 问题
 
@@ -47,12 +46,6 @@
 * 在主节点安装时的操作 `Making master nodes SchedulingDisabled` 和 `Setting master role name` 的作用？
 * kubectl cordon 作用？
 * 设置集群参数、设置客户端认证参数、设置上下文参数、选择默认上下文 相关选项有哪些 ？
-* 启动 kubelet 服务时 cni 配置的作用？
-* 
+* 启动 kubelet 服务时 cni 配置的作用，安装 flannel 插件为什么要删除默认 cni 配置？
 
-
-
-
-
-
-
+[参考](https://github.com/gjmzj/kubeasz)
