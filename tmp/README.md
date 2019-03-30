@@ -332,7 +332,7 @@ cat /etc/cni/net.d/10-default.conf
 	}
 }
 
-# 创建kubelet的systemd unit文件，以 192.168.1.3 为例
+# 创建 kubelet 的systemd unit文件，以 192.168.1.3 为例
 cat /etc/systemd/system/kubelet.service
 [Unit]
 Description=Kubernetes Kubelet
@@ -379,7 +379,9 @@ WantedBy=multi-user.target
 systemctl enable kubelet
 systemctl daemon-reload && systemctl restart kubelet
 
-# 安装 kube-proxy.kubeconfig 配置文件
+##### kube-proxy 相关 #####
+
+# 从工作节点拷贝 kube-proxy.kubeconfig 配置文件
 cp /etc/kubernetes/kube-proxy.kubeconfig /etc/kubernetes/kube-proxy.kubeconfig
 
 # 创建 kube-proxy 服务文件，以 192.168.1.3 为例
@@ -411,9 +413,6 @@ systemctl daemon-reload && systemctl restart kube-proxy
 
 # 设置node节点role，以 192.168.1.3 为例
 /opt/kube/bin/kubectl label node 192.168.1.3 kubernetes.io/role=node --overwrite
-
-
-
 
 ```
 

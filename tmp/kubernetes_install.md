@@ -46,7 +46,9 @@
 * haproxy 对应的 80 和 443 端口用于向集群外部的客户端公开相关服务，用于 ingress ，此时该如何对应多个服务 ?
 * 在主节点安装时的操作 `Making master nodes SchedulingDisabled` 和 `Setting master role name` 的作用？
 * kubectl cordon 作用？
-* 设置集群参数、设置客户端认证参数、设置上下文参数、选择默认上下文 相关选项有哪些？
+* 设置集群参数、设置客户端认证参数、设置上下文参数、选择默认上下文 相关选项有哪些 ？
+* 启动 kubelet 服务时 cni 配置的作用？
+* 
 
 
 
