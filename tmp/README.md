@@ -240,25 +240,25 @@ mkdir -p /opt/kube/bin /etc/kubernetes/ssl
 mkdir -p /var/lib/kubelet /var/lib/kube-proxy /etc/cni/net.d /root/.kube
 
 # 从工作节点拷贝 kubelet,kube-proxy 二进制和基础 cni plugins
-cp /etc/ansible/bin/kubectl /opt/kube/bin/kubectl
-cp /etc/ansible/bin/kubelet /opt/kube/bin/kubelet
-cp /etc/ansible/bin/kube-proxy /opt/kube/bin/kube-proxy
-cp /etc/ansible/bin/bridge /opt/kube/bin/bridge
-cp /etc/ansible/bin/host-local /opt/kube/bin/host-local
-cp /etc/ansible/bin/loopback /opt/kube/bin/loopback
+scp /etc/ansible/bin/kubectl /opt/kube/bin/kubectl
+scp /etc/ansible/bin/kubelet /opt/kube/bin/kubelet
+scp /etc/ansible/bin/kube-proxy /opt/kube/bin/kube-proxy
+scp /etc/ansible/bin/bridge /opt/kube/bin/bridge
+scp /etc/ansible/bin/host-local /opt/kube/bin/host-local
+scp /etc/ansible/bin/loopback /opt/kube/bin/loopback
 
-# 分发 kubeconfig 配置文件
+# 从工作节点拷贝 kubectl 的配置文件
 scp /root/.kube/config /root/.kube/config
 
 # 添加 kubectl 命令自动补全
 
 # 从工作节点拷贝证书
-cp /etc/kubernetes/ssl/ca.pem /etc/kubernetes/ssl/ca.pem
-cp /etc/kubernetes/ssl/ca-key.pem /etc/kubernetes/ssl/ca-key.pem
-cp /etc/kubernetes/ssl/ca.csr /etc/kubernetes/ssl/ca.csr
-cp /etc/kubernetes/ssl/ca-config.json /etc/kubernetes/ssl/ca-config.json
+scp /etc/kubernetes/ssl/ca.pem /etc/kubernetes/ssl/ca.pem
+scp /etc/kubernetes/ssl/ca-key.pem /etc/kubernetes/ssl/ca-key.pem
+scp /etc/kubernetes/ssl/ca.csr /etc/kubernetes/ssl/ca.csr
+scp /etc/kubernetes/ssl/ca-config.json /etc/kubernetes/ssl/ca-config.json
 
-# 准备kubelet 证书签名请求，以 192.168.1.3 为例
+# 准备 kubelet 证书签名请求，以 192.168.1.3 为例
 cat /etc/kubernetes/ssl/kubelet-csr.json
 {
   "CN": "system:node:192.168.1.3",
@@ -281,6 +281,8 @@ cat /etc/kubernetes/ssl/kubelet-csr.json
   ]
 }
 
+##### kubelet 相关 ##### 
+
 # 创建 kubelet 证书与私钥
 cd /etc/kubernetes/ssl && /opt/kube/bin/cfssl gencert \
         -ca=/etc/kubernetes/ssl/ca.pem \
@@ -288,21 +290,21 @@ cd /etc/kubernetes/ssl && /opt/kube/bin/cfssl gencert \
         -config=/etc/kubernetes/ssl/ca-config.json \
         -profile=kubernetes kubelet-csr.json | /opt/kube/bin/cfssljson -bare kubelet
 
-# 设置集群参数
+# 设置 kubelet 集群参数
 /opt/kube/bin/kubectl config set-cluster kubernetes \
-        --certificate-authority=/etc/kubernetes/ca.pem \
+        --certificate-authority=/etc/kubernetes/ssl/ca.pem \
         --embed-certs=true \
         --server=https://192.168.1.12:8443 \
 	--kubeconfig=kubelet.kubeconfig
 
-# 设置客户端认证参数
+# 设置 kubelet 客户端认证参数
 /opt/kube/bin/kubectl config set-credentials system:node:192.168.1.3 \
         --client-certificate=/etc/kubernetes/ssl/kubelet.pem \
         --embed-certs=true \
         --client-key=/etc/kubernetes/ssl/kubelet-key.pem \
 	--kubeconfig=kubelet.kubeconfig
 
-# 设置上下文参数
+# 设置 kubelet 上下文参数
 /opt/kube/bin/kubectl config set-context default \
         --cluster=kubernetes \
 	--user=system:node:192.168.1.3 \
@@ -315,7 +317,7 @@ cd /etc/kubernetes/ssl && /opt/kube/bin/cfssl gencert \
 # 移动 kubelet.kubeconfig
 mv /root/kubelet.kubeconfig /etc/kubernetes/
 
-# 准备 cni配置文件
+# cni 配置文件
 cat /etc/cni/net.d/10-default.conf
 {
 	"name": "mynet",

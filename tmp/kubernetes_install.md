@@ -13,6 +13,7 @@
 * 如图所示，客户端请求 haproxy 的 8443 端口，所以相关客户端（包括kubectl 和 kube-proxy）的配置文件中集群 apiserver 的地址应该使 192.168.1.12:8443 
 * haproxy 对应的 80 和 443 端口用于向集群外部的客户端公开相关服务，用于 ingress ，此时该如何对应多个服务 ?
 * kubernetes 主节点也可以安装 kube-proxy 和 kebuctl 等用于调度
+* 工作节点和 k8s node 节点安装 kubectl 用于操作集群
 
 
 
@@ -45,6 +46,7 @@
 * haproxy 对应的 80 和 443 端口用于向集群外部的客户端公开相关服务，用于 ingress ，此时该如何对应多个服务 ?
 * 在主节点安装时的操作 `Making master nodes SchedulingDisabled` 和 `Setting master role name` 的作用？
 * kubectl cordon 作用？
+* 设置集群参数、设置客户端认证参数、设置上下文参数、选择默认上下文 相关选项有哪些？
 
 
 
