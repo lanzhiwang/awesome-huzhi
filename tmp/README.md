@@ -14,7 +14,7 @@
 
 * [直接以运行二进制文件的方式搭建 kubernetes 集群](./kubernetes_install.md)
 * [将 windows 主节加入到集群作为 node 节点](./Windows_Nodes.md)
-* [支持ES集群部署、更新、回滚](./elasticsearch.md)
+* [ES 集群](./elasticsearch.md)
 * [sqlserver 构建说明](./sqlserver.md)
 * [gitlab 构建说明](./gitlab.md)
 
