@@ -40,6 +40,7 @@
 
 * ntp 或者 chrony 服务的异同，该如何选择？
 * kubernetes 是否需要知道镜像库的位置，还是只要在 docker 中指定？docker 配置文件可以指定
+* 加入 windows 的 node 节点是否对 Linux 发行版有要求？
 * haproxy + keepalived 部分配置参数的含义
 * 在 systemd unit 文件中可以使用的相关变量有哪些？参见 haproxy + keepalived
 * haproxy 对应的 80 和 443 端口用于向集群外部的客户端公开相关服务，用于 ingress ，此时该如何对应多个服务 ?

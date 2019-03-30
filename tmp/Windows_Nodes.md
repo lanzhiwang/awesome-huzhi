@@ -44,36 +44,6 @@
 ### 创建 Kubernetes Master 节点
 
 * Kubernetes v1.13  v1.14
-* Ubuntu 16.04 
-
-```bash
-# 使用 root 用户执行下列命令
-sudo –s
-
-# 不使用交换分区
-swapoff -a
-
-# 更新
-apt-get update -y && apt-get upgrade -y
-
-# 安装 docker
-apt-get install docker 
-
-# 安装 kubeadm
-curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
-deb http://apt.kubernetes.io/ kubernetes-xenial main
-EOF
-apt-get update && apt-get install -y kubelet kubeadm kubectl
-
-# Initialize master
-kubeadm init --pod-network-cidr=10.244.0.0/16 --service-cidr=10.96.0.0/12
-
-# 使 kubectl 可以访问集群
-mkdir -p $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-```
 
 ### 修改节点标签使资源可以在 Linux 或者 Windows 上调度
 
