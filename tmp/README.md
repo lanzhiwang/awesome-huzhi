@@ -17,6 +17,7 @@
 * [ES 集群](./elasticsearch.md)
 * [sqlserver 构建说明](./sqlserver.md)
 * [gitlab 构建说明](./gitlab.md)
+* [通过 ingress 暴露 es、sqlserver、gitlab 服务](./Ingress.md)
 
 
 
