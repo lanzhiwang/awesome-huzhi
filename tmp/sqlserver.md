@@ -14,6 +14,12 @@
 
 
 
+### 问题
+
+* 怎样构建在 windows 上运行的 docker 镜像??
+* sqlserver 在 Windows 节点和 Linux 节点上运行有没有区别，是否要选择只在 Windows 上运行？
+* 
+
 
 
 ### 参考
