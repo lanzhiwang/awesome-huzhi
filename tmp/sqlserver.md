@@ -8,28 +8,30 @@
 
 ![](./sqlserver.png)
 
-![](./sqlserver_Kubernetes.png)
+### 部署 sqlserver 使用到的 Kubernetes资源
 
+![](./sqlserver_Kubernetes.png)
 
 ### 部署步骤
 
-1. 创建 kubernetes 集群
-
-
+1. Create the Kubernetes cluster
+2. Deploy the operator
+3. Configure the storage
+4. Deploy the StatefulSet
+5. Create the databases and attach them to the availability group
 
 ### 问题
 
+* sqlserver operator 注册了 sqlserver 资源，也创建了 sqlserver 实例，是怎样做到的？
+* sqlserver 资源的作用？
 * 怎样构建在 windows 上运行的 docker 镜像??
 * sqlserver 在 Windows 节点和 Linux 节点上运行有没有区别，是否要选择只在 Windows 上运行？
-* 
-
-
 
 ### 参考
 
 * https://docs.microsoft.com/en-us/sql/linux/sql-server-ag-kubernetes?view=sqlallproducts-allversions
 
-
+### 相关文件
 
 #### operator.yaml
 
