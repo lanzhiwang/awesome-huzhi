@@ -8,7 +8,7 @@
 4. 使用 token 和 apiserver_url 连接集群
 5. 调用相关 api 进行操作
 
-### 获取
+### 需要用到的接口
 
 获取服务的相关信息
 * GET /api/v1/namespaces/{namespace}/services/{name}
@@ -16,6 +16,10 @@
 获取 ingress 的相关信息
 * GET /apis/extensions/v1beta1/namespaces/{namespace}/ingresses/{name}
 
+
+### 问题
+
+* 连接数据库
 
 
 ```python
