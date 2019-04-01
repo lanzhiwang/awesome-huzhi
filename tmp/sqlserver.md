@@ -8,6 +8,9 @@
 
 ![](./sqlserver.png)
 
+![](./sqlserver_Kubernetes.png)
+
+
 ### 部署步骤
 
 1. 创建 kubernetes 集群
