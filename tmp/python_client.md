@@ -1,4 +1,8 @@
-## kubernetes python client
+## kubernetes python
+
+### python 驱动相关组件
+
+![](./python_client.png)
 
 ### kubernetes python client 基本使用
 
@@ -8,32 +12,39 @@
 4. 使用 token 和 apiserver_url 连接集群
 5. 调用相关 api 进行操作
 
-### 需要用到的接口
+### 服务发现方式
 
-获取服务的相关信息
-* GET /api/v1/namespaces/{namespace}/services/{name}
+pod 访问集群内部的 pod
 
-获取 ingress 的相关信息
-* GET /apis/extensions/v1beta1/namespaces/{namespace}/ingresses/{name}
+1. 通过环境变量发现服务（服务要早于 pod 创建）
+2. 通过 DNS 发现服务（修改容器的 dnsPolicy 属性）
+	* 使用 DNS 方法怎么发现 port
 
+pod 连接外部的服务
+
+1. endpoint
+2. ExternalName
+
+将服务暴露给外部客户端
+
+1. NodePort
+2. LoadBalancer
+3. Ingress
+
+* 由于 python 相关容器也运行在 pod 中，所以使用域名配置相关 ip，port 暂时写死。
+* 账号密码统一用 secret 共享
 
 ### 问题
 
-* 连接数据库
+* SQL server、ES 等如果长时间无法返回结果或者在连接时pod被重新调度，应该如何重试？
 
-
-```python
-ret = v1.list_service_for_all_namespaces(watch=False)
-for i in ret.items:
-    print("%s \t%s \t%s \t%s \t%s \n" % (i.kind, i.metadata.namespace, i.metadata.name, i.spec.cluster_ip, i.spec.ports ))
-```
+### kubernetes python client 基本使用方法
 
 ```python
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 from kubernetes import client, config
-
 
 def main():
     # Define the barer token we are going to use to authenticate.
@@ -117,4 +128,3 @@ kubectl config view --minify | grep server | cut -f 2- -d ":" | tr -d " "
 
 * https://github.com/kubernetes-client/python
 * https://kubernetes.io/docs/reference/using-api/client-libraries/
-

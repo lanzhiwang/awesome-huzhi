@@ -23,7 +23,7 @@ spec:
   - host: test.es.com
     http:
       paths:
-      - path: /
+      - path: /  # 匹配全部就不需要这个字段或者使用正则表达式
         backend:
           serviceName: elasticsearch
           servicePort: 9200
