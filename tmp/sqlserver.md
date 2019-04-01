@@ -29,7 +29,8 @@
 
 ### 参考
 
-* https://docs.microsoft.com/en-us/sql/linux/sql-server-ag-kubernetes?view=sqlallproducts-allversions
+* [SQL Server 部署参考](https://docs.microsoft.com/en-us/sql/linux/sql-server-ag-kubernetes?view=sqlallproducts-allversions)
+* [Operators 概念说明](https://coreos.com/blog/introducing-operators.html)
 
 ### 相关文件
 
