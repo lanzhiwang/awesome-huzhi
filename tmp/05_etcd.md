@@ -1,4 +1,4 @@
-### 安装 etcd
+## 安装 etcd
 
 ```bash
 

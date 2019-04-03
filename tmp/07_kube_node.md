@@ -1,6 +1,6 @@
-## kubernetes master
+## kubernetes node
 
-### kubernetes master 节点安装配置步骤
+### kubernetes node 节点安装配置步骤
 
 1. 下载或者拷贝相关文件
 2. kubelet 相关
