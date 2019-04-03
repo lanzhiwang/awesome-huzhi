@@ -336,7 +336,7 @@ export PATH=/opt/kube/bin:$PATH
 
 ```
 
-### haproxy + keepalived
+## haproxy + keepalived
 
 ```bash
 192.168.1.11 LB_ROLE=backup
@@ -1930,7 +1930,7 @@ volumeClaimTemplates 使用方法如下：
 * [参考2](https://github.com/pires/docker-elasticsearch-kubernetes)
 
 
-## Deploy a SQL Server Always On availability group on a Kubernetes cluster
+## SQL Server
 
 ### 前提条件
 
