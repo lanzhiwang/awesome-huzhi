@@ -500,6 +500,7 @@ h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
 * [HTTP Status Codes](./computer/HTTP_Status_Codes.md)
 * [什么时候使用单例模式，为什么要使用单例模式](./computer/Singleton.md)
 * [DNS 记录](./computer/DNS.md)
+* [linux 内存分配](./c_language/README.md)
 
 
 ## JavaScript
