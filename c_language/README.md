@@ -40,9 +40,4 @@ int main(void)
    free(a);                              // 释放掉使用的内存地址
    return 0;
 }
---------------------- 
-作者：I_am_a_buger 
-来源：CSDN 
-原文：https://blog.csdn.net/i_am_a_buger/article/details/80980027 
-版权声明：本文为博主原创文章，转载请附上博文链接！
 ```
