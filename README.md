@@ -180,7 +180,7 @@ Author: `huzhi`
 * [nginx uwsgi flask](./linux/nginx_uwsgi_flask.md)
 * [监控系统 prometheus 基本原理以及客户端的使用](./linux/Prometheus.md)
   * [Prometheus操作指南](https://github.com/yunlzheng/prometheus-book)
-* [epel](https://fedoraproject.org/wiki/EPEL)
+* [epel](https://fedoraproject.org/wiki/EPEL)、[elrepo](http://elrepo.org/tiki/tiki-index.php)
 * [http curl wget](./linux/HTTPie_and_Curl_Wget.md)
 * [Linux 异步事件模型--以redis事件模型为例](https://github.com/lanzhiwang/awesome-huzhi/blob/master/Redis/Redis_Event_Model.md)
 * [使用 nginx 作为 yum 代理](./linux/nginx_yum_proxy.md)
