@@ -159,6 +159,7 @@ Author: `huzhi`
 
   * [shell](https://google.github.io/styleguide/shell.xml) - shell代码规范
 * [Linux 使用技巧](https://github.com/jlevy/the-art-of-command-line)
+* [linux 系统初始化](https://github.com/lanzhiwang/awesome-huzhi/wiki/linux-%E7%B3%BB%E7%BB%9F%E5%88%9D%E5%A7%8B%E5%8C%96)
 * [unix/linux 命令列表及说明](https://github.com/lanzhiwang/awesome-huzhi/wiki/unix-linux-command-list)
 * [free 命令输出详解](https://github.com/lanzhiwang/awesome-huzhi/wiki/free-output-explanation)
 * [ uptime 命令输出 linux 负载说明](https://github.com/lanzhiwang/awesome-huzhi/wiki/linux-load-explanation)
