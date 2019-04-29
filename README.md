@@ -318,6 +318,7 @@ Author: `huzhi`
     * [Redis 中的乐观锁和悲观锁](./Redis/Redis_optimistic_Pessimistic_lock.md)
     * [Redis 内存模型](./Redis/Redis_memory_model.md)
     * [Redis 中的写时复制机制](./Redis/Redis_cow.md)
+    * [Redis 内存碎片化的原因](Redis/Memory_fragmentation.md)
 
 * [MongoDB](./MongoDB/MongoDB.md)
   * [优化 MongoDB 索引](https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/)
