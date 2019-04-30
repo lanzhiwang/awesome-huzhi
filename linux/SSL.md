@@ -341,6 +341,7 @@ Certificate Request:
          f2:3d:d2:71
 $
 # 准备 kubectl 使用的 admin 证书签名请求
+# ./cfssl print-defaults csr > server-csr.json 也可以生成默认格式后修改
 $ cat admin-csr.json 
 {
   "CN": "www.antiy.com/emailAddress=admin@antiy.cn",
