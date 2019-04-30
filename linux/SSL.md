@@ -221,7 +221,131 @@ Certificate Request:
          d5:4f:88:a8:f2:02:78:36:92:d5:50:6c:3f:0e:99:8c:3a:d9:
          fc:4d:b0:35:a7:0e:f2:98:c3:f3:64:fb:61:8b:37:86:9f:3c:
          c4:c1:88:17
-ubuntu@huzhi-dev:~/pki$
+$
+
+##################################################
+# 在 k8s 中相关文件的配置和生成
+$ cat ca-config.json
+{
+  "signing": {
+    "default": {
+      "expiry": "87600h"
+    },
+    "profiles": {
+      "kubernetes": {
+        "usages": [
+            "signing",
+            "key encipherment",
+            "server auth",
+            "client auth"
+        ],
+        "expiry": "87600h"
+      }
+    }
+  }
+}
+$
+$ cat ca-csr.json
+{
+  "CN": "www.antiy.com/emailAddress=huzhi@antiy.cn",
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "CN",
+      "ST": "hubeisheng",
+      "L": "wuhanshi",
+      "O": "wuhanantiy",
+      "OU": "Technical Support"
+    }
+  ],
+  "ca": {
+    "expiry": "131400h"
+  }
+}
+$
+$ ll
+total 18816
+-rw-r--r--. 1 root root      292 Apr 30 15:28 ca-config.json
+-rw-r--r--. 1 root root      300 Apr 30 15:29 ca-csr.json
+-rwxr-xr-x. 1 root root 10376657 Mar 30  2016 cfssl
+-rwxr-xr-x. 1 root root  6595195 Mar 30  2016 cfssl-certinfo
+-rwxr-xr-x. 1 root root  2277873 Mar 30  2016 cfssljson
+$
+$ ./cfssl gencert -initca ca-csr.json | ./cfssljson -bare ca
+2019/04/30 15:34:22 [INFO] generating a new CA key and certificate from CSR
+2019/04/30 15:34:22 [INFO] generate received request
+2019/04/30 15:34:22 [INFO] received CSR
+2019/04/30 15:34:22 [INFO] generating key: rsa-2048
+2019/04/30 15:34:22 [INFO] encoded CSR
+2019/04/30 15:34:22 [INFO] signed certificate with serial number 394265044297767229043787806716098626236905974886
+$ 
+$ ll
+total 18828
+-rw-r--r--. 1 root root      292 Apr 30 15:28 ca-config.json
+-rw-r--r--. 1 root root     1074 Apr 30 15:34 ca.csr  # CA 证书请求文件
+-rw-r--r--. 1 root root      300 Apr 30 15:29 ca-csr.json
+-rw-------. 1 root root     1675 Apr 30 15:34 ca-key.pem  # CA 私钥
+-rw-r--r--. 1 root root     1505 Apr 30 15:34 ca.pem  # CA 公钥
+-rwxr-xr-x. 1 root root 10376657 Mar 30  2016 cfssl
+-rwxr-xr-x. 1 root root  6595195 Mar 30  2016 cfssl-certinfo
+-rwxr-xr-x. 1 root root  2277873 Mar 30  2016 cfssljson
+$
+$ openssl req -text -in ca.csr -noout
+Certificate Request:
+    Data:
+        Version: 0 (0x0)
+        Subject: C=CN, ST=hubeisheng, L=wuhanshi, O=wuhanantiy, OU=Technical Support, CN=www.antiy.com/emailAddress=huzhi@antiy.cn
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:c2:c7:dd:0f:3e:6f:d4:60:df:1c:50:ec:a1:d2:
+                    18:c1:82:d4:42:df:4f:53:9d:37:0d:0d:fd:3f:29:
+                    0e:81:5c:72:ae:3f:ac:fd:3c:66:7b:49:2f:a6:62:
+                    3b:55:9f:7a:4c:1e:a1:0f:98:4d:ee:89:a5:fc:6e:
+                    6c:23:19:f6:44:53:bb:7b:79:b6:a8:81:94:24:d2:
+                    b3:15:f4:4e:6c:cb:5a:d8:e1:e8:37:94:b5:26:e3:
+                    19:e4:d6:d9:dd:9c:b5:4a:92:22:3a:ab:cc:00:44:
+                    8e:f8:12:0f:99:90:36:f2:96:31:a8:af:86:f3:fb:
+                    2c:55:57:4f:f2:96:5a:3f:21:ed:6a:25:1f:a2:3e:
+                    b7:8e:5b:9b:eb:f8:81:fa:9c:43:7b:2c:03:b8:60:
+                    c5:c1:ef:1a:53:79:12:03:b3:ef:c6:78:42:6a:2c:
+                    6d:22:2b:59:f1:ab:d8:11:db:58:dc:0e:9e:10:3e:
+                    6a:e3:c1:71:5e:e7:f8:04:d4:2f:f6:8b:05:98:06:
+                    06:7b:0c:fc:ba:25:52:62:82:20:b9:10:62:19:fd:
+                    a4:68:3f:aa:c5:15:88:12:d3:b4:c9:a0:71:d0:cf:
+                    c6:09:c6:63:4b:ea:18:cc:24:d3:d3:b1:8c:f2:a0:
+                    54:f1:53:f1:d9:f9:bf:fe:18:f8:d7:5b:38:60:f4:
+                    9d:6b
+                Exponent: 65537 (0x10001)
+        Attributes:
+            a0:00
+    Signature Algorithm: sha256WithRSAEncryption
+         96:ec:6f:3f:a0:ca:4e:b1:eb:b3:fc:4f:d7:7b:b4:dd:f8:8a:
+         5e:81:02:9e:ab:68:a2:52:13:38:fd:bd:ec:cc:89:6c:83:76:
+         25:ef:fd:26:76:50:9d:35:ee:ef:ef:13:c9:83:d2:e1:18:6c:
+         11:69:4a:75:01:a3:eb:fe:39:93:ef:2c:e9:17:45:a9:2b:f0:
+         8e:72:06:85:7d:d3:da:30:44:d0:c2:d9:eb:6c:f1:25:5b:80:
+         1c:30:7d:38:83:b5:d6:3d:51:7e:31:da:7c:3c:16:98:93:ad:
+         56:a2:e1:33:34:7b:30:1b:73:98:7a:1b:57:ef:86:f6:76:31:
+         da:c8:09:51:5f:74:1c:89:0f:e3:6a:6e:d9:42:7c:50:5d:b9:
+         14:31:c2:c9:eb:9d:9a:cb:9d:10:a8:c6:0b:76:ff:5f:7e:b3:
+         4e:d3:4e:93:5b:4d:5a:17:21:7a:7c:82:b2:84:92:fb:7f:22:
+         95:7f:e7:96:37:2a:f1:ea:f3:16:16:75:d6:07:e5:87:73:ee:
+         66:00:0c:0e:32:ea:43:bb:f8:d6:32:b5:14:ef:da:ad:b9:e1:
+         69:48:93:1d:e6:ed:e6:5c:5d:b6:33:17:74:d0:36:b4:ea:fc:
+         ab:19:ac:d2:db:d4:64:3e:fe:61:66:4a:03:e9:ac:fe:26:ce:
+         f2:3d:d2:71
+$
+
+
+
+
+
+
 
 
 
