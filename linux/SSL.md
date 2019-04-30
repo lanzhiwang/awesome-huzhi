@@ -341,7 +341,7 @@ Certificate Request:
          f2:3d:d2:71
 $
 # 准备 kubectl 使用的 admin 证书签名请求
-$ cat admin-csr.json
+$ cat admin-csr.json 
 {
   "CN": "www.antiy.com/emailAddress=admin@antiy.cn",
   "key": {
@@ -356,10 +356,7 @@ $ cat admin-csr.json
       "O": "wuhanantiy",
       "OU": "Technical Support"
     }
-  ],
-  "ca": {
-    "expiry": "131400h"
-  }
+  ]
 }
 
 $ ll
@@ -374,40 +371,34 @@ total 18832
 -rwxr-xr-x. 1 root root  6595195 Mar 30  2016 cfssl-certinfo
 -rwxr-xr-x. 1 root root  2277873 Mar 30  2016 cfssljson
 $
-$ cat admin-csr.json
-{
-  "CN": "www.antiy.com/emailAddress=admin@antiy.cn",
-  "key": {
-    "algo": "rsa",
-    "size": 2048
-  },
-  "names": [
-    {
-      "C": "CN",
-      "ST": "hubeisheng",
-      "L": "wuhanshi",
-      "O": "wuhanantiy",
-      "OU": "Technical Support"
-    }
-  ],
-  "ca": {
-    "expiry": "131400h"
-  }
-}
+$ ./cfssl gencert -ca=./ca.pem -ca-key=./ca-key.pem -config=./ca-config.json -profile=kubernetes ./admin-csr.json | ./cfssljson -bare admin
+2019/04/30 16:04:40 [INFO] generate received request
+2019/04/30 16:04:40 [INFO] received CSR
+2019/04/30 16:04:40 [INFO] generating key: rsa-2048
+2019/04/30 16:04:40 [INFO] encoded CSR
+2019/04/30 16:04:40 [INFO] signed certificate with serial number 683592056930662882853771581788949743996001705526
+2019/04/30 16:04:40 [WARNING] This certificate lacks a "hosts" field. This makes it unsuitable for
+websites. For more information see the Baseline Requirements for the Issuance and Management
+of Publicly-Trusted Certificates, v.1.1.6, from the CA/Browser Forum (https://cabforum.org);
+specifically, section 10.2.3 ("Information Requirements").
 $
-# 创建 admin 证书与私钥
-$ ./cfssl gencert -ca=./ca.pem -ca-key=./ca-key.pem -config=./ca-config.json -profile=kubernetes admin-csr.json | ./cfssljson -bare admin
+$ ll
+total 18844
+-rw-r--r--. 1 root root     1074 Apr 30 16:04 admin.csr  # admin 证书请求文件
+-rw-r--r--. 1 root root      261 Apr 30 16:04 admin-csr.json
+-rw-------. 1 root root     1679 Apr 30 16:04 admin-key.pem  # admin 私钥
+-rw-r--r--. 1 root root     1537 Apr 30 16:04 admin.pem  # admin 公钥
+-rw-r--r--. 1 root root      292 Apr 30 15:28 ca-config.json
+-rw-r--r--. 1 root root     1074 Apr 30 15:34 ca.csr
+-rw-r--r--. 1 root root      300 Apr 30 15:29 ca-csr.json
+-rw-------. 1 root root     1675 Apr 30 15:34 ca-key.pem
+-rw-r--r--. 1 root root     1505 Apr 30 15:34 ca.pem
+-rwxr-xr-x. 1 root root 10376657 Mar 30  2016 cfssl
+-rwxr-xr-x. 1 root root  6595195 Mar 30  2016 cfssl-certinfo
+-rwxr-xr-x. 1 root root  2277873 Mar 30  2016 cfssljson
+$
 
-
-
-
-
-
-
-
-
-
-
+#################################################################
 
 # 示例2
 $ ./cfssl print-defaults config > ca-config.json
