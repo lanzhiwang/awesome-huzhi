@@ -340,6 +340,63 @@ Certificate Request:
          ab:19:ac:d2:db:d4:64:3e:fe:61:66:4a:03:e9:ac:fe:26:ce:
          f2:3d:d2:71
 $
+# 准备 kubectl 使用的 admin 证书签名请求
+$ cat admin-csr.json
+{
+  "CN": "www.antiy.com/emailAddress=admin@antiy.cn",
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "CN",
+      "ST": "hubeisheng",
+      "L": "wuhanshi",
+      "O": "wuhanantiy",
+      "OU": "Technical Support"
+    }
+  ],
+  "ca": {
+    "expiry": "131400h"
+  }
+}
+
+$ ll
+total 18832
+-rw-r--r--. 1 root root      300 Apr 30 15:41 admin-csr.json  # kubectl 使用的 admin 证书签名请求
+-rw-r--r--. 1 root root      292 Apr 30 15:28 ca-config.json
+-rw-r--r--. 1 root root     1074 Apr 30 15:34 ca.csr
+-rw-r--r--. 1 root root      300 Apr 30 15:29 ca-csr.json
+-rw-------. 1 root root     1675 Apr 30 15:34 ca-key.pem
+-rw-r--r--. 1 root root     1505 Apr 30 15:34 ca.pem
+-rwxr-xr-x. 1 root root 10376657 Mar 30  2016 cfssl
+-rwxr-xr-x. 1 root root  6595195 Mar 30  2016 cfssl-certinfo
+-rwxr-xr-x. 1 root root  2277873 Mar 30  2016 cfssljson
+$
+$ cat admin-csr.json
+{
+  "CN": "www.antiy.com/emailAddress=admin@antiy.cn",
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "CN",
+      "ST": "hubeisheng",
+      "L": "wuhanshi",
+      "O": "wuhanantiy",
+      "OU": "Technical Support"
+    }
+  ],
+  "ca": {
+    "expiry": "131400h"
+  }
+}
+$
+# 创建 admin 证书与私钥
+$ ./cfssl gencert -ca=./ca.pem -ca-key=./ca-key.pem -config=./ca-config.json -profile=kubernetes admin-csr.json | ./cfssljson -bare admin
 
 
 
