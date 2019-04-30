@@ -92,6 +92,8 @@ $ ./cfssl print-defaults config > ca-config-default.json
 # 生成默认 CA 证书请求文件 
 $./cfssl print-defaults csr > ca-csr-default.json
 
+# 生成默认文件的目的是要参考相关文件的写法
+
 $ ll
 total 18816
 -rw-r--r--. 1 root root      567 Apr 30 15:13 ca-config-default.json
@@ -152,7 +154,7 @@ $ cat ca-csr-default.json
 
 
 
-
+# 示例2
 $ ./cfssl print-defaults config > ca-config.json
 $ ./cfssl print-defaults csr > ca-csr.json
 $ ls
