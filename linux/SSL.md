@@ -245,6 +245,7 @@ $ cat ca-config.json
   }
 }
 $
+# CA 证书请求文件有 ca 字段，其他的请求文件没有该字段
 $ cat ca-csr.json
 {
   "CN": "www.antiy.com/emailAddress=huzhi@antiy.cn",
