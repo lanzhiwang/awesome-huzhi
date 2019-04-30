@@ -149,6 +149,80 @@ $ cat ca-csr-default.json
     ]
 }
 
+# 为了说明证书请求文件各选项的意义，使用 openssl 说明生成证书请求文件的过程
+# 生成私钥，公钥和证书请求文件的过程
+# fd.key -> fd-public.key -> fd.csr
+$ openssl genrsa -aes128 -out fd.key 2048
+$ openssl rsa -in fd.key -pubout -out fd-public.key
+$ openssl req -new -key fd.key -out fd.csr
+Enter pass phrase for fd.key:
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:CN  # 国家
+State or Province Name (full name) [Some-State]:hubeisheng  # 省份
+Locality Name (eg, city) []:wuhanshi  # 城市
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:wuhan antiy  # 公司
+Organizational Unit Name (eg, section) []:Technical Support  # 公司部门
+Common Name (e.g. server FQDN or YOUR name) []:www.antiy.com  # 公司主站域名
+Email Address []:huzhi@antiy.cn  # 管理员邮箱
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:
+An optional company name []:
+ubuntu@huzhi-dev:~/pki$
+ubuntu@huzhi-dev:~/pki$ openssl req -text -in fd.csr -noout
+Certificate Request:
+    Data:
+        Version: 0 (0x0)
+        Subject: C=CN, ST=hubeisheng, L=wuhanshi, O=wuhan antiy, OU=Technical Support, CN=www.antiy.com/emailAddress=huzhi@antiy.cn
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:d7:24:c4:57:af:da:c7:e9:cc:76:ab:58:85:f9:
+                    89:c1:b6:58:15:0f:34:d7:d5:fa:56:9e:c1:9c:05:
+                    cf:08:7b:2e:f4:53:7f:21:13:8c:95:bb:e1:9b:29:
+                    6b:f5:3c:c0:b4:76:ed:fb:a9:e6:41:6e:3e:ae:aa:
+                    9b:3f:3e:f7:c5:4f:13:f6:b0:e0:b3:15:f5:bb:56:
+                    d0:d0:ed:9c:56:7b:0d:4a:01:e7:71:aa:6b:da:48:
+                    ca:c3:28:7c:e1:ba:f4:62:4d:44:1a:ba:62:ea:52:
+                    41:ea:fd:a7:14:34:18:81:68:95:8f:83:66:3f:de:
+                    1e:d0:8c:5b:4e:9b:d6:d8:dd:07:a4:52:f3:e3:98:
+                    83:47:5b:a8:2a:76:7f:57:e1:5f:3e:c9:61:79:65:
+                    ef:ec:ef:c0:f1:c5:5a:55:bd:c2:99:36:58:a7:8f:
+                    db:75:0d:56:e1:7d:a7:f7:79:bd:40:a4:c7:57:89:
+                    df:da:c3:16:08:e3:16:3c:b4:dc:8a:6c:59:79:3c:
+                    51:84:2c:4f:26:5a:d6:13:db:5f:56:06:80:e4:34:
+                    e6:89:34:db:88:2f:ba:4a:9a:d2:0c:49:c8:39:2c:
+                    1b:52:2c:57:48:8b:02:0f:b7:9c:cd:f6:dd:72:b2:
+                    22:f8:29:8a:5a:ad:ea:55:91:43:e4:39:88:9a:43:
+                    55:39
+                Exponent: 65537 (0x10001)
+        Attributes:
+            a0:00
+    Signature Algorithm: sha256WithRSAEncryption
+         62:6c:02:23:54:ae:74:d7:9f:a8:16:3e:59:4b:79:ca:7c:fb:
+         f6:b8:56:a0:f5:ae:44:5b:4a:50:68:4b:04:69:03:09:f3:cf:
+         dc:d3:9e:2f:20:5e:34:7f:d7:7a:e2:1c:6d:20:ee:61:76:3e:
+         55:34:18:c0:9c:a4:5d:71:49:c2:d8:76:33:0f:f0:c8:81:b3:
+         2b:82:97:13:57:ba:a6:0c:ff:61:a3:dc:04:f7:20:28:88:ee:
+         a0:b6:33:b3:e9:f5:d3:50:66:0d:16:bf:78:50:83:cd:51:7c:
+         7e:f3:27:fe:11:b8:d4:58:fd:f3:79:02:a7:bf:0a:bb:4e:f9:
+         5f:46:54:43:fc:eb:90:a8:f5:3e:a2:70:e1:71:67:08:2f:1e:
+         44:e8:c7:10:59:ab:18:cc:2b:5f:d8:d3:97:0d:f3:73:9f:89:
+         35:16:fd:77:18:fa:ab:e6:63:b8:88:c0:4d:3c:de:98:13:d3:
+         ea:a4:fb:2d:5d:04:e7:ac:d1:25:19:b5:d4:0d:96:67:86:14:
+         f9:dd:87:e7:7f:ec:06:41:d5:ff:79:db:85:ad:57:90:31:f9:
+         d5:4f:88:a8:f2:02:78:36:92:d5:50:6c:3f:0e:99:8c:3a:d9:
+         fc:4d:b0:35:a7:0e:f2:98:c3:f3:64:fb:61:8b:37:86:9f:3c:
+         c4:c1:88:17
+ubuntu@huzhi-dev:~/pki$
+
 
 
 
