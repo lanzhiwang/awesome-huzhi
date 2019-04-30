@@ -79,6 +79,80 @@ $ ls
 cfssl  cfssl-certinfo  cfssljson
 $ 
 
+$ chmod +x ./*
+$ ll
+total 18808
+-rwxr-xr-x. 1 root root 10376657 Mar 30  2016 cfssl
+-rwxr-xr-x. 1 root root  6595195 Mar 30  2016 cfssl-certinfo
+-rwxr-xr-x. 1 root root  2277873 Mar 30  2016 cfssljson
+
+# 生成默认配置文件
+$ ./cfssl print-defaults config > ca-config-default.json
+
+# 生成默认 CA 证书请求文件 
+$./cfssl print-defaults csr > ca-csr-default.json
+
+$ ll
+total 18816
+-rw-r--r--. 1 root root      567 Apr 30 15:13 ca-config-default.json
+-rw-r--r--. 1 root root      287 Apr 30 15:13 ca-csr-default.json
+-rwxr-xr-x. 1 root root 10376657 Mar 30  2016 cfssl
+-rwxr-xr-x. 1 root root  6595195 Mar 30  2016 cfssl-certinfo
+-rwxr-xr-x. 1 root root  2277873 Mar 30  2016 cfssljson
+
+$ cat ca-config-default.json 
+{
+    "signing": {
+        "default": {
+            "expiry": "168h"
+        },
+        "profiles": {
+            "www": {
+                "expiry": "8760h",
+                "usages": [
+                    "signing",
+                    "key encipherment",
+                    "server auth"
+                ]
+            },
+            "client": {
+                "expiry": "8760h",
+                "usages": [
+                    "signing",
+                    "key encipherment",
+                    "client auth"
+                ]
+            }
+        }
+    }
+}
+
+$ cat ca-csr-default.json 
+{
+    "CN": "example.net",
+    "hosts": [
+        "example.net",
+        "www.example.net"
+    ],
+    "key": {
+        "algo": "ecdsa",
+        "size": 256
+    },
+    "names": [
+        {
+            "C": "US",
+            "L": "CA",
+            "ST": "San Francisco"
+        }
+    ]
+}
+
+
+
+
+
+
+
 $ ./cfssl print-defaults config > ca-config.json
 $ ./cfssl print-defaults csr > ca-csr.json
 $ ls
