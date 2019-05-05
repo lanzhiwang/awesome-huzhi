@@ -222,6 +222,11 @@ Certificate Request:
          fc:4d:b0:35:a7:0e:f2:98:c3:f3:64:fb:61:8b:37:86:9f:3c:
          c4:c1:88:17
 $
+# 生成证书
+# fd.key -> fd-public.key -> fd.csr -> fd.crt
+$ openssl x509 -req -days 365 -in fd.csr -signkey fd.key -out fd.crt
+$ openssl x509 -in fd.crt -noout -text
+
 
 ##################################################
 # 在 k8s 中相关文件的配置和生成
@@ -289,7 +294,7 @@ total 18828
 -rw-r--r--. 1 root root     1074 Apr 30 15:34 ca.csr  # CA 证书请求文件
 -rw-r--r--. 1 root root      300 Apr 30 15:29 ca-csr.json
 -rw-------. 1 root root     1675 Apr 30 15:34 ca-key.pem  # CA 私钥
--rw-r--r--. 1 root root     1505 Apr 30 15:34 ca.pem  # CA 公钥
+-rw-r--r--. 1 root root     1505 Apr 30 15:34 ca.pem  # CA 证书
 -rwxr-xr-x. 1 root root 10376657 Mar 30  2016 cfssl
 -rwxr-xr-x. 1 root root  6595195 Mar 30  2016 cfssl-certinfo
 -rwxr-xr-x. 1 root root  2277873 Mar 30  2016 cfssljson
@@ -341,6 +346,69 @@ Certificate Request:
          ab:19:ac:d2:db:d4:64:3e:fe:61:66:4a:03:e9:ac:fe:26:ce:
          f2:3d:d2:71
 $
+$ openssl x509 -in ca.pem -noout -text
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            45:0f:74:be:bf:2e:fd:f0:8a:7b:bb:c0:b9:82:49:4f:7a:c0:6c:66
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=CN, ST=hubeisheng, L=wuhanshi, O=wuhanantiy, OU=Technical Support, CN=www.antiy.com/emailAddress=huzhi@antiy.cn
+        Validity
+            Not Before: Apr 30 07:29:00 2019 GMT
+            Not After : Apr 26 07:29:00 2034 GMT
+        Subject: C=CN, ST=hubeisheng, L=wuhanshi, O=wuhanantiy, OU=Technical Support, CN=www.antiy.com/emailAddress=huzhi@antiy.cn
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:c2:c7:dd:0f:3e:6f:d4:60:df:1c:50:ec:a1:d2:
+                    18:c1:82:d4:42:df:4f:53:9d:37:0d:0d:fd:3f:29:
+                    0e:81:5c:72:ae:3f:ac:fd:3c:66:7b:49:2f:a6:62:
+                    3b:55:9f:7a:4c:1e:a1:0f:98:4d:ee:89:a5:fc:6e:
+                    6c:23:19:f6:44:53:bb:7b:79:b6:a8:81:94:24:d2:
+                    b3:15:f4:4e:6c:cb:5a:d8:e1:e8:37:94:b5:26:e3:
+                    19:e4:d6:d9:dd:9c:b5:4a:92:22:3a:ab:cc:00:44:
+                    8e:f8:12:0f:99:90:36:f2:96:31:a8:af:86:f3:fb:
+                    2c:55:57:4f:f2:96:5a:3f:21:ed:6a:25:1f:a2:3e:
+                    b7:8e:5b:9b:eb:f8:81:fa:9c:43:7b:2c:03:b8:60:
+                    c5:c1:ef:1a:53:79:12:03:b3:ef:c6:78:42:6a:2c:
+                    6d:22:2b:59:f1:ab:d8:11:db:58:dc:0e:9e:10:3e:
+                    6a:e3:c1:71:5e:e7:f8:04:d4:2f:f6:8b:05:98:06:
+                    06:7b:0c:fc:ba:25:52:62:82:20:b9:10:62:19:fd:
+                    a4:68:3f:aa:c5:15:88:12:d3:b4:c9:a0:71:d0:cf:
+                    c6:09:c6:63:4b:ea:18:cc:24:d3:d3:b1:8c:f2:a0:
+                    54:f1:53:f1:d9:f9:bf:fe:18:f8:d7:5b:38:60:f4:
+                    9d:6b
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Key Usage: critical
+                Certificate Sign, CRL Sign
+            X509v3 Basic Constraints: critical
+                CA:TRUE, pathlen:2
+            X509v3 Subject Key Identifier: 
+                45:4D:50:5C:8C:FD:50:FB:D1:4B:32:09:8D:9A:68:91:7C:6A:A8:D6
+            X509v3 Authority Key Identifier: 
+                keyid:45:4D:50:5C:8C:FD:50:FB:D1:4B:32:09:8D:9A:68:91:7C:6A:A8:D6
+
+    Signature Algorithm: sha256WithRSAEncryption
+         67:e7:9c:a7:b7:fb:42:22:72:42:fb:2a:1b:8f:4c:44:ba:e5:
+         35:a4:ee:e4:30:c9:27:03:d4:9b:fc:46:49:a0:7c:10:e7:37:
+         c3:d5:cb:34:a9:eb:68:79:a4:30:2e:f4:01:34:16:50:44:b4:
+         0a:7b:9a:c4:ee:46:bb:e4:3e:a1:51:7b:67:0a:03:ab:e4:28:
+         93:dd:99:b9:e0:1b:a9:9c:8f:4c:e7:c7:27:2b:46:80:55:ca:
+         f6:6a:48:35:fe:17:59:64:fe:59:c3:37:e6:3b:1c:c1:d4:38:
+         6a:b1:49:80:05:ee:9b:ef:eb:83:cd:c4:f0:29:c3:c6:3e:c7:
+         05:57:ec:0e:0c:c6:63:b6:c0:1b:e0:ce:95:c7:ab:a4:72:c0:
+         cb:03:e4:5a:cf:bf:bf:d5:7d:63:19:3e:9f:e1:62:6d:e5:49:
+         b3:1c:92:25:36:05:73:5a:5f:bc:2b:79:44:10:b3:41:e7:40:
+         4e:89:fa:02:88:02:03:3e:fc:5c:9f:31:59:47:52:ae:f7:cb:
+         8c:75:67:44:7e:31:5c:42:4f:e7:43:d7:33:27:fa:f6:67:62:
+         41:54:74:cc:64:73:4d:4b:1c:03:fb:c6:44:6a:30:1c:4c:d2:
+         81:33:dc:f4:3c:da:27:22:71:75:6f:13:6b:ff:c1:ea:9b:ca:
+         5e:d5:8b:e7
+
+
 # 准备 kubectl 使用的 admin 证书签名请求
 # ./cfssl print-defaults csr > server-csr.json 也可以生成默认格式后修改
 $ cat admin-csr.json 
@@ -389,7 +457,7 @@ total 18844
 -rw-r--r--. 1 root root     1074 Apr 30 16:04 admin.csr  # admin 证书请求文件
 -rw-r--r--. 1 root root      261 Apr 30 16:04 admin-csr.json
 -rw-------. 1 root root     1679 Apr 30 16:04 admin-key.pem  # admin 私钥
--rw-r--r--. 1 root root     1537 Apr 30 16:04 admin.pem  # admin 公钥
+-rw-r--r--. 1 root root     1537 Apr 30 16:04 admin.pem  # admin 证书
 -rw-r--r--. 1 root root      292 Apr 30 15:28 ca-config.json
 -rw-r--r--. 1 root root     1074 Apr 30 15:34 ca.csr
 -rw-r--r--. 1 root root      300 Apr 30 15:29 ca-csr.json
