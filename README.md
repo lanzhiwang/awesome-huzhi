@@ -201,7 +201,7 @@ Author: `huzhi`
 * [OpenSSH Config File](./linux/OpenSSH_Config_File_Examples.md)
 * [SSH ProxyCommand](./linux/SSH_ProxyCommand_example.md)
 * [nc 命令示例](./linux/nc.md)
-
+* [centos7 日志系统](./linux/centos7_log.md)
 
 
 
