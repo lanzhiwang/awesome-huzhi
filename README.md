@@ -319,6 +319,7 @@ Author: `huzhi`
     * [Redis 内存模型](./Redis/Redis_memory_model.md)
     * [Redis 中的写时复制机制](./Redis/Redis_cow.md)
     * [Redis 内存碎片化的原因](Redis/Memory_fragmentation.md)
+    * [使用 docker 搭建 redis 集群和哨兵](./Redis/redis_cluster_docker.md)
 
 * [MongoDB](./MongoDB/MongoDB.md)
   * [优化 MongoDB 索引](https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/)
