@@ -544,6 +544,8 @@ h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
 
 * [ffmpeg](./other/ffmpeg.md) - ffmpeg 是一个非常快速的视频和音频转换器，也可以从现场音频/视频源获取。 它还可以在任意采样率之间进行转换，并使用高质量的多相滤波器动态调整视频大小。
 
+* [ffmpeg 操作示例](https://linux.cn/article-10932-1.html)
+
 * [thumbor](https://github.com/thumbor/thumbor) - Thumbor是一种智能成像服务。 它支持按需裁剪，调整大小和翻转图像。
 
 * [you-get](https://github.com/soimort/you-get) - 视频、音频、图片下载工具
