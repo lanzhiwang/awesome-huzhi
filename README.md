@@ -273,7 +273,7 @@ Author: `huzhi`
   * http://dockone.io/article/5520
   * http://www.smashcompany.com/technology/docker-is-a-dangerous-gamble-which-we-will-regret
   * https://thehftguy.com/2016/11/01/docker-in-production-an-history-of-failure/
-
+* [dockerfile 最佳实践](https://blog.docker.com/2019/07/intro-guide-to-dockerfile-best-practices/)
 
 ## algorithm
 
