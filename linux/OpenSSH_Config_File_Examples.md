@@ -85,6 +85,11 @@ Host server1
      User nixcraft
      Port 4242
      IdentityFile /nfs/shared/users/nixcraft/keys/server1/id_rsa
+     
+Host github.com
+     HostName github.com
+     User git
+     IdentityFile ~/.ssh/github
 ```
 
 Save and close the file. To open your new SSH session to server1.cyberciti.biz by typing the following command:
