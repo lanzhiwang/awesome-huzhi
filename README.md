@@ -102,7 +102,7 @@ Author: `huzhi`
 * [布隆过滤器](./python/BloomFilter.md)
 * [Python 脚本到打包项目的标准化指南](./python/packaging_standardization.md)
 * [Python 项目标准结构](./python/Repository_Structure_and_Python.md)
-* [Python 线程安全](https://github.com/lanzhiwang/awesome-huzhi/blob/master/python/python_thread_safe.md)
+* [Python 线程安全，全局变量，局部变量](https://github.com/lanzhiwang/awesome-huzhi/blob/master/python/python_thread_safe.md)
 * [Python 对象序列化](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python-object-serialization)
 * [python logging 实践](https://github.com/lanzhiwang/awesome-huzhi/blob/master/python/python_logging.md)
 * [Python 深复制和浅复制](https://github.com/fluentpython/example-code/blob/master/08-obj-ref/bus.py)
