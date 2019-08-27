@@ -56,20 +56,201 @@ print global_num
 
 ![](../images/python_global_var.png)
 
+多线程中使用全局变量时普遍存在这个问题，解决办法也很简单，可以使用互斥锁、条件变量或者是读写锁等。下面考虑用互斥锁来解决上面代码的问题，只需要在进行 +1 运算前加锁，运算完毕释放锁即可，这样就可以保证运算的原子性。
+
+```python
+# -*- coding: utf-8 -*-
+
+import threading
+
+global_num = 0
+l = threading.Lock()
+
+def thread_cal():
+    global global_num
+    for _ in xrange(1000):
+        # 加锁和释放锁
+        l.acquire()
+        global_num += 1
+        l.release()
+
+# Get 10 threads, run them and wait them all finished.
+threads = []
+for i in range(10):
+    threads.append(threading.Thread(target=thread_cal))
+    threads[i].start()
+
+for i in range(10):
+    threads[i].join()
+
+# Value of global variable can be confused.
+print global_num
+
+"""
+[root@huzhi-code]# python 11_test.py
+10000
+[root@huzhi-code]# python 11_test.py
+10000
+[root@huzhi-code]# python 11_test.py
+10000
+[root@huzhi-code]# python 11_test.py
+10000
+[root@huzhi-code]#
+"""
+
+```
+
+在线程中使用局部变量则不存在这个问题，因为每个线程的局部变量不能被其他线程访问。下面我们用10个线程分别对各自的局部变量进行1000次加1操作，每个线程结束时打印一共执行的操作次数（每个线程均为1000）：
+
+```python
+# -*- coding: utf-8 -*-
+
+import threading
 
 
+def show(num):
+    print threading.current_thread().getName(), num
 
 
+def thread_cal():
+    local_num = 0
+    for _ in xrange(1000):
+        local_num += 1
+    show(local_num)
 
 
+# Get 10 threads, run them and wait them all finished.
+threads = []
+for i in range(10):
+    threads.append(threading.Thread(target=thread_cal))
+    threads[i].start()
+
+for i in range(10):
+    threads[i].join()
+
+"""
+[root@huzhi-code]# python 11_test.py
+Thread-2 1000
+Thread-1 1000
+Thread-3 1000
+Thread-4 1000
+Thread-5 1000
+Thread-6 1000
+Thread-7 1000
+Thread-8 1000
+Thread-10 1000
+Thread-9 1000
+"""
+```
+
+可以看出这里每个线程都有自己的 local_num，各个线程之间互不干涉。
+
+## Thread-local 对象
+
+上面程序中我们需要给 show 函数传递 local_num 局部变量，并没有什么不妥。不过考虑在实际生产环境中，我们可能会调用很多函数，每个函数都需要很多局部变量，这时候用传递参数的方法会很不友好。
+
+为了解决这个问题，一个直观的的方法就是建立一个全局字典，保存线程 ID 到该线程局部变量的映射关系，运行中的线程可以根据自己的 ID 来获取本身拥有的数据。这样，就可以避免在函数调用中传递参数，如下示例：
+
+```python
+# -*- coding: utf-8 -*-
+
+import threading
+
+global_data = {}
 
 
+def show():
+    cur_thread = threading.current_thread()
+    print cur_thread.getName(), global_data[cur_thread]
 
 
+def thread_cal():
+    cur_thread = threading.current_thread()
+    global_data[cur_thread] = 0
+    for _ in xrange(1000):
+        global_data[cur_thread] += 1
+    show()  # Need no local variable.  Looks good.
 
-[什么是线程安全问题](https://selfboot.cn/2016/08/22/threadlocal_overview/)
+
+# Get 10 threads, run them and wait them all finished.
+threads = []
+for i in range(10):
+    threads.append(threading.Thread(target=thread_cal))
+    threads[i].start()
+
+for i in range(10):
+    threads[i].join()
+
+"""
+[root@huzhi-code]# python 11_test.py
+Thread-2 1000
+Thread-3 1000
+Thread-1 1000
+Thread-4 1000
+Thread-5 1000
+Thread-6 1000
+Thread-8 1000
+Thread-7 1000
+Thread-9 1000
+Thread-10 1000
+[root@huzhi-code]#
+"""
+```
+
+保存一个全局字典，然后将线程标识符作为key，相应线程的局部数据作为 value，这种做法并不完美。首先，每个函数在需要线程局部数据时，都需要先取得自己的线程ID，略显繁琐。更糟糕的是，这里并没有真正做到线程之间数据的隔离，因为每个线程都可以读取到全局的字典，每个线程都可以对字典内容进行更改。
+
+为了更好解决这个问题，python 线程库实现了 ThreadLocal 变量（很多语言都有类似的实现，比如Java）。ThreadLocal 真正做到了线程之间的数据隔离，并且使用时不需要手动获取自己的线程 ID，如下示例：
+
+```python
+# -*- coding: utf-8 -*-
+
+import threading
+
+global_data = threading.local()
 
 
+def show():
+    print threading.current_thread().getName(), global_data.num
+
+
+def thread_cal():
+    global_data.num = 0
+    for _ in xrange(1000):
+        global_data.num += 1
+    show()
+
+
+# Get 10 threads, run them and wait them all finished.
+threads = []
+for i in range(10):
+    threads.append(threading.Thread(target=thread_cal))
+    threads[i].start()
+
+for i in range(10):
+    threads[i].join()
+
+print "Main thread: ", global_data.__dict__
+
+"""
+[root@huzhi-code]# python 11_test.py
+Thread-1 1000
+Thread-2 1000
+Thread-3 1000
+Thread-4 1000
+Thread-5 1000
+Thread-9 1000
+Thread-6 1000
+Thread-8 1000
+Thread-7 1000
+Thread-10 1000
+Main thread:  {}
+"""
+```
+
+上面示例中每个线程都可以通过 global_data.num 获得自己独有的数据，并且每个线程读取到的 global_data 都不同，真正做到线程之间的隔离。
+
+
+# 线程安全结论
 
 `线程安全`就是多线程访问时，采用了加锁机制，当一个线程访问该类的某个数据时，进行保护，其他线程不能进行访问直到该线程读取完，其他线程才可使用。不会出现数据不一致或者数据污染。
 
@@ -85,7 +266,7 @@ Python实现线程安全的方法
 
 要想实现线程安全不一定要使用锁机制，threading.local 就没有采用加锁机制，threading.local 在内部使用字典存储每个线程的相关数据。字典的key就是线程ID，值就是相关线程的数据。
 
-### threading.local 对象基本性质
+# threading.local 对象基本性质
 
 ```python
 #!/usr/bin/env python
@@ -134,7 +315,7 @@ print mydata.number  # 42
 
 ```
 
-### 继承 local 对象实现自定义类
+# 继承 local 对象实现自定义类
 
 ```python
 #!/usr/bin/env python
@@ -145,18 +326,6 @@ print mydata.number  # 42
 
 from threading import Thread
 from threading import local
-
-def f():
-    print id(mydata)  # 140319450666808
-    print mydata.__dict__  # {'color': 'red'}
-    items = mydata.__dict__.items()
-    print items  # [('color', 'red')]
-    items.sort()
-    log.append(items)
-    print mydata.number  # 2
-    # print mydata.other  # AttributeError: 'MyLocal' object has no attribute 'other'
-    mydata.number = 11
-    log.append(mydata.number)
 
 class MyLocal(local):
     number = 2
@@ -187,6 +356,28 @@ print mydata.other  # 5
 
 del mydata.color
 print mydata.squared()  # 4
+
+
+
+
+
+
+
+
+def f():
+    print id(mydata)  # 140319450666808
+    print mydata.__dict__  # {'color': 'red'}
+    items = mydata.__dict__.items()
+    print items  # [('color', 'red')]
+    items.sort()
+    log.append(items)
+    print mydata.number  # 2
+    # print mydata.other  # AttributeError: 'MyLocal' object has no attribute 'other'
+    mydata.number = 11
+    log.append(mydata.number)
+
+
+
 
 log = []
 thread = Thread(target=f)
@@ -271,3 +462,7 @@ print 'main thread request: ', request_local  # main thread request:  456
 print 'main thread request: ', locals.request  # main thread request:  789
 
 ```
+
+参考：
+
+* https://selfboot.cn/2016/08/22/threadlocal_overview/
