@@ -1,3 +1,72 @@
+# 什么是线程安全问题
+
+在多线程环境下，每一个线程均可以使用**所属进程**的**全局变量**。如果一个线程对全局变量进行了修改，将会影响到其他所有的线程。为了避免多个线程同时对全局变量进行修改，引入了线程同步机制，通过互斥锁，条件变量或者读写锁等来控制对全局变量的访问。
+
+只用全局变量并不能满足多线程环境的需求，很多时候线程还需要拥有自己的私有数据，这些数据对于其他线程来说不可见。因此线程中也可以使用**局部变量**，局部变量只有线程自身可以访问，同一个进程下的其他线程不可访问。
+
+有时候使用局部变量不太方便，因此 python 还提供了 ThreadLocal 变量，它本身是一个全局变量，但是每个线程却可以利用它来保存属于自己的私有数据，这些私有数据对其他线程也是不可见的。
+
+## 全局变量 VS 局部变量
+
+首先借助一个小程序来看看多线程环境下全局变量的同步问题。
+
+```python
+# -*- coding: utf-8 -*-
+
+import threading
+
+global_num = 0
+
+
+def thread_cal():
+    global global_num
+    for _ in xrange(1000):
+        global_num += 1
+
+# Get 10 threads, run them and wait them all finished.
+threads = []
+for i in range(10):
+    threads.append(threading.Thread(target=thread_cal))
+    threads[i].start()
+
+for i in range(10):
+    threads[i].join()
+
+# Value of global variable can be confused.
+print global_num
+
+"""
+[root@huzhi-code]# python 11_test.py
+7469
+[root@huzhi-code]# python 11_test.py
+8000
+[root@huzhi-code]# python 11_test.py
+6004
+[root@huzhi-code]# python 11_test.py
+10000
+[root@huzhi-code]# python 11_test.py
+9372
+[root@huzhi-code]# python 11_test.py
+8564
+"""
+
+```
+
+这里我们创建了10个线程，每个线程均对全局变量 global_num 进行1000次的加1操作（循环1000次加1是为了延长单个线程执行时间，使线程执行时被中断切换），当10个线程执行完毕时，全局变量的值是多少呢？答案是不确定。简单来说是因为 `global_num += 1` 并不是一个原子操作，因此执行过程可能被其他线程中断，导致其他线程读到一个脏值。以两个线程执行 +1 为例，其中一个可能的执行序列如下（此情况下最后结果为1）：
+
+![](../../images/python_global_var.png)
+
+
+
+
+
+
+
+
+
+
+
+
 [什么是线程安全问题](https://selfboot.cn/2016/08/22/threadlocal_overview/)
 
 
