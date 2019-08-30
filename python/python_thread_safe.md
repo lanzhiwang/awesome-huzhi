@@ -466,3 +466,4 @@ print 'main thread request: ', locals.request  # main thread request:  789
 参考：
 
 * https://selfboot.cn/2016/08/22/threadlocal_overview/
+* https://learnku.com/docs/pymotw/threading-manage-concurrent-operations-within-a-process/3421
