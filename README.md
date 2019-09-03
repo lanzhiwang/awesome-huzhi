@@ -202,7 +202,7 @@ Author: `huzhi`
 * [OpenSSH Config File](./linux/OpenSSH_Config_File_Examples.md)
 * [SSH ProxyCommand](./linux/SSH_ProxyCommand_example.md)
 * [nc 命令示例](./linux/nc.md)
-* [syslog](./linux/README.md)
+* [syslog](./linux/syslog/README.md)
 * [网络性能测试工具 iperf3 工具使用方法](./linux/iperf.md)
 * [利用perf剖析Linux应用程序](https://blog.gmem.cc/perf)
 * [Linux网络知识集锦](https://blog.gmem.cc/network-faq)
