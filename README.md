@@ -45,6 +45,7 @@ Author: `huzhi`
 
 * [pool](https://github.com/lanzhiwang/pool) - Python 进程池，线程池，连接池等的实现方法
 * [python 多进程处理数据库操作](./python/DB_pool/pool.py)
+* [python 数据库连接池实现--DBUtils](./python/DBUtils_User_Guide.md)
 * [Python并行编程](https://github.com/lanzhiwang/Python_Parallel_Programming)（**如何选择并行编程的模型？？**）
 
     1. 基于线程的并行 - `threading`
