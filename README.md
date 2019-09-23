@@ -117,7 +117,7 @@ Author: `huzhi`
 * [yield_and_yield_from](./python/Python_yield.md)
 * [魔术方法](./python/Magic_Methods.md)
 * [\_\_slots\_\_魔术方法说明](./python/__slots__%20.md)
-* [\_\_new\_\_() and \_\_init\_\_()](./python/new_and_init.md)
+* [new 和 init 代码示例](./python/new_init_example.md)、[\_\_new\_\_() and \_\_init\_\_()](./python/new_and_init.md)
 * [getattr_and_getattribute](./python/getattr_and_getattribute.md)
 * [Python 对象 hash](./python/Python_Hashes_and_Equality.md)
 * [exec-eval](./python/exec_eval.md)
