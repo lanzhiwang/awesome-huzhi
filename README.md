@@ -337,6 +337,7 @@ Author: `huzhi`
     * 分片的 chunks 功能是怎样实现的？？
     * mongos 元数据是怎样生成的？？
 * Elasticsearch
+	* [Elasticsearch 基础](./elasticsearch/elasticsearch_base.md)
   * [elasticsearch 分片索引](./elasticsearch/shard.md)
   * [elasticsearch 节点类型](./elasticsearch/elasticsearch_node.md)
 * Ansible
