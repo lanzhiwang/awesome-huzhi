@@ -97,7 +97,7 @@
 
 ### 搜索与过滤
 
-示例数据
+示例数据 books.json
 ```json
 {"index":{ "_index": "books", "_type": "IT", "_id": "1" }}
 {"id":"1","title":"Java编程思想","language":"java","author":"Bruce Eckel","price":70.20,"publish_time":"2007-10-01","description":"Java学习必读经典,殿堂级著作！赢得了全球程序员的广泛赞誉。"}
@@ -114,15 +114,166 @@
 {"index":{ "_index": "books", "_type": "IT", "_id": "5" }}
 {"id":"5","title":"JavaScript高级程序设计","language":"javascript","author":"Nicholas C. Zakas","price":66.40,"publish_time":"2012-10-01","description":"JavaScript技术经典名著"}
 ```
+
+准备工作
+```bash
+# 新建索引
+PUT books
+{
+  "settings": {
+    "number_of_replicas": 1,
+    "number_of_shards": 3
+  },
+  "mappings": {
+    "IT": {
+      "properties": {
+        "id": {
+          "type": "long"
+        },
+        "title": {
+          "type": "text",
+          "analyzer": "ik_max_word"
+        },
+        "language": {
+          "type": "keyword"
+        },
+        "author": {
+          "type": "keyword"
+        },
+        "price": {
+          "type": "double"
+        },
+        "publish_time": {
+          "type": "date",
+          "format": "yyyy-MM-dd"
+        },
+        "description": {
+          "type": "text",
+          "analyzer": "ik_max_word"
+        }
+      }
+    }
+  }
+}
+
+# 批量导入数据
+curl -XPOST "http://localhost:9200/_bulk?pretty" --data-binary books.json
+```
+
 1. 搜索机制
+```bash
+########################
+GET books/_search
+{
+  "query" : {
+    "match_all" : {}
+  }
+}
+
+########################
+GET books/_search
+{
+  "query" : {
+    "term" : {
+      "title": "思想"
+    }
+  }
+}
+
+########################
+GET books/_search
+{
+  "query" : {
+    "term" : {
+      "title": "思想"
+    }
+  },
+  "from": 0,
+  "size": 100,
+  "_source": ["title", "author"],
+  "version": true,
+  "min_score": 0.6,
+  "highlight":{
+    "fields":{
+      "title" : {}
+    }
+  }
+}
+
+```
+
 2. 全文查询
+```bash
+########################
+GET books/_search
+{
+  "query" : {
+    "match" : {
+      "title": {
+        "query": "java 编程思想",
+        "operator": "or"
+      }
+    }
+  }
+}
+
+```
+
 3. 词项查询
+```bash
+########################
+GET books/_search
+{}
+
+```
+
 4. 复合查询
+```bash
+########################
+GET books/_search
+{}
+
+```
+
 5. 嵌套查询
+```bash
+########################
+GET books/_search
+{}
+
+```
+
 6. 位置查询
+```bash
+########################
+GET books/_search
+{}
+
+```
+
 7. 特殊查询
+```bash
+########################
+GET books/_search
+{}
+
+```
+
 8. 搜索高亮
+```bash
+########################
+GET books/_search
+{}
+
+```
+
 9. 搜索排序
+```bash
+########################
+GET books/_search
+{}
+
+```
 
 ### 聚合
 
