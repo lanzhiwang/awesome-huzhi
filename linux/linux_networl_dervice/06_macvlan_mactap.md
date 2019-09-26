@@ -93,6 +93,68 @@ $ ip netns exec ns1 ping 192.168.56.123
 ![](./images/02.png)
 
 
+## 在 docker 中使用 macvlan 
+
+```bash
+# node1
+$ docker network create -d macvlan --subnet 192.168.2.0/24 --gateway 192.168.2.1 -o parent=enp0s5 -o macvlan_mode=bridge macnet
+$ docker run -id --net macnet --ip 192.168.2.220 --name c1 busybox sh
+$ docker run -id --net macnet --ip 192.168.2.221 --name c2 busybox sh
+
+# node2
+$ docker network create -d macvlan --subnet 192.168.2.0/24 --gateway 192.168.2.1 -o parent=enp0s5 -o macvlan_mode=bridge macnet
+$ docker run -id --net macnet --ip 192.168.2.222 --name c3 busybox sh
+$ docker run -id --net macnet --ip 192.168.2.223 --name c4 busybox sh
+
+# 在 node1 上测试网络连通情况
+# ping 网关(通)
+$ docker exec c1 ping -c 3 192.168.2.1
+
+$ docker exec c1 ping -c 3 c1
+$ docker exec c1 ping -c 3 192.168.2.220
+
+```
+
+## docker vlan macvlan 
+
+```bash
+# node1
+
+# 为物理网卡 enp0s5 创建 vlan 子接口
+$ ip link add link enp0s5 name enp0s5.200 type vlan id 200
+# 启用 enp0s5.200
+$ ip link set enp0s5.200 up
+# 设置 enp0s5.200 为混杂模式
+$ ip link set enp0s5.200 promisc on
+# 设置 enp0s5.200 ip 地址
+$ ip addr add 192.168.200.10/24 dev enp0s5.200
+# 删除原默认路由，否则下面加默认路由时会报错。
+$ ip route del default
+$ ip route add default via 192.168.200.1 dev enp0s5.200
+
+$ docker network create -d macvlan --subnet=192.168.200.0/24 --gateway=192.168.200.1 -o parent=enp0s5.200 -o macvlan_mode=bridge macvlan200
+$ docker run --net=macvlan200 --ip=192.168.200.100 -id --name c5 busybox sh
+$ docker run --net=macvlan200 --ip=192.168.200.101 -id --name c6 busybox sh
+
+
+# node2
+# 为物理网卡 enp0s5 创建 vlan 子接口
+$ ip link add link enp0s5 name enp0s5.200 type vlan id 200
+# 启用 enp0s5.200
+$ ip link set enp0s5.200 up
+# 设置 enp0s5.200 为混杂模式
+$ ip link set enp0s5.200  promisc on
+# 设置 enp0s5.200 ip 地址
+$ ip addr add 192.168.200.11/24 dev enp0s5.200
+# 删除原默认路由，否则下面加默认路由时会报错。
+$ ip route del default
+$ ip route add default via 192.168.200.1 dev enp0s5.200
+
+$ docker network create -d macvlan --subnet=192.168.200.0/24 --gateway=192.168.200.1 -o parent=enp0s5.200 -o macvlan_mode=bridge macvlan200
+$ docker run --net=macvlan200 --ip=192.168.200.102 -id --name c7 busybox sh
+$ docker run --net=macvlan200 --ip=192.168.200.103 -id --name c8 busybox sh
+
+```
 
 ## 参考
 
