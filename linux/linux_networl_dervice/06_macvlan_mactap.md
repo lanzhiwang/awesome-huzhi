@@ -120,7 +120,13 @@ $ docker run -id --net macnet --ip 192.168.2.223 --name c4 busybox sh
 
 macvlan 会独占主机网卡，也就是说一张网卡只能创建一个 macvlan 网络。如果创建多个则会报错。好在 macvlan 不仅可以连接到物理物理网卡 enp0s5，也可以连接到物理网卡的子网卡 enp0s5.xxxx。
 
-Linux 上的网卡也支持 VLAN 模式。
+Linux 上的网卡也支持 VLAN 模式。如下图所示：
+
+![](./images/macvlan_vlan_docker.png)
+
+其中：
+1. enp0s5.100 和 enp0s5.200 是 enp0s5 的 VLAN 设备
+2. 容器中的 eth0 是 enp0s5.100 或者 enp0s5.200 的 MACVLAN 设备
 
 ```bash
 # node1
