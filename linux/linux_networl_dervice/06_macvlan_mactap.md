@@ -92,8 +92,11 @@ $ ip netns exec ns1 ping 192.168.56.123
 
 ![](./images/02.png)
 
+note：应该是 mactap 设备，图中有误。
 
 ## 在 docker 中使用 macvlan 
+
+![](./images/macvlan_docker.png)
 
 ```bash
 # node1
@@ -107,15 +110,17 @@ $ docker run -id --net macnet --ip 192.168.2.222 --name c3 busybox sh
 $ docker run -id --net macnet --ip 192.168.2.223 --name c4 busybox sh
 
 # 在 node1 上测试网络连通情况
-# ping 网关(通)
-$ docker exec c1 ping -c 3 192.168.2.1
-
-$ docker exec c1 ping -c 3 c1
-$ docker exec c1 ping -c 3 192.168.2.220
 
 ```
 
-## docker vlan macvlan 
+结论：容器中的网卡设备 eth0 就是宿主机物理网卡的 macvlan 设备。类似于
+> ip link add link enp0s5 dev eth0 type macvlan mode bridge
+
+## docker vlan macvlan
+
+macvlan 会独占主机网卡，也就是说一张网卡只能创建一个 macvlan 网络。如果创建多个则会报错。好在 macvlan 不仅可以连接到物理物理网卡 enp0s5，也可以连接到物理网卡的子网卡 enp0s5.xxxx。
+
+Linux 上的网卡也支持 VLAN 模式。
 
 ```bash
 # node1
