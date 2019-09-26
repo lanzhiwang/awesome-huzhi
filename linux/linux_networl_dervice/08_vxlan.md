@@ -1,8 +1,65 @@
 # vxlan
 
-## 点对点的 vxlan 网络两两通信
+## 基本原理
+
+简单的点对点VXLAN环境：
+
+![](images/vxlan-01.png)
+
+上图是一个物理上的示意图，在逻辑上形成的VXLAN overlay网络环境如下图：
+
+![](images/vxlan-02.png)
+
+实现步骤：
 
 ```bash
+# vm1
+$ ip link add vxlan1 type vxlan id 1 remote 172.31.0.107 dstport 4789 dev eth0
+$ ip link set vxlan1 up
+$ ip addr add 10.0.0.106/24 dev vxlan1
+$ ifconfig vxlan1
+$ route -n
+
+# vm2
+$ ip link add vxlan1 type vxlan id 1 remote 172.31.0.106 dstport 4789 dev eth0
+$ ip link set vxlan1 up
+$ ip addr add 10.0.0.107/24 dev vxlan1
+$ ifconfig vxlan1
+$ route -n
+
+# 在 vm1 上验证
+$ ping 10.0.0.107 -c 3
+$ tcpdump -i eth0 host 172.31.0.107 -s0 -v -w vxlan_vni_1.pcap
+
+```
+
+## 利用 VxLAN 实现容器跨主机通信
+
+![](images/vxlan-03.png)
+
+```bash
+# vm1
+$ docker network create --subnet 172.18.0.0/16 mynetwork
+$ docker run -itd --net mynetwork --ip 172.18.0.2 centos
+
+$ ip link add vxlan_docker type vxlan id 200 remote 172.31.0.107 dstport 4789 dev eth0
+$ ip link set vxlan_docker up
+$ brctl addif br-3231f89d69f6 vxlan_docker
+
+# vm2
+$ docker network create --subnet 172.18.0.0/16 mynetwork
+$ docker run -itd --net mynetwork --ip 172.18.0.3 centos
+
+$ ip link add vxlan_docker type vxlan id 200 remote 172.31.0.106 dstport 4789 dev eth0
+$ ip link set vxlan_docker up
+$ brctl addif br-f4b35af34313 vxlan_docker
+
+```
+
+## 点对点的 vxlan 网络详细说明
+
+```bash
+# help
 ip link add DEVICE type vxlan id VNI 
 [ dev PHYS_DEV ] 
 [ { group | remote } IPADDR ] 
@@ -168,5 +225,5 @@ dev enp0s8
 ```
 
 参考
-
+* https://www.cnblogs.com/wipan/p/9220615.html
 * https://cizixs.com/2017/09/28/linux-vxlan/
