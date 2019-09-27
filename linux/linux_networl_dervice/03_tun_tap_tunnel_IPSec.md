@@ -47,6 +47,26 @@ ip tuntap add dev tun0 mode
 
 ```
 
+如图所示：
+* 当一个 TUN 设备被创建时，在 Linux 设备文件目录下将会生成一个对应 char 设备，用户程序可以像打开普通文件一样打开这个文件进行读写。
+* 当执行 write() 操作时，数据进入 TUN 设备，此时对于 Linux 网络层来说，相当于 TUN 设备收到了一包数据，请求内核接受它，如同普通的物理网卡从外界收到一包数据一样，不同的是其实数据来自 Linux 上的一个用户程序。Linux 收到此数据后将根据**网络配置**进行后续处理，从而完成了用户程序向 Linux 内核网络层注入数据的功能。
+* 当用户程序执行 read() 请求时，相当于向内核查询 TUN 设备上是否有需要被发送出去的数据，有的话取出到用户程序里，完成 TUN 设备的发送数据功能。
+* 针对 TUN 设备的一个形象的比喻是：使用 TUN 设备的应用程序相当于另外一台计算机，TUN 设备是本机的一个网卡，他们之间相互连接。应用程序通过 read()/write()操作，和本机网络核心进行通讯。
+
+note:
+1. 创建 TUN 设备，相当于 fd = touch()
+2. User Application A 调用 write(fd) 写入数据
+3. Newwork Protocol Stack 发现有新的数据写入
+4. Newwork Protocol Stack 查找路由表，确定该数据交由 TUN 设备处理
+5. TUN 设备缓存数据，等待 User Application B 进行 read() 调用
+
+因为给 tun0 设备设置 IP（192.168.3.11）后会新增一条 192.168.3.0/24 网段，接口是 tun0 的路由信息，所以当 Newwork Protocol Stack 接收或者发送数据时都会查找路由表，当匹配 192.168.3.0/24 网段时，会将数据交给 tun0 设备处理。例如 **ping 192.168.3.12**，此时 Newwork Protocol Stack 会将 ICMP 包交给 tun0 设备处理，但此时 tun0 设备无法处理。而当 **ping 192.168.3.11** 时，Newwork Protocol Stack 会将 ICMP 包交给 lo 设备处理，这也是与想象中的不一样。
+
+Newwork Protocol Stack 功能
+* 根据目的 IP 查找路由表，找到应该由哪个设备处理数据包
+* 根据需要和目的 IP 发送 ARP 数据包
+* 将数据交给上层的应用处理
+
 ## 实践
 
 1. 创建 tun0 设备后需要检查该设备是否有 MAC 地址，因为二层的 ARP 协议需要使用到 MAC 地址
