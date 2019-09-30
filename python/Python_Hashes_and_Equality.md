@@ -1,3 +1,98 @@
+# python 字典中键的问题
+
+```python
+>>> {True: 'yes', 1: 'no', 1.0: 'maybe'}
+{True: 'maybe'}
+
+>>> True == 1 == 1.0
+True
+>>> hash(True), hash(1), hash(1.0)
+(1, 1, 1)
+>>>
+
+```
+
+# 对象相等，哈希值不同
+
+```python
+class OnlyEquals:
+    def __eq__(self, other):
+        return True
+
+    def __hash__(self):
+        return id(self)
+
+print OnlyEquals() == OnlyEquals()  # True
+print OnlyEquals() == 42  # True
+print OnlyEquals() == 'wait'  # True
+
+objects = [OnlyEquals(), OnlyEquals(), OnlyEquals()]
+print [hash(o) for o in objects]
+# [140525112345520, 140525112345448, 140525112345592]
+
+print {OnlyEquals(): 1, OnlyEquals(): 2}
+"""
+{
+<__main__.OnlyEquals instance at 0x7fee3ab12440>: 1, 
+<__main__.OnlyEquals instance at 0x7fee3ab12488>: 2
+}
+"""
+
+```
+
+# 对象不相等，哈希值相同
+
+```python
+class OnlySomeHash:
+    def __eq__(self, other):
+        return False
+
+    def __hash__(self):
+        return 1
+
+print OnlySomeHash() == OnlySomeHash()  # False
+print OnlySomeHash() == 42  # False
+print OnlySomeHash() == 'wait'  # False
+
+objects = [OnlySomeHash(), OnlySomeHash(), OnlySomeHash()]
+print [hash(o) for o in objects]
+# [1, 1, 1]
+
+print {OnlySomeHash(): 1, OnlySomeHash(): 2}
+"""
+{
+<__main__.OnlySomeHash instance at 0x7f34a7979440>: 1, 
+<__main__.OnlySomeHash instance at 0x7f34a7979488>: 2
+}
+"""
+
+```
+
+# 对象相等，哈希值相同
+
+```python
+class EqualsAndSomeHash:
+    def __eq__(self, other):
+        return True
+
+    def __hash__(self):
+        return 1
+
+print EqualsAndSomeHash() == EqualsAndSomeHash()  # True
+print EqualsAndSomeHash() == 42  # True
+print EqualsAndSomeHash() == 'wait'  # True
+
+objects = [EqualsAndSomeHash(), EqualsAndSomeHash(), EqualsAndSomeHash()]
+print [hash(o) for o in objects]
+# [1, 1, 1]
+
+print {EqualsAndSomeHash(): 1, EqualsAndSomeHash(): 2}
+"""
+{<__main__.EqualsAndSomeHash instance at 0x7f4e215ab440>: 2}
+"""
+
+```
+
 ## Python Hashes and Equality
 
 - [对象可hash的方法]()
