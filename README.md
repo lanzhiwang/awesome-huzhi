@@ -108,7 +108,7 @@ Author: `huzhi`
 * [Python 线程安全，全局变量，局部变量](https://github.com/lanzhiwang/awesome-huzhi/blob/master/python/python_thread_safe.md)
 * [Python 对象序列化](https://github.com/lanzhiwang/awesome-huzhi/wiki/Python-object-serialization)
 * [python logging 实践](https://github.com/lanzhiwang/awesome-huzhi/blob/master/python/python_logging.md)
-* [Python 深复制和浅复制](https://github.com/fluentpython/example-code/blob/master/08-obj-ref/bus.py)
+* [Python 深复制和浅复制](./python/python_copy_deepcopy.md)
 * [Python 弱引用](https://github.com/fluentpython/example-code/blob/master/08-obj-ref/cheese.py)
 * [Python 动态导入](https://github.com/lanzhiwang/awesome-huzhi/wiki/python-dynamic-import)
 * [Python 函数定义规则](./python/fun_def.md)
