@@ -586,7 +586,7 @@ h$_{t}$ = \tanh(W$_{x}$x$_{t}$ + W$_{h}$h$_{t-1}$ + b)
 
   * Python 高级编程(第2版)
 
-  * python 学习手册
+  * [python 学习手册](https://resources.oreilly.com/examples/9780596158071/tree/master)
 
   * 流畅的Python (图灵程序设计丛书)
 
