@@ -147,6 +147,7 @@ Author: `huzhi`
     * 在文件内容中做数据冗余
 * [爬虫相关问题](https://github.com/lanzhiwang/Anti-Anti-Spider)
 * [Selenium](./python/Selenium.md)
+* [Python 相关文章](./python/python-articles.md)
 
 ##
 
