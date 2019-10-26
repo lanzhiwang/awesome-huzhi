@@ -4,6 +4,7 @@
 
 * [Python GIL被杀了吗？](https://hackernoon.com/has-the-python-gil-been-slain-9440d28fa93d?utm_source=mybridge&utm_medium=blog&utm_campaign=read_more)
 
+* [使用Python每秒百万个请求](https://www.freecodecamp.org/news/million-requests-per-second-with-python-95c137af319/?utm_source=mybridge&utm_medium=email&utm_campaign=read_more)
 
 
 # 参考
