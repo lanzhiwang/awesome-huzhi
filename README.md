@@ -148,6 +148,7 @@ Author: `huzhi`
 * [爬虫相关问题](https://github.com/lanzhiwang/Anti-Anti-Spider)
 * [Selenium](./python/Selenium.md)
 * [Python 相关文章](./python/python-articles.md)
+* [Python - Extension Programming with C](./python/Python-Extension-Programming-with-C.md)
 
 ##
 
