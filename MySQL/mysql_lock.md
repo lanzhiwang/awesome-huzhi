@@ -1,5 +1,8 @@
 ## MySQL Lock
 
+[MySQL Innodb 中的锁](https://zhuanlan.zhihu.com/p/31875702)
+[MySQL 语句加锁分析](https://mp.weixin.qq.com/s?__biz=MzIxNTQ3NDMzMw==&mid=2247484169&idx=1&sn=f06eac890ea0f0810cedd6a2ca62fdd3&scene=19#wechat_redirect)
+
 * 内部锁 - MySQL 在自身服务器内部执行的内部锁，管理多个会话对表内容的争用
   * 行级锁
   * 表级锁
