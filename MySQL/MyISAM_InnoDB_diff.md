@@ -1,5 +1,12 @@
 ## MyISAM 和 InnoDB 的区别
 
+### MyISAM
+![](../images/myisam.webp)
+
+### InnoDB
+![](../images/innodb.webp)
+
+
 1. MySQL默认采用的是MyISAM。
 
 2. MyISAM不支持事务，而InnoDB支持。InnoDB的AUTOCOMMIT默认是打开的，即每条SQL语句会默认被封装成一个事务，自动提交，这样会影响速度，所以最好是把多条SQL语句显示放在begin和commit之间，组成一个事务去提交。
