@@ -12,7 +12,7 @@ Redis 事件模型示例：
 
 2. 调用 anetTcpServer() 创建 TCP 服务器
 3. 调用 anetNonBlock() 将套接字 fd 设置为非阻塞I/O模型
-4. 将套接字 fd 的客户端连接事件的回调函数设置为 acceptProc，但事件循环 el 检测到套接字 fd 的内容发生变化时，也就是有TCP连接时，事件循环将会调用回调函数 acceptProc
+4. 将套接字 fd 的客户端连接事件的回调函数设置为 acceptProc，当事件循环 el 检测到套接字 fd 的内容发生变化时，也就是有TCP连接时，事件循环将会调用回调函数 acceptProc
 5. 在 acceptProc 中接收连接请求
 6. 在 acceptProc 中将套接字 fd 有数据可供读取事件的回调函数注册为 readProc，当客户端向服务端传入数据时将会调用回调函数 readProc
 7. 在 readProc 中读取客户端发往服务器的数据
