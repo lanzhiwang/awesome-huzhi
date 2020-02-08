@@ -44,7 +44,7 @@ int main() {/ aeCreateEventLoop
         // 3. 调用 anetNonBlock() 将套接字 fd 设置为非阻塞I/O模型
         anetNonBlock(NULL, fd);
         // 4. 将套接字 fd 的客户端连接事件的回调函数设置为 acceptProc
-        // 但事件循环 el 检测到套接字 fd 的内容发生变化时，也就是有TCP连接时，
+        // 当事件循环 el 检测到套接字 fd 的内容发生变化时，也就是有TCP连接时，
         // 事件循环将会调用回调函数 acceptProc
         if (aeCreateFileEvent(el, fd, AE_READABLE, acceptProc, NULL)) {
             printf("Unrecoverable errror createing server file event");
