@@ -254,6 +254,7 @@ Author: `huzhi`
 * 异步处理
 * 错误日志、通用查询日志、慢查询日志、二进制日志、中继日志、DDL 日志
 * [InnoDB记录存储结构、InnoDB数据页结构、MySQL的索引](https://github.com/lanzhiwang/awesome-huzhi/wiki/MySQL-index)
+* 索引条件下推（Index Condition Pushdown)
 * 数据库分库分表方案
 * [水平分表后页面分页处理办法](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-sub-table)
 * MySQL的压测工具 - mysqlslap
