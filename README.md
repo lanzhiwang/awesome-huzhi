@@ -345,6 +345,7 @@ Author: `huzhi`
     * [Redis 中的写时复制机制](./Redis/Redis_cow.md)
     * [Redis 内存碎片化的原因](Redis/Memory_fragmentation.md)
     * [使用 docker 搭建 redis 集群和哨兵](./Redis/redis_cluster_docker.md)
+    	* Sentinel 进程是如何坚持到从服务器和其他哨兵实例的（毕竟我们只在配置文件中指定了主实例的信息）？
 
 * [MongoDB](./MongoDB/MongoDB.md)
   * [优化 MongoDB 索引](https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/)
