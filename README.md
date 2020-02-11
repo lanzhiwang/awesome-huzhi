@@ -431,7 +431,7 @@ Author: `huzhi`
 
 * [tcp/ip 主动断开连接为什么需要等到 2MSL 时长](https://github.com/lanzhiwang/awesome-huzhi/wiki/tcp-ip-status)
 
-* [HTTP 包式处理和流式处理](../computer/http_packet_stream.md)
+* [HTTP 包式处理和流式处理](./computer/http_packet_stream.md)
 
 * [长连接和短连接](./computer/long_connection_and_short_connection.md)
 
