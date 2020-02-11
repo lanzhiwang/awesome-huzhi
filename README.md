@@ -427,6 +427,8 @@ Author: `huzhi`
 
 * [TCP IP协议中backlog参数](https://github.com/lanzhiwang/awesome-huzhi/wiki/TCP-IP%E5%8D%8F%E8%AE%AE%E4%B8%ADbacklog%E5%8F%82%E6%95%B0)
 
+* [TCP状态转换图](https://github.com/lanzhiwang/awesome-huzhi/wiki/TCP%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%E5%9B%BE)
+
 * [长连接和短连接](./computer/long_connection_and_short_connection.md)
 
 * [nginx 支持长连接](./computer/nginx_keep_alive.md)
