@@ -420,6 +420,12 @@ Author: `huzhi`
 ## 计算机基础
 
 * [tcp/ip](https://github.com/lanzhiwang/awesome-huzhi/wiki/tcp-ip-status) - tcp 连接和断开过程以及过程中进程的状态
+
+
+
+
+tcp的半连接与完全连接队列
+
 * [长连接和短连接](./computer/long_connection_and_short_connection.md)
 * [nginx 支持长连接](./computer/nginx_keep_alive.md)
 * [system-design-primer](https://github.com/donnemartin/system-design-primer) - 设计可扩展系统
