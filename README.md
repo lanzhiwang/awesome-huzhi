@@ -429,6 +429,8 @@ Author: `huzhi`
 
 * [TCP状态转换图](https://github.com/lanzhiwang/awesome-huzhi/wiki/TCP%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%E5%9B%BE)
 
+* [tcp/ip 主动断开连接为什么需要等到 2MSL 时长](https://github.com/lanzhiwang/awesome-huzhi/wiki/tcp-ip-status)
+
 * [长连接和短连接](./computer/long_connection_and_short_connection.md)
 
 * [nginx 支持长连接](./computer/nginx_keep_alive.md)
