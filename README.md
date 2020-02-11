@@ -421,19 +421,28 @@ Author: `huzhi`
 
 * [tcp/ip](https://github.com/lanzhiwang/awesome-huzhi/wiki/tcp-ip-status) - tcp 连接和断开过程以及过程中进程的状态
 
+* [tcp的半连接与完全连接队列](https://github.com/lanzhiwang/awesome-huzhi/wiki/tcp%E7%9A%84%E5%8D%8A%E8%BF%9E%E6%8E%A5%E4%B8%8E%E5%AE%8C%E5%85%A8%E8%BF%9E%E6%8E%A5%E9%98%9F%E5%88%97)
 
+* [Linux SYNcookie 机制](https://github.com/lanzhiwang/awesome-huzhi/wiki/Linux-SYNcookie-%E6%9C%BA%E5%88%B6)
 
-
-tcp的半连接与完全连接队列
+* [TCP IP协议中backlog参数](https://github.com/lanzhiwang/awesome-huzhi/wiki/TCP-IP%E5%8D%8F%E8%AE%AE%E4%B8%ADbacklog%E5%8F%82%E6%95%B0)
 
 * [长连接和短连接](./computer/long_connection_and_short_connection.md)
+
 * [nginx 支持长连接](./computer/nginx_keep_alive.md)
+
 * [system-design-primer](https://github.com/donnemartin/system-design-primer) - 设计可扩展系统
+
 * [代码整洁之道](https://github.com/lanzhiwang/awesome-huzhi/wiki/clean-code)
+
 * [HTTPS图解](https://tls.ulfheim.net/)
+
 * [HTTP Status Codes](./computer/HTTP_Status_Codes.md)
+
 * [什么时候使用单例模式，为什么要使用单例模式](./computer/Singleton.md)
+
 * [DNS 记录](./computer/DNS.md)
+
 * [linux 内存分配](./c_language/README.md)
 
 
