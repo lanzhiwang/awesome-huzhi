@@ -433,9 +433,9 @@ Author: `huzhi`
 
 * [HTTP 包式处理和流式处理](./computer/http_packet_stream.md)
 
-* [长连接和短连接](./computer/long_connection_and_short_connection.md)
+* [HTTP 连接管理 - 短连接、长连接、HTTP 流水线、域名分片、http2的多路复用](./computer/long_connection_and_short_connection.md)
 
-* [HTTP 连接管理 - 短连接、长连接、HTTP 流水线、域名分片、http2的多路复用](./computer/nginx_keep_alive.md)
+* [nginx 支持长连接](./computer/nginx_keep_alive.md)
 
 * [system-design-primer](https://github.com/donnemartin/system-design-primer) - 设计可扩展系统
 
