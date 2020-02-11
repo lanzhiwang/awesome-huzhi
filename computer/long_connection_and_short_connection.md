@@ -1,5 +1,10 @@
 ## 长连接和短连接
 
+### 参考
+
+* [HTTP/1.x 的连接管理](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Connection_management_in_HTTP_1.x)
+* [多路复用](https://stackoverflow.com/questions/36517829/what-does-multiplexing-mean-in-http-2)
+
 #### 长连接示例
 
 长连接的概念包括`TCP长连接`和`HTTP长连接`
