@@ -603,7 +603,7 @@ Author: `huzhi`
 
     * 大型网站技术架构:核心原理与案例分析
 
-    * Wireshark网络分析的艺术
+    * Wireshark网络分析就这么简单
 
     * HTTP权威指南
 
