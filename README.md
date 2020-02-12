@@ -437,6 +437,8 @@ Author: `huzhi`
 
 * [nginx 支持长连接](./computer/nginx_keep_alive.md)
 
+* [HTTP 中 GET/POST 的区别](./computer/HTTP_GET_POST.md)
+
 * [system-design-primer](https://github.com/donnemartin/system-design-primer) - 设计可扩展系统
 
 * [代码整洁之道](https://github.com/lanzhiwang/awesome-huzhi/wiki/clean-code)
