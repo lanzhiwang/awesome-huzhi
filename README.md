@@ -180,8 +180,6 @@ Author: `huzhi`
 * [Linux-Explore](https://github.com/lanzhiwang/awesome-huzhi/wiki/Linux-Explore) - 了解Linux服务器
 * [OpenSSL](./linux/OpenSSL.md)、gpg（**gpg私钥免密码如何实现？？**）
 * firewall、[iptables](./linux/iptables/iptables.md)
-* [ulogd](./linux/iptables/ulogd.md)
-* [iptables debugging](./linux/iptables_debugging.pdf)
 * Linux 网络设备
 	* [ip 指令常见用法](./linux/linux_networl_dervice/01_ip.md)
 	* [Linux 对常见网络设备的支持](./linux/linux_networl_dervice/02_Linux_network_dervice.md)
