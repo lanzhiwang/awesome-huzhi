@@ -268,16 +268,12 @@ Author: `huzhi`
 
 ## Docker/Kubernetes
 
+* [docker 相关问题](./docker/docker_readme.md)
 * [Docker 基础命令](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/docker_base_operate.md)
-* [docker compose](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/docker_compose.md)
 * [Docker 在单一主机上的网络原理](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/docker_network.md)
 * [docker 网络追踪](https://tonybai.com/2017/11/06/explain-docker-single-host-network-using-iptables-trace-and-ebtables-log/)
 * [Docker 跨主机访问原理](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/multi-network.md)
-* [docker swarm](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/docker_swarm.md)
 * [Swarm mode 与 Docker Swarm 的差异及改进之处](https://www.ibm.com/developerworks/cn/opensource/os-cn-docker-selenium-grid-test/index.html)
-* [storage driver，写时复制](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/storage_driver.md)
-* [Docker 数据管理](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/data_manager.md)
-* [Docker/Kubernetes线路图](https://github.com/lanzhiwang/awesome-huzhi/wiki/docker-and-kubernetes)
 * Linux 容器技术基础
   * [DOCKER基础技术：LINUX NAMESPACE（上）](https://coolshell.cn/articles/17010.html)
   * [DOCKER基础技术：LINUX NAMESPACE（下）](https://coolshell.cn/articles/17029.html)
@@ -286,8 +282,6 @@ Author: `huzhi`
   * [DOCKER基础技术：DEVICEMAPPER](https://coolshell.cn/articles/17200.html)
   * [DOCKER基础技术：overlayfs](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/overlayfs.pdf)
   * [understand-container-index](http://pierrchen.blogspot.com/2018/08/understand-container-index.html)
-* [kubernetes ](https://github.com/lanzhiwang/awesome-huzhi/blob/master/docker/kubernetes.md)
-* [Kubernetes API](./docker/Kubernetes_API.md)
 * [Docker 的 Image 文件是分层的，本文简单介绍怎么查看每一层的内容，它们又是怎么组合成一个可以运行的 Image 文件](https://cameronlonsdale.com/2018/11/26/whats-in-a-docker-image/)
 * [通过控制分层来缩小 Image 文件尺寸](https://www.datawire.io/not-engineer-running-3-5gb-docker-images/)
 * docker 的优点和缺点，反对声音
