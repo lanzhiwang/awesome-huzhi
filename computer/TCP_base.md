@@ -1,6 +1,20 @@
 # TCP 协议基础
 
+## 参考
+
+《Wireshark网络分析就这么简单》
+
 ## TCP 概念
+
+![](../images/tcp_01.jpeg)
+
+![](../images/tcp_02.jpeg)
+
+![](../images/tcp_03.jpeg)
+
+![](../images/tcp_04.jpeg)
+
+![](../images/tcp_05.jpeg)
 
 `TCP(Transmission Control Protocol 传输控制协议)`是一种面向连接(连接导向)的、可靠的、 基于 IP 的传输层协议。 首先来看看 OSI 的七层模型
 
