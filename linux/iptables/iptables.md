@@ -6,13 +6,11 @@
 
 * [防火墙与 NAT 服务器](http://cn.linux.vbird.org/linux_server/0250simple_firewall.php)
 
-* [ulogd](https://github.com/lanzhiwang/awesome-huzhi/blob/master/linux/iptables/ulogd.md)
-
-* [iptables debugging](https://github.com/lanzhiwang/awesome-huzhi/blob/master/linux/iptables_debugging.pdf)
-
-
 * [ulogd](../iptables/ulogd.md)
+
 * [iptables debugging](../iptables_debugging.pdf)
+
+* [Docker_iptables_trace_ebtables_log](../iptables/Docker_iptables_trace_ebtables_log.pdf)
 
 
 ## iptables
