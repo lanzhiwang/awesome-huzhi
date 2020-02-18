@@ -247,7 +247,9 @@ Author: `huzhi`
     4. [串行化(serializable)](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-transaction-isolation#%E4%B8%B2%E8%A1%8C%E5%8C%96serializable)
     
     5. [MVCC, ReadView, 版本链](https://mp.weixin.qq.com/s?__biz=MzIxNTQ3NDMzMw==&mid=2247484119&idx=1&sn=e3637553f3e813f1e2f7f6a3bcd270a9&scene=19#wechat_redirect)
-    
+
+* [buffer pool, change buffer, log buffer](https://mp.weixin.qq.com/s/_njwO8EJAYtqVuIOZCTwOQ)
+
 * [MySQL 锁](https://github.com/lanzhiwang/awesome-huzhi/blob/master/MySQL/mysql_lock.md)
 * 异步处理
 * 错误日志、通用查询日志、慢查询日志、二进制日志、中继日志、DDL 日志
