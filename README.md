@@ -294,6 +294,8 @@ Author: `huzhi`
   * https://thehftguy.com/2016/11/01/docker-in-production-an-history-of-failure/
 * [dockerfile 最佳实践](https://blog.docker.com/2019/07/intro-guide-to-dockerfile-best-practices/)
 
+* [kubernetes](https://github.com/lanzhiwang/k8s)
+
 ## algorithm
 
 * [算法分类](./algorithm/README.md)
