@@ -165,7 +165,7 @@ Author: `huzhi`
   * [shell](https://google.github.io/styleguide/shell.xml) - shell代码规范
 * [Linux 使用技巧](https://github.com/jlevy/the-art-of-command-line)
 * [linux 系统初始化](https://github.com/lanzhiwang/awesome-huzhi/wiki/linux-%E7%B3%BB%E7%BB%9F%E5%88%9D%E5%A7%8B%E5%8C%96)
-* [Linux 网口相互绑定 bond](https://github.com/lanzhiwang/awesome-huzhi/wiki/Linux-%E7%BD%91%E5%8F%A3%E7%9B%B8%E4%BA%92%E7%BB%91%E5%AE%9A-bond](https://github.com/lanzhiwang/awesome-huzhi/wiki/Linux-网口相互绑定-bond)
+* [Linux 网口相互绑定 bond](https://github.com/lanzhiwang/awesome-huzhi/wiki/Linux-%E7%BD%91%E5%8F%A3%E7%9B%B8%E4%BA%92%E7%BB%91%E5%AE%9A-bond)
 * [磁盘分区](https://github.com/lanzhiwang/awesome-huzhi/wiki/disk-partition)
 * [unix/linux 命令列表及说明](https://github.com/lanzhiwang/awesome-huzhi/wiki/unix-linux-command-list)
 * [free 命令输出详解](https://github.com/lanzhiwang/awesome-huzhi/wiki/free-output-explanation)
