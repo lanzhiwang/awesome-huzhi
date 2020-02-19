@@ -6,6 +6,8 @@
 
 * [防火墙与 NAT 服务器](http://cn.linux.vbird.org/linux_server/0250simple_firewall.php)
 
+* [Iptables 指南 1.1.19](https://www.frozentux.net/iptables-tutorial/cn/iptables-tutorial-cn-1.1.19.html)
+
 * [ulogd](../iptables/ulogd.md)
 
 * [iptables debugging](../iptables_debugging.pdf)
