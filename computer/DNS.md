@@ -1,5 +1,31 @@
 ## DNS
 
+
+### 常见 DNS 记录类型
+
+1. A：地址记录（Address），返回域名指向的IP地址。
+
+2. NS：域名服务器记录（Name Server），返回保存下一级域名信息的服务器地址。该记录只能设置为域名，不能设置为IP地址。
+
+3. MX：邮件记录（Mail eXchange），返回接收电子邮件的服务器地址。
+
+4. CNAME：规范名称记录（Canonical Name），返回另一个域名，即当前查询的域名是另一个域名的跳转，详见下文。
+
+5. PTR：逆向查询记录（Pointer Record），只用于从IP地址查询域名，详见下文。
+
+6. SRV：[服务定位记录]([https://zh.wikipedia.org/wiki/SRV%E8%AE%B0%E5%BD%95](https://zh.wikipedia.org/wiki/SRV记录))
+
+7. SOA：权威记录的起始
+
+[参考](https://zh.wikipedia.org/wiki/DNS%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B%E5%88%97%E8%A1%A8)
+
+### DNS 工作方式
+
+1. 递归查询
+2. 迭代查询
+
+参考：《Wireshark网络分析就这么简单》DNS 小科普
+
 ### A 记录
 
 ```bash
@@ -30,6 +56,67 @@ dns1.ksu.edu.tw.	3600	IN	A	120.114.50.1
 
 $ dig -t a dns2.ksu.edu.tw.
 dns2.ksu.edu.tw.	3600	IN	A	120.114.150.1
+
+```
+
+
+## MX 记录
+
+MX 是 Mail eXchanger (邮件交换) 的意思，通常你的整个领域会设定一个 MX ，代表，所有寄给这个领域的 email 应该要送到后头的 email server 主机名上头才是。
+
+```bash
+# 查询 MX 记录
+$ dig -t mx 163.com
+163.com.		9307	IN	MX	10 163mx02.mxmail.netease.com.
+163.com.		9307	IN	MX	10 163mx03.mxmail.netease.com.
+163.com.		9307	IN	MX	50 163mx00.mxmail.netease.com.
+163.com.		9307	IN	MX	10 163mx01.mxmail.netease.com.
+
+# 字段含义
+163.com.		9307	IN	MX	10 163mx02.mxmail.netease.com.
+10 代表优先级，数字越小，优先级越高
+
+# 查询邮件服务器对应的 A 记录
+$ dig -t a 163mx00.mxmail.netease.com.
+163mx00.mxmail.netease.com. 138	IN	A	220.181.14.139
+163mx00.mxmail.netease.com. 138	IN	A	220.181.14.159
+163mx00.mxmail.netease.com. 138	IN	A	220.181.14.149
+163mx00.mxmail.netease.com. 138	IN	A	220.181.14.141
+163mx00.mxmail.netease.com. 138	IN	A	220.181.14.145
+163mx00.mxmail.netease.com. 138	IN	A	220.181.14.161
+
+```
+
+### CNAME 记录
+
+```bash
+# CNAME 记录查询
+$ dig -t a www.baidu.com
+www.baidu.com.		1098	IN	CNAME	www.a.shifen.com.
+www.a.shifen.com.	286	IN	A	58.217.200.37
+www.a.shifen.com.	286	IN	A	58.217.200.39
+
+```
+
+### 反解记录
+
+```bash
+# 查找一个可用IP
+$ dig -t a www.ksu.edu.tw
+www.ksu.edu.tw.		840	IN	A	120.114.100.65
+
+# 通过 IP 找到对应的域名
+$ dig -x 120.114.100.65
+65.100.114.120.in-addr.arpa. 3599 IN	PTR	eng.www.ksu.edu.tw.
+65.100.114.120.in-addr.arpa. 3599 IN	PTR	chs.www.ksu.edu.tw.
+65.100.114.120.in-addr.arpa. 3599 IN	PTR	www.ksu.edu.tw.
+
+###
+$ dig -t a eng.www.ksu.edu.tw.
+ksu.edu.tw.		1799	IN	SOA	dns1.ksu.edu.tw. abuse.mail.ksu.edu.tw. 2014123133 1800 900 604800 86400
+
+$ dig -t a chs.www.ksu.edu.tw.
+ksu.edu.tw.		1799	IN	SOA	dns1.ksu.edu.tw. abuse.mail.ksu.edu.tw. 2014123133 1800 900 604800 86400
 
 ```
 
@@ -66,64 +153,7 @@ abuse.mail.ksu.edu.tw.
 
 ```
 
-### CNAME 记录
+[DNS 其他记录查询网站](https://mxtoolbox.com/)
 
-```bash
-# CNAME 记录查询
-$ dig -t a www.baidu.com
-www.baidu.com.		1098	IN	CNAME	www.a.shifen.com.
-www.a.shifen.com.	286	IN	A	58.217.200.37
-www.a.shifen.com.	286	IN	A	58.217.200.39
-
-```
-
-## MX 记录
-
-MX 是 Mail eXchanger (邮件交换) 的意思，通常你的整个领域会设定一个 MX ，代表，所有寄给这个领域的 email 应该要送到后头的 email server 主机名上头才是。
-
-```bash
-# 查询 MX 记录
-$ dig -t mx 163.com
-163.com.		9307	IN	MX	10 163mx02.mxmail.netease.com.
-163.com.		9307	IN	MX	10 163mx03.mxmail.netease.com.
-163.com.		9307	IN	MX	50 163mx00.mxmail.netease.com.
-163.com.		9307	IN	MX	10 163mx01.mxmail.netease.com.
-
-# 字段含义
-163.com.		9307	IN	MX	10 163mx02.mxmail.netease.com.
-10 代表优先级，数字越小，优先级越高
-
-# 查询邮件服务器对应的 A 记录
-$ dig -t a 163mx00.mxmail.netease.com.
-163mx00.mxmail.netease.com. 138	IN	A	220.181.14.139
-163mx00.mxmail.netease.com. 138	IN	A	220.181.14.159
-163mx00.mxmail.netease.com. 138	IN	A	220.181.14.149
-163mx00.mxmail.netease.com. 138	IN	A	220.181.14.141
-163mx00.mxmail.netease.com. 138	IN	A	220.181.14.145
-163mx00.mxmail.netease.com. 138	IN	A	220.181.14.161
-
-```
-
-### 反解记录
-
-```bash
-# 查找一个可用IP
-$ dig -t a www.ksu.edu.tw
-www.ksu.edu.tw.		840	IN	A	120.114.100.65
-
-# 通过 IP 找到对应的域名
-$ dig -x 120.114.100.65
-65.100.114.120.in-addr.arpa. 3599 IN	PTR	eng.www.ksu.edu.tw.
-65.100.114.120.in-addr.arpa. 3599 IN	PTR	chs.www.ksu.edu.tw.
-65.100.114.120.in-addr.arpa. 3599 IN	PTR	www.ksu.edu.tw.
-
-###
-$ dig -t a eng.www.ksu.edu.tw.
-ksu.edu.tw.		1799	IN	SOA	dns1.ksu.edu.tw. abuse.mail.ksu.edu.tw. 2014123133 1800 900 604800 86400
-
-$ dig -t a chs.www.ksu.edu.tw.
-ksu.edu.tw.		1799	IN	SOA	dns1.ksu.edu.tw. abuse.mail.ksu.edu.tw. 2014123133 1800 900 604800 86400
-
-```
-
-[DNS 其他记录查询网站，例如 txt ](https://mxtoolbox.com/)
+* 《Wireshark网络分析就这么简单》DNS 小科普
+* [阮一峰 DNS 原理入门](http://www.ruanyifeng.com/blog/2016/06/dns.html)
