@@ -49,11 +49,6 @@ Author: `huzhi`
 * [数据库 DB-API 2 标准实现](https://github.com/lanzhiwang/DBUtils/blob/master/DBUtils/Tests/mock_db.py)
 * [Python并行编程](https://github.com/lanzhiwang/Python_Parallel_Programming)（**如何选择并行编程的模型？？**）
 
-    1. 基于线程的并行 - `threading`
-    2. 基于进程的并行 - `multiprocessing`
-    3. 异步编程 - `async` `concurrent` `gevent`
-    4. 分布式Python - `celery` `RPC`
-    5. GPU 编程 - `Numba` `PyCUDA` `PyOpenCL`
 * Python 源码阅读
 
     * [Python 源码阅读最佳实践](https://github.com/lanzhiwang/awesome-huzhi/wiki/Source-reading)
