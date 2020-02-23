@@ -6,6 +6,219 @@
 
 有时候使用局部变量不太方便，因此 python 还提供了 ThreadLocal 变量，它本身是一个全局变量，但是每个线程却可以利用它来保存属于自己的私有数据，这些私有数据对其他线程也是不可见的。
 
+## 线程不安全示例
+
+### 示例一：
+
+```python
+#!/usr/bin/env python3
+# encoding: utf-8
+
+import random
+import threading
+import logging
+import time
+
+def worker(data):
+    logging.debug('data[\'value\']=%s', data['value'])
+    temp = random.randint(1, 100)
+    logging.debug('temp=%s', temp)
+    data['value'] = temp
+    time.sleep(1)
+    logging.debug('data[\'value\']=%s', data['value'])
+    local_data = 0
+    for _ in range(100):
+        local_data += 1
+    logging.debug('local_data=%s', local_data)
+
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='(%(threadName)-10s) %(message)s',
+)
+
+data = {}
+data['value'] = 1000
+logging.debug('data[\'value\']=%s', data['value'])
+
+local_data = 0
+for _ in range(100):
+    local_data += 1
+logging.debug('local_data=%s', local_data)
+
+for i in range(2):
+    t = threading.Thread(target=worker, args=(data,))
+    t.start()
+
+logging.debug('data[\'value\']=%s', data['value'])
+"""
+(MainThread) data['value']=1000
+(MainThread) local_data=100
+(Thread-1  ) data['value']=1000
+(Thread-1  ) temp=16
+(Thread-2  ) data['value']=16
+(Thread-2  ) temp=9
+(MainThread) data['value']=9
+(Thread-1  ) data['value']=9
+(Thread-1  ) local_data=100
+(Thread-2  ) data['value']=9
+(Thread-2  ) local_data=100
+
+"""
+
+```
+
+### 示例二：
+
+```python
+#!/usr/bin/env python3
+# encoding: utf-8
+
+import threading
+
+global_num = 0
+
+def thread_cal():
+    global global_num
+    for _ in range(1000):
+        global_num += 1
+
+# Get 10 threads, run them and wait them all finished.
+threads = []
+for i in range(10):
+    threads.append(threading.Thread(target=thread_cal))
+    threads[i].start()
+
+for i in range(10):
+    threads[i].join()
+
+# Value of global variable can be confused.
+print(global_num)
+
+"""
+% python 02.py
+5774
+% python 02.py
+10000
+% python 02.py
+6243
+
+% python3 02.py
+10000
+% python3 02.py
+10000
+% python3 02.py
+10000
+
+"""
+
+```
+
+### 示例三：
+
+```python
+#!/usr/bin/env python3
+# encoding: utf-8
+#
+# Copyright (c) 2008 Doug Hellmann All rights reserved.
+#
+"""Keeping thread-local values
+"""
+
+#end_pymotw_header
+import random
+import threading
+import logging
+import time
+
+
+def worker(foo):
+    logging.debug('do_something before: %s' % foo)
+    foo.do_something()
+    logging.debug('do_something after: %s' % foo)
+
+    local_foo = Foo(0)
+    local_foo.do_something()
+    logging.debug('local_foo: %s' % local_foo)
+
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='(%(threadName)-10s) %(message)s',
+)
+
+
+class Foo(object):
+    class_val = 0
+
+    def __init__(self, instance_val):
+        self.instance_val = instance_val
+
+    def do_something(self):
+        for _ in range(100):
+            self.instance_val += 1
+            time.sleep(random.randint(0, 1))
+            self.__class__.class_val += 1
+
+    def __str__(self):
+        return 'class_val: %s, instance_val: %s' % (self.instance_val, self.__class__.class_val)
+
+
+foo = Foo(0)
+logging.debug(foo)
+
+local_foo = Foo(0)
+logging.debug('local_foo: %s' % local_foo)
+
+for i in range(10):
+    t = threading.Thread(target=worker, args=(foo,))
+    t.start()
+
+foo.do_something()
+logging.debug(foo)
+
+local_foo.do_something()
+logging.debug('local_foo: %s' % local_foo)
+"""
+(MainThread) class_val: 0, instance_val: 0
+(MainThread) local_foo: class_val: 0, instance_val: 0
+(Thread-1  ) do_something before: class_val: 0, instance_val: 0
+(Thread-2  ) do_something before: class_val: 2, instance_val: 1
+(Thread-3  ) do_something before: class_val: 3, instance_val: 1
+(Thread-4  ) do_something before: class_val: 4, instance_val: 1
+(Thread-5  ) do_something before: class_val: 10, instance_val: 6
+(Thread-6  ) do_something before: class_val: 11, instance_val: 6
+(Thread-7  ) do_something before: class_val: 11, instance_val: 6
+(Thread-8  ) do_something before: class_val: 14, instance_val: 7
+(Thread-9  ) do_something before: class_val: 17, instance_val: 9
+(Thread-10 ) do_something before: class_val: 17, instance_val: 9
+(Thread-7  ) do_something after: class_val: 942, instance_val: 932
+(Thread-3  ) do_something after: class_val: 988, instance_val: 983
+(Thread-9  ) do_something after: class_val: 1002, instance_val: 1001
+(Thread-2  ) do_something after: class_val: 1012, instance_val: 1014
+(MainThread) class_val: 1032, instance_val: 1057
+(Thread-4  ) do_something after: class_val: 1042, instance_val: 1069
+(Thread-10 ) do_something after: class_val: 1073, instance_val: 1128
+(Thread-8  ) do_something after: class_val: 1076, instance_val: 1140
+(Thread-6  ) do_something after: class_val: 1085, instance_val: 1179
+(Thread-1  ) do_something after: class_val: 1090, instance_val: 1200
+(Thread-5  ) do_something after: class_val: 1100, instance_val: 1320
+(Thread-7  ) local_foo: class_val: 100, instance_val: 1941
+(Thread-2  ) local_foo: class_val: 100, instance_val: 2041
+(Thread-9  ) local_foo: class_val: 100, instance_val: 2067
+(Thread-6  ) local_foo: class_val: 100, instance_val: 2106
+(Thread-3  ) local_foo: class_val: 100, instance_val: 2128
+(MainThread) local_foo: class_val: 100, instance_val: 2158
+(Thread-10 ) local_foo: class_val: 100, instance_val: 2173
+(Thread-8  ) local_foo: class_val: 100, instance_val: 2180
+(Thread-1  ) local_foo: class_val: 100, instance_val: 2182
+(Thread-4  ) local_foo: class_val: 100, instance_val: 2187
+(Thread-5  ) local_foo: class_val: 100, instance_val: 2200
+
+"""
+
+```
+
 ## 全局变量 VS 局部变量
 
 首先借助一个小程序来看看多线程环境下全局变量的同步问题。
