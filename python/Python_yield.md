@@ -1,5 +1,16 @@
 ## Python 生成器和协程
 
+### 协程基本元素
+* next()
+* send()
+* close()
+* throw()
+* GeneratorExit
+* StopIteration
+
+
+
+
 ### 协程基本流程
 
 ```python
@@ -27,13 +38,18 @@ StopIteration
 'GEN_CLOSED'
 >>> 
 
-# 协程内部的一次如果未处理就会抛出
+# 协程内部如果一次都未处理就会抛出错误
 >>> my_coro = simple_coroutine()
 >>> my_coro.send(1234)
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: can't send non-None value to a just-started generator
 >>> 
+>>> my_coro.send(10)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+>>>
 
 ```
 
@@ -82,32 +98,37 @@ StopIteration
 >>> def averager():
 ...     total = 0.0
 ...     count = 0
-...     average = None
-...     while True:  # 这个无限循环表明， 只要调用方不断把值发给这个协程， 它就会一直接收值， 然后生成结果。 仅当调用方在协程上调用 .close() 方法，或者没有对协程的引用而被垃圾回收程序回收时， 这个协程才会终止
+...     average = 0
+...     while True:
 ...         term = yield average
 ...         total += term
 ...         count += 1
 ...         average = total/count
-... 
->>> 
+...
 >>> coro_avg = averager()
 >>> next(coro_avg)
+0
 >>> coro_avg.send(10)
 10.0
 >>> coro_avg.send(30)
 20.0
 >>> coro_avg.send(5)
 15.0
->>> 
-# 如何终止执行coro_avg
+>>> from inspect import getgeneratorstate
+>>> getgeneratorstate(coro_avg)
+'GEN_SUSPENDED'
+>>>
+>>> coro_avg.close()
+>>> getgeneratorstate(coro_avg)
+'GEN_CLOSED'
+>>>
 
+# 这个无限循环表明， 只要调用方不断把值发给这个协程， 它就会一直接收值， 然后生成结果。 仅当调用 方在协程上调用 .close() 方法，或者没有对协程的引用而被垃圾回收程序回收时， 这个协程才会终止
 ```
 
 
 
 ### 预激协程
-
-
 
 ```pyrhon
 #!/usr/bin/env python
@@ -116,12 +137,11 @@ StopIteration
 from functools import wraps
 
 def coroutine(func):
-    """装饰器： 向前执行到第一个`yield`表达式， 预激`func`"""
     @wraps(func)
-    def primer(*args, **kwargs):  # 把被装饰的生成器函数替换成这里的 primer 函数； 调用 primer 函数时， 返回预激后的生成器。
-        gen = func(*args, **kwargs)  # 调用被装饰的函数， 获取生成器对象
-        next(gen)  # 预激生成器
-        return gen  # 返回生成器
+    def primer(*args, **kwargs):
+        gen = func(*args, **kwargs)
+        next(gen)
+        return gen
     return primer
 
 @coroutine
