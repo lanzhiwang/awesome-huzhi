@@ -125,32 +125,13 @@ Author: `huzhi`
 * [linux 系统初始化](https://github.com/lanzhiwang/awesome-huzhi/wiki/linux-%E7%B3%BB%E7%BB%9F%E5%88%9D%E5%A7%8B%E5%8C%96)
 * [Linux 网口相互绑定 bond](https://github.com/lanzhiwang/awesome-huzhi/wiki/Linux-%E7%BD%91%E5%8F%A3%E7%9B%B8%E4%BA%92%E7%BB%91%E5%AE%9A-bond)
 * [磁盘分区](https://github.com/lanzhiwang/awesome-huzhi/wiki/disk-partition)
-* [unix/linux 命令列表及说明](https://github.com/lanzhiwang/awesome-huzhi/wiki/unix-linux-command-list)
 * [free 命令输出详解](https://github.com/lanzhiwang/awesome-huzhi/wiki/free-output-explanation)
 * [ uptime 命令输出 linux 负载说明](https://github.com/lanzhiwang/awesome-huzhi/wiki/linux-load-explanation)
-* [vim 常见操作](https://github.com/vim-china/vimdoc-cn)
-* Linux常见命令使用示例
-
-  * [https://cheat.sh/](https://cheat.sh/)
-
-  * [cheat.sh](https://github.com/chubin/cheat.sh)
-
-  * [tldr](https://github.com/lanzhiwang/tldr)
+* [Linux常见命令使用示例](https://cheat.sh/)
 * [Linux-Explore](https://github.com/lanzhiwang/awesome-huzhi/wiki/Linux-Explore) - 了解Linux服务器
 * [OpenSSL](./linux/OpenSSL.md)、gpg（**gpg私钥免密码如何实现？？**）
 * firewall、[iptables](./linux/iptables/iptables.md)
-* Linux 网络设备
-	* [ip 指令常见用法](./linux/linux_networl_dervice/01_ip.md)
-	* [Linux 对常见网络设备的支持](./linux/linux_networl_dervice/02_Linux_network_dervice.md)
-	* [tun and tap](./linux/linux_networl_dervice/03_tun_tap.md)
-	* [veth](./linux/linux_networl_dervice/04_veth.md)
-	* [bridge](./linux/linux_networl_dervice/05_bridge.md)
-	* [macvlan and mactap](./linux/linux_networl_dervice/06_macvlan_mactap.md)
-	* [vlan](./linux/linux_networl_dervice/07_vlan.md)
-	* [vxlan and overlay](./linux/linux_networl_dervice/08_vxlan_overlay.md)
-	* [ipvlan](./linux/linux_networl_dervice/09_ipvlan.md)
-* whiptail - 创建交互式shell脚本对话框
-* [代理服务、翻墙](https://github.com/lanzhiwang/awesome-huzhi/wiki/%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1)
+* [ip 指令常见用法](./linux/linux_networl_dervice/01_ip.md)
 * [nginx uwsgi flask](./linux/nginx_uwsgi_flask.md)
 * [监控系统 prometheus 基本原理以及客户端的使用](./linux/Prometheus.md)
   * [Prometheus操作指南](https://github.com/yunlzheng/prometheus-book)
