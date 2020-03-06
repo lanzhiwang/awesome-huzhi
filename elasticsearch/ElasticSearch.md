@@ -33,20 +33,12 @@ flush 操作将文件系统缓存中的数据写入磁盘
 
 《Elasticsearch源码解析与优化实战》p24
 
-### 集群状态元数据有哪些？
-
-* 集群配置信息
-* 那个分片位于那个节点，也就是路由信息
-* 拥有最新数据的分片列表 in-sync
-
-《Elasticsearch源码解析与优化实战》p26
-
 ### ES 主要模块和相关功能？
 
 * Cluster
 * Allocation 实现分片的相关功能
 * Discovery 发现集群中的节点，选举主节点
-* Gateway
+* Gateway 负责集群元数据的存储和集群重启时元数据的恢复
 * Indices
 * HTTP
 * Transport
@@ -159,6 +151,168 @@ Indices.recovery 模块的功能
 
 ### 客户端写流程、GET 流程、Search 流程
 
+
+### ElasticSearch 集群元数据 Gateway 模块
+
+Gateway 负责集群元数据的存储和集群重启时元数据的恢复，只负责集群层面和索引层面的元数据恢复。分片层面的元数据恢复由 Allocation 模块完成
+
+ES 中存储的数据：
+1. state 元数据信息
+2. index Lucene 生成的索引文件
+3. translog 事务日志文件
+
+元数据信息包括以下几种：
+* nodes/0/state/*.st  集群层面元信息
+* nodes/0/indices/{index_uuid}/state/*.st  索引层面元信息
+* nodes/0/indices/{index_uuid}/0/state/*.st  分片层面元信息
+
+分别对应的 ES 数据结构：
+* MetaData 集群层面，主要是 clusterUUID、setting、templates 等
+* IndexMetaData 索引层面，主要是 numberOfShared、mappings 等
+* ShareStateMetaData 分片层面，主要是 version、indexUUID、primary、拥有最新数据的分片列表 in-sync等
+
+ps: 持久化的元数据信息中不包括“哪个分片在哪个节点的路由信息”，路由信息是在集群重启时根据硬盘文件内容动态创建的，或者是在心跳检测时动态修改的。
+
+《Elasticsearch源码解析与优化实战》p26
+
+### Allocation 模块
+
+分片分配操作的目的：
+1. 确定哪些分片应该分配到哪个节点
+2. 确定哪些分片作为主分片，哪些作为副本分片
+
+对于新建索引和已有的索引，分片分配的过程也不一样。
+
+触发分片分配的条件：
+1. index 增删
+2. node 增删
+3. 手工 reroute
+4. 副本数量改变
+5. 集群重启
+
+### Snapshot 模块
+
+1. 快照的相关操作
+2. Lucene 文件结构
+
+### Cluster 模块
+
+1. 集群状态
+2. 集群任务
+
+直接或者间接提交集群任务的时机：
+1. 集群拓扑结构变化
+2. 模板、索引 map、别名的变化
+3. 索引相关操作，create、delete、open、close
+4. pipeline 增删
+5. 脚本增删
+6. Gateway 发布选举出来的集群状态信息
+7. 分片分配
+8. 快照、reroute api 调用
+
+
+### Transport 模块
+
+### ThreadPool 模块
+
+1. ES 中拥有的线程池
+2. ES 线程池种类
+3. 线程池相关操作
+
+### shrink 原理
+
+linux 硬链接和软连接的区别
+
+
+### 写入速度的优化
+
+1. 首次批量导入数据，可以将副本数设置为 0，导入完毕再将副本数调整回去，这样副本分片只需要复制，节省了构建索引的过程
+
+2. translog flush 间隔调整，也就是事务日志 translog 写入磁盘的频率设置
+
+	* index.translog.durability: async
+	* index.translog.sync_interval: 120s
+	* index.translog.flush_threshold_size: 1024mb
+
+3. 调整索引刷新间隔 refresh_interval，也就是 lucene 写入磁盘的频率设置
+
+	* index.refresh_interval: 120s
+
+4. 段 segment 合并优化
+
+	* index.merge.scheduler.max_thread_count
+	* index.merge.policy.*
+	
+5. 增大 indexing buffer
+
+	* indices.memory.index_buffer_size
+	* indices.memory.max_index_buffer_size
+	* indices.memory.min_index_buffer_size
+
+6. 使用 bulk 请求
+
+	* bulk 线程池和相关队列设置
+	* 并发执行 bulk 请求
+
+7. 磁盘间任务均衡
+
+	* 为 path.data 配置多个路径来使用多块磁盘，并且使用不同的轮询策略
+
+8. 节点间的写入任务均衡
+
+	* 客户端轮询连接集群节点
+
+9. 索引过程调整和优化
+
+	* 自动生成 doc Id
+	* 调整字段 mapping
+		* 减少字段数量
+		* 对于不需要分词的字段，index 属性设置为 no_analyzed 或者 no
+		* 减少字段内容长度
+		* 使用不同的分词器，不同分词器运算的复杂度会不一样
+	* 调整 _source 字段
+	* 禁用 _all 字段
+	* 对已 analyzed 的字段禁用 Norms 评分
+	* 优化 index_options，index_options 用于控制在建立倒排索引过程中，哪些内容会被添加到倒排索引，例如， doc数量 、词频、 positions、 offsets 等，优化这些设置可以降低索引时的计算任务
+
+### 搜索速度的优化
+
+1. 为文件系统 cache 预留足够的内存，提高命中率
+2. 使用更快的 CPU 和 SSD
+3. 数据结构合理建模，尽量避免使用 join、nested、父子查询等
+4. 对常见的聚合查询进行索引预热
+5. 优化字段映射
+6. 尽量避免使用脚本
+7. 优化时间范围查询，使用较大的范围提高缓存命中率
+8. 为只读索引执行 force-merge
+9. 预热全局序号（global ordinals）优化 term 聚合
+10. 预热文件系统 cache
+11. 将 and、or、not 的查询转化为 bool 过滤
+12. 提前在协调节点进行结果聚合
+13. 聚合是选择深度优先还是广度优先
+14. 限制搜索请求的分片数
+
+### 磁盘使用量优化
+
+1. 元数据字段
+	* _source
+	* _all
+
+2. 映射参数
+	* index
+	* doc_value
+	* store
+	* norms
+	* index_options
+
+
+### ElasticSearch 映射
+
+
+
+
+
+
 ### 配置参数说明
 
 《Elasticsearch源码解析与优化实战》p24
@@ -173,7 +327,7 @@ Indices.recovery 模块的功能
 《Elasticsearch源码解析与优化实战》p51
 * bootstrap.system_call_filter
 
-《Elasticsearch源码解析与优化实战》p57
+《Elasticsearch源码解析与优化实战》p57、p230
 * discovery.zen.minimum_master_nodes
 * discovery.zen.ping.unicast.hosts
 * discovery.zen.ping.unicast.hosts.resolve_timeout
@@ -194,14 +348,29 @@ Indices.recovery 模块的功能
 * indices.recovery.max_bytes_per_sec
 * index.shard.check_on_startup
 
+《Elasticsearch源码解析与优化实战》p129
+* gateway.*
 
+《Elasticsearch源码解析与优化实战》p163
+* cluster.routing.allocation.*
 
+《Elasticsearch源码解析与优化实战》p241
+* transport.*
+* network.*
+* http.*
 
+《Elasticsearch源码解析与优化实战》p260
+* threadpool.*
 
+《Elasticsearch源码解析与优化实战》p278
+* index.routing.allocation.require_name
+* index.blocks.write
 
+《Elasticsearch源码解析与优化实战》p298
 
+* index.store.preload
 
+《Elasticsearch源码解析与优化实战》p299
 
-
-
-
+* batched_reduce_size
+* action.search.shard_count
