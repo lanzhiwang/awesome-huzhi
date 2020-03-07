@@ -408,6 +408,111 @@ print(list(gen_and_yield()))  # ['A', 'B', 1, 2]
 
 
 ```python
+def gen_fn():
+    result = yield 1
+    print('result of yield: {}'.format(result))
+    result2 = yield 2
+    print('result of 2nd yield: {}'.format(result2))
+    return 'done'
+
+
+def caller_fn():
+    gen = gen_fn()
+    rv = yield from gen
+    print('return value of yield-from: {}'.format(rv))
+
+caller = caller_fn()
+print(caller.send(None))
+print(caller.send('hello'))
+caller.send('goodbye')
+
+"""
+1
+result of yield: hello
+2
+result of 2nd yield: goodbye
+return value of yield-from: done
+Traceback (most recent call last):
+  File "03_1_loop-with-coroutines.py", line 35, in <module>
+    print(caller.send('goodbye'))
+StopIteration
+
+"""
+
+```
+
+
+
+
+
+```python 
+def gen_fn():
+    raise Exception('my error')
+
+
+def caller_fn():
+    gen = gen_fn()
+    rv = yield from gen
+    print('return value of yield-from: {}'.format(rv))
+
+caller = caller_fn()
+print(caller.send(None))
+
+"""
+Traceback (most recent call last):
+  File "03_1_loop-with-coroutines.py", line 61, in <module>
+    print(caller.send(None))
+  File "03_1_loop-with-coroutines.py", line 56, in caller_fn
+    gen = gen_fn()
+  File "03_1_loop-with-coroutines.py", line 52, in gen_fn
+    raise Exception('my error')
+Exception: my error
+
+"""
+```
+
+
+
+
+
+```python
+def gen_fn():
+    yield 1
+    raise Exception('uh oh')
+
+
+def caller_fn():
+    try:
+        yield from gen_fn()
+    except Exception as exc:
+        print('caught {}'.format(exc))
+
+
+caller = caller_fn()
+print(caller.send(None))
+caller.send('hello')
+
+"""
+1
+caught uh oh
+Traceback (most recent call last):
+  File "03_1_loop-with-coroutines.py", line 32, in <module>
+    caller.send('hello')
+StopIteration
+
+"""
+
+```
+
+
+
+
+
+
+
+
+
+```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 

@@ -295,39 +295,190 @@ linux 硬链接和软连接的区别
 ### 磁盘使用量优化
 
 1. 元数据字段
-	* _source
-	* _all
+	* _source 存储原始 json 数据
+	* _all  存储所有字段分词后的结果
 
 2. 映射参数
-	* index
-	* doc_value
-	* store
+	* index 是否索引 布尔值
+	* doc_values 为了加快排序、聚合，在建立倒排索引的时候，额外增加的一个列式存储
+	* fielddata doc_values 用于一般的字段类型，不包括 text 类型，fielddata 是 text 类型为了加快排序、聚合额外存储的数据结构，只用于 text 字段类型
+	* store 相关字段是否需要独立存储 布尔值
 	* norms
 	* index_options
 
 
 ### ElasticSearch 映射
 
+**常见映射参数**
 
+1. analyzer
 
+   用于指定文本字段的分词器，对索引和搜索都有效
 
+2. search_analyzer
+
+   用于指定搜索时的分词器 
+
+3. normalizer
+
+   用于分词前的标准化配置，比如把字符串全部变为小写
+
+4. boost
+
+   在索引或者搜索时设置字段的权重
+
+5. coerce
+
+   用于清除脏数据，确保索引的数据和指定的类型一致
+
+6. ignore_malformed
+
+   忽略不规则数据
+
+7. copy_to
+
+   将一个或者多个字段的值复制到另一个字段中
+
+8. doc_values
+
+   为了加快排序、聚合操作，在建立倒排索引的时候，额外增加的一个列式存储。
+
+   text 类型不支持 doc_values 参数
+
+9. fielddata
+
+   doc_values 用于一般的字段类型，不包括 text 类型，fielddata 是 text 类型为了加快排序、聚合操作额外存储的数据结构，只用于 text 字段类型
+
+10. dynamic
+
+    用于检测新发现的字段，布尔值
+
+11. enabled
+
+    是否索引相关字段或者是否禁用映射
+
+12. index
+
+    指定字段是否可以被索引
+
+13. format
+
+    指定日期格式
+
+14. ignore_above
+
+    用于指定字段分词和索引时字符串的最大长度，超过的部分会被忽略，只用于 keyword 类型
+
+15. include_in _all
+
+    用于指定字段值是否包含在 _all 字段中
+
+16. index_options
+
+    控制索引时存储哪些信息到倒排索引中
+
+17. term_vector
+
+    控制词向量包含的信息
+
+18. fields
+
+    为同一个字段设置不同的类型和索引方式
+
+19. norms
+
+    标准化文档用于索引时对文档进行评分
+
+20. null_value
+
+    使值为 null 的字段可索引，可搜索
+
+21. position_increment_gap
+
+    指定词项直接的间距
+
+22. properties
+
+    指定字段类型等相关属性
+
+23. similarity
+
+    指定文档评分模型
+
+24. store
+
+    相关字段是否需要独立存储 布尔值
+
+**常见元字段**
+
+1. _index
+2. _type
+3. _id
+4. _uid
+5. _source
+6. _size
+7. _all
+8. _field_name
+9. _parent
+10. _routing
+
+### 自定义分词器
+
+《从Lucene到Elasticsearch：全文检索实战》p173
+
+### 自定义路由
+
+自定义路由的本质就是在索引文档的时候指定 routing 参数，在搜索时指定相同的 routing 参数
+
+```Shell
+# 索引文档
+curl -X PUT "localhost:9200/my_index/_doc/1?routing=user1&refresh=true&pretty" -H 'Content-Type: application/json' -d'
+{
+  "title": "This is a document"
+}
+'
+
+# 搜索文档
+curl -X GET "localhost:9200/my_index/_doc/1?routing=user1&pretty"
+
+```
+
+### ElasticSearch 版本控制机制
+
+* version 设置文档版本号，主要用于乐观锁
+
+* version_type 主要控制版本号的比较机制，用于对文档进行并发更新操作时同步数据
+	* internal 默认值，请求参数指定的版本号**等于**存储的版本号则写入
+	* external 请求参数指定的版本号**大于**存储的版本号则写入
 
 
 ### 配置参数说明
 
 《Elasticsearch源码解析与优化实战》p24
+
+节点角色相关
+
 * node.master
 * node.data
 * node.ingest
 
 《Elasticsearch源码解析与优化实战》p41
+
+分片分配相关
+
 * cluster.routing.allocation.enable
 * index.unassigned.node_left.delayed_timeout
 
 《Elasticsearch源码解析与优化实战》p51
+
+单节点启动相关
+
 * bootstrap.system_call_filter
 
 《Elasticsearch源码解析与优化实战》p57、p230
+
+集群节点发现和选举主节点相关
+
 * discovery.zen.minimum_master_nodes
 * discovery.zen.ping.unicast.hosts
 * discovery.zen.ping.unicast.hosts.resolve_timeout
@@ -342,35 +493,56 @@ linux 硬链接和软连接的区别
 * discovery.zen.no_master_block
 
 《Elasticsearch源码解析与优化实战》p72
+
+写数据相关
+
 * index.write.wait_for_active_shards
 
 《Elasticsearch源码解析与优化实战》p129
+
+主副分片数据恢复相关
+
 * indices.recovery.max_bytes_per_sec
 * index.shard.check_on_startup
 
 《Elasticsearch源码解析与优化实战》p129
+
+元数据相关
+
 * gateway.*
 
 《Elasticsearch源码解析与优化实战》p163
+
+分片相关
+
 * cluster.routing.allocation.*
 
 《Elasticsearch源码解析与优化实战》p241
+
+网络相关
+
 * transport.*
 * network.*
 * http.*
 
 《Elasticsearch源码解析与优化实战》p260
+
+线程池相关
+
 * threadpool.*
 
 《Elasticsearch源码解析与优化实战》p278
+
+写索引优化
+
 * index.routing.allocation.require_name
 * index.blocks.write
 
 《Elasticsearch源码解析与优化实战》p298
 
-* index.store.preload
+读索引优化
 
-《Elasticsearch源码解析与优化实战》p299
+* index.store.preload
 
 * batched_reduce_size
 * action.search.shard_count
