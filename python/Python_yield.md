@@ -439,6 +439,45 @@ StopIteration
 
 """
 
+##########################################
+def gen_fn():
+    result = yield 1
+    print('result of yield: {}'.format(result))
+    result2 = yield 2
+    print('result of 2nd yield: {}'.format(result2))
+    return 'done'
+
+
+def caller_fn():
+    gen = gen_fn()
+    rv = yield from gen
+    print('return value of yield-from: {}'.format(rv))
+    return rv + '_caller_fn_result'
+
+
+def caller_final():
+    gen = caller_fn()
+    rv = yield from gen
+    print('return value of caller_final: {}'.format(rv))
+
+
+caller = caller_final()
+print(caller.send(None))
+print(caller.send('hello'))
+caller.send('goodbye')
+"""
+1
+result of yield: hello
+2
+result of 2nd yield: goodbye
+return value of yield-from: done
+return value of caller_final: done_caller_fn_result
+Traceback (most recent call last):
+  File "03_1_loop-with-coroutines.py", line 40, in <module>
+    caller.send('goodbye')
+StopIteration
+"""
+
 ```
 
 
