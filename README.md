@@ -162,8 +162,9 @@ Author: `huzhi`
 * [Linux网络知识集锦](https://blog.gmem.cc/network-faq)
 * [makefile 相关](./linux/makefile.md)
 
-
 ## MySQL
+
+* [MySQL 基础](./MySQL/MySQL_README.md)
 
 * 事务特性
   * 原子性、一致性、隔离性、持久性（ACID）
