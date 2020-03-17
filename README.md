@@ -165,7 +165,6 @@ Author: `huzhi`
 ## MySQL
 
 * [MySQL 基础](./MySQL/MySQL_README.md)
-
 * 事务特性
   * 原子性、一致性、隔离性、持久性（ACID）
   	* [参考1](https://github.com/donnemartin/system-design-primer#relational-database-management-system-rdbms)
@@ -188,14 +187,13 @@ Author: `huzhi`
     4. [串行化(serializable)](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-transaction-isolation#%E4%B8%B2%E8%A1%8C%E5%8C%96serializable)
     
     5. [MVCC, ReadView, 版本链](https://mp.weixin.qq.com/s?__biz=MzIxNTQ3NDMzMw==&mid=2247484119&idx=1&sn=e3637553f3e813f1e2f7f6a3bcd270a9&scene=19#wechat_redirect)
-
 * [buffer pool, change buffer, log buffer](https://mp.weixin.qq.com/s/_njwO8EJAYtqVuIOZCTwOQ)
-
 * [MySQL 锁](https://github.com/lanzhiwang/awesome-huzhi/blob/master/MySQL/mysql_lock.md)
 * 异步处理
 * 错误日志、通用查询日志、慢查询日志、二进制日志、中继日志、DDL 日志
 * [InnoDB记录存储结构、InnoDB数据页结构、MySQL的索引](https://github.com/lanzhiwang/awesome-huzhi/wiki/MySQL-index)
 * 索引条件下推（Index Condition Pushdown)
+* [MySQL 外键约束](./MySQL/mysql-FOREIGN-KEY.md)
 * 数据库分库分表方案
 * [水平分表后页面分页处理办法](https://github.com/lanzhiwang/awesome-huzhi/wiki/mysql-sub-table)
 * MySQL的压测工具 - mysqlslap
