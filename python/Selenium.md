@@ -1,4 +1,36 @@
-## Selenium
+# Selenium
+
+## Selenium.webdriver 和 RemoteWebDriver 是什么？
+
+《Selenium自动化测试 基于 Python 语言》P54
+
+## InternetExplorerDriver
+
+《Selenium自动化测试 基于 Python 语言》P59
+
+## ChromeDriver
+
+《Selenium自动化测试 基于 Python 语言》P63
+
+
+## unittest
+
+* unittest 基础
+* 断言
+* 测试套件
+* HTML 报告
+
+《Selenium自动化测试 基于 Python 语言》P67
+
+
+
+
+
+
+
+
+
+
 
 selenium 是一套完整的web应用程序测试系统，包含了测试的录制（selenium IDE）,编写及运行（Selenium Remote Control）和测试的并行处理（Selenium Grid）。Selenium的核心Selenium Core基于JsUnit，完全由JavaScript编写，因此可以用于任何支持JavaScript的浏览器上。
 
