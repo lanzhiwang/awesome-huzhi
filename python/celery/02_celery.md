@@ -45,7 +45,7 @@ pip install redis
 from celery import Celery
 # 配置 broker
 broker = 'redis://localhost:6379/1'
-# 配置backend，用来存储任务结果
+# 配置 backend，用来存储任务结果
 backend = 'redis://localhost:6379/0'
 app = Celery('tasks', broker=broker, backend=backend)
 
@@ -76,7 +76,7 @@ if __name__ == '__main__':
 ```bash
 127.0.0.1:6379[1]> keys *
 1) "_kombu.binding.celery"
-2) "celery" # 类型是list
+2) "celery"  # 类型是 list
 127.0.0.1:6379[1]> lpop celery
 "{\"body\": \"W1syLCAzXSwge30sIHsiY2FsbGJhY2tzIjogbnVsbCwgImVycmJhY2tzIjogbnVsbCwgImNoYWluIjogbnVsbCwgImNob3JkIjogbnVsbH1d\", \"content-encoding\": \"utf-8\", \"content-type\": \"application/json\", \"headers\": {\"lang\": \"py\", \"task\": \"task.add\", \"id\": \"0d89d2a6-82c1-40b4-972f-6e1f06019338\", \"shadow\": null, \"eta\": null, \"expires\": null, \"group\": null, \"retries\": 0, \"timelimit\": [null, null], \"root_id\": \"0d89d2a6-82c1-40b4-972f-6e1f06019338\", \"parent_id\": null, \"argsrepr\": \"(2, 3)\", \"kwargsrepr\": \"{}\", \"origin\": \"gen91344@Liang-MBP.local\"}, \"properties\": {\"correlation_id\": \"0d89d2a6-82c1-40b4-972f-6e1f06019338\", \"reply_to\": \"4bd32912-b8d0-3841-ac34-04a0123dc670\", \"delivery_mode\": 2, \"delivery_info\": {\"exchange\": \"\", \"routing_key\": \"celery\"}, \"priority\": 0, \"body_encoding\": \"base64\", \"delivery_tag\": \"e12f8252-0775-47e9-9390-255d6df3ceb1\"}}"
 
@@ -262,7 +262,7 @@ Configuration ->
 我们可以使用同一个命令来启动 worker 进程和 Beat 进程
 
 ```bash
-celery -B -A celery_app worker --loglevel=info
+celery -B -A app worker --loglevel=info
 ```
 
 ## 高级用法
@@ -726,3 +726,4 @@ def slow_add(a, b):
 ```
 
 [参考](https://liang.readthedocs.io/en/latest/chapter/Celery%E6%95%99%E7%A8%8B.html)
+
