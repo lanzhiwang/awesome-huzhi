@@ -179,6 +179,8 @@ INSTALLED_APPS = [
 ]
 ```
 
+* uwsgi
+
 ## 基于类的视图
 
 ```python
