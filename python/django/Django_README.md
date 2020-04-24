@@ -143,23 +143,41 @@ drwxr-xr-x   4 huzhi  staff  128  4 24 19:05 mysite/
 
 > manage.py 是对 django-admin 的简单封装
 
-
-
 * URL 处理
 
+```
+# mysite/settings.py
+ROOT_URLCONF = 'mysite.urls'
 
+# mysite/urls.py
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('blog/', blog.urls)
+]
+
+touch blog/urls.py
+
+# blog/urls.py
+urlpatterns = [
+    path(r'^$', index.index),
+    path(r'^/api/v1/log/get_logs_type$', log_query_view.get_logs_type)
+]
+```
+
+* 应用处理
 
 ```
-U「lpatte「ns = [
+# mysite/settings.py
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'blog'
+]
 ```
-
-
-
-
-
-
-
-
 
 ## 基于类的视图
 
