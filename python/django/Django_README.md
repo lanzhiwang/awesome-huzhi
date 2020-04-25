@@ -149,18 +149,19 @@ drwxr-xr-x   4 huzhi  staff  128  4 24 19:05 mysite/
 # mysite/settings.py
 ROOT_URLCONF = 'mysite.urls'
 
-# mysite/urls.py
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('blog/', blog.urls)
-]
-
 touch blog/urls.py
 
-# blog/urls.py
+# mysite/urls.py
+from blog import urls as blog_urls
 urlpatterns = [
-    path(r'^$', index.index),
-    path(r'^/api/v1/log/get_logs_type$', log_query_view.get_logs_type)
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^blog/', include(blog_urls))
+]
+
+# blog/urls.py
+import views
+urlpatterns = [
+    url(r'^$', views.home, name='home')
 ]
 ```
 

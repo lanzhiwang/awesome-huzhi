@@ -140,7 +140,7 @@ logging.config.fileConfig(fname, defaults=None, disable_existing_loggers=True)
 import logging
 logger = logging.getLogger()
 handler = logging.StreamHandler()
-formatter = logging.Formatter(%(asctime)s %(name)-12s %(levelname)-8s %(message)s)
+formatter = logging.Formatter('%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 logger.setLevel(logging.DEBUG)
@@ -159,7 +159,7 @@ import logging
 import sys
 
 # 设置消息格式
-formatter = logging.Formatter(%(asctime)s %(name)-12s %(levelname)-8s %(message)s)
+formatter = logging.Formatter('%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
 
 # 创建处理器，将 CRITICAL 级别的数据打印到 stderr
 crit_hand = logging.StreamHandler(sys.stderr)
