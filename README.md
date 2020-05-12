@@ -355,39 +355,23 @@ Author: `huzhi`
 ## 计算机基础
 
 * [tcp/ip](https://github.com/lanzhiwang/awesome-huzhi/wiki/tcp-ip-status) - tcp 连接和断开过程以及过程中进程的状态
-
 * [TCP 协议基础](./computer/TCP_base.md)
-
 * [tcp的半连接与完全连接队列](https://github.com/lanzhiwang/awesome-huzhi/wiki/tcp%E7%9A%84%E5%8D%8A%E8%BF%9E%E6%8E%A5%E4%B8%8E%E5%AE%8C%E5%85%A8%E8%BF%9E%E6%8E%A5%E9%98%9F%E5%88%97)
-
 * [Linux SYNcookie 机制](https://github.com/lanzhiwang/awesome-huzhi/wiki/Linux-SYNcookie-%E6%9C%BA%E5%88%B6)
-
 * [TCP IP协议中backlog参数](https://github.com/lanzhiwang/awesome-huzhi/wiki/TCP-IP%E5%8D%8F%E8%AE%AE%E4%B8%ADbacklog%E5%8F%82%E6%95%B0)
-
 * [TCP状态转换图](https://github.com/lanzhiwang/awesome-huzhi/wiki/TCP%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%E5%9B%BE)
-
 * [tcp/ip 主动断开连接为什么需要等到 2MSL 时长](https://github.com/lanzhiwang/awesome-huzhi/wiki/tcp-ip-status)
-
 * [HTTP 包式处理和流式处理](./computer/http_packet_stream.md)
-
 * [HTTP 连接管理 - 短连接、长连接、HTTP 流水线、域名分片、http2的多路复用](./computer/long_connection_and_short_connection.md)
-
+* [HTTS 是如何工作的](./computer/https/README_01.md)
 * [nginx 支持长连接](./computer/nginx_keep_alive.md)
-
 * [HTTP 中 GET/POST 的区别](./computer/HTTP_GET_POST.md)
-
 * [system-design-primer](https://github.com/donnemartin/system-design-primer) - 设计可扩展系统
-
 * [代码整洁之道](https://github.com/lanzhiwang/awesome-huzhi/wiki/clean-code)
-
 * [HTTPS图解](https://tls.ulfheim.net/)
-
 * [HTTP Status Codes](./computer/HTTP_Status_Codes.md)
-
 * [什么时候使用单例模式，为什么要使用单例模式](./computer/Singleton.md)
-
 * [DNS 记录](./computer/DNS.md)
-
 * [linux 内存分配](./c_language/README.md)
 
 
