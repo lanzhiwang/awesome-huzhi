@@ -277,9 +277,10 @@ Author: `huzhi`
     * [Redis 内存模型](./Redis/Redis_memory_model.md)
     * [Redis 中的写时复制机制](./Redis/Redis_cow.md)
     * [Redis 内存碎片化的原因](Redis/Memory_fragmentation.md)
+    * [缓存穿透，缓存击穿，缓存雪崩](Redis/penetration_breakdown_avalanche.md)
     * [使用 docker 搭建 redis 集群和哨兵](./Redis/redis_cluster_docker.md)
-    	* Sentinel 进程是如何坚持到从服务器和其他哨兵实例的（毕竟我们只在配置文件中指定了主实例的信息）？
-
+	* Sentinel 进程是如何坚持到从服务器和其他哨兵实例的（毕竟我们只在配置文件中指定了主实例的信息）？
+    
 * [MongoDB](./MongoDB/MongoDB.md)
     * MongoDB 复制集的主从选举机制和主从同步机制？？
     * MongoDB 的分片机制？？
