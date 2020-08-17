@@ -1,5 +1,11 @@
 ## C 语言相关
 
+
+
+https://www.toutiao.com/i6809829379116368391/?tt_from=weixin&utm_campaign=client_share&wxshare_count=2&from=singlemessage&timestamp=1597590321&app=news_article&utm_source=weixin&utm_medium=toutiao_android&use_new_style=1&req_id=202008162305210100260600301019C06B&group_id=6809829379116368391
+
+
+
 ### 内存分布
 
 ![](./memory.png)
