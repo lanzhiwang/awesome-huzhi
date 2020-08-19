@@ -373,7 +373,12 @@ Author: `huzhi`
 * [HTTP Status Codes](./computer/HTTP_Status_Codes.md)
 * [什么时候使用单例模式，为什么要使用单例模式](./computer/Singleton.md)
 * [DNS 记录](./computer/DNS.md)
+* [Linux的进程、线程、文件描述符是什么 - 通俗讲解](https://github.com/lanzhiwang/fucking-algorithm/blob/master/%E6%8A%80%E6%9C%AF/linux%E8%BF%9B%E7%A8%8B.md)
+* [进程和线程 - 理论讲解](./computer/process_thread.md)
+* [进程间通信](https://github.com/lanzhiwang/awesome-huzhi/blob/master/linux/ipc.md)
+* [linux 系统调用 fork() 和 exec()](https://juejin.im/post/6844903702373859335)
 * [linux 内存分配](./c_language/README.md)
+* [python下的进程、线程、协程]()
 
 
 ## JavaScript
