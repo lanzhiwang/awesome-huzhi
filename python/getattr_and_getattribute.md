@@ -37,7 +37,29 @@ AttributeError: Count instance has no attribute 'mycurrent'
 Now my class Count has `__getattr__` method. Now when I try to access  obj1.mycurrent attribute -- python returns me whatever I have implemented in my `__getattr__` method. In my example whenever I try to call an attribute which doesn't exist, python creates that attribute and set it to integer value 0.
 
 ```python
+# 旧式类
 class Count:
+    def __init__(self,mymin,mymax):
+        self.mymin=mymin
+        self.mymax=mymax
+
+    def __getattr__(self, item):
+        print '__getattr__ item: {}'.format(item)
+        self.__dict__[item]=0
+        return 0
+
+obj1 = Count(1,10)
+print(obj1.mymin)
+print(obj1.mymax)
+print(obj1.mycurrent)
+
+1
+10
+__getattr__ item: mycurrent
+0
+
+# 新式类
+class Count(object):
     def __init__(self,mymin,mymax):
         self.mymin=mymin
         self.mymax=mymax
