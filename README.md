@@ -107,6 +107,7 @@ Author: `huzhi`
 * [Selenium](./python/Selenium.md)
 * [Python 相关文章](./python/python-articles.md)
 * [Python - Extension Programming with C](./python/Python-Extension-Programming-with-C.md)
+* [理解 Python 哈希表,本文详细讲解 Python 哈希函数的用法，然后用它实现一个简单的哈希表](http://thepythoncorner.com/dev/hash-tables-understanding-dictionaries/)
 
 ##
 
@@ -231,6 +232,7 @@ Author: `huzhi`
   * http://www.smashcompany.com/technology/docker-is-a-dangerous-gamble-which-we-will-regret
   * https://thehftguy.com/2016/11/01/docker-in-production-an-history-of-failure/
 * [dockerfile 最佳实践](https://blog.docker.com/2019/07/intro-guide-to-dockerfile-best-practices/)
+* [深入了解 Python的官方 Docker 映像，本文是一篇 Docker 教程，一步步介绍 Python 官方的 Docker 镜像是怎么制作的，详细解读 Dockefile 文件](https://pythonspeed.com/articles/official-python-docker-image/)
 
 * [kubernetes](https://github.com/lanzhiwang/k8s)
 
