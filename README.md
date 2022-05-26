@@ -361,6 +361,7 @@ Author: `huzhi`
 * [TCP 协议基础](./computer/TCP_base.md)
 * [tcp的半连接与完全连接队列](https://github.com/lanzhiwang/awesome-huzhi/wiki/tcp%E7%9A%84%E5%8D%8A%E8%BF%9E%E6%8E%A5%E4%B8%8E%E5%AE%8C%E5%85%A8%E8%BF%9E%E6%8E%A5%E9%98%9F%E5%88%97)
 * [Linux SYNcookie 机制](https://github.com/lanzhiwang/awesome-huzhi/wiki/Linux-SYNcookie-%E6%9C%BA%E5%88%B6)
+* [粘包与半包](./computer/Sticky_bag_and_half_bag.md)
 * [TCP IP协议中backlog参数](https://github.com/lanzhiwang/awesome-huzhi/wiki/TCP-IP%E5%8D%8F%E8%AE%AE%E4%B8%ADbacklog%E5%8F%82%E6%95%B0)
 * [TCP状态转换图](https://github.com/lanzhiwang/awesome-huzhi/wiki/TCP%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%E5%9B%BE)
 * [tcp/ip 主动断开连接为什么需要等到 2MSL 时长](https://github.com/lanzhiwang/awesome-huzhi/wiki/tcp-ip-status)
