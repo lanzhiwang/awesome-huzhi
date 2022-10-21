@@ -118,10 +118,10 @@ Author: `huzhi`
 ## Linux
 
 * shell 编程
-
   * [pure-bash-bible](https://github.com/dylanaraps/pure-bash-bible) - shell 字符串，变量，循环，文件处理等的高效处理方法
-
   * [shell](https://google.github.io/styleguide/shell.xml) - shell代码规范
+  * [Shell programming with bash: by example, by counter-example](./linux/Shell-programming-with-bash.md)
+
 * [Linux 使用技巧](https://github.com/jlevy/the-art-of-command-line)
 * [linux 系统初始化](https://github.com/lanzhiwang/awesome-huzhi/wiki/linux-%E7%B3%BB%E7%BB%9F%E5%88%9D%E5%A7%8B%E5%8C%96)
 * [Linux 网口相互绑定 bond](https://github.com/lanzhiwang/awesome-huzhi/wiki/Linux-%E7%BD%91%E5%8F%A3%E7%9B%B8%E4%BA%92%E7%BB%91%E5%AE%9A-bond)
