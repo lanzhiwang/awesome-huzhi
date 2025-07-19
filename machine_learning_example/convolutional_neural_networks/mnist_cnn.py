@@ -4,14 +4,14 @@ import numpy as np
 
 from layers import conv_layer, max_pool_2x2, full_layer
 
-DATA_DIR = '/tmp/data'
+DATA_DIR = "/tmp/data"
 MINIBATCH_SIZE = 50
 STEPS = 5000
 
 
 # 查看原始数据
 # http://yann.lecun.com/exdb/mnist/
-'''
+"""
 >>> from tensorflow.examples.tutorials.mnist import input_data
 >>> import numpy as np
 >>> mnist = input_data.read_data_sets('/home/lanzhiwang/rzx_project/awesome-huzhi/machine_learning_example/data', one_hot=True)
@@ -35,7 +35,7 @@ float32
    0.         0.         0.         0.         0.         0.
    0.13725491 0.64705884 0.9921569  0.9921569  0.9921569  0.9960785]
 
-'''
+"""
 
 # 图像输入数据，直接使用 MNIST 数据集
 mnist = input_data.read_data_sets(DATA_DIR, one_hot=True)
@@ -59,7 +59,7 @@ conv2 = conv_layer(conv1_pool, shape=[5, 5, 32, 64])
 conv2_pool = max_pool_2x2(conv2)
 
 # 将图像数据平整为一维向量形式
-conv2_flat = tf.reshape(conv2_pool, [-1, 7*7*64])
+conv2_flat = tf.reshape(conv2_pool, [-1, 7 * 7 * 64])
 # 进行全连接操作
 full_1 = tf.nn.relu(full_layer(conv2_flat, 1024))
 
@@ -73,7 +73,9 @@ y_conv = full_layer(full1_drop, 10)
 
 # 定义损失函数
 # 使用交叉熵作为损失函数
-cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=y_conv, labels=y_))
+cross_entropy = tf.reduce_mean(
+    tf.nn.softmax_cross_entropy_with_logits(logits=y_conv, labels=y_)
+)
 # 使用梯度下降法定义训练过程
 train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
 # 定义评估步骤，用来测试模型的准确率
@@ -88,8 +90,9 @@ with tf.Session() as sess:
         batch = mnist.train.next_batch(MINIBATCH_SIZE)
 
         if i % 100 == 0:
-            train_accuracy = sess.run(accuracy, feed_dict={x: batch[0], y_: batch[1],
-                                                           keep_prob: 1.0})
+            train_accuracy = sess.run(
+                accuracy, feed_dict={x: batch[0], y_: batch[1], keep_prob: 1.0}
+            )
             print("step {}, training accuracy {}".format(i, train_accuracy))
 
         sess.run(train_step, feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
@@ -98,6 +101,10 @@ with tf.Session() as sess:
     Y = mnist.test.labels.reshape(10, 1000, 10)
     # 计算准确率
     test_accuracy = np.mean(
-        [sess.run(accuracy, feed_dict={x: X[i], y_: Y[i], keep_prob: 1.0}) for i in range(10)])
+        [
+            sess.run(accuracy, feed_dict={x: X[i], y_: Y[i], keep_prob: 1.0})
+            for i in range(10)
+        ]
+    )
 
 print("test accuracy: {}".format(test_accuracy))

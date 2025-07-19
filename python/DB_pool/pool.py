@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
+import multiprocessing, psycopg2
 
-import multiprocessing, time, psycopg2
 
 class Consumer(multiprocessing.Process):
 
@@ -12,13 +11,12 @@ class Consumer(multiprocessing.Process):
         self.pyConn = psycopg2.connect("dbname='geobase_1' host = 'localhost'")
         self.pyConn.set_isolation_level(0)
 
-
     def run(self):
         proc_name = self.name
         while True:
             next_task = self.task_queue.get()
             if next_task is None:
-                print 'Tasks Complete'
+                print("Tasks Complete")
                 self.task_queue.task_done()
                 break
             answer = next_task(connection=self.pyConn)
@@ -36,10 +34,13 @@ class Task(object):
         pyCursor1 = pyConn.cursor()
 
         # todo 数据库的具体操作不要写死，通过参数传递
-        procQuery = 'UPDATE city SET gid_fkey = gid FROM country  WHERE ST_within((SELECT the_geom FROM city WHERE city_id = %s), country.the_geom) AND city_id = %s' % (self.a, self.a)
+        procQuery = (
+            "UPDATE city SET gid_fkey = gid FROM country  WHERE ST_within((SELECT the_geom FROM city WHERE city_id = %s), country.the_geom) AND city_id = %s"
+            % (self.a, self.a)
+        )
         pyCursor1.execute(procQuery)
-        print 'What is self?'
-        print self.a
+        print("What is self?")
+        print(self.a)
 
         return self.a
 
@@ -48,13 +49,13 @@ class Task(object):
         # todo 数据库客户端是否是异步的
 
     def __str__(self):
-        return 'ARC'
+        return "ARC"
 
     def run(self):
-        print 'IN'
+        print("IN")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     tasks = multiprocessing.JoinableQueue()
     results = multiprocessing.Queue()
 
@@ -67,19 +68,18 @@ if __name__ == '__main__':
     pyConnX.set_isolation_level(0)
     pyCursorX = pyConnX.cursor()
 
-    pyCursorX.execute('SELECT count(*) FROM cities WHERE gid_fkey IS NULL')
+    pyCursorX.execute("SELECT count(*) FROM cities WHERE gid_fkey IS NULL")
     temp = pyCursorX.fetchall()
     num_job = temp[0]
     num_jobs = num_job[0]
 
-    pyCursorX.execute('SELECT city_id FROM city WHERE gid_fkey IS NULL')
+    pyCursorX.execute("SELECT city_id FROM city WHERE gid_fkey IS NULL")
     cityIdListTuple = pyCursorX.fetchall()
 
     cityIdListList = []
 
     for x in cityIdListTuple:
         cityIdList.append(x[0])
-
 
     for i in xrange(num_jobs):
         tasks.put(Task(cityIdList[i - 1]))
@@ -89,5 +89,5 @@ if __name__ == '__main__':
 
     while num_jobs:
         result = results.get()
-        print result
+        print(result)
         num_jobs -= 1

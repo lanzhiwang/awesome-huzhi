@@ -18,12 +18,12 @@ def one_hot(vec, vals=10):
 
 
 def unpickle(file):
-    '''从CIFAR-10数据文件中解析出序列化的数据
+    """从CIFAR-10数据文件中解析出序列化的数据
     返回字典对象
-    '''
-    with open(os.path.join(DATA_PATH, file), 'rb') as fo:
+    """
+    with open(os.path.join(DATA_PATH, file), "rb") as fo:
         u = pickle._Unpickler(fo)
-        u.encoding = 'latin1'
+        u.encoding = "latin1"
         dict = u.load()
     return dict
 
@@ -32,8 +32,12 @@ def display_cifar(images, size):
     n = len(images)
     plt.figure()
     plt.gca().set_axis_off()
-    im = np.vstack([np.hstack([images[np.random.choice(n)] for i in range(size)])
-                    for i in range(size)])
+    im = np.vstack(
+        [
+            np.hstack([images[np.random.choice(n)] for i in range(size)])
+            for i in range(size)
+        ]
+    )
     plt.imshow(im)
     plt.show()
 
@@ -43,30 +47,33 @@ class CifarLoader(object):
     Load and mange the CIFAR dataset.
     (for any practical use there is no reason not to use the built-in dataset handler instead)
     """
+
     def __init__(self, source_files):
-        '''
+        """
         CifarLoader(["data_batch_1", "data_batch_2", "data_batch_3", "data_batch_4", "data_batch_5"])
         CifarLoader(["test_batch"])
-        '''
+        """
         self._source = source_files
         self._i = 0
         self.images = None
         self.labels = None
 
     def load(self):
-        '''将从CIFAR-10数据为 images 和 labels
-        '''
+        """将从CIFAR-10数据为 images 和 labels"""
         data = [unpickle(f) for f in self._source]
         images = np.vstack([d["data"] for d in data])
         n = len(images)
-        self.images = images.reshape(n, 3, 32, 32).transpose(0, 2, 3, 1)\
-            .astype(float) / 255
+        self.images = (
+            images.reshape(n, 3, 32, 32).transpose(0, 2, 3, 1).astype(float) / 255
+        )
         self.labels = one_hot(np.hstack([d["labels"] for d in data]), 10)
         return self
 
     def next_batch(self, batch_size):
-        x, y = self.images[self._i:self._i+batch_size], \
-               self.labels[self._i:self._i+batch_size]
+        x, y = (
+            self.images[self._i : self._i + batch_size],
+            self.labels[self._i : self._i + batch_size],
+        )
         self._i = (self._i + batch_size) % len(self.images)
         return x, y
 
@@ -78,8 +85,9 @@ class CifarLoader(object):
 
 class CifarDataManager(object):
     def __init__(self):
-        self.train = CifarLoader(["data_batch_{}".format(i) for i in range(1, 6)])\
-            .load()
+        self.train = CifarLoader(
+            ["data_batch_{}".format(i) for i in range(1, 6)]
+        ).load()
         self.test = CifarLoader(["test_batch"]).load()
 
 
@@ -123,8 +131,9 @@ def run_simple_net():
 
     # 定义损失函数
     # 使用交叉熵作为损失函数
-    cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=y_conv,
-                                                                           labels=y_))
+    cross_entropy = tf.reduce_mean(
+        tf.nn.softmax_cross_entropy_with_logits(logits=y_conv, labels=y_)
+    )
     # 使用梯度下降法定义训练过程
     train_step = tf.train.AdamOptimizer(1e-3).minimize(cross_entropy)
 
@@ -135,8 +144,12 @@ def run_simple_net():
     def test(sess):
         X = cifar.test.images.reshape(10, 1000, 32, 32, 3)
         Y = cifar.test.labels.reshape(10, 1000, 10)
-        acc = np.mean([sess.run(accuracy, feed_dict={x: X[i], y_: Y[i], keep_prob: 1.0})
-                       for i in range(10)])
+        acc = np.mean(
+            [
+                sess.run(accuracy, feed_dict={x: X[i], y_: Y[i], keep_prob: 1.0})
+                for i in range(10)
+            ]
+        )
         print("Accuracy: {:.4}%".format(acc * 100))
 
     with tf.Session() as sess:
@@ -176,7 +189,9 @@ def build_second_net():
     conv3_1 = conv_layer(conv2_drop, shape=[3, 3, C2, C3])
     conv3_2 = conv_layer(conv3_1, shape=[3, 3, C3, C3])
     conv3_3 = conv_layer(conv3_2, shape=[3, 3, C3, C3])
-    conv3_pool = tf.nn.max_pool(conv3_3, ksize=[1, 8, 8, 1], strides=[1, 8, 8, 1], padding='SAME')
+    conv3_pool = tf.nn.max_pool(
+        conv3_3, ksize=[1, 8, 8, 1], strides=[1, 8, 8, 1], padding="SAME"
+    )
     conv3_flat = tf.reshape(conv3_pool, [-1, C3])
     conv3_drop = tf.nn.dropout(conv3_flat, keep_prob=keep_prob)
 
@@ -185,8 +200,9 @@ def build_second_net():
 
     y_conv = full_layer(full1_drop, 10)
 
-    cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=y_conv,
-                                                                           labels=y_))
+    cross_entropy = tf.reduce_mean(
+        tf.nn.softmax_cross_entropy_with_logits(logits=y_conv, labels=y_)
+    )
     train_step = tf.train.AdamOptimizer(5e-4).minimize(cross_entropy)  # noqa
 
     correct_prediction = tf.equal(tf.argmax(y_conv, 1), tf.argmax(y_, 1))

@@ -772,3 +772,11 @@ Author: `huzhi`
     * 深入理解计算机系统(原书第3版)
 
     * 从Paxos到Zookeeper:分布式一致性原理与实践
+
+```bash
+docker run -ti --rm --name awesome-huzhi \
+-v ~/work/code/py_code/awesome-huzhi:/awesome-huzhi \
+-w /awesome-huzhi \
+python:3.13.5-bullseye \
+bash
+```

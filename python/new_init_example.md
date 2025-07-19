@@ -5,23 +5,23 @@
 ```python
 class inch(float):
     def __new__(cls, arg=0.0):
-        print '__new__ arg: {}'.format(arg)
+        print("__new__ cls: {}".format(cls))
+        print("__new__ arg: {}".format(arg))
         return float.__new__(cls, arg * 10)
 
 
 f = inch(12)
-print f
+print(f)
 
-# output:
+"""
+__new__ cls: <class '__main__.inch'>
 __new__ arg: 12
 120.0
+"""
 
 ###############################################################
 
-class inch(float):
-    def __init__(self, arg=0.0):
-        print '__init__ arg: {}'.format(arg)
-        float.__init__(self, arg * 10)
+
 
 f = inch(12)
 print f
